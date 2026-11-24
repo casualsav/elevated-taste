@@ -1,0 +1,62 @@
+{
+  "color": {
+    "bg": "#001a0b",
+    "surface": "#001207",
+    "fg": "#e8ede2",
+    "muted": "#9aaa99",
+    "accent": "#d5e96d",
+    "roles": {
+      "page": "#000a04",
+      "bg": "#001a0b",
+      "surface-deep": "#001207",
+      "ink": "#e8ede2",
+      "muted": "#9aaa99",
+      "muted-2": "#b8c6b9",
+      "hairline": "rgba(228,238,221,0.2)",
+      "accent-lime": "#d5e96d",
+      "accent-coral": "#ff623b",
+      "sticker-pink": "#f2dbf1",
+      "sticker-yellow": "#efd85d",
+      "sticker-chartreuse": "#c0df16",
+      "focus-ring": "#d5e96d"
+    }
+  },
+  "type": {
+    "families": ["Spectral", "Season Mix", "Manrope", "NB International Pro"],
+    "roles": {
+      "serif-display": "Spectral / Season Mix",
+      "sans-ui": "Manrope / NB International Pro"
+    },
+    "scale": ["0.625rem", "0.875rem", "0.9375rem", "1.125rem", "1.25rem", "1.5rem", "clamp(1.875rem,3.34vw,3rem)", "clamp(1.875rem,5.56vw,7.5rem)", "clamp(2.625rem,5.775vw,8.19rem)", "clamp(3.125rem,5.5vw,5rem)"],
+    "weights": [300, 400, 500],
+    "leading": [0.99, 1.04, 1.08, 1.13, 1.3, 1.6],
+    "tracking": ["-4px", "-0.045em", "-0.035em", "-0.5px", "0", "0.22em"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["8px", "16px", "24px", "47px", "56px", "85px", "100px", "150px", "160px"]
+  },
+  "radius": ["8px", "16px", "24px", "32px", "35px", "50%", "999px"],
+  "shadow": [
+    "0 8px 25px rgba(0,0,0,0.13)",
+    "0 18px 40px rgba(0,0,0,0.13)",
+    "0 30px 100px rgba(0,0,0,0.33)",
+    "inset 0 1px 0 rgba(255,255,255,0.38), inset 0 -1px 0 rgba(255,255,255,0.043)"
+  ],
+  "motion": {
+    "durations": ["200ms", "250ms", "350ms", "650ms", "800ms", "900ms", "1150ms", "1400ms"],
+    "easings": ["cubic-bezier(0.22,1,0.36,1)", "cubic-bezier(0.25,0.46,0.45,0.94)", "ease", "ease-out", "linear"],
+    "triggers": ["in-view", "scroll-progress", "hover", "load", "drag"],
+    "techniques": ["in-view-fade-rise-deblur", "word-mask-reveal", "scroll-spy-nav", "pointer-follow-preview", "draggable-canvas-parallax", "css-mock-art", "logo-marquee"],
+    "scroll_effects": [
+      { "name": "section-entrance-reveal", "property": "transform|opacity|filter", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "word-mask-reveal", "property": "transform|opacity|filter", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "scroll-spy-active-dot", "property": "color|opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "hero-canvas-fade-out", "property": "opacity", "trigger": "scroll-progress", "safety": "spectacle-only" },
+      { "name": "hero-pointer-parallax", "property": "transform", "trigger": "drag", "safety": "spectacle-only" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "CSS transitions", "requestAnimationFrame", "Lottie (bodymovin)"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Natively dark — no light re-theme, so color.dark is omitted (the dark values ARE the base palette). Fonts captured as 'Spectral'/'Season Mix' serif display + 'Manrope'/'NB International Pro' sans; --serif/--sans are redefined per section in the real CSS. Type scale normalized from fluid clamp() values (about 131px, principles 120px, join 80px, blockquote 48px display ends). Accent hues (lime/coral/stickers) are punctuation only, never fills. Durations rounded from raw transitions (0.413793s → ~400ms dropped as a one-off). Draggable hero world + collaborator cursors flagged spectacle-only (main-thread rAF ~2220 calls)."
+}

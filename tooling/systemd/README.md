@@ -47,8 +47,8 @@ CLAUDE_BIN=/home/you/.local/bin/claude  # if `claude` isn't on the minimal cron/
 
 Without the Telegram vars the run still works — it just prints the report to the log instead of
 sending it. Each site that passes the gate (reconcile + `npm run validate` + render check) lands on
-`main` as its own commit; one that fails opens a PR labelled `hold` for you to fix or close. Pause anytime by setting `"paused": true` in `evolve.config.json`
-(or via the CP5 control bot).
+`main` as its own commit; one that fails opens a PR labelled `hold` for you to fix or close. Pause
+anytime by setting `"paused": true` in `evolve.config.json` (or via the CP5 control bot).
 
 ## Always-on control bot (optional)
 
