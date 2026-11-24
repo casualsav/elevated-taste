@@ -84,7 +84,10 @@ export async function landOrHold(distilled, { cfg = {}, dry = false, kind = 'evo
     if (r.status !== 0) { fail(c, `worktree add failed: ${tail(r.stderr, 3)}`); continue; }
     try {
       for (const f of files) { mkdirSync(dirname(join(wt, f)), { recursive: true }); copyFileSync(join(ROOT, f), join(wt, f)); }
-      if (existsSync(join(ROOT, 'node_modules'))) symlinkSync(join(ROOT, 'node_modules'), join(wt, 'node_modules'), 'dir');
+      const deps = join(wt, 'node_modules');
+      if (existsSync(join(ROOT, 'node_modules')) && !existsSync(deps)) {
+        try { symlinkSync(join(ROOT, 'node_modules'), deps, 'dir'); } catch (e) { fail(c, `linking node_modules failed: ${e.message}`); continue; }
+      }
       r = git(['add', '--', ...files], wt);
       if (r.status !== 0) { fail(c, `git add failed: ${tail(r.stderr, 3)}`); continue; }
       r = git(['commit', '-q', '-m', title], wt);
