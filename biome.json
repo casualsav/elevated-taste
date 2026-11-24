@@ -1,0 +1,568 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.6.9/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": true
+  },
+  "formatter": {
+    "enabled": false
+  },
+  "assist": {
+    "enabled": false
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "preset": "recommended"
+    }
+  },
+  "overrides": [
+    {
+      "includes": [
+        ".claude/hooks/lib/responsive-check.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          },
+          "complexity": {
+            "useOptionalChain": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        ".claude/hooks/lib/screenshot.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          },
+          "complexity": {
+            "useOptionalChain": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "preview/attio-mobile.html"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off",
+            "useExponentiationOperator": "off",
+            "noDescendingSpecificity": "off"
+          },
+          "complexity": {
+            "noImportantStyles": "off",
+            "useOptionalChain": "off"
+          },
+          "a11y": {
+            "useValidAnchor": "off",
+            "useAriaPropsSupportedByRole": "off",
+            "noNoninteractiveTabindex": "off"
+          },
+          "suspicious": {
+            "useIterableCallbackReturn": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "preview/host-demo.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "preview/index.html"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "preview/serve.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "sites/pages/js/app.js"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          },
+          "suspicious": {
+            "noRedundantUseStrict": "off",
+            "useIterableCallbackReturn": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/build-index.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/capture-architecture.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          },
+          "correctness": {
+            "noUnusedVariables": "off"
+          },
+          "complexity": {
+            "noCommaOperator": "off",
+            "useOptionalChain": "off"
+          },
+          "suspicious": {
+            "noAssignInExpressions": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/capture-motion.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          },
+          "correctness": {
+            "noUnusedVariables": "off",
+            "noUnusedFunctionParameters": "off"
+          },
+          "complexity": {
+            "useOptionalChain": "off",
+            "noCommaOperator": "off"
+          },
+          "suspicious": {
+            "noGlobalIsNan": "off",
+            "noAssignInExpressions": "off",
+            "useIterableCallbackReturn": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/capture.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          },
+          "correctness": {
+            "noUnusedVariables": "off"
+          },
+          "suspicious": {
+            "noAssignInExpressions": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/consolidate-patterns.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "noUselessEscapeInRegex": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/control-bot.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/design-lint.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off",
+            "useConst": "off"
+          },
+          "suspicious": {
+            "noAssignInExpressions": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/distill.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/evolve.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          },
+          "correctness": {
+            "noUnusedImports": "off"
+          },
+          "suspicious": {
+            "useIterableCallbackReturn": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/exemplar-preset.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          },
+          "correctness": {
+            "noUnusedFunctionParameters": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/harvest.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/install.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          },
+          "suspicious": {
+            "noTemplateCurlyInString": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/lib/dedupe.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/lib/pr.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/lib/resolve.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/lib/robots.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          },
+          "complexity": {
+            "noCommaOperator": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/recent-donors.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          },
+          "correctness": {
+            "noUnusedImports": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/reconcile-sources.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off",
+            "useConst": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/reflect.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/refresh.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/render-patterns.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/validate-corpus.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useTemplate": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        ".claude/hooks/lib/scope.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "useOptionalChain": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        ".claude/hooks/stop-gate.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "useOptionalChain": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "preview/hero.html"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "noDescendingSpecificity": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "preview/smoke/pricing.html"
+      ],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "useArrowFunction": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "sites/pages/css/style.css"
+      ],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "noImportantStyles": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/capture-craft.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "complexity": {
+            "noCommaOperator": "off",
+            "useOptionalChain": "off"
+          },
+          "correctness": {
+            "noUnusedVariables": "off"
+          },
+          "suspicious": {
+            "noAssignInExpressions": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/motion-digest.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnusedVariables": "off"
+          },
+          "suspicious": {
+            "useIterableCallbackReturn": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/query.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnusedVariables": "off"
+          }
+        }
+      }
+    },
+    {
+      "includes": [
+        "tooling/report.mjs"
+      ],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "noUnusedVariables": "off",
+            "noUnusedImports": "off"
+          }
+        }
+      }
+    }
+  ]
+}

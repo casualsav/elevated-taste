@@ -11,6 +11,7 @@
     "index:build": "node tooling/build-index.mjs",
     "query": "node tooling/query.mjs",
     "validate": "node tooling/validate-corpus.mjs",
+    "lint": "biome lint . && pipx run ruff==0.17.6 check . && bash tooling/lint-shell.sh",
     "consolidate": "node tooling/consolidate-patterns.mjs",
     "render:check": "node tooling/render-patterns.mjs --check",
     "render:gallery": "node tooling/render-patterns.mjs --gallery",
@@ -28,6 +29,7 @@
     "node": ">=20"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.6.9",
     "playwright": "^1.49.0"
   }
 }
