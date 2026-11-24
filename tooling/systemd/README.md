@@ -46,9 +46,11 @@ CLAUDE_BIN=/home/you/.local/bin/claude  # if `claude` isn't on the minimal cron/
 ```
 
 Without the Telegram vars the run still works — it just prints the report to the log instead of
-sending it. **Nothing is ever auto-merged**: the run opens a *draft* PR and (if configured) pings
-you; merging it is your approval. Pause anytime by setting `"paused": true` in `evolve.config.json`
-(or via the CP5 control bot).
+sending it. The run opens a *draft* PR and (if configured) pings you. Merge happens via your
+explicit `/approve`, or unattended via `.github/workflows/auto-merge.yml` (daily: squash-merges
+`evolve/*`/`refresh/*` PRs older than 48h that pass validation and lack a `hold` label — the
+`hold` label or closing the PR is the veto). Pause anytime by setting `"paused": true` in
+`evolve.config.json` (or via the CP5 control bot).
 
 ## Always-on control bot (optional)
 

@@ -1089,6 +1089,40 @@
     "license_note": "private reference; not redistributed"
   },
   {
+    "slug": "grida",
+    "url": "https://grida.co",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-11-02",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "design-tool",
+      "creative-tools",
+      "ai",
+      "canvas",
+      "gaming",
+      "saas",
+      "product-marketing",
+      "light",
+      "dark"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": "https://land-book.com/websites/100941-an-open-canvas-to-design-and-create-grida",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
     "slug": "gumloop",
     "url": "https://www.gumloop.com",
     "source": "landbook",
@@ -1255,6 +1289,42 @@
       "minimalist"
     ],
     "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "joinvoy",
+    "url": "https://design.joinvoy.com",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-11-02",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "design-studio",
+      "agency",
+      "portfolio",
+      "healthcare",
+      "editorial",
+      "dark",
+      "green",
+      "recruiting",
+      "craft"
+    ],
+    "when_to_use": [
+      "landing",
+      "agency",
+      "portfolio",
+      "hero",
+      "feature-section",
+      "footer"
+    ],
+    "directions": [
+      "editorial",
+      "soft",
+      "expressive"
+    ],
+    "gallery_url": "https://land-book.com/websites/102130-voy-design-designing-for-a-100-years-for-healthy-living",
     "robots_ok": true,
     "license_note": "private reference; not redistributed"
   },
