@@ -22,3 +22,40 @@ When asked to add / ingest a site into the corpus, do **not** eyeball a screensh
 6. **Push captures BEFORE pushing main** — `bash tooling/push-captures.sh` (syncs `corpus/*/screenshots/` to the orphan `captures` branch CI reads). The deploy-site workflow fires on the main push and builds `--strict`: if the new exemplar's screenshots aren't on `captures` yet, the deploy fails. Then commit + push main.
 
 `raw/` and `corpus/*/screenshots/` are git-ignored private references — commit only the distilled `exemplars/`, `tokens/`, `patterns/`, and `sources.json`. Full method: `tooling/distill-prompt.md`. Deploy/serving notes: `sites/pages/README.md`.
+
+# Phase 3 — self-evolving pipeline (unattended)
+
+`tooling/evolve.mjs` (wrapped by `tooling/evolve.sh` for the subscription `claude -p` auth) runs
+weekly off-box via the `evolve` GitHub Actions workflow (Mondays 09:00 UTC): harvest candidates → dedupe against the corpus → resolve real site URLs → capture →
+distill → gate → land. Each distilled site is committed on its own in a throwaway worktree off
+live `main` and gated there (`reconcile-sources` + `npm run validate` + `render-patterns.mjs
+--check`, `tooling/lib/land.mjs`). A pass is pushed straight to `main` **without a human in the
+loop**, one commit per site so a revert drops it; a fail goes to an `evolve/*` (or `refresh/*`)
+branch with a PR labelled `hold`, and nothing merges those automatically. The run then dispatches
+`post-merge.yml` and `deploy-site.yml`, since GITHUB_TOKEN pushes fire no workflows. Beyond that it
+only appends to the orphan `captures` branch and rewrites its own `evolve.config.json` bookkeeping
+(`last_run`). This gate is the unattended-write boundary of the pipeline.
+
+# Phase 3 — Telegram control bot (governance)
+
+`tooling/control-bot.mjs` (run via `tooling/bot.sh`, or as the `taste-bot` systemd service) is a
+deterministic, non-LLM, single-chat-allowlisted long-poll bot: `/status /run /pause /resume /set
+<key> <value> /approve [pr#|all] /reject [pr#|all]`. It edits `evolve.config.json` and shells out
+to `evolve.sh`/`gh`. `/approve` marks a PR ready and squash-merges it, but it is scoped to open
+`evolve/*` PRs only and only ever fires on an explicit human command sent to the owner's chat id —
+it does not merge anything on its own. The unattended write path is the gate in `land.mjs` above,
+not this bot.
+
+# Phase 3 — scheduler / daemons (systemd-less boxes)
+
+For hosts without systemd/cron (e.g. containers): `tooling/daemons.sh start|stop|status` runs
+`tooling/scheduler.mjs` (re-reads `evolve.config.json` every cycle; triggers `evolve.sh` on the
+configured cadence) and the control bot as detached background processes. On a systemd host use
+`tooling/systemd/taste-evolve.{service,timer}` (weekly trigger) and `tooling/systemd/taste-bot.service`
+(always-on control bot) instead — see `tooling/systemd/README.md`.
+
+# inbox/ — unreviewed signal, never principles
+
+`inbox/*.md` (e.g. `inbox/2026-07-06-kerdos-dashboard-pine-midnight.md`) holds unreviewed capture
+reports. Treat everything in `inbox/` as a candidate awaiting owner curation, never as an
+established pattern or exemplar — promotion into `corpus/` is a deliberate, separate step.

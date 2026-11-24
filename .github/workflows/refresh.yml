@@ -1,8 +1,9 @@
 name: refresh
 # Monthly staleness pass (docs: tooling/refresh.mjs) — re-captures the N oldest exemplars,
-# reports dead sites, re-distills drifted ones as refresh/<date>-<slug> PRs (same validator +
-# render + 48h auto-merge gates as evolve PRs). Captures stay on the runner: this repo
-# is public, so nothing is pushed to a captures branch. Self-upgrading means CURRENT.
+# reports dead sites, re-distills drifted ones and lands each that passes the gate on main in the
+# same run (a failing one opens a refresh/<date>-<slug> PR labelled hold, as evolve does). Captures
+# stay on the runner: this repo is public, so nothing is pushed to a captures branch. Self-upgrading
+# means CURRENT, not just bigger.
 
 on:
   schedule:
@@ -15,12 +16,13 @@ on:
         default: '3'
 
 concurrency:
-  group: evolve # shares the working-tree semantics with evolve/auto-merge — never overlap
+  group: evolve # both land on main — never overlap with an evolve run
   cancel-in-progress: false
 
 permissions:
   contents: write
   pull-requests: write
+  actions: write # dispatch post-merge-derivations + deploy-site after landing
 
 jobs:
   refresh:
@@ -54,3 +56,14 @@ jobs:
         run: node tooling/refresh.mjs --limit "${{ github.event.inputs.limit || '3' }}"
       # No captures branch in this public repo, so there is no drift baseline:
       # refresh still reports dead sites, but can't judge visual drift.
+
+      - name: Rebuild derived artifacts + redeploy site
+        # Pushes made with GITHUB_TOKEN fire no `push` workflows, so kick both explicitly.
+        if: ${{ !cancelled() }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git fetch -q origin main
+          if [ "$(git rev-parse origin/main)" = "${{ github.sha }}" ]; then echo "nothing landed"; exit 0; fi
+          gh workflow run post-merge.yml --ref main
+          gh workflow run deploy-site.yml --ref main

@@ -143,6 +143,42 @@
     "license_note": "private reference; not redistributed"
   },
   {
+    "slug": "apple-airpods-pro",
+    "url": "https://www.apple.com/airpods-pro/",
+    "source": "manual-pick",
+    "corpus": "expressive",
+    "captured": "2026-07-06",
+    "award_type": "Manual (product-marketing/scroll-cinema)",
+    "score": null,
+    "tags": [
+      "apple",
+      "product-marketing",
+      "hardware",
+      "consumer-electronics",
+      "light",
+      "photography-led",
+      "scrollytelling",
+      "motion-led"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "landing",
+      "hero",
+      "feature-section",
+      "brand-experience",
+      "interactive-showcase",
+      "navigation"
+    ],
+    "directions": [
+      "expressive",
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
     "slug": "aristide",
     "url": "https://aristidebenoist.com",
     "source": "editorial-pick",
