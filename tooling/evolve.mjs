@@ -4,10 +4,12 @@
  *
  * Stages: load config → candidates (harvest --json | injected) → dedupe pass 1 (vs corpus)
  *         → resolve detail-page URLs → slug from the REAL site URL → dedupe pass 2 (resolved
- *         identity) → cap → capture → distill (subscription `claude -p`) → open PR → report.
+ *         identity) → cap → capture → distill (subscription `claude -p`) → land or hold → report.
  *
- * It NEVER auto-merges and never writes the canonical sources.json mid-flight: it opens a PR on
- * a branch and reports; you approve by merging. Config is evolve.config.json (the CP5 bot edits it).
+ * Each distilled site is gated (reconcile + validate + render check) and landed on main as its
+ * own commit in the same run; one that fails the gate opens a PR labelled `hold` instead
+ * (lib/land.mjs). It never writes the canonical sources.json: post-merge-derivations does.
+ * Config is evolve.config.json (the CP5 bot edits it).
  *
  *   node tooling/evolve.mjs --dry-run --candidates cand.json   # plan only, offline, no writes
  *   node tooling/evolve.mjs                                     # full live run (uses subscription)
@@ -191,9 +193,9 @@ async function distillOne(c) {
   const { distillCandidate } = await import(pathToFileURL(join(ROOT, 'tooling/distill.mjs')).href);
   return distillCandidate(c, { root: ROOT });
 }
-async function openPRs(distilled, cfg) {
-  const { openPullRequests } = await import(pathToFileURL(join(ROOT, 'tooling/lib/pr.mjs')).href);
-  return openPullRequests(distilled, { cfg }); // one draft PR per site
+async function landSites(distilled, cfg) {
+  const { landOrHold } = await import(pathToFileURL(join(ROOT, 'tooling/lib/land.mjs')).href);
+  return landOrHold(distilled, { cfg }); // one commit per site on main, or a hold PR
 }
 /** Both digest secrets present — i.e. the run intends to send, so a miss is a real failure. */
 function digestConfigured() {
@@ -263,15 +265,16 @@ async function main() {
   log(`distilled ${distilled.length}/${captured.length}`);
 
   let results = [];
-  if (distilled.length && !args.noPr) { try { results = await openPRs(distilled, cfg); } catch (e) { log(`PR failed: ${e.message}`); } }
-  const opened = results.filter((r) => r.pr?.url).length;
-  log(`opened ${opened} draft PR(s)`);
-  // pr.mjs returns per-site failures on `.error` and nothing printed them, so a run that
-  // distilled fine but opened no PRs looked identical to a clean one.
-  for (const r of results.filter((x) => x.error)) log(`  PR failed: ${r.slug} — ${r.error}`);
+  if (distilled.length && !args.noPr) { try { results = await landSites(distilled, cfg); } catch (e) { log(`landing failed: ${e.message}`); } }
+  const landed = results.filter((r) => r.landed).length;
+  const held = results.filter((r) => r.pr?.url).length;
+  log(`landed ${landed} on main, held ${held} for review (PR labelled hold)`);
+  // land.mjs returns per-site failures on `.error`; print them, so a run that distilled fine but
+  // landed nothing never reads like a clean one.
+  for (const r of results.filter((x) => x.error)) log(`  landing failed: ${r.slug} — ${r.error}`);
   if (!args.noReport) { try { await sendReport({ results, skipped, degraded: degradedSites }, cfg); } catch (e) { log(`report failed: ${e.message}`); } }
   touchLastRun();
-  log('\ndone. Each new site is its own draft PR - nothing folded in until you approve.');
+  log('\ndone. Passing sites are on main (one commit each); failing ones wait in a hold PR.');
 
   // Captured sites but distilled none = failure, not a quiet "nothing new". Four weekly runs
   // 401'd on every candidate and still reported success. Set the code AFTER the digest sends,
@@ -279,8 +282,8 @@ async function main() {
   if (captured.length && !distilled.length) {
     log(`FAILED: captured ${captured.length} site(s) but distilled 0 — see the distill errors above.`);
     process.exitCode = 1;
-  } else if (distilled.length && !args.noPr && !opened) {
-    log(`FAILED: distilled ${distilled.length} site(s) but opened 0 PR(s) — see the PR errors above.`);
+  } else if (distilled.length && !args.noPr && !landed && !held) {
+    log(`FAILED: distilled ${distilled.length} site(s) but landed or held none — see the errors above.`);
     process.exitCode = 1;
   }
 

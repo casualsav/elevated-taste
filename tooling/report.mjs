@@ -2,9 +2,9 @@
 /**
  * report.mjs — Phase 3 Telegram run digest.
  *
- * After a weekly evolve run, send the user a digest with ONE entry per proposed website — its
- * source link and its own draft-PR link — so they can open each site and pick which to approve.
- * The corpus is NEVER changed by the cron. Fails open: no secrets / dry mode → prints instead.
+ * After a weekly evolve run, send the user a digest: each site that passed the gate and landed on
+ * main (source link + commit), and each one held in a PR labelled `hold` because it failed.
+ * Fails open: no secrets / dry mode → prints instead.
  *
  * Secrets (environment ONLY — evolve.config.json is committed, never read for secrets):
  * TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID.
@@ -17,23 +17,20 @@ const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..');
 
 export function buildSummary({ results = [], skipped = [], coverage = [], degraded = [] } = {}) {
-  const added = results.filter((r) => r.pr?.url);
+  const landed = results.filter((r) => r.landed);
+  const held = results.filter((r) => r.pr?.url);
   const failed = results.filter((r) => r.error);
   const lines = ['Web Design Taste - weekly evolve'];
-  if (added.length) {
-    lines.push(`${added.length} new exemplar(s) proposed. Open each site, then approve the ones you want:`);
-    for (const r of added) {
-      lines.push('');
-      lines.push(`${r.slug} (${r.corpus})`);
-      lines.push(`  site: ${r.url}`);
-      lines.push(`  approve / reject: ${r.pr.url}`);
-    }
-    lines.push('');
-    lines.push('In the bot: /approve <#> or /reject <#> (/status lists them). Nothing is added until you do.');
-  } else {
-    lines.push('No new exemplars this run.');
+  if (landed.length) {
+    lines.push(`${landed.length} new exemplar(s) passed the gate and landed on main:`);
+    for (const r of landed) lines.push('', `${r.slug} (${r.corpus})`, `  site: ${r.url}`, ...(r.landed.url ? [`  commit (revert to drop it): ${r.landed.url}`] : []));
   }
-  if (failed.length) lines.push(`\n${failed.length} candidate(s) failed to open a PR - check the run log.`);
+  if (held.length) {
+    lines.push('', `${held.length} failed the gate and wait for you (PR labelled hold - fix and merge, or close):`);
+    for (const r of held) lines.push('', `${r.slug} (${r.corpus})`, `  site: ${r.url}`, `  PR: ${r.pr.url}`);
+  }
+  if (!landed.length && !held.length) lines.push('No new exemplars this run.');
+  if (failed.length) lines.push(`\n${failed.length} candidate(s) could not be landed or held - check the run log.`);
   if (skipped.length) lines.push(`Skipped ${skipped.length} already in the corpus.`);
   if (degraded.length) lines.push(`\n${degraded.length} capture(s) distilled on reduced evidence: ${degraded.join('; ')}.`);
   if (coverage.length) {
@@ -72,7 +69,7 @@ export async function sendReport(payload, { cfg = {}, dry = false } = {}) {
 if (resolve(process.argv[1] || '') === resolve(fileURLToPath(import.meta.url))) {
   const sample = {
     results: [
-      { slug: 'attio', corpus: 'production', url: 'https://attio.com', pr: { url: 'https://github.com/casualsav/taste/pull/2' } },
+      { slug: 'attio', corpus: 'production', url: 'https://attio.com', landed: { sha: 'abc1234', url: 'https://github.com/casualsav/taste/commit/abc1234' } },
       { slug: 'auralite', corpus: 'expressive', url: 'https://auralite.io', pr: { url: 'https://github.com/casualsav/taste/pull/3' } },
     ],
     skipped: [{}, {}],

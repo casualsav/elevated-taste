@@ -46,8 +46,8 @@ CLAUDE_BIN=/home/you/.local/bin/claude  # if `claude` isn't on the minimal cron/
 ```
 
 Without the Telegram vars the run still works — it just prints the report to the log instead of
-sending it. **Nothing is ever auto-merged**: the run opens a *draft* PR and (if configured) pings
-you; merging it is your approval. Pause anytime by setting `"paused": true` in `evolve.config.json`
+sending it. Each site that passes the gate (reconcile + `npm run validate` + render check) lands on
+`main` as its own commit; one that fails opens a PR labelled `hold` for you to fix or close. Pause anytime by setting `"paused": true` in `evolve.config.json`
 (or via the CP5 control bot).
 
 ## Always-on control bot (optional)
@@ -64,8 +64,8 @@ journalctl --user -u taste-bot.service -f      # watch it
 ```
 
 It long-polls, so it also picks up any commands you sent while it was down (Telegram holds them ~24h).
-The weekly digest sends **one draft PR per site** with the source link; approve the ones you want with
-`/approve <pr#>` (it marks the draft ready, then squash-merges) or skip with `/reject <pr#>`.
+The weekly digest lists what landed and what is held; for a held PR, `/approve <pr#>` squash-merges
+it (after you fix it) and `/reject <pr#>` closes it.
 
 ## No systemd or cron? (containers)
 
@@ -84,8 +84,7 @@ live) and runs `tooling/evolve.sh` weekly (Mon 09:00) or daily. Logs: `.cache/{b
 These survive your shell but **not a container restart** (there's no init to bring them back) - re-run
 `daemons.sh start` after a restart, or add it to the container's entrypoint.
 
-## Recommended: protect `main`
+## Do not protect `main` against pushes
 
-So an automated branch can never land without you: GitHub repo → Settings → Branches → add a rule
-for `main` requiring a pull request review before merge. The cron only ever pushes `evolve/*`
-branches and opens draft PRs; it has no path to merge.
+The run lands passing sites by pushing straight to `main`. A rule requiring a pull request would
+refuse that push, and every site would end up held in a PR instead.
