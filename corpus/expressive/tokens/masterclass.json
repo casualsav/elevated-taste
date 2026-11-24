@@ -1,0 +1,88 @@
+{
+  "color": {
+    "bg": "#0d0d0e",
+    "surface": "#222326",
+    "fg": "#ffffff",
+    "muted": "#9ea0a9",
+    "accent": "#e32652",
+    "roles": {
+      "bg-chrome": "#000000",
+      "surface-hover": "#303136",
+      "surface-tint": "#43454c",
+      "panel-translucent": "rgba(25,28,33,0.95)",
+      "border": "#272c33",
+      "border-contrast": "rgba(255,255,255,0.5)",
+      "fg-medium": "#d4d5d9",
+      "fg-subtle": "#f4f4f5",
+      "accent-pressed": "#c71a42",
+      "accent-fg": "#ffffff",
+      "focus-ring": "#ffffff",
+      "announce-gold": "#eed37f",
+      "nameplate-cream": "#fffef2",
+      "subbrand-olive": "#211d0d",
+      "subbrand-chartreuse": "#dcff00",
+      "disabled-fg": "#565961",
+      "scrim": "linear-gradient(to top, #000 0, rgba(0,0,0,0.6) 25%, transparent 45%)"
+    }
+  },
+  "type": {
+    "families": [
+      "Sohne Schmal (condensed, uppercase — display/brand only)",
+      "Sohne (400/600 — all UI and body)",
+      "Ivar Display Condensed (serif — class titles + sub-brand bands)"
+    ],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.25rem", "1.5rem", "2rem", "3rem", "4rem", "5rem"],
+    "weights": [400, 600, 800],
+    "leading": [0.85, 0.9, 1.15, 1.25, 1.45, 1.5],
+    "tracking": {
+      "display-condensed-caps": "0.01em",
+      "heading-wide": "-0.01em",
+      "body": "0.02em",
+      "caps-label": "0.02em"
+    }
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["4px", "8px", "12px", "16px", "20px", "24px", "28px", "32px", "48px", "64px", "80px", "96px"],
+    "responsive_scale": {
+      "note": "one index, three remaps — the SAME token drives font-size and spacing",
+      "step-9": ["34px", "38px", "48px"],
+      "step-10": ["46px", "52px", "64px"],
+      "step-11": ["60px", "66px", "80px"],
+      "step-12": ["72px", "80px", "96px"],
+      "breakpoints": ["<768px", "768–959px", "≥960px"]
+    }
+  },
+  "radius": ["4px", "8px", "12px", "16px", "24px", "50%"],
+  "shadow": [
+    "0 0 0 1px inset (hairline ring)",
+    "0 0 0 2px inset (selection / focus ring)"
+  ],
+  "layout": {
+    "container": "min(1264px, 100vw)",
+    "measure": "497px",
+    "breakpoints": ["576px", "768px", "960px", "1200px"],
+    "engine": "flex (267 flex containers, 0 CSS grid; the 12-column token is nominal)"
+  },
+  "motion": {
+    "durations": ["200ms", "250ms", "300ms", "500ms", "40s", "50s"],
+    "easings": ["ease", "linear", "cubic-bezier(0.29, 1.185, 1, 1)"],
+    "triggers": ["load", "in-view", "hover", "drag"],
+    "techniques": [
+      "scroll-gated-sticky-cta",
+      "duplicated-track-marquee",
+      "mask-feathered-snap-rail",
+      "surface-step-hover",
+      "overshoot-pop"
+    ],
+    "scroll_effects": [
+      { "name": "scroll-gated-cta-bar", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "scroll-gated-cta-bar-fade", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "duplicated-track-marquee", "property": "transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "mask-feathered-snap-rail", "property": "clip", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["CSS @keyframes", "CSS transitions", "IntersectionObserver", "CSS scroll-snap", "CSS mask-image"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Normalized from raw/masterclass.{json,css,html} + desktop/mobile screenshots + frames s00–s10. Type scale rounded from the site's px ladder (12/14/16/20/24/32/48/64/80); 13.33px and 22px are one-off widget sizes, dropped. `space.scale` is the ≥960px resolution of the responsive `--mc-scale-N` index — steps 1–8 are nearly pinned across breakpoints while 9–12 grow, so the ladder is deliberately non-linear; no clamp()/fluid type anywhere. `shadow` is not a drop-shadow scale: all four recorded box-shadows are INSET rings used as focus/selection outlines — elevation on this dark ground is a surface-lightness step, not a shadow. color.dark is OMITTED: the site never re-themes (`color-scheme: normal`, no prefers-color-scheme rules) — its single native theme IS dark, and the probe's `supportsDark: true` only reflects that toggling the media query changed nothing. #dcff00 and #211d0d are campaign paint from one sub-brand band, present as raw arbitrary gradient values rather than tokens; kept under `roles` and labelled. The 50s figure in the raw durations list is the vertical hero marquee; the horizontal variant reads its duration from `--scroll-duration` (default 40s). `mask-feathered-snap-rail` is filed under scroll_effects as `clip` because the visual change is a mask, not a transform — it is pure CSS with no scroll handler."
+}

@@ -1,0 +1,67 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#ffffff",
+    "surface-2": "#eeeeee",
+    "fg": "#333333",
+    "muted": "#666666",
+    "subtle": "#999999",
+    "border": "#eeeeee",
+    "border-strong": "#999999",
+    "accent": "#336633",
+    "accent-fg": "#ffffff",
+    "roles": {
+      "accent-hover": "#3c773c",
+      "accent-active": "#2b552b",
+      "tile-hover": "#edf2ed",
+      "brand-stripe": "#fed700",
+      "row-hover": "#ffffb5",
+      "link": "#006699",
+      "link-light": "#4499dd",
+      "rule": "#cbcbcb",
+      "divider": "#878787",
+      "panel-border": "#c4c4c4",
+      "section-header": "#336633"
+    }
+  },
+  "type": {
+    "families": [
+      "arial, helvetica, sans-serif",
+      "HelveticaNeueeTextPro-Roman, arial, sans-serif",
+      "HelveticaNeueeTextPro-Md, arial, sans-serif",
+      "DINNextLTPro-Medium, arial, sans-serif",
+      "FuturaLTPro-BoldCond, arial, sans-serif"
+    ],
+    "scale": ["10.5px", "11px", "12px", "13px", "16px", "18px", "19px"],
+    "weights": [400, 700],
+    "leading": [1.15, 1.3, 1.4],
+    "tracking": { "heading-19px": "-0.5px", "caps-11px": "0.035em" }
+  },
+  "space": {
+    "base": "5px",
+    "scale": ["2px", "3px", "5px", "10px", "12px", "20px", "22px", "24px", "48px"],
+    "cell": { "width": "72px", "height": "114px", "icon": "60px", "gutter": "5px" }
+  },
+  "radius": ["2px", "4px"],
+  "shadow": [
+    "1px 1px 1px rgba(51,51,51,0.35)",
+    "0 5px 7px #cbcbcb",
+    "0 5px 7px rgba(0,0,0,0.3)"
+  ],
+  "motion": {
+    "durations": ["100ms", "150ms", "200ms", "300ms", "500ms"],
+    "easings": ["ease", "ease-out", "linear"],
+    "triggers": ["hover", "tap", "state-change"],
+    "techniques": [
+      "off-canvas-drawer-slide",
+      "inert-scrim-fade",
+      "two-level-sticky-rail",
+      "color-only-hover",
+      "chrome-height-collapse"
+    ],
+    "scroll_effects": [],
+    "stack": ["CSS transitions", "position: sticky", "position: fixed"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Zero @keyframes, zero CSS animation rules, zero IntersectionObservers, zero scroll/mousemove listeners, zero rAF in a full scroll pass — the site is static. `motion.scroll_effects` in the raw profile listed two 'pin (fixed)' entries (div.overlay, a category section); both are the resting `position: fixed` drawer scrim and the app shell's absolutely-positioned chrome, not scroll-driven effects, so `scroll_effects` is empty here. Colors are taken from the site's own 33 custom properties (--color-green #336633, --color-charcoal #333333, --color-darkgrey #666666, --color-mediumgrey #999999, --color-ultralightgrey #eeeeee, --color-yellow #fed700, --color-blue #006699, --color-hovertilegreen #edf2ed, --color-hovergreen #3c773c, --color-activegreen #2b552b, --color-hoveryellow #ffffb5), corroborated against computed styles. `space.base` is 5px, not 8px: 692 elements use 5px inline padding — the real rhythm is the 72×114px catalog cell, recorded under `space.cell`. Line-height is inverted vs. convention (1.15 at 10.5px, 1.3 at 12px) so two-line labels fit the clipped cell. No `color.dark` block: `craft.theme.supportsDark` is false, `meta.color_scheme` is `normal`, and no dark re-theme exists — the profile's `theme.dark` sample is just the light page re-read. No responsive tokens/breakpoints: `<meta viewport content=\"width=1024\">`, zero media queries, mobile capture identical to desktop. Type sizes kept in px (the site never uses rem for layout type); 0.75rem/0.875rem appear only in the button and utility-copy rules and equal 12px/14px."
+}

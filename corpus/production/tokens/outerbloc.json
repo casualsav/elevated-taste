@@ -1,0 +1,61 @@
+{
+  "color": {
+    "bg": "#f6f7f3",
+    "surface": "#ffffff",
+    "fg": "#1c1a16",
+    "muted": "#6b6a64",
+    "accent": "#0000ee",
+    "roles": {
+      "bg-dark": "#1c1a16",
+      "fg-on-dark": "#f6f7f3",
+      "surface-tint": "rgba(212,214,206,0.2)",
+      "link": "#0000ee",
+      "link-alt": "#0e8ef0"
+    }
+  },
+  "type": {
+    "families": [
+      "Larken (serif display, light)",
+      "TWK Lausanne (grotesque sans, 300/400/500)",
+      "Geist Mono (monospace, labels)"
+    ],
+    "scale": ["0.6875rem", "0.75rem", "0.875rem", "0.9375rem", "1rem", "1.375rem", "2.1875rem", "3.625rem", "5.625rem"],
+    "weights": [300, 400, 500],
+    "leading": [1.0, 1.2, 1.5]
+  },
+  "space": {
+    "base": "5px",
+    "scale": ["5px", "10px", "15px", "20px", "30px", "40px", "60px", "100px"]
+  },
+  "radius": ["13px", "25px", "30px", "9999px"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["100ms", "300ms", "400ms"],
+    "easings": ["ease", "cubic-bezier(0.44, 0, 0.56, 1)"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": [
+      "scroll-progress-rotate",
+      "scroll-scale",
+      "in-view-fade",
+      "parallax-drift",
+      "count-up-stat",
+      "announcement-ticker-marquee",
+      "cta-hue-swap-hover"
+    ],
+    "scroll_effects": [
+      { "name": "orbital line-mark rotation (~-241deg)", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "demo-tile scale-up 0.5->1", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "in-view fade-in 0->1", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "masthead/ticker parallax drift", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "count-up stat figures", "property": "text", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "announcement ticker crawl", "property": "transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "CTA fill ink->link-blue", "property": "background", "trigger": "hover", "safety": "production-safe" }
+    ],
+    "stack": ["Framer (runtime, framer-motion)", "IntersectionObserver", "requestAnimationFrame"],
+    "reduced_motion": "not-respected",
+    "stagger": "none (stagger_delays_ms: [])",
+    "evidence": "Framer-built: 0 authored @keyframes (keyframeCount 0, animRules 0); effects are JS/runtime-driven. Probes: 120 IntersectionObservers / 120 targets (many with dense [0,0.01..0.99] threshold arrays = scroll-scrubbed), 1765 rAF/scroll pass, 4 scroll + 5 mousemove listeners, 0 canvas/video, cursorFollowers 0. params: durations 300/400/100ms, easings ['ease','cubic-bezier(0.44,0,0.56,1)'], no stagger. Scroll-diff (from!=to kept): ~16 framer divs rotate to ~-241deg (orbital service icons, s03), COPY/PASTE tiles scale 0.5->1 + opacity 0->1, parallax on ticker ul/items. Hover: 'Let's Talk' bg rgb(28,26,22)->rgb(14,143,242). respectsReducedMotion=false (0 PRM rules) — DEFECT given the scrubbing. Marquee not flagged by interactive probe (Framer-rendered) but visible across frames s00. Trusted frames s00->s09 over the raw profile.",
+    "library_note": "Framer is stack provenance only — reuse the techniques framework-neutrally (IntersectionObserver + CSS transitions / scroll-driven animation), and ALWAYS add the reduced-motion fallback this site omits."
+  },
+  "notes": "Trusted screenshot over raw. Raw's dominant sans-serif/12px/400 row (count 1294) is the SVG-text/measurement noise floor, dropped. Real families are three: Larken serif (editorial headlines), TWK Lausanne grotesque (the giant wordmark + UI), Geist Mono (uppercase tracked labels). bg normalized to warm bone #f6f7f3 and fg to warm near-black #1c1a16 (NOT pure #000); dark sections invert to the same #1c1a16. Accent is the literal browser-default link blue #0000ee (count 45) with a brighter #0e8ef0 variant on the email pill — kept as-is because the unstyled-blue is an intentional anti-design move. Display scale tops out ~90px (wordmark renders far larger via edge bleed/clipping, not font-size). Radius set is large-and-soft: 13/25/30px panels + pill (200px≈full). No shadows anywhere — flat. Spacing base read as a 5px grid."
+}

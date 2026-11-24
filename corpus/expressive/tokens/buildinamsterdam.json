@@ -1,0 +1,46 @@
+{
+  "color": {
+    "bg": "#f2efe6",
+    "surface": "#ffffff",
+    "fg": "#0a0a0a",
+    "muted": "#0a0a0a",
+    "accent": "#c38133",
+    "roles": {
+      "void": "#0a0a0a",
+      "paper": "#f2efe6",
+      "ink-on-void": "#ffffff",
+      "tile": "#f2efe6",
+      "accent-blue": "#3c4cc7"
+    }
+  },
+  "type": {
+    "families": [
+      "NeueHaasGrotesk, Helvetica, Arial, sans-serif",
+      "RecklessNeue, Georgia, 'Times New Roman', serif"
+    ],
+    "scale": ["0.6875rem", "0.75rem", "1rem", "1.5rem", "5.4rem"],
+    "weights": [400, 500],
+    "leading": [0.85, 1.2, 1.5]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.5rem", "0.875rem", "1rem", "2.25rem", "4rem", "6.25rem"]
+  },
+  "radius": ["4px", "9999px"],
+  "shadow": ["0 24px 48px rgba(10,10,10,0.18)"],
+  "motion": {
+    "durations": ["100ms", "150ms", "200ms", "250ms", "400ms", "500ms", "650ms"],
+    "easings": ["cubic-bezier(0.45, 0.02, 0.09, 0.98)", "cubic-bezier(0.87, 0, 0.13, 1)", "ease", "ease-in-out"],
+    "stagger": "700ms",
+    "triggers": ["scroll-progress", "in-view", "load"],
+    "techniques": ["sticky-pin", "scroll-progress-rotate", "entrance-stagger"],
+    "scroll_effects": [
+      { "name": "pinned-stage-hero", "property": "position", "trigger": "scroll-progress", "safety": "spectacle-only" },
+      { "name": "disc-label-rotate", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "staggered-entrance", "property": "opacity+transform", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS transitions", "requestAnimationFrame", "smooth-scroll-hijack"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Trusted screenshot over raw profile. Warm paper bg #F2EFE6 (raw rgb(242,239,230)) confirmed in both captures; pure white only on small fills (buttons/tiles), so surface=white, bg=paper. fg normalized to near-black #0A0A0A (raw reports white text because the dominant black void panel sets color:#fff for ink-on-dark; on the paper half text is black) — `muted` is the SAME ink as fg, this design has NO grey: secondary copy is differentiated by SERIF family + smaller size, not by colour, so muted is set equal to fg deliberately. Accent #C38133 is the orange disc (raw rgb(195,129,51)); a second blue #3C4CC7 (rgb(60,76,199)) exists in the stylesheet but is off-viewport, kept under roles only. Display size normalized to 5.4rem (raw 86.4px = 5.4rem at 16px root) with leading 0.85 (raw 73.44/86.4≈0.85 — very tight) and tracking ~-0.04em (raw -3.456px on 86.4px). Two-family system: NeueHaasGrotesk (sans, all headline + UI) + RecklessNeue serif (subhead voice only). Radius: 4px on buttons/tiles, 100% on the disc. One soft shadow inferred from the disc casting onto the paper panel across the seam; rest of site is shadowless. MOTION: frame sequence did NOT capture the choreography — all 11 scroll stills are byte-near-identical because the page is scroll-hijacked/smooth-scrolled with a pinned hero; the only visible delta is the disc's 'Menu' label rotating off-frame. Motion grounded in probes (6 IO / 37 targets / threshold 0.25 / rootMargin 200px, 295 rAF/pass, 17 transition rules, 3 minified @keyframes dSRjOm/gzjafi/gneoFG with no semantic clue), not watched frames. Signature is pin-heavy/drift-light: 6 scroll effects, 5 of them pins + 1 rotate (108.2 deg on the disc label). Reduced motion IS respected (11 PRM rules) — rare for an expressive/agency site; recorded as reduced_motion:respected. 14 mousemove listeners are bound but profiler saw 0 cursor-followers / 0 hover effects, so pointer-reactive ambient is wired-but-unconfirmed (excluded from techniques). 0 libraries detected (hand-rolled); smooth-scroll-hijack listed in stack as the inferred engine. Entrance deltas were from==to (1.00->1.00 / 0.00->0.00) so dropped as noise; staggered-entrance kept on the strength of staggeredEntrance:true + 700ms stagger + IO probes."
+}

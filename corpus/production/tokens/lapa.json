@@ -1,0 +1,49 @@
+{
+  "color": {
+    "bg": "#00FF11",
+    "surface": "#242424",
+    "fg": "#000000",
+    "muted": "rgba(0,0,0,0.6)",
+    "accent": "#000000",
+    "roles": {
+      "ink": "#101010",
+      "card-dark": "#242424",
+      "card-light": "#FFFFFF",
+      "card-magenta": "#E44CE7",
+      "focus-outline": "#101010"
+    }
+  },
+  "type": {
+    "families": ["Suisse Intl", "Suisse Intl Mono"],
+    "scale": ["0.875rem", "1rem", "1.25rem", "1.5rem", "3.75rem", "4.5rem", "13rem"],
+    "weights": [400, 500],
+    "leading": [1.0, 1.5],
+    "tracking": {
+      "1rem": "-0.025em",
+      "4.5rem": "-0.05em",
+      "13rem": "-0.06em",
+      "note": "negative letter-spacing scales up with font size (optical tightening)"
+    }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["8px", "12px", "16px", "24px", "32px", "36px", "40px", "64px", "256px"]
+  },
+  "radius": ["16px", "32px"],
+  "shadow": ["none"],
+  "layout": {
+    "container_max": "1170px",
+    "grid_cols": { "desktop": 2, "mobile": 1 },
+    "section_inline_pad": "36px"
+  },
+  "motion": {
+    "durations": ["200ms"],
+    "easings": ["cubic-bezier(0.4, 0, 0.2, 1)", "ease"],
+    "triggers": ["hover", "load", "mousemove"],
+    "techniques": ["ascii-halftone-canvas", "cursor-follower", "hover-color-transition"],
+    "scroll_effects": [],
+    "stack": ["Canvas 2D", "requestAnimationFrame", "IntersectionObserver (image lazy-load)"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Two-value brand system: acid green field + black ink; muted = ink @60%. Card surfaces (#242424 / #FFFFFF / #E44CE7) are per-product, not global roles. Type scale normalized px->rem from 14/16/20/24/60/72/208; 60px dropped from headline scale as a near-duplicate of 72 and 208 (the fluid display max). Hierarchy is scale-driven at a near-constant 400 weight. No shadows/gradients (flat). Page is static apart from a footer <canvas> ASCII halftone field + custom cursor follower (both spectacle-only, ~725 rAF / 40 mousemove observed); the only resting transition token is the 200ms hover ease. prefers-reduced-motion has no rules."
+}

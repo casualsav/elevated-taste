@@ -1,0 +1,53 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#000000",
+    "fg": "#000000",
+    "muted": "#8e8e8e",
+    "accent": "#000000",
+    "roles": {
+      "ink": "#000000",
+      "paper": "#ffffff",
+      "fg-on-dark": "#ffffff",
+      "meta-label": "#8e8e8e",
+      "hairline-on-dark": "rgba(255,255,255,0.4)",
+      "video-scrim": "linear-gradient(0deg, #000, rgba(0,0,0,0))"
+    }
+  },
+  "type": {
+    "families": ["Ppneuemontreal (grotesk)", "IBM Plex Mono (chrome/meta)"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.5625rem", "1.875rem", "2.5rem", "3.75rem", "5rem"],
+    "weights": [400, 500, 700],
+    "leading": [1.0, 1.1, 1.2],
+    "tracking": { "display": "-0.01em to -0.03em", "mono-label": "0.03em", "button": "0.08em" }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.25rem", "0.375rem", "0.5rem", "0.75rem", "1rem", "1.25rem", "2.25rem", "5rem"]
+  },
+  "radius": ["4px", "6.25rem", "100px", "50%"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["300ms", "400ms"],
+    "easings": ["ease"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": [
+      "blend-mode-adaptive-chrome",
+      "sticky-pin-scroll-theater",
+      "scroll-progress-scatter-letters",
+      "scroll-progress-scale-video",
+      "scroll-progress-parallax",
+      "cursor-follow-pill"
+    ],
+    "scroll_effects": [
+      { "name": "adaptive-chrome-difference", "property": "background", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "scatter-letters-fade-rotate", "property": "transform", "trigger": "scroll-progress", "safety": "spectacle-only" },
+      { "name": "video-collapse-to-frame", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "backdrop-scale-1.8-to-1", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "thumbnail-object-parallax", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["GSAP", "GSAP ScrollTrigger", "Webflow IX2", "IntersectionObserver", "CSS mix-blend-mode"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Duotone, not dark-mode: supportsDark=false, so no color.dark — the ground alternates #fff/#000 per section rather than re-theming; theme.dark in the raw profile is just the two-ink palette and was not treated as a dark axis. Sizes normalized from the raw px profile (16.2/22.5/72px etc. are the browser's rem*root rounding) back to the CSS rem steps (0.75/1.5625/1.875/2.5/3.75/5rem). accent set to #000 because there is no chromatic accent at rest; the only color on the page is inside photographic/video content. Durations are the site's real hover/opacity transitions; the scroll-progress choreography is GSAP-driven (no fixed CSS duration)."
+}

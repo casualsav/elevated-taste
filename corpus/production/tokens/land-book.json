@@ -1,0 +1,62 @@
+{
+  "color": {
+    "bg": "#fbf7eb",
+    "bg-alt": "#ffffff",
+    "surface": "#ebe5d5",
+    "surface-2": "#e1e0dd",
+    "fg": "#322f25",
+    "muted": "#878683",
+    "border": "#e1e0dd",
+    "accent": "#dbf400",
+    "accent-fg": "#322f25",
+    "roles": {
+      "accent-pale": "#f4ff95",
+      "tint-warm": "#fdecd8",
+      "tint-peach": "#ffcda9",
+      "dark-pill-bg": "#2d2c29",
+      "on-dark-fg": "#ffffff",
+      "on-photo-fg": "#ffffff"
+    }
+  },
+  "type": {
+    "families": ["\"ABC Arizona Mix\", Georgia, serif", "\"FT Regola Neue\", Inter, system-ui, sans-serif"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "2rem", "2.5rem", "3rem", "3.5rem"],
+    "weights": [300, 400],
+    "leading": [1.0, 1.1, 1.2, 1.3],
+    "tracking": ["-0.02em", "normal"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.25rem", "0.5rem", "0.625rem", "0.75rem", "1rem", "1.5rem", "2rem", "2.5rem", "3.75rem", "5rem", "7.5rem", "12.5rem"]
+  },
+  "radius": ["4px", "12px", "32px", "40px", "80px", "9999px"],
+  "shadow": ["none", "0 0 35px rgba(0,0,0,0.05)", "0 4px 16px rgba(0,0,0,0.1)"],
+  "motion": {
+    "durations": ["400ms"],
+    "easings": ["cubic-bezier(0.44, 0, 0.56, 1)", "ease"],
+    "stagger": ["150ms", "300ms", "500ms"],
+    "triggers": ["scroll-progress", "in-view", "load", "hover"],
+    "techniques": [
+      "in-view-fade-rise",
+      "scroll-linked-recolor",
+      "scroll-tinted-section-bg",
+      "scroll-progress-rotate",
+      "parallax-drift",
+      "pinned-nav",
+      "hover-opacity-dim",
+      "numbered-progress-carousel"
+    ],
+    "scroll_effects": [
+      { "name": "section background warm-shift", "property": "background", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "statement headline read-along recolor", "property": "color", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "score-chip rotation", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "floating-element parallax drift", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "block fade-rise reveal", "property": "transform+opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "hero stagger entrance", "property": "opacity", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["Framer (JS appear/scroll effects)", "IntersectionObserver", "requestAnimationFrame"],
+    "reduced_motion": "not-respected",
+    "evidence": "Library Framer. 0 @keyframes / 0 CSS animation rules (motion is JS+rAF: 460 rAF calls). 83 IntersectionObservers over 83 targets (thresholds stepped 0..0.99, rootMargin 0px and 100px). 4 scroll + 9 mousemove listeners. 1 transition rule: 0.4s cubic-bezier(0.44,0,0.56,1). interactive: 1 canvas (decorative trail/halftone), 9 marquee (logo wall), 0 carousels/tabs/disclosure/video detected (the visible '1/4' carousel is Framer transform, not a native role). entrance capture: hero heading+subcopy opacity 0->1 @150ms, CTA @300ms, logo ul @500ms. scroll_effects: background-shift #fff->#fdecd8 (scroll-progress); rotate -6.1deg on score chips (Justin/Camila/Jake/Alice) scroll-progress; many transform/parallax in-view & scroll-progress; opacity fade-in reveals on headings; nav position:fixed pin. respectsReducedMotion=false (0 PRM rules) -- DEFECT. Dropped from==to opacity/background rows as representation noise. Frames s00->s10 corroborate hero photo+dashboard overlap, scroll recolor of 'CX teams...' statement (s04->s05), warm peach section, dark-green photo section, halftone-dot footer."
+  },
+  "notes": "Colors converted from rgb() and named by ROLE. Base is a WARM-achromatic system: cream #fbf7eb / paper #fff, warm-black fg #322f25 (raw rgb 50,47,37), muted #878683. Single chromatic accent acid-yellow #dbf400 (raw rgb 219,244,0) used ONLY as a fill behind dark text (fails contrast as text) + a pale echo #f4ff95. Warm section tints #fdecd8/#ffcda9; dark pills/sections #2d2c29; nature sections are PHOTOGRAPHY not flat tokens. IMPORTANT: the raw profile's high-count rgb(0,0,238) is the default UA link blue on un-restyled <a> elements -- it does NOT appear in the screenshots; excluded from the palette as representation noise. Type: display serif ABC Arizona Mix at weight 300 (light) 40/48/56px leading~1.0 tracking -0.02em (-1.12px@56px); body/UI grotesque FT Regola Neue at 400, 16/18 body + 12/14 labels. 'sans-serif' (count 935) and weight 700 (count 1) are Framer placeholder noise, dropped. Radius: heavy pill regime -- 100px+/1000px/1537/2111px one-offs all map to 9999px (full pill); 80px=large cards, 40/32px=panels, 12px=small, 4px=chips. Shadow minimal: ~5% ambient blur under floating cards only. Section vertical rhythm normalized to 80/120/200px block padding; container ~1280px (80px inline pad @1440). Motion block: Framer's standard JS appear/scroll kit -- in-view reveals, scroll recolor, section bg warm-shift, small chip rotation/parallax -- single 400ms symmetric ease-in-out; reduced-motion NOT respected (key defect)."
+}

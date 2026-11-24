@@ -1,0 +1,53 @@
+{
+  "color": {
+    "bg": "#FFFFFF",
+    "surface": "#F8F8F8",
+    "fg": "#000000",
+    "muted": "#696969",
+    "accent": "#00E013",
+    "roles": {
+      "brand-field": "#00E013",
+      "ink": "#000000",
+      "ink-inverse": "#FFFFFF",
+      "muted-strong": "#555555",
+      "muted-soft": "#999999",
+      "dark-section": "#000000",
+      "card-chip": "#27455C",
+      "link": "#3860BE"
+    }
+  },
+  "type": {
+    "families": ["Cash Sans", "Helvetica Neue", "Arial", "sans-serif"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.25rem", "2.5rem", "3.5rem"],
+    "weights": [400, 500, 700],
+    "leading": [0.95, 1.0, 1.15, 1.5],
+    "tracking": { "display": "-0.03em", "body": "0em" }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "8px", "12px", "16px", "20px", "24px", "32px", "40px", "80px", "90px"]
+  },
+  "radius": ["2px", "20px", "100px", "999px"],
+  "shadow": [
+    "0 2px 10px -3px rgba(153,153,153,0.6)",
+    "0 0 12px 2px rgba(199,197,199,0.5)"
+  ],
+  "motion": {
+    "durations": ["50ms", "100ms", "200ms", "300ms", "400ms", "600ms"],
+    "easings": ["ease", "ease-in-out", "ease-in"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": [
+      "sticky-device-demo-scrollytelling",
+      "in-view-fade-in",
+      "floating-cta-slide-in-out",
+      "pill-button-invert-hover"
+    ],
+    "scroll_effects": [
+      { "name": "device-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "floating-cta-slide", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "position:sticky/fixed", "requestAnimationFrame"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Green field (#00E013) is the brand signature, used as full-bleed hero ground and primary CTA fill, not as an accent on white. White/black are the working surfaces; greys (#696969/#999999/#555555) carry all secondary text. Hierarchy is scale-driven in a single weight (most text is 400; 700 is rare) so display vs body is a ~3.5x size jump, not a weight jump. Raw fractional px (15.9999, 55.9998) rounded to the 8px scale; h1 ~56px desktop / ~42px mobile with tight -0.03em tracking and sub-1.0 leading. reduced-motion is NOT respected (prmRules=0) — flag when reusing the scroll choreography."
+}

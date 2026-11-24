@@ -1,0 +1,45 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#ffffff",
+    "fg": "#0a0a0a",
+    "muted": "#6b6b6b",
+    "accent": "#312dfb",
+    "roles": {
+      "accent-fg": "#ffffff",
+      "hero-bg": "#d11b10",
+      "hero-shadow": "#200d12",
+      "on-image": "#ffffff",
+      "rule": "#0a0a0a"
+    }
+  },
+  "type": {
+    "families": ["\"LocomotiveNew\", Georgia, \"Times New Roman\", serif", "\"HelveticaNowDisplay\", \"Helvetica Neue\", Helvetica, Arial, sans-serif"],
+    "scale": ["0.7rem", "0.94rem", "1.625rem", "4.375rem", "6.875rem"],
+    "weights": [400],
+    "leading": [1.0, 1.25, 1.3]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["7px", "20px", "40px", "60px", "80px", "150px"]
+  },
+  "radius": ["0"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["150ms", "200ms", "250ms", "300ms"],
+    "easings": ["cubic-bezier(0.215, 0.61, 0.355, 1)", "cubic-bezier(0.23, 1, 0.32, 1)", "ease"],
+    "triggers": ["scroll-progress", "in-view", "load"],
+    "techniques": ["smooth-scroll-inertia", "scroll-linked-recolor", "parallax-drift", "in-view-fade", "pinned-overlay"],
+    "scroll_effects": [
+      { "name": "smooth-scroll-inertia", "property": "transform", "trigger": "scroll-progress", "safety": "spectacle-only" },
+      { "name": "fixed-nav-recolor (white→blue→black)", "property": "color", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "fixed-nav-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "hero-background-parallax", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "header-backdrop-fade-in", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "disclaimer-age-gate-overlay (lisa* cursor/loader)", "property": "position", "trigger": "load", "safety": "spectacle-only" }
+    ],
+    "stack": ["Locomotive Scroll (data-scroll)", "IntersectionObserver", "CSS @keyframes (preloader/overlay only)"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Light-mode editorial agency. Color roles taken from the SCREENSHOT, not the raw profile (raw lists only white/black + one rgb(49,45,251) instance). hero-bg #d11b10 / hero-shadow #200d12 sampled from the red full-bleed portrait — these are PHOTOGRAPHIC, not flat fills; treat as image, not a palette swatch. accent #312dfb = the raw's single rgb(49,45,251) background = the brand's electric-blue interaction color, reserved for links/hover/cursor. Type scale rounded from raw px (110/70/26/15px + a 115.2px outlier folded into display) to rem; this is a TWO-FAMILY pairing (raw type_detail.families = [LocomotiveNew, HelveticaNowDisplay]) — display = a custom serif (LocomotiveNew) at the ~110px sizes, body/nav/labels/lists/footer = a grotesque sans (HelveticaNowDisplay-class) at ~15px; the serif↔sans contrast carries the personality. families[0] is the display serif, families[1] the body sans. The raw '\"Times New Roman\"' (count 2) is a generic fallback-stack remnant, not a rendered face. weights: only 400 observed (spanning both families). Tracking NOT tightened — raw type_detail.tracking_by_size is empty and H1 tracking is 'normal'; the serif sits at its native default at every size (frame-estimated, no per-size tracking measured). radius 0 and shadow none — no cards, flat editorial; the one gradient is a transparent→white edge mask, not decorative. Spacing kept as observed px (7px control padding vs 60/80/150px section padding) since the site is not on an 8px grid; base 8px noted for house consistency only. MOTION (real, from .motion): light capture — 6 scroll effects (from==to dropped), 2 IO / 7 targets, 778 rAF + 1 scroll listener = Locomotive Scroll inertia loop, 0 captured hover/cursor/entrance. Signature beat is a fixed nav whose text recolors white→blue→black as the red full-bleed hero parallaxes out (frames s00→s01→s03). 10 @keyframes but most belong to a disclaimer/age-gate Easter egg (lisaDisclaimer*/lisaCursor/lisaLoader/shake/fall/preloaderAppear), not the document scroll. prefers-reduced-motion IS respected (prmRules 5) — rare for an expressive site. a11y: img_alt_ratio 1.0 (perfect), focus_visible true (1px rgb(16,16,16) outlines), but 35/61 interactive nodes are sub-44px tap targets (defect). Grid: real 12-col (cols [1,12,2,4]; mobile collapses to [1,4,2,12]). Not a cookie wall or preloader; this is the real home page (footer 'Cookie preferences' is just a link). smooth-scroll-inertia has no corpus recipe yet → patterns_to_build."
+}

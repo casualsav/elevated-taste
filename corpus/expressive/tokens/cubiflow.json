@@ -1,0 +1,44 @@
+{
+  "color": {
+    "bg": "#f4f5f6",
+    "surface": "#ffffff",
+    "fg": "#111111",
+    "muted": "#111111",
+    "accent": "#ff5c00",
+    "roles": {
+      "border": "#111111",
+      "inverted-bg": "#111111",
+      "inverted-fg": "#f4f5f6",
+      "accent-fg": "#111111"
+    }
+  },
+  "type": {
+    "families": ["\"B612 Mono\", ui-monospace, monospace"],
+    "scale": ["0.75rem"],
+    "weights": [400],
+    "leading": [1.2]
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["4px", "8px", "16px", "64px", "128px"]
+  },
+  "radius": ["64px"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["900ms"],
+    "easings": ["cubic-bezier(0.16, 1, 0.3, 1)", "ease"],
+    "triggers": ["load", "hover", "scroll-progress", "drag"],
+    "techniques": ["webgl-thumbnail-sphere", "monospace-hud-chrome", "viewport-frame-ticks"],
+    "scroll_effects": [
+      { "name": "pinned-hud-stage", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "auto-rotate-webgl-sphere", "property": "transform", "trigger": "load", "safety": "spectacle-only" }
+    ],
+    "stack": ["Three.js", "GSAP (TweenMax)", "GSAP Draggable", "GSAP TextPlugin", "Webflow IX2", "CSS @keyframes (spin)"],
+    "reduced_motion": "not-respected",
+    "patterns_to_build": [
+      "drag-to-orbit-inertia — Draggable/GSAP pointer-delta → sphere angular velocity with momentum (4 mousemove, 0 cursor-followers); spectacle-only, fine-pointer, touch substitutes accelerometer; no recipe yet.",
+      "glitch-scramble-text — GSAP TextPlugin character-mutation reveal of a short label (corroborated by mobile 'SHAKE TO SEE EMOTION' glitch pill); spectacle-only (mild), must be reduced-motion-gated; no recipe yet."
+    ]
+  },
+  "notes": "Two-tone instrument palette + one rationed accent. The raw profile shows a single font/size/weight (B612 Mono 12px/400) and a single radius (64px pill) — confirmed by screenshots; there is genuinely no type scale, so 'scale' lists one step and 'muted' collapses to fg (no mid-grays exist). bg normalized to off-white #f4f5f6 (raw rgb(244,245,246)); accent #ff5c00 appears in only 2 elements in the raw counts, matching its ~1% use in the screenshot. Shadow = none: chrome is flat, separation is by whitespace not elevation. Spacing scale is bimodal — tight 4/8/16 for chrome, then a large jump to 64/128 for section padding/gap; intermediate steps are absent. The 3D sphere geometry, particle field, and per-thumbnail transforms are WebGL-rendered and not represented in computed-style tokens. MOTION: this is a Three.js + GSAP WebGL stage, not a static page — ~1439 rAF/pass (continuous render loop), 2 canvas, 4 mousemove with 0 cursor-followers (pointer drives sphere drag/inertia via Draggable, not a custom cursor), 1 @keyframes ('spin'), and all 5 scroll effects are position:fixed pins (nav + corner HUD + footer cluster + canvas). prefers-reduced-motion is NOT respected (prmRules:0) — the headline a11y defect, plus 12 sub-44px tap targets and a non-crawlable/AT-invisible canvas; offsetting wins are img_alt_ratio:1 and focus_visible:true. The scroll frames did NOT capture the motion (pinned stage + in-canvas/pointer rotation → DOM-diff frames are pixel-identical), so motion is grounded in probe counts + library fingerprint + 'spin' keyframe + DOM markup, not stills. techniques[] lists only existing corpus patterns (webgl-thumbnail-sphere, monospace-hud-chrome, viewport-frame-ticks); genuinely-new behaviors (drag-to-orbit inertia, glitch-scramble text) are recorded under patterns_to_build, not faked into techniques. type tracking_by_size is empty in raw (single 12px size; mono advance does the spacing); grid-template-columns '3' is incidental, not a real design grid."
+}

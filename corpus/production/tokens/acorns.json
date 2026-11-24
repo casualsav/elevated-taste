@@ -1,0 +1,76 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#faf9f1",
+    "fg": "#191919",
+    "muted": "#767676",
+    "accent": "#74c947",
+    "roles": {
+      "accent-hover": "#70c244",
+      "accent-deep": "#529f46",
+      "accent-soft": "#bceaa3",
+      "surface-2": "#f5f5f5",
+      "spark": "#6944ff",
+      "band-forest": "#3f5b3e",
+      "band-ink": "#212322",
+      "fg-on-dark": "#ffffff",
+      "border": "#d9d9d9",
+      "chart-contribution": "#529f46",
+      "chart-return": "#74c947",
+      "accent-fg": "#ffffff"
+    }
+  },
+  "type": {
+    "families": ["Avenir Next", "Helvetica, Arial, sans-serif"],
+    "scale": ["0.75rem", "0.8125rem", "0.875rem", "1rem", "1.125rem", "1.25rem", "1.5rem", "2rem", "2.5rem", "3rem", "4.5rem"],
+    "weights": [400, 500, 600, 700],
+    "leading": [1.08, 1.2, 1.32, 1.5, 1.63],
+    "tracking": {
+      "display": "-0.0125em",
+      "heading": "-0.0125em",
+      "body": "0em",
+      "eyebrow": "0.2em"
+    }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["8px", "12px", "16px", "20px", "24px", "32px", "40px", "48px", "60px", "100px", "120px"]
+  },
+  "radius": ["2px", "12px", "20px", "30px", "50px", "9999px", "50%"],
+  "shadow": [
+    "0 1px 1px rgba(0,0,0,0.05)",
+    "0 5px 20px rgba(0,0,0,0.15)",
+    "0 0 14px rgba(0,0,0,0.25)"
+  ],
+  "motion": {
+    "durations": ["250ms", "300ms", "400ms", "500ms", "600ms", "1080ms", "1250ms", "1300ms"],
+    "easings": [
+      "ease",
+      "ease-in-out",
+      "cubic-bezier(0.64, 0.04, 0, 1)",
+      "cubic-bezier(0.56, 0.02, 0.32, 1)",
+      "cubic-bezier(0.32, 0, 0.67, 0)",
+      "cubic-bezier(0.25, 1, 0.5, 1)"
+    ],
+    "triggers": ["scroll-progress", "in-view", "hover", "load", "drag"],
+    "techniques": [
+      "sticky-hero-crossfade-carousel",
+      "scroll-parallax-tile-collage",
+      "scroll-linked-marquee-heading",
+      "slider-driven-projection-chart",
+      "testimonial-opacity-crossfade",
+      "hover-bottom-border-nav"
+    ],
+    "scroll_effects": [
+      { "name": "hero-panel-crossfade", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "feature-tile-parallax", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "marquee-heading-drift", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "testimonial-crossfade", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "sticky-hero-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "pinned-install-cta", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["hand-rolled scroll listeners (17)", "requestAnimationFrame (66 calls)", "IntersectionObserver (1, rootMargin 300px)", "CSS transitions (120 rules)", "CSS @keyframes (4: full_rotation, border-train + 2 vendor)"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Site authors zero CSS custom properties — the palette lives in flat utility classes (.acorns-green, .moss, .emerald, .ecru, .ivory, .fern, .acorns-purple), which is where the hexes above come from (exact, not sampled). Exceptions: band-forest (#3f5b3e) and border (#d9d9d9) are sampled from the calculator band and footer rules in the screenshots — the class palette has no match, so treat them as approximations. `craft.theme.supportsDark` reports true, but its payload is degenerate (bg rgba(0,0,0,0), fg #000) — there is no dark theme, so `color.dark` is omitted rather than invented. Type scale normalized to rem from a px scale (12/13/14/16/18/20/24/32/40/48/72); the raw profile's 13.6px/14.4px are browser-computed em fallbacks, dropped. Line-height set collapsed from 14 raw values; the 16px/16px pair (761 occurrences) is icon/inline-block noise, not a text leading. Radius normalized: raw 100px and 50px pills both map to the pill tier (9999px); 34px/24px/10px one-offs dropped. Two of the seven raw box-shadows were transparent or duplicate and were dropped. Durations 1080/1250/1300ms belong to the hero and testimonial crossfades only; UI chrome lives at 250–500ms."
+}

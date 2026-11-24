@@ -1,0 +1,54 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#efefef",
+    "fg": "#1a1a1a",
+    "muted": "#6b6b6b",
+    "accent": "#ff8600",
+    "roles": {
+      "muted-strong": "#767676",
+      "muted-light": "#999999",
+      "hairline": "#d0d0d0",
+      "band-bg": "#1a1a1a",
+      "band-fg": "#ffffff",
+      "nav-overlay-fg": "#ffffff",
+      "nav-solid-fg": "#1a1a1a",
+      "nav-scrim": "linear-gradient(#1a1a1a, rgba(26,26,26,0.05) 90%, rgba(26,26,26,0))",
+      "social-facebook": "#4867aa",
+      "social-red": "#ea4235",
+      "social-green": "#00754e"
+    }
+  },
+  "type": {
+    "families": ["Merriweather, Georgia, serif", "\"Noe Display\", Merriweather, Georgia, serif", "Pangram, Avenir, Helvetica, sans-serif"],
+    "scale": ["0.625rem", "0.8125rem", "1rem", "1.375rem", "1.5625rem", "2.5rem", "2.8125rem"],
+    "weights": [400, 500, 600, 700, 800, 900],
+    "leading": [1.15, 1.4, 1.7],
+    "tracking": ["0", "0.2px", "1.8px", "2.6px", "3.5px"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "8px", "16px", "20px", "24px", "26px", "32px", "40px", "64px", "96px"]
+  },
+  "radius": ["0", "2px", "6px", "8px", "50%"],
+  "shadow": [
+    "rgba(0,0,0,0.2) 0 5px 5px 0",
+    "rgba(0,0,0,0.2) 0 2px 5px 0",
+    "rgba(0,0,0,0.3) 0 32px 68px 0"
+  ],
+  "motion": {
+    "durations": ["150ms", "200ms", "500ms"],
+    "easings": ["ease-in-out", "ease", "cubic-bezier(0.09,0.47,0.18,0.99)", "cubic-bezier(0.4,0,0.2,1)"],
+    "triggers": ["scroll-progress", "in-view", "hover", "tap"],
+    "techniques": ["scroll-invert-overlay-nav", "lightbox-zoom", "overlay-menu-fade", "hover-dim", "disclosure-toggle"],
+    "scroll_effects": [
+      { "name": "nav-bg-fill", "property": "background", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "nav-link-recolor", "property": "color", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "nav-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "nav-gradient-parallax", "property": "transform", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["CSS transitions", "CSS @keyframes", "scroll listeners (nav state)"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Two type roles: serif (Merriweather body + headlines, Noe Display for the largest display lines) for all editorial text; sans (Pangram/Avenir-class) reserved for chrome — kickers, bylines, nav, UI. Scale normalized to 10/13/16/22/25/40/45px from the noisy raw (px like 14.4/11.7/24.96 are responsive/computed in-betweens, dropped). One accent: orange #ff8600 for ALL wayfinding; #ea4235/#4867aa/#00754e kept only as social-brand icon colors, not UI palette. Radii rounded ~sharp (0–8px) with 50% only for avatars/social circles; 9999px pill on one element. Shadows are low-elevation card/modal only. Motion is near-static: 0 IO, 0 rAF, no libraries; the lone designed behavior is the scroll-inverting overlay nav (transparent-over-hero white text → solid white bar dark text). reduced-motion respected."
+}

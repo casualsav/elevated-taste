@@ -1,0 +1,78 @@
+{
+  "color": {
+    "bg": "#fef2e3",
+    "surface": "#fef9f3",
+    "fg": "#3e3a37",
+    "muted": "#9e9e9e",
+    "accent": "#ff9272",
+    "roles": {
+      "accent-fg": "#7f2006",
+      "band-black": "#000000",
+      "footer-ink": "#313130",
+      "hairline": "#efe4d6",
+      "border-strong": "#3e3a37",
+      "border-faint": "#d8d8d8",
+      "fg-on-dark": "#ffffff",
+      "scrim": "rgba(0,0,0,0.8)",
+      "focus": "#415922"
+    }
+  },
+  "type": {
+    "families": [
+      "GT America Extended Regular",
+      "GT America Light",
+      "GT America Medium",
+      "Tiempos Fine"
+    ],
+    "scale": ["0.5625rem", "0.875rem", "1rem", "1.25rem", "1.5rem", "2rem", "2.5rem", "3rem", "3.5rem", "4.5rem", "5rem", "6rem", "8.5rem"],
+    "weights": [300, 400, 500],
+    "leading": [1.0, 1.1, 1.3, 1.5],
+    "tracking": {
+      "display": "0em",
+      "heading": "0em",
+      "body": "0em",
+      "eyebrow": "1.5px",
+      "caps": "2px"
+    }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["8px", "16px", "24px", "32px", "40px", "48px", "72px", "80px", "128px"]
+  },
+  "radius": ["0", "3px", "9999px"],
+  "shadow": ["0 0 15px 5px rgba(0,0,0,0.25)"],
+  "motion": {
+    "durations": ["300ms", "400ms", "450ms", "500ms", "600ms", "750ms"],
+    "easings": [
+      "ease",
+      "ease-in-out",
+      "cubic-bezier(0.5, 0, 0, 1)",
+      "cubic-bezier(0.165, 0.84, 0.44, 1)"
+    ],
+    "triggers": ["scroll-progress", "in-view", "hover", "load", "tap"],
+    "techniques": [
+      "scroll-condensing-header",
+      "masked-line-rise-reveal",
+      "announcement-bar-message-rotate",
+      "retracting-underline-link",
+      "filtered-peek-rail",
+      "lazy-image-fade-in"
+    ],
+    "scroll_effects": [
+      { "name": "header-navrow-crossfade", "property": "opacity", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "header-condense", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "announcement-bar-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "lazy-image-fade-in", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "masked-line-rise", "property": "transform", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": [
+      "IntersectionObserver (6 observers / 23 targets, thresholds 0.01 and 0.5)",
+      "CSS @keyframes (36)",
+      "CSS transitions (280 rules)",
+      "Swiper (carousels)",
+      "lazysizes-style img.lazyload opacity fade"
+    ],
+    "reduced_motion": "respected"
+  },
+  "notes": "Site authors almost no custom properties: the only brand ones are --irnmn--color--dark-grey (#3e3a37) and --irnmn--color--light-grey (#efe4d6); the other 27 belong to the litepicker date-picker and WordPress presets and were discarded. Palette hexes are exact (from theme CSS + computed-style frequency), except surface #fef9f3 / #fef9f2, which the profile reports as two near-identical alternate-band creams — collapsed to one. `muted` (#9e9e9e) is NOT a body-text tier: the site has none (all text is #3e3a37); #9e9e9e appears only on the carousel `1 — 5` position counter and vendor UI. `focus` (#415922) is an olive used exclusively for focus outlines, never as brand colour. Type scale normalized to rem from the site's named px ladder (14/16/20/24/32/40/48/56/72/80/96/136/195px); the 195 and 136 steps and the 12.8px/13.3px browser em-fallbacks were dropped from `scale`, and the 0.5625rem (9px) eyebrow kept. Raw weights 100 and 700 are single-use (a thin display cut, a bold vendor button) and dropped. Radius: raw 3px exists only inside the date picker, 24px on chips is really a pill (normalized to 9999px), and 100% on two arrow buttons; the page's real system is {0, pill}. Exactly one box-shadow exists on the page (a modal), so there is no elevation scale. The site does not re-theme for dark (`craft.theme.supportsDark: false`) — `color.dark` is omitted rather than invented; the reported `theme.dark` payload is just the light palette. Motion durations exclude the profile's 3000ms entry, which belongs to the announcement-bar dwell timer, not a transition."
+}

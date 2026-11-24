@@ -1,0 +1,55 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#ededed",
+    "fg": "#3f3f3f",
+    "muted": "#b2b2b2",
+    "accent": "#5e604c",
+    "roles": {
+      "ink": "#3f3f3f",
+      "muted": "#b2b2b2",
+      "muted-2": "#878787",
+      "muted-3": "#797979",
+      "accent-olive": "#5e604c",
+      "border-hairline": "#e5e7eb",
+      "surface-tint": "#ededed",
+      "on-accent": "#ffffff"
+    }
+  },
+  "type": {
+    "families": ["Awesome Serif (display/headings, often italic)", "Skyling (sans, body/UI)", "Space Mono (mono, labels/nav/buttons)"],
+    "roles": {
+      "display": "Awesome Serif",
+      "body": "Skyling",
+      "label": "Space Mono"
+    },
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.25rem", "1.5625rem", "2.25rem", "3rem", "6rem"],
+    "weights": [400, 600],
+    "leading": [1.0, 1.2, 1.4],
+    "tracking": { "body": "0.2px", "label-mono": "1.024px", "display": "0.2px" }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "8px", "12px", "16px", "24px", "32px", "48px", "64px"]
+  },
+  "radius": ["4px", "5px", "6px", "8px"],
+  "shadow": ["none"],
+  "container": { "max_width": ["700px", "832px", "864px"], "flex_columns": [2, 3, 4, 6], "gap": ["8px", "16px", "32px"] },
+  "motion": {
+    "durations": ["150ms", "200ms", "300ms", "500ms"],
+    "easings": ["cubic-bezier(0.4, 0, 0.2, 1)", "ease", "ease-in-out"],
+    "triggers": ["in-view", "scroll-progress", "hover", "load"],
+    "techniques": ["sticky-scrollspy-active-shift", "in-view-fade-reveal", "pinned-floating-nav", "read-more-disclosure"],
+    "scroll_effects": [
+      { "name": "scrollspy-active-color", "property": "color", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "rail-fade-in", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "pinned-nav-top", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "pinned-nav-bottom", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "pinned-index-rail", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "keyframes": ["pulse", "fadeIn"],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "CSS position:sticky/fixed", "smooth-scroll (rAF)"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Normalized from raw/urbit.json corroborated against desktop/mobile + frames s02/s05. fontFamily came back with masked names (\"\",serif / Skyling / Space Mono / Awesome Serif) — roles assigned from the screenshots: italic high-contrast serif = display/headings, humanist sans = body/UI, mono = labels/nav/buttons. bg read as paper-white (raw theme bg #fff) with a faint #ededed surface tint and a green-tinted dithered texture wash behind the hero. Olive #5e604c (rgb 94,96,76) is the single accent, rationed to buttons/sigil/active-state. No shadows captured — depth is hairline borders (#e5e7eb) and one-ink dither. Dropped 178->178 'color-shift' entries as representation noise; kept the two 178->(94,96,76) active shifts. reduced_motion not respected (prmRules:0) is the lone liability."
+}

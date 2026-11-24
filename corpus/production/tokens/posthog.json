@@ -1,0 +1,76 @@
+{
+  "color": {
+    "bg": "#e1d7c2",
+    "surface": "#eef0e9",
+    "surface-2": "#ffffff",
+    "fg": "#23251d",
+    "muted": "#65675e",
+    "subtle": "#9ea096",
+    "border": "#4d4f46",
+    "accent": "#f54e00",
+    "accent-fg": "#ffffff",
+    "roles": {
+      "ink": "#23251d",
+      "border-strong": "#4d4f46",
+      "border-soft": "#9ea096",
+      "canvas-tan": "#e1d7c2",
+      "canvas-cream": "#eef0e9",
+      "accent-orange": "#f54e00",
+      "accent-gold": "#f7a501",
+      "cat-cyan": "#30abc6",
+      "cat-magenta": "#b62ad9",
+      "cat-green": "#6aa84f",
+      "cat-teal": "#29dbbb",
+      "cat-amber": "#eb9d2a",
+      "link": "#f54e00"
+    }
+  },
+  "type": {
+    "families": [
+      "'Open Runde', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
+      "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace"
+    ],
+    "scale": ["0.75rem", "0.875rem", "0.9375rem", "1rem", "1.5rem", "2.25rem"],
+    "weights": [400, 600, 700],
+    "leading": [1.1, 1.33, 1.5],
+    "tracking": ["-0.0375em display", "0 body"]
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["2px", "4px", "6px", "8px", "12px", "16px", "24px", "48px", "64px"]
+  },
+  "radius": ["2px", "4px", "6px", "9999px"],
+  "shadow": [
+    "0 25px 50px -12px rgba(0,0,0,0.25)"
+  ],
+  "motion": {
+    "durations": ["150ms", "300ms", "2000ms", "3000ms"],
+    "easings": [
+      "cubic-bezier(0.4, 0, 0.2, 1)",
+      "cubic-bezier(0.16, 1, 0.3, 1)",
+      "ease",
+      "ease-out"
+    ],
+    "triggers": ["in-view", "scroll-progress", "hover", "load"],
+    "techniques": [
+      "in-view-fade-slide-reveal",
+      "in-view-category-recolor-row",
+      "pinned-chrome",
+      "scroll-scale-micro",
+      "ambient-illustration-idle-loop",
+      "hover-micro-state"
+    ],
+    "scroll_effects": [
+      { "name": "in-view fade/slide reveal (everything)", "property": "opacity+transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "in-view category-row recolor", "property": "color+background", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "section banner magenta->blue crossfade", "property": "background", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "pinned menu bar + cookie banner", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "micro scroll-scale on hero SVG / CTA (1.01->1.13, 1.035->1.01)", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "ambient illustration idle loops (float/breathe/wiggle/bounce/shimmer/features-ticker)", "property": "transform+opacity", "trigger": "load", "safety": "spectacle-only" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "ambient rAF illustration loops"],
+    "reduced_motion": "not-respected",
+    "evidence": "229 IntersectionObservers / 233 targets (threshold mostly [0,0.01]); 41 @keyframes — but the large majority are ambient illustration idles (float, breathe, wiggle, wobble, bounce, heart-pulse, shimmer, pulse, gradient-rotate, hogfather-jump/roll, speechBubble, features-ticker) not scroll-bound transforms; reveal keyframes slideUpFadeIn/fadeIn/fade/slideUp/Down/In/jump-in; 12 scroll + 29 mousemove listeners; 1234 rAF (continuous illustration/sprite loops); 0 canvas, 0 carousels, 14 disclosure + 5 tabs; 0 detected libraries (hand-rolled IO+CSS); 0 prefers-reduced-motion blocks (NOT gated). Frames s00-s08 near-identical (hero holds ~80% of scroll, no scrollytelling); s09-s10 reveal the next outlined window + the in-view category recolor. Dropped from==to entrance noise (path.segment/g.segment transform 1.00->1.00)."
+  },
+  "notes": "Trust-the-screenshot normalization. (1) Canvas is NOT white: the page sits on a warm tan/cream — rgb(225,215,194)=#e1d7c2 (most frequent backgroundColor, count 17) for the main field and rgb(238,239,233)=#eef0e9 for the lighter card/cream surface; pure white (#fff, count 7) is used only for a few inset panels, so it is demoted to surface-2. (2) The single most-used color in the WHOLE profile is rgb(77,79,70)=#4d4f46 (color count 682 + borderColor count 632) — a warm near-black that is primarily the outline color on every cell/chip/window; it is promoted to a first-class 'border' role (heavier-used than any background). Body ink is the slightly darker/greener rgb(35,37,29)=#23251d. NOTE rgb(55,65,81)=#374151 and rgb(17,24,39)=#111827 (Tailwind slate/gray-900, counts 276/79) appear but read as embedded code-sample / default UI text, not the page's warm ink — folded into fg, not listed separately. (3) Muted text rgb(101,103,94)=#65675e; lighter placeholder/subtle rgb(158,160,150)=#9ea096 (the on-tan contrast risk flagged in the exemplar). (4) ONE brand accent: orange-red rgb(245,78,0)=#f54e00 (CTAs + links, backgroundColor count 8 / color count 6). Gold rgb(247,165,1)=#f7a501 is the secondary. The remaining hues — cyan #30abc6, magenta #b62ad9, green #6aa84f, teal #29dbbb, amber #eb9d2a — are product-CATEGORY coding (each appears ~2-12x as icon-cell fills/borders), kept as cat-* roles, not core palette or emphasis. (5) Font: 'Open Runde' is the only real face (count 1041); the mono fallbacks (counts 6/1) are for code samples. No serif anywhere. (6) Type scale collapsed from noisy px (16 body dominant; 15/14/13/12 secondary; 24 headings; 36 hero) to a tight rem ramp — range is only ~2.25x, hierarchy is NOT scale-driven (it's enclosure + fill-color). Sub-pixel sizes (21.43px, 19.29px) are computed fractions, dropped. (7) Negative tracking (-0.6px) applies only to the largest display sizes; body is 0. (8) Tight spacing base ≈4px (gaps cluster 4/6/2/8px; section padding jumps to 16/24/48/64). (9) Radii are small/sharp (2/4/6px) for the comic-panel cells, plus full-pill (9999px) for some chips/avatars — this is a low-roundness system despite the rounded font. (10) Motion: one real transition, 0.15s cubic-bezier(0.4,0,0.2,1) (Material standard, count 42) for hovers, plus one 0.3s — no scroll/spectacle animation. (11) Only one boxShadow of note (a -12px lift on a couple of floating panels, count 4); the design is essentially shadowless and relies on outlines instead. (12) MOTION/CRAFT AUGMENT (2026-06-24): motion block expanded from the raw `.motion` capture + frame sequence s00-s10. Reframed honestly as functional, NOT scroll-spectacle — the page does not scrollytell; choreography is pervasive in-view reveal (233 IO targets), an in-view category-row recolor, pinned chrome (menu bar + cookie banner), tiny scroll-scale on two hero accents, and continuous ambient illustration idle loops. Durations 2000/3000ms belong to those ambient loops, 150/300ms to state/transition. Reduced motion is NOT respected (0 PRM blocks) — flagged as a defect. Tracking corrected to proportional (~-2.5% above body, 0 on body — not one constant em). Craft a11y from `.craft.a11y`: focus-visible present; img_alt_ratio 0.67 (a third unlabeled); 69/107 interactive elements below 44px tap target; grid columns [4,2,3] desktop -> [1,2,7] mobile (390w), nav 14->5 links + likely hamburger, h1/body do not downscale. Container max-width not in the capture — frame-estimated ~1100-1200px centered column. supportsDark=false (the `theme.dark` probe values are a forced-mode artifact, not a real dark theme)."
+}

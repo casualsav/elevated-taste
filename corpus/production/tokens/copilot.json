@@ -1,0 +1,68 @@
+{
+  "color": {
+    "bg": "#000814",
+    "surface": "#081b36",
+    "fg": "rgba(255,255,255,0.9)",
+    "muted": "#7f8ba4",
+    "accent": "#2563ff",
+    "roles": {
+      "ground": "#000814",
+      "surface-card": "#081b36",
+      "surface-inverted": "#f6f8fb",
+      "fg-on-inverted": "#11263b",
+      "muted-blue": "#597caa",
+      "muted-blue-2": "#7f8ba4",
+      "accent-cta": "#2563ff",
+      "headline-gradient": "linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)",
+      "prop-green": "#00cc4b",
+      "prop-red": "#ff4433",
+      "prop-orange": "#ff9900",
+      "prop-yellow": "#ffcc02",
+      "prop-pink": "#ea687c",
+      "prop-cyan": "#00acfe"
+    }
+  },
+  "type": {
+    "families": ["Matter", "Jokker", "sans-serif"],
+    "roles": {
+      "display": "Matter",
+      "ui": "Jokker"
+    },
+    "scale": ["0.75rem", "0.9375rem", "1rem", "1.125rem", "1.5rem", "1.75rem", "4rem", "9.25rem"],
+    "scale_mobile_h1": "3.0625rem",
+    "weights": [100, 400, 500, 600],
+    "leading": [0.9, 1.0, 1.2, 1.4],
+    "tracking": { "display": "-0.02em", "body": "0.01em" },
+    "features": ["tabular-nums"]
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["4px", "8px", "12px", "16px", "20px", "24px", "32px", "40px", "48px", "64px", "112px"]
+  },
+  "radius": ["12px", "16px", "20px", "24px", "40px", "999px"],
+  "shadow": [
+    "0 0.36px 0.65px -1.5px rgba(0,0,0,0.07), 0 3px 5.4px -3px rgba(0,0,0,0.05)",
+    "0 0.48px 1.26px -1px rgba(0,0,0,0.03), 0 4px 10.4px -2px rgba(0,0,0,0.04)",
+    "inset 0 24px 64px -12px rgba(255,255,255,0.16), inset 0 -24px 40px -12px rgba(0,0,0,0.16)"
+  ],
+  "gradients": {
+    "ground-radial": "radial-gradient(79% 75% at 79% 82.5%, #01122d 0%, #000f24 100%)",
+    "card-navy": "linear-gradient(160deg, #00132e 0%, #001738 100%)",
+    "metallic-chip": "linear-gradient(0deg, #a4aebd 0%, #bfc6d3 100%)"
+  },
+  "motion": {
+    "durations": ["400ms"],
+    "easings": ["cubic-bezier(0.44,0,0.56,1)", "ease"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": ["fixed-pill-nav", "scroll-exit-dissolve", "in-view-fade-rise", "parallax-drift", "hover-desaturate"],
+    "scroll_effects": [
+      { "name": "hero-prop-dissolve", "property": "transform+opacity", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "section-fade-rise", "property": "opacity+transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "prop-parallax", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "pinned-pill-nav", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["Framer", "IntersectionObserver", "requestAnimationFrame"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Normalized from raw/copilot.json + screenshots/frames. Raw fontFamily 'Matter Variable Thin'/'Matter-TRIAL SemiBold'/'Jokker' collapsed to two role families (Matter display, Jokker UI). Hero headline weight read ~600 from frames despite a thin (100) variant present (used for large light body). bg normalized to #000814 (raw radial uses #01122d→#000f24). Decorative rainbow lives only on 3D props, not UI surfaces — kept under roles.prop-*. Single CTA accent #2563ff normalized from rgb(28,108,255)/rgb(26,102,255). reduced_motion NOT respected per probe (prmRules 0, respectsReducedMotion false); focus-visible thin (1px) and 23 small tap targets flagged in raw a11y."
+}

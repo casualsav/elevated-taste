@@ -1,0 +1,45 @@
+{
+  "color": {
+    "bg": "#f2f2f2",
+    "surface": "#ffffff",
+    "fg": "#070707",
+    "muted": "#a2a2a9",
+    "accent": "#070707",
+    "roles": {
+      "fg": "#070707",
+      "fg-deemphasis": "#a2a2a9",
+      "caption": "#a2a2a9",
+      "rule": "#a2a2a9",
+      "tile-bg": "#000000"
+    }
+  },
+  "type": {
+    "families": ["BentonSans, sans-serif", "AftenScreen, sans-serif"],
+    "scale": ["0.75rem", "1rem", "1.6667rem", "4.6875rem", "6.25rem", "11.25rem"],
+    "weights": [400],
+    "leading": [1.0, 1.05, 1.3, 1.5]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.625rem", "1.04rem", "1.3rem", "2.6rem", "3.4rem", "6.25rem"]
+  },
+  "radius": ["0px", "4px"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["300ms", "500ms", "550ms", "600ms", "650ms", "800ms", "1200ms", "1250ms"],
+    "easings": ["cubic-bezier(0.25, 0.46, 0.45, 0.94)", "ease"],
+    "stagger": "~100ms/item (100/200/300/400/500/600ms steps)",
+    "triggers": ["load", "in-view", "scroll-progress", "hover"],
+    "techniques": ["entrance-stagger", "in-view-fade-rise", "inline-link-underline-draw", "sticky-pin", "parallax-drift"],
+    "scroll_effects": [
+      { "name": "staggered-opacity-nav-entrance", "property": "opacity", "trigger": "load", "safety": "production-safe" },
+      { "name": "in-view-fade-rise", "property": "transform|opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "inline-link-underline-draw", "property": "transform|clip", "trigger": "hover", "safety": "production-safe" },
+      { "name": "pinned-header-background-cookie", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "nav-cluster-parallax", "property": "transform", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes (fadeIn / fadeInAndUp / drawAnimation / undrawAnimation)", "native position:fixed"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Trusted screenshot over raw. Motion: hand-rolled Next.js CSS Modules — NO GSAP/Lenis/Framer (libraries:[]). Probe counts: 194 @keyframes, 9 anim rules, 11 transition rules, 31 IntersectionObservers over 129 targets (rootMargin 200px, threshold 0/0.33), ~1191 rAF/scroll-pass, 4 scroll listeners, 0 canvas, 1 video. Four reused keyframes do everything: fadeIn (entrance), fadeInAndUp (in-view reveal), drawAnimation/undrawAnimation (inline-link underline draw/erase). 3 native position:fixed pins (header, Page_background, cookie card); 1 subtle in-view parallax on the nav cluster. prefers-reduced-motion IS respected (prmRules:1) — rare for an expressive/agency site and the headline a11y win. Durations/easings/stagger above are real captured params (.motion.params); 'ease' is the bare fallback alongside the house easeOutQuad. Frames captured the choreography cleanly (no scroll-hijack/WebGL). a11y: focus_visible true (1px rgb(16,16,16) outline on links), img_alt_ratio 1.0, but #a2a2a9 on #f2f2f2 ~2.3:1 FAILS WCAG AA for reading text and 16/60 interactive targets are <~44px.\n--- original notes ---\nTrusted screenshot over raw. bg normalized to #f2f2f2 (raw rgb(242,242,242), count low but matches the off-white field in both captures; raw also lists rgb(255,255,255) which is the project-tile surface). fg=#070707 (rgb(7,7,7), dominant). muted=#a2a2a9 (rgb(162,162,169)) does triple duty: caption category text, hairline rules, and the descending-opacity list — these are the SAME ink at reduced alpha, not distinct greys. NO color accent: 'accent' role = pure ink; all chroma is in the project imagery, not the chrome. Single weight 400 everywhere (raw fontWeight has one entry). Two custom faces: BentonSans = geometric grotesque used for ALL display + UI; AftenScreen = secondary used for running caption/body and special glyphs (the grey '&'). Type scale rounded from raw px at 1440/16: 12px,16px,26.67px(=1.6667rem),75px,100px,180px. Display tracking is aggressively negative in raw (-3px@75px, -4px@100px, -9px@180px ≈ -0.04em to -0.05em) — captured in pattern, not a token field here. radius near-zero (raw 4.17px ≈ 4px on small UI chips only; tiles and type are square). No shadows (flat). Signature transition 1.2s easeOutQuad (cubic-bezier(0.25,0.46,0.45,0.94)) is the house curve; 0.3s/0.4s are the interaction variants."
+}

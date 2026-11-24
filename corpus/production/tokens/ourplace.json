@@ -1,0 +1,63 @@
+{
+  "color": {
+    "bg": "#FCFAF6",
+    "surface": "#F6F3EB",
+    "surface-2": "#EBE5D4",
+    "fg": "#35312E",
+    "muted": "#5A5854",
+    "accent": "#AF5A3C",
+    "roles": {
+      "muted-2": "#60605E",
+      "accent-soft": "#E09D81",
+      "band-promo": "#6C674D",
+      "band-footer": "#748EA1",
+      "white": "#FFFFFF",
+      "border-ink": "#35312E",
+      "border-light": "#E6E6E6",
+      "price-active": "#AF5A3C",
+      "price-compare": "#5A5854"
+    }
+  },
+  "type": {
+    "families": [
+      "Cheltenham-class transitional serif (display + product names)",
+      "grotesque sans (Plaid / Calibre) — body, UI, tracked-uppercase labels"
+    ],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.25rem", "1.75rem", "2.25rem", "3rem", "3.75rem"],
+    "weights": [400, 600, 700],
+    "leading": [1.1, 1.3, 1.7],
+    "tracking": { "label-12": "0.96px", "label-16": "1.28px", "label-wide": "1.6px" }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "8px", "16px", "24px", "40px", "48px", "64px", "80px", "96px"]
+  },
+  "radius": ["4px", "8px", "30px", "9999px"],
+  "shadow": [
+    "none",
+    "rgba(0,0,0,0.2) 0 0 18px 0",
+    "rgba(0,0,0,0.5) 0 1px 4px 0"
+  ],
+  "motion": {
+    "durations": ["100ms", "150ms", "200ms", "300ms", "350ms", "400ms", "500ms", "600ms"],
+    "easings": [
+      "ease",
+      "cubic-bezier(0.4, 0, 0.2, 1)",
+      "cubic-bezier(0.44, 0.65, 0.07, 1.01)",
+      "cubic-bezier(0.25, 1, 0.5, 1)",
+      "cubic-bezier(0.12, 0.67, 0.53, 1)"
+    ],
+    "triggers": ["load", "hover", "in-view", "scroll-progress", "drag"],
+    "techniques": ["css-marquee-loop", "splide-carousel", "sticky-pin-header", "in-view-fade", "cart-badge-pop"],
+    "scroll_effects": [
+      { "name": "trust-marquee-loop", "property": "transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "product-carousel-advance", "property": "transform", "trigger": "drag", "safety": "production-safe" },
+      { "name": "nav-and-cart-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "hero-block-fade-in", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "cart-badge-pop", "property": "transform", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["Splide", "CSS @keyframes (marquee, fade, cart-badge)", "IntersectionObserver", "CSS sticky positioning"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Colors converted from raw rgb() to hex; rgb(53,49,46)=#35312E ink, rgb(252,250,246)=#FCFAF6 bg, rgb(175,90,60)=#AF5A3C terracotta accent, rgb(108,103,77)=#6C674D olive promo/marquee band, rgb(116,142,161)=#748EA1 footer band (all corroborated against screenshots). Type families renamed generically — site uses custom 'Chelt' (Cheltenham) serif and 'Plaid'/Calibre sans. Type scale normalized to a clean rem ramp from observed 12/14/16/20/28/36/48/60px. radius 4px dominant; '50% 35%' one-offs and 9999px pills folded into the swatch/chip role. Shadows are effectively absent (only two modal/overlay shadows in the whole profile) — UI is flat. Motion is shipping ecommerce chrome (Splide carousels, CSS marquees, sticky pins, cart-badge micro-state), not scroll spectacle; rAF/video counts reflect carousel + testimonial autoplay. conic-gradients in the raw profile are product finish swatches, not UI backgrounds."
+}

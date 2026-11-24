@@ -1,0 +1,59 @@
+{
+  "color": {
+    "bg": "#3139fb",
+    "surface": "#fffcec",
+    "fg": "#0e1330",
+    "muted": "#696969",
+    "accent": "#3139fb",
+    "roles": {
+      "brand": "#3139fb",
+      "brand-deep": "#2702c2",
+      "canvas-cream": "#fffcec",
+      "canvas-cream-2": "#fffadd",
+      "on-brand": "#ffffff",
+      "on-brand-muted": "rgba(255,255,255,0.55)",
+      "pill-dark": "#252525",
+      "pill-on-brand": "rgba(255,255,255,0.14)",
+      "aurora-pink": "#f8dee6",
+      "aurora-peach": "#fdeccf",
+      "aurora-lavender": "#e7dcf5"
+    }
+  },
+  "type": {
+    "families": ["ABC Oracle, 'Times New Roman', Georgia, serif", "-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.0625rem", "1.5rem", "1.75rem", "2rem", "2.5rem", "2.844rem"],
+    "weights": [400, 500, 600, 700],
+    "leading": [1.0, 1.2, 1.5, 1.6]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.5rem", "0.75rem", "1rem", "1.5rem", "2rem", "3rem", "4.5rem", "8rem", "9.375rem"]
+  },
+  "radius": ["4px", "8px", "10px", "22px", "9999px"],
+  "shadow": [
+    "0 2px 8px rgba(0,0,0,0.25)",
+    "0 5px 5px rgba(0,0,0,0.10)"
+  ],
+  "motion": {
+    "durations": ["100ms", "150ms", "200ms", "78600ms"],
+    "easings": ["ease", "ease-out", "ease-in-out"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": [
+      "sticky-pin-scrollytelling",
+      "parallax-drift",
+      "announcement-ticker-marquee",
+      "autoplay-product-video",
+      "magnetic-cta"
+    ],
+    "scroll_effects": [
+      { "name": "persistent pinned title bar", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "parallax quote band", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "press-quote marquee", "property": "transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "autoplay product-video mocks", "property": "video", "trigger": "in-view", "safety": "spectacle-only" }
+    ],
+    "stack": ["position: sticky/fixed", "CSS @keyframes (marquee)", "video autoplay", "IntersectionObserver (load-gating)"],
+    "reduced_motion": "not-respected",
+    "evidence": "1 @keyframes (`scroll` — the marquee); cssAnimationRules 0; 0 entrance reveals / no stagger (stagger_delays_ms []); 2 IntersectionObservers / 57 targets (lazy-load, NOT fade-rise; rootMargin 200px and 0px 0px -25% 0px); 3 scroll-pin/parallax effects (2 pin/fixed + 1 transform/parallax); 3 marquees; 4 <video> (the 'screenshots' are autoplaying loops); 0 canvas; ~944 rAF/scroll pass; 6 scroll + 8 mousemove listeners; no GSAP/Lenis/Framer; prmRules 0 -> reduced-motion NOT respected. Durations 100/150/200ms micro + 78600ms (marquee loop); easings are bare keywords (no tuned cubic-bezier). Pinned title bar visible in frames s01->s10; parallax band 'Arc is the Chrome replacement…'; marquee on the blue band in s02."
+  },
+  "notes": "Normalized from screenshot (ground truth) + raw profile. Brand blue #3139fb is the dominant role: it is simultaneously the full-bleed section bg AND the only accent/CTA color, so bg and accent intentionally collapse to one hue. Cream #fffcec / #fffadd are the warm 'paper' canvases that alternate with blue bands. Display face is a bold transitional serif (raw reports 'ABC Oracle' + Times fallback; 'Exposure VAR' appears once, likely the marquee/eyebrow; 'Marlin'/'Marlin Soft SQ' also present in type_detail); body is the system sans stack (raw '-apple-system'), NOT a bespoke sans. Tracking varies by size (NOT one constant em): raw tracking_by_size shows 36px -> -0.72px (~-0.02em), 32px -> -1.6px (~-0.05em), 40px -> -1.6px (~-0.04em), 45.51px -> -1.82px (~-0.04em) — tight, but the ratio is not constant across the ramp. Raw font-size 45.51px -> normalized 2.844rem display; 13.3333px is a browser sub-pixel artifact, dropped. The aurora-* roles are sampled mesh-gradient stops, not flat fills. Shadows are soft and rare. EVIDENCE NOTE: re-captured 2026-06-24 with the motion pipeline; motion is structural (sticky pin + parallax + marquee + autoplay video), not entrance choreography (0 reveals). grid.columns empty in raw -> the bento photo wall is frame-estimated ~3-col masonry. a11y: img_alt_ratio 1 (good), focus_visible true (download CTA has a real #96c4ff ring), 24 small tap targets (defect), reduced_motion not respected (defect). Static values normalized; motion fields evidence-backed (see motion.evidence)."
+}

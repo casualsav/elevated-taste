@@ -1,0 +1,65 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f4f2f0",
+    "fg": "#0c0a08",
+    "muted": "#8a8784",
+    "accent": "#e4f222",
+    "roles": {
+      "bg": "#ffffff",
+      "surface": "#f4f2f0",
+      "surface-dark": "#1a1919",
+      "fg": "#0c0a08",
+      "fg-on-dark": "#f4f2f0",
+      "muted": "#8a8784",
+      "border": "rgba(33,33,33,0.10)",
+      "accent": "#e4f222",
+      "accent-fg": "#0c0a08"
+    }
+  },
+  "type": {
+    "families": ["TWK Lausanne", "SF Pro", "system-ui, sans-serif"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.5rem", "2rem", "2.5rem", "4rem"],
+    "weights": [400],
+    "leading": [1.1, 1.5]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.375rem", "0.5rem", "0.75rem", "1rem", "1.5rem", "2rem", "4rem"]
+  },
+  "radius": ["3px", "6px", "12px", "9999px"],
+  "shadow": ["none", "0 1px 2px rgba(11,13,18,0.06)"],
+  "motion": {
+    "durations": ["100ms", "150ms", "200ms", "240ms", "250ms", "300ms"],
+    "easings": [
+      "cubic-bezier(0.4, 0, 0.2, 1)",
+      "cubic-bezier(0.45, 0.05, 0.55, 0.95)",
+      "cubic-bezier(0, 0, 0.2, 1)",
+      "cubic-bezier(0.6, 0, 0.2, 0.5)",
+      "ease"
+    ],
+    "triggers": ["scroll-progress", "in-view", "hover", "load", "click"],
+    "techniques": [
+      "parallax-drift",
+      "card-stack-scale-dim",
+      "scroll-background-dissolve",
+      "sticky-pin-scrollytelling",
+      "announcement-ticker-marquee",
+      "hover-recolor",
+      "disclosure"
+    ],
+    "scroll_effects": [
+      { "name": "scatter-then-collapse capture field", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "section background dissolve (white→transparent)", "property": "background", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "sticky-pinned proof panel", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "edge-faded proof marquees", "property": "transform", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "CSS marquee/keyframe loops", "canvas + requestAnimationFrame"],
+    "reduced_motion": "respected",
+    "stagger": "none captured",
+    "io_thresholds": ["0", "0.2"],
+    "evidence": "0 entrance reveals, no stagger, no in-view fade-rise (corpus default ABSENT — deliberate). All profiler 'text color-shift' effects are from==to (lab vs oklab of the same near-black) — dropped as noise. 28 IntersectionObservers / 198 targets; 13 scroll + 15 mousemove listeners; ~1317 rAF per pass (driven by 25 marquees + 7 canvas); 38 @keyframes (arrow-slide, accordion-down/up, slide{Up,Down,Left,Right}AndFade, nav-in/out, *NavContentFadeIn/RiseIn/EnterFromStart/End, *LogoWall-scroll/marquee, *Accolades-scroll/marquee, *StatsWall-scroll, spin, pulse, ping); 24 animation rules; 6 prefers-reduced-motion blocks (respected); no GSAP/Lenis/Framer (hand-rolled IO + CSS). Frames s00→s09 confirm spine: scattered systems → background dissolve → re-collapse into one ('Now sing together') → sticky proof panel → marquee proof walls → repeated CTA. scroll-background-dissolve has no recipe file yet (patterns_to_build)."
+  },
+  "notes": "Raw profile reports CSS lab() colors; converted to sRGB hex. Dominant lab(2.84,0.37,0.97)=#0c0a08 is near-black text/borders (~5000 hits), lab(100,0,0)=#fff, warm cream surface lab(95.6,...)=#f4f2f0, signature acid yellow-green lab(92.1,-20.5,84.8)=#e4f222 used sparingly for CTAs and value pills. 'muted' gray is inferred from the two-tone headline / secondary-text screenshot read (not cleanly isolable in profile, which collapses most text to one near-black). fontWeight collapsed to a single 400 in the profile and confirmed by screenshot — hierarchy is scale+color, not weight; weights array kept to [400]. fontSize 8px/10px/7px clusters are retina-doubled small UI chrome (product screenshots / fine print), dropped from the human scale. borderRadius 3.35e7px is the pill/full sentinel -> 9999px. Shadows are near-absent; flat hairline-border aesthetic, so shadow scale trimmed to none + a faint sm.",
+  "tokens_alignment": "Values mapped to house scale: space base 8px matches; radius 6/12/full match radius.md/lg/full (3px and 999px are local one-offs). accent replaces house blue with Ramp acid yellow-green; accent-fg is dark (not white) because the accent is light. Motion durations/easings differ from house (Material easing vs house cubic-bezier(0.2,0,0,1)) — kept Ramp's actual values."
+}

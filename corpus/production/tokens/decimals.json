@@ -1,0 +1,57 @@
+{
+  "color": {
+    "bg": "#ede8e1",
+    "surface": "#fdfbf6",
+    "surface-translucent": "rgba(255,252,247,0.42)",
+    "fg": "#4d4638",
+    "muted": "rgba(77,70,56,0.60)",
+    "subtle": "rgba(77,70,56,0.42)",
+    "hairline": "rgba(77,70,56,0.12)",
+    "accent": "#d94f3d",
+    "roles": {
+      "ink": "#4d4638",
+      "ink-muted": "#6b6560",
+      "cream": "#ede8e1",
+      "band-dark": "#4d4638",
+      "fg-on-dark": "#ede8e1",
+      "status-open": "#63d98e",
+      "pin-red": "#d94f3d",
+      "hero-wash-a": "rgba(244,201,190,0.42)",
+      "hero-wash-b": "rgba(221,166,151,0.24)",
+      "focus-ring": "rgba(217,79,61,0.75)"
+    }
+  },
+  "type": {
+    "families": ["MartinaPlantijn, Georgia, serif", "LTSuperior, system-ui, sans-serif", "Geist, sans-serif", "ui-monospace, SFMono-Regular, Menlo, monospace"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.5rem", "1.75rem", "clamp(42px, 4.8vw, 68px)"],
+    "weights": [400, 500, 700],
+    "leading": [0.95, 1.25, 1.5],
+    "tracking": {
+      "display": "-2.2px",
+      "label-caps": "1.4px"
+    }
+  },
+  "space": { "base": "4px", "scale": ["4px", "8px", "9px", "12px", "16px", "24px", "36px", "40px", "72px"] },
+  "radius": ["6px", "10px", "14px", "18px", "999px"],
+  "shadow": [
+    "rgba(255,255,255,0.82) 0 0 0 1px inset, rgba(77,70,56,0.08) 0 0 0 1px, rgba(77,70,56,0.08) 0 2px 6px 0",
+    "rgba(255,255,255,0.58) 0 0 0 1px inset, rgba(77,70,56,0.04) 0 0 0 1px, rgba(77,70,56,0.06) 0 3px 8px 0",
+    "rgba(255,255,255,0.60) 0 1px 0 0 inset, rgba(77,70,56,0.04) 0 6px 16px 0",
+    "rgba(77,70,56,0.08) 0 20px 44px 0"
+  ],
+  "motion": {
+    "durations": ["180ms", "220ms", "240ms", "300ms", "620ms", "9000ms", "12000ms"],
+    "easings": ["ease", "cubic-bezier(0.2, 0.78, 0.22, 1)", "cubic-bezier(0.16, 1, 0.3, 1)", "cubic-bezier(0.22, 1, 0.36, 1)", "steps(22)"],
+    "triggers": ["in-view", "scroll-progress", "load", "hover"],
+    "techniques": ["in-view-fade-rise", "rotated-card-deck-shuffle", "idle-product-sim-loop", "scroll-progress-parallax", "hover-micro-lift"],
+    "scroll_effects": [
+      { "name": "chat-message-reveal", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "hero-quote-parallax", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "profile-card-scale-recede", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "logo-desaturate-on-enter", "property": "filter", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "requestAnimationFrame", "canvas (hero globe)"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Monochrome-warm palette normalized from a single ink #4d4638 (rgb 77,70,56) with an alpha ramp for muted/subtle/hairline; surface is translucent warm white (opaque approximation #fdfbf6). No dark theme (supportsDark=false) so color.dark omitted. Type collapsed to the two load-bearing families (Plantijn serif display + LTSuperior/Geist sans) plus mono labels; hero/section titles share one clamp token. Shadows are the site's real ink-tinted, inset-highlight stacks. Long 9–12s durations are ambient product-sim loops; steps(22) is a typewriter cursor. Single flat scroll — no fixed/sticky layers."
+}

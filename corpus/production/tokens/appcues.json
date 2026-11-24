@@ -1,0 +1,53 @@
+{
+  "color": {
+    "bg": "#fbfbfb",
+    "surface": "#fffcef",
+    "fg": "#291a3d",
+    "muted": "#373c54",
+    "accent": "#f0fe52",
+    "roles": {
+      "ink-body": "#20222e",
+      "dark-panel": "#291a3d",
+      "on-dark": "#f6ebf8",
+      "surface-lilac": "#f6ebf8",
+      "surface-cream": "#fffcef",
+      "surface-teal": "#ecfbff",
+      "card-blurple": "#e9d9ff",
+      "card-pink": "#f8d0d1",
+      "card-pink-strong": "#fa9496",
+      "card-teal": "#6feeec",
+      "eyebrow-bg": "#e9e9bf",
+      "hairline": "#a688c4"
+    }
+  },
+  "type": {
+    "families": ["Martinaplantijn (display serif)", "GT Standard (grotesque body)", "Basel Grotesk Mono (eyebrow)"],
+    "scale": ["0.84rem", "1rem", "1.125rem", "1.375rem", "1.75rem", "3rem", "3.375rem", "4.125rem", "4.75rem"],
+    "weights": [400, 430, 500],
+    "leading": [1.0, 1.2, 1.4, 1.5],
+    "tracking": { "display": "-0.04em", "body": "-0.01em", "eyebrow": "0.06em" },
+    "notes": "Hierarchy from family + scale, not weight. Serif italic cut used for one emphasis word per headline. Eyebrow all-caps mono."
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["4px", "8px", "12px", "14px", "16px", "20px", "24px", "32px", "40px", "60px", "80px", "100px"]
+  },
+  "radius": ["8px", "14px", "20px", "30px", "100px"],
+  "shadow": [
+    "0 4px 40px rgba(0,0,0,0.10)",
+    "0 4px 20px rgba(0,0,0,0.20)",
+    "0 32px 68px rgba(0,0,0,0.30)"
+  ],
+  "motion": {
+    "durations": ["200ms"],
+    "easings": ["ease"],
+    "triggers": ["scroll-progress"],
+    "techniques": ["sticky-stacking-cards"],
+    "scroll_effects": [
+      { "name": "sticky-stacking-cards", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["CSS position:sticky", "Webflow IX2", "IntersectionObserver"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "No dark re-theme (supportsDark:false) — the #291a3d aubergine is a section surface, not a theme, so color.dark omitted. Durations synthesized to house base (site ships only Webflow 'ease'). Rounded the raw pastel palette to role names; dropped Wistia/webflow icon fonts. rAF count (723) is embedded video, not page motion."
+}

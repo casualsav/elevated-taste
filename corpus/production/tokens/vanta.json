@@ -1,0 +1,81 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f7f8fa",
+    "surface-2": "#e3e0eb",
+    "fg": "#181822",
+    "muted": "#6d6e87",
+    "subtle": "#9e9fb7",
+    "border": "#dfdfe9",
+    "accent": "#5e05c4",
+    "accent-fg": "#ffffff",
+    "roles": {
+      "ink": "#181822",
+      "ink-2": "#2b2c3f",
+      "slate": "#484960",
+      "muted": "#6d6e87",
+      "subtle": "#9e9fb7",
+      "accent": "#5e05c4",
+      "accent-lavender": "#8f47d5",
+      "accent-soft": "#ba9dff",
+      "lavender-canvas": "#ddd6ff",
+      "lavender-deep": "#cdd2f8",
+      "violet-deep": "#260048",
+      "dark-bg": "#21222f",
+      "dark-fg": "#ffffff",
+      "success": "#0b885b",
+      "success-fill": "#a4f4cf",
+      "success-tint": "#d1f9e7",
+      "highlight-amber": "#f9c71c"
+    }
+  },
+  "type": {
+    "families": ["\"Inter Variable\", system-ui, sans-serif", "Reckless, Georgia, serif"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.375rem", "1.875rem", "2.625rem", "3.75rem"],
+    "weights": [400, 500, 600],
+    "leading": [1.0, 1.1, 1.3, 1.5],
+    "tracking": ["-0.02em", "-0.003em", "0em"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.25rem", "0.5rem", "0.75rem", "1rem", "1.5rem", "2rem", "3rem", "4rem", "5rem", "8rem"]
+  },
+  "radius": ["4px", "8px", "16px", "9999px"],
+  "shadow": [
+    "0 1px 2px rgba(24,24,34,0.05)",
+    "0 0px 30px 3px rgba(0,0,0,0.15)"
+  ],
+  "motion": {
+    "durations": ["100ms", "150ms", "200ms", "300ms", "350ms", "400ms", "700ms", "1000ms"],
+    "easings": [
+      "ease",
+      "cubic-bezier(0.645, 0.045, 0.355, 1)",
+      "cubic-bezier(0.455, 0.03, 0.515, 0.955)",
+      "cubic-bezier(0.55, 0.085, 0.68, 0.53)",
+      "ease-out"
+    ],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": [
+      "alternating-canvas-band-choreography",
+      "scroll-linked-canvas-warm",
+      "in-view-svg-scale-settle",
+      "sticky-pin-pull-quote",
+      "svg-path-draw-diagram",
+      "twinkle-sparkle-accent"
+    ],
+    "scroll_effects": [
+      { "name": "alternating-canvas band choreography", "property": "position+background", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "scroll-linked canvas warm (#f7f8fa→#cdd2f8)", "property": "background", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "in-view SVG scale-settle (1.08–1.43→1)", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "sticky-pinned serif pull-quote", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "SVG path-draw on product diagrams", "property": "transform+opacity", "trigger": "in-view", "safety": "spectacle-only" },
+      { "name": "twinkle sparkle loop (announcement bar)", "property": "opacity+transform", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["GSAP", "GSAP ScrollTrigger", "Webflow IX2"],
+    "reduced_motion": "respected",
+    "io_thresholds": [1, 0.5],
+    "io_root_margins": ["150% 0%", "200px"],
+    "evidence": "6 @keyframes (spin, vanishTwinkleA/B/C, delay-overflow, osano-load-scale); 5 IntersectionObservers / 4 targets (thresholds 1 & 0.5, rootMargins 150% 0% & 200px); ~2449 rAF/scroll pass (GSAP ScrollTrigger ticker); 107 scroll + 23 mousemove listeners; 1 prefers-reduced-motion block (respected). Real content effects only: background-shift rgb(247,248,250)→rgb(205,210,248) on 'It's all here'; SVG <g> scale 1.08/1.12/1.426→1 + opacity 1.00→0.19 on bento mini-UIs; sticky pull-quote (p.); path-draw box ('animate each path in its own box'). Dropped 8 raw pins that were cookie-banner/nav fixed-position noise and all from==to representation noise. Library-driven (GSAP+ScrollTrigger+Webflow IX2), unlike Attio's hand-rolled CSS."
+  },
+  "notes": "Normalized from a noisy raw profile (2492 of ~2900 nodes were 16px body; sub-pixel sizes 22.4/21.6/28.6px and the dozen one-off heading sizes rounded to a coherent 8-step ramp). Two real families: Inter Variable for all UI/body, and the Reckless serif (raw 'Reckless, Georgia') reserved for display headlines and the pull-quote — confirmed by screenshot (every large headline is serif; everything else sans). Weights collapsed to 400/500/600 (raw 700 count=5 is noise). DUAL-CANVAS palette is the defining trait and the screenshot is ground truth here: light sections are white/#f7f8fa surfaces with #181822 ink and #6d6e87 muted; the brand 'rest' canvas is lavender #ddd6ff (hero) / #cdd2f8 + deep #260048 (footer); narrative sections invert to a near-black #21222f. Accent unified to violet #5e05c4 (the button/CTA fill, sampled exact); raw also shows a lighter #8f47d5 (icon/link tint) and pastel #ba9dff (kept as accent-soft). Green is the only semantic, used in the product-mock progress UI: text #0b885b on fill #a4f4cf / tint #d1f9e7. Amber #f9c71c appears once (the announcement-bar sparkle) — kept as a one-off highlight, not a UI color. Radii collapsed to 8px (cards), 16px (large panels), 9999px (pills/buttons); the 100%/50% entries are avatars/icons. Only two real shadows: a hairline card lift and one diffuse 30px glow on floating mock UI — most surfaces are flat, separated by the canvas color change, not shadow. Spacing on an 8px base; section rhythm jumps 32→64→80→128px. Transitions are overwhelmingly the house 0.2s ease (count 245); a few bespoke cubic-beziers used for scroll/hover."
+}

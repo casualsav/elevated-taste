@@ -1,0 +1,46 @@
+{
+  "color": {
+    "bg": "#070304",
+    "surface": "#070304",
+    "fg": "#cacaca",
+    "muted": "#767676",
+    "accent": "#ff4401",
+    "roles": {
+      "fg-active": "#cacaca",
+      "fg-body": "#767676",
+      "fg-body-2": "#6d6d6d",
+      "fg-inactive": "#6d6d6d",
+      "accent-fg": "#070304"
+    }
+  },
+  "type": {
+    "families": ["HelveticaNeue", "Helvetica", "sans-serif"],
+    "scale": ["0.71rem", "0.83rem", "18rem"],
+    "weights": [600],
+    "leading": [1.1, 1.3],
+    "tracking": ["-0.02em"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.125rem", "0.25rem", "2rem", "7.5rem"]
+  },
+  "radius": ["0", "4px"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["300ms", "750ms"],
+    "easings": ["cubic-bezier(0.25, 0.46, 0.45, 0.94)", "ease", "steps(1, start)"],
+    "triggers": ["load", "scroll-progress", "hover"],
+    "techniques": ["webgl-thumbnail-cube", "sticky-pin-scrollytelling", "ghost-index-hover", "marquee-ticker"],
+    "scroll_effects": [
+      { "name": "header/chrome pin", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "center identity-block pin", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "rotating 3D thumbnail cube (canvas)", "property": "transform", "trigger": "load", "safety": "spectacle-only" },
+      { "name": "ghost project index opacity 0.25->1", "property": "opacity", "trigger": "hover", "safety": "spectacle-only" },
+      { "name": "nw-marquee title crawl", "property": "transform", "trigger": "load", "safety": "spectacle-only" }
+    ],
+    "keyframes": ["pulse", "nw-marquee"],
+    "stack": ["Three.js", "GSAP (ScrollTrigger-style pins)", "CSS @keyframes", "<canvas> + requestAnimationFrame"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Palette taken from the screenshot, which is the source of truth: bg = rgb(7,3,4) #070304 (raw profile lists it once but the pixel histogram confirms it as the canvas); accent = rgb(255,68,1) #ff4401 — raw count was only 3 because the profile sampled a non-hero state, but the screenshot caught the giant orange wordmark mid-reveal and the histogram shows ~2000 orange pixels, so accent is the loud brand hue, not a one-off. fg roles: body greys #767676/#6d6d6d (raw-confirmed), active/emphasis #cacaca. This is a monochrome-plus-one-accent system; no semantic palette exists, so success/warning/danger are intentionally absent. Type collapsed to body ~0.71rem (11.4px) / nav ~0.83rem (13.3px) in a single 600 weight; the third 'scale' entry (~18rem) is a placeholder for the off-scale display wordmark, whose true size is far larger and animation-driven (not in the static profile) — treat as 'huge, set by viewport', not a literal token. Dropped a stray 700 weight (24 nodes) and a 6.67px outlier as one-offs. Leading from raw 14.9px/11.4px ~ 1.3 and 17.3px/13.3px ~ 1.3, rounded; tight tracking ~-0.02em (raw -0.228px on 11.4px). space: raw padding ~2-3px is the brutalist corner-label box padding (smallest step); structural gaps ~32px/~122px rounded to 2rem/7.5rem. radius mostly 0 (square chrome) with one ~3.8px node -> 4px. shadow none (flat on black). MOTION: the only easing in the static profile is 0.3s cubic-bezier(0.25,0.46,0.45,0.94) (ease-out-quad) for hover/state — production-safe and portable. The hero's continuous 3D cube rotation, perspective ticker crawl, and intro reveal are NOT in the computed-style profile (JS/WebGL-driven). MOTION BLOCK EXPANDED: probe counts ground it — Three.js + GSAP loaded, 1 canvas, ~4187 rAF/scroll pass = one continuous 3D render loop (the cube); 2 GSAP 'pin (fixed)' scroll_effects (header chrome + center identity block); 12 hover effects all opacity 0.25->1 (the ghost project index); only 2 @keyframes (pulse, nw-marquee). The cube WAS visible in the frame sequence (s00 flat tilted plane -> s06 full 3D box -> s09 rotated), so it is frame-grounded, not invented. The marquee/ticker crawl is inferred from the nw-marquee keyframe + duplicated titles in frames (the existing perspective-curved-ticker pattern). scroll_effects[*].property normalized to transform/opacity (the canvas cube and pins are transform-class; GSAP exposes no per-element from->to here). durations: 300ms (hover, real) + 750ms (staged reveal, real); easings add bare 'ease' and 'steps(1,start)' (the pulse keyframe stepping). reduced_motion: NOT respected (prmRules 0) — the headline a11y defect. CRAFT: states.focus/disabled empty (no button/card/input components captured); a11y focus_visible false, 184 interactive nodes all sub-44px tap targets, img_count 0 (thumbnails live in canvas -> no alt). grid 12-col desktop -> 4-col at 390px, no hamburger; visible layout is corner-anchored, not a content grid. Mobile screenshot was captured mid-load (black frame + '49%' loader) and yielded no usable layout data."
+}

@@ -1,0 +1,50 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#fafafa",
+    "fg": "#000000",
+    "muted": "#516880",
+    "accent": "#000000",
+    "roles": {
+      "ground-alt": "#fafafa",
+      "panel": "#f1f4f7",
+      "border": "#dce2ea",
+      "border-strong": "#a8b4bf",
+      "muted-fill": "#a8b4bf",
+      "inverse-bg": "#000000",
+      "inverse-fg": "#ffffff",
+      "link": "#0000ee"
+    }
+  },
+  "type": {
+    "families": ["Denton, \"Times New Roman\", serif", "Inter, Helvetica, Arial, sans-serif", "\"Invest Pro\", Helvetica, Arial, sans-serif"],
+    "roles": {
+      "display": "Denton, \"Times New Roman\", serif",
+      "ui": "Inter, Helvetica, Arial, sans-serif",
+      "data": "\"Invest Pro\", Helvetica, Arial, sans-serif"
+    },
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.5rem", "2rem", "3rem"],
+    "weights": [300, 400, 500],
+    "leading": [1.12, 1.5]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "8px", "12px", "16px", "24px", "32px", "40px", "56px", "60px", "112px", "160px"]
+  },
+  "radius": ["1px", "4px", "6px", "12px", "16px", "999px"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["100ms", "200ms", "240ms", "300ms"],
+    "easings": ["ease-in-out", "ease-out", "cubic-bezier(0.4, 0, 0.2, 1)", "cubic-bezier(0.215, 0.61, 0.355, 1)"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": ["sticky-header-backdrop", "rotating-gradient-cta-border", "in-view-fade-rise", "autoplay-demo-loop", "hover-dropdown-menu"],
+    "scroll_effects": [
+      { "name": "sticky-nav-pin", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "in-view-reveal", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "cta-border-turn", "property": "transform", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "position:fixed header", "autoplay <video> loops"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Normalized from a noisy profile. Sub-12px font sizes (9.2/9.9/12px etc.) are the dense legal/compliance footer, collapsed to a 0.75/0.875rem caption tier. The #0000EE blue (counts ~86) is almost entirely unstyled legal-footer links, NOT a decorative accent — recorded only as roles.link; the real action color is black. Zero box-shadows in the profile: separation is hairline borders (#dce2ea / #f1f4f7) + whitespace, so shadow is ['none']. Three type families confirmed: Denton (serif display, weight 300), Inter (UI/body 400), Invest Pro (numerals/data). H1 48px desktop / 32px mobile; body 16px both. Inverted full-black bands flip bg/fg. Motion is minimal: 7 fixed-position pins are all sticky header/nav chrome; rotating CTA glow = borderTurn keyframes (a turning conic gradient, not a cursor follower); 4 autoplay product videos."
+}

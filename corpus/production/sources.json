@@ -1,0 +1,3054 @@
+[
+  {
+    "slug": "acorns",
+    "url": "https://www.acorns.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "fintech",
+      "consumer",
+      "investing",
+      "app-marketing",
+      "b2c",
+      "illustration",
+      "mascot",
+      "green",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "soft",
+      "expressive"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "aesop",
+    "url": "https://www.aesop.com",
+    "source": "manual-pick",
+    "corpus": "production",
+    "captured": "2026-06-30",
+    "award_type": "Manual (ecommerce/luxury)",
+    "score": null,
+    "tags": [
+      "ecommerce",
+      "dtc",
+      "beauty",
+      "luxury",
+      "retail",
+      "editorial",
+      "restraint",
+      "light"
+    ],
+    "when_to_use": [
+      "ecommerce",
+      "product-marketing",
+      "landing",
+      "brand-experience",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "airtable",
+    "url": "https://www.airtable.com",
+    "source": "manual",
+    "corpus": "production",
+    "captured": "2026-09-07",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "saas",
+      "b2b",
+      "ai",
+      "enterprise",
+      "productivity",
+      "data-table"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero",
+      "navigation"
+    ],
+    "directions": [
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "aloud",
+    "url": "https://www.aloud.sh",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-09-28",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "ai",
+      "dev-tools",
+      "mac-app",
+      "productivity",
+      "saas",
+      "dark",
+      "monochrome"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero"
+    ],
+    "directions": [
+      "minimalist",
+      "soft"
+    ],
+    "gallery_url": "https://land-book.com/websites/100472-aloud-say-it-ship-it-feedback-your-coding-agent-can-run",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "appcues",
+    "url": "https://www.appcues.com",
+    "source": "manual",
+    "corpus": "production",
+    "captured": "2026-08-31",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "saas",
+      "b2b",
+      "product-marketing",
+      "warm",
+      "pastel",
+      "serif",
+      "editorial"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero"
+    ],
+    "directions": [
+      "soft",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "apple",
+    "url": "https://www.apple.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": "Editorial pick (canonical consumer-hardware retail front page)",
+    "score": null,
+    "tags": [
+      "consumer",
+      "hardware",
+      "retail",
+      "ecommerce",
+      "glass",
+      "light",
+      "product-marketing"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "navigation",
+      "ecommerce"
+    ],
+    "directions": [
+      "minimalist",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "arc",
+    "url": "https://arc.net",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Editorial pick (consumer-software brand marketing)",
+    "score": null,
+    "tags": [
+      "consumer",
+      "software",
+      "browser",
+      "productivity",
+      "b2c",
+      "brand",
+      "warm",
+      "expressive-restraint"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "brand-experience",
+      "feature-section",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "expressive",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "ardor",
+    "url": "https://ardor.cloud",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-10-12",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "ai",
+      "saas",
+      "b2b",
+      "developer-tools",
+      "soft",
+      "retro-tech",
+      "glass",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "pricing"
+    ],
+    "directions": [
+      "soft",
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": "https://land-book.com/websites/100986-ardor-one-ai-agent-that-builds-deploys-and-runs-apps",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "arena",
+    "url": "https://www.are.na",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": "Editorial pick (independent software / knowledge tool)",
+    "score": null,
+    "tags": [
+      "saas",
+      "knowledge-tool",
+      "editorial",
+      "indie",
+      "subscription",
+      "text-heavy",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "pricing",
+      "product-marketing",
+      "editorial",
+      "footer"
+    ],
+    "directions": [
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "attio",
+    "url": "https://attio.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-06-23",
+    "award_type": "Editorial pick (canonical CRM / data-product marketing)",
+    "score": null,
+    "tags": [
+      "saas",
+      "crm",
+      "b2b",
+      "data",
+      "ai",
+      "productivity",
+      "light",
+      "enterprise"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "landing",
+      "hero",
+      "feature-section",
+      "dashboard",
+      "data-table",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "baremetrics",
+    "url": "https://baremetrics.com",
+    "source": "manual",
+    "corpus": "production",
+    "captured": "2026-08-31",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "saas",
+      "analytics",
+      "dashboard",
+      "fintech",
+      "b2b",
+      "marketing",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero",
+      "dashboard"
+    ],
+    "directions": [
+      "soft",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "cal",
+    "url": "https://cal.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "saas",
+      "scheduling",
+      "b2b",
+      "developer-tools",
+      "open-source",
+      "light",
+      "monochrome",
+      "framer"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "navigation"
+    ],
+    "directions": [
+      "minimalist",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "cashapp",
+    "url": "https://cash.app",
+    "source": "manual-pick",
+    "corpus": "production",
+    "captured": "2026-06-30",
+    "award_type": "Manual (fintech/consumer)",
+    "score": null,
+    "tags": [
+      "fintech",
+      "consumer",
+      "payments",
+      "b2c",
+      "bold",
+      "brutalist",
+      "dark"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "brand-experience"
+    ],
+    "directions": [
+      "brutalist",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "charitywater",
+    "url": "https://www.charitywater.org",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "nonprofit",
+      "charity",
+      "donation",
+      "fundraising",
+      "photography",
+      "serif",
+      "yellow",
+      "light",
+      "b2c",
+      "trust"
+    ],
+    "when_to_use": [
+      "landing",
+      "hero",
+      "forms",
+      "product-marketing",
+      "feature-section"
+    ],
+    "directions": [
+      "editorial",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "clarionhealth",
+    "url": "https://www.clarionhealth.com",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-09-28",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "healthcare",
+      "saas",
+      "ai",
+      "b2b",
+      "editorial",
+      "warm",
+      "serif"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero",
+      "navigation"
+    ],
+    "directions": [
+      "editorial",
+      "soft"
+    ],
+    "gallery_url": "https://land-book.com/websites/100493-home",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "clerk",
+    "url": "https://clerk.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Editorial pick (canonical auth/dev marketing)",
+    "score": null,
+    "tags": [
+      "developer",
+      "auth",
+      "saas",
+      "b2b",
+      "product-marketing",
+      "dark",
+      "components"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "landing",
+      "feature-section",
+      "hero",
+      "auth",
+      "pricing",
+      "footer",
+      "navigation"
+    ],
+    "directions": [
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "colmez",
+    "url": "https://www.colmez.com",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-10-19",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "b2b",
+      "saas",
+      "dark",
+      "industrial",
+      "data",
+      "security"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero"
+    ],
+    "directions": [
+      "brutalist",
+      "editorial"
+    ],
+    "gallery_url": "https://land-book.com/websites/101080-colmez-powering-next-generation-hazardous-waste-teams",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "cooley",
+    "url": "https://www.cooley.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "legal",
+      "law-firm",
+      "professional-services",
+      "b2b",
+      "corporate",
+      "editorial",
+      "serif",
+      "red",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "hero",
+      "editorial",
+      "feature-section",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "editorial",
+      "expressive"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "copilot",
+    "url": "https://www.copilot.money",
+    "source": "manual-pick",
+    "corpus": "production",
+    "captured": "2026-06-30",
+    "award_type": "Manual (fintech/personal-finance)",
+    "score": null,
+    "tags": [
+      "fintech",
+      "personal-finance",
+      "consumer",
+      "ios",
+      "app",
+      "premium",
+      "dark",
+      "b2c"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "landing",
+      "hero"
+    ],
+    "directions": [
+      "minimalist",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "cursor",
+    "url": "https://cursor.com",
+    "source": "manual-pick",
+    "corpus": "production",
+    "captured": "2026-06-30",
+    "award_type": "Manual (ai/developer-tool)",
+    "score": null,
+    "tags": [
+      "ai",
+      "developer-tool",
+      "code-editor",
+      "b2b",
+      "product-marketing",
+      "warm-neutral",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section"
+    ],
+    "directions": [
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "decimals",
+    "url": "https://www.decimals.co",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-09-21",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "saas",
+      "agency",
+      "hiring",
+      "recruiting",
+      "b2b",
+      "editorial",
+      "warm",
+      "light",
+      "product-marketing"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "agency",
+      "footer"
+    ],
+    "directions": [
+      "editorial",
+      "soft"
+    ],
+    "gallery_url": "https://land-book.com/websites/98068-decimals-hire-vetted-designers",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "dishoom",
+    "url": "https://www.dishoom.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "restaurant",
+      "hospitality",
+      "food",
+      "brand",
+      "b2c",
+      "editorial",
+      "photography",
+      "serif",
+      "letterpress",
+      "warm",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "brand-experience",
+      "hero",
+      "editorial",
+      "feature-section"
+    ],
+    "directions": [
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "domaineworldwide",
+    "url": "https://domaineworldwide.com",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-10-05",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "agency",
+      "ecommerce",
+      "shopify",
+      "b2b",
+      "editorial",
+      "monochrome",
+      "portfolio"
+    ],
+    "when_to_use": [
+      "agency",
+      "portfolio",
+      "landing",
+      "feature-section",
+      "navigation"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": "https://land-book.com/websites/99836-ecommerce-website-design-and-development-shopify-agency-domaine-is-the-leading-shopify-partner-for-global-brands",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "emergent",
+    "url": "https://emergent.sh",
+    "source": "manual-pick",
+    "corpus": "production",
+    "captured": "2026-07-06",
+    "award_type": "Manual (owner pick)",
+    "score": null,
+    "tags": [
+      "ai",
+      "agents",
+      "saas",
+      "developer-tools",
+      "b2b",
+      "plg",
+      "light",
+      "pills",
+      "y-combinator"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "pricing",
+      "hero",
+      "auth",
+      "feature-section",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "minimalist",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "enode",
+    "url": "https://enode.com",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-10-26",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "energy",
+      "cleantech",
+      "climate",
+      "fintech",
+      "b2b",
+      "saas",
+      "developer",
+      "api",
+      "data-viz",
+      "mono"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero",
+      "footer"
+    ],
+    "directions": [
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": "https://land-book.com/websites/101538-enode-orchestrating-energy-for-the-next-grid",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "every",
+    "url": "https://every.to",
+    "source": "refresh",
+    "corpus": "production",
+    "captured": "2026-08-05",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "ai",
+      "media",
+      "publishing",
+      "editorial",
+      "dark",
+      "subscription",
+      "b2b",
+      "serif"
+    ],
+    "when_to_use": [
+      "editorial",
+      "blog",
+      "landing",
+      "product-marketing",
+      "footer"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "faire",
+    "url": "https://www.faire.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "ecommerce",
+      "marketplace",
+      "wholesale",
+      "b2b",
+      "retail",
+      "editorial",
+      "serif",
+      "light",
+      "photography"
+    ],
+    "when_to_use": [
+      "landing",
+      "ecommerce",
+      "product-marketing",
+      "feature-section",
+      "hero",
+      "navigation"
+    ],
+    "directions": [
+      "editorial",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "felt",
+    "url": "https://felt.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "gis",
+      "maps",
+      "geospatial",
+      "saas",
+      "b2b",
+      "data",
+      "dark",
+      "green",
+      "webflow"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "navigation"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "figma",
+    "url": "https://www.figma.com",
+    "source": "Reference",
+    "corpus": "production",
+    "captured": "2026-06-24",
+    "award_type": "Reference",
+    "score": null,
+    "tags": [
+      "saas",
+      "design-tool",
+      "creative",
+      "collaboration",
+      "b2b",
+      "multi-color",
+      "expressive-but-shipping"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "interactive-showcase",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "expressive",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "fillout",
+    "url": "https://www.fillout.com",
+    "source": "manual",
+    "corpus": "production",
+    "captured": "2026-08-24",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "saas",
+      "b2b",
+      "forms",
+      "product-marketing",
+      "ai",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero",
+      "forms",
+      "navigation"
+    ],
+    "directions": [
+      "soft",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "framer",
+    "url": "https://framer.com",
+    "source": "refresh",
+    "corpus": "production",
+    "captured": "2026-09-05",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "saas",
+      "ai",
+      "design-tool",
+      "dark",
+      "product-marketing",
+      "b2b",
+      "bento"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero"
+    ],
+    "directions": [
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "gjelina",
+    "url": "https://gjelina.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "restaurant",
+      "hospitality",
+      "food",
+      "local-business",
+      "multi-location",
+      "photography",
+      "warm",
+      "light",
+      "condensed-type"
+    ],
+    "when_to_use": [
+      "landing",
+      "hero",
+      "feature-section",
+      "navigation"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "grafana-play",
+    "url": "https://play.grafana.org",
+    "source": "manual",
+    "corpus": "production",
+    "captured": "2026-08-24",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "dashboard",
+      "observability",
+      "data-viz",
+      "dark",
+      "b2b",
+      "saas",
+      "app-shell"
+    ],
+    "when_to_use": [
+      "dashboard",
+      "data-table",
+      "navigation",
+      "settings",
+      "empty-state"
+    ],
+    "directions": [
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "gumloop",
+    "url": "https://www.gumloop.com",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-10-26",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "ai",
+      "b2b",
+      "saas",
+      "agents",
+      "enterprise",
+      "product-marketing",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "minimalist",
+      "soft"
+    ],
+    "gallery_url": "https://land-book.com/websites/101533-gumloop-build-ai-agents-for-work",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "gumroad",
+    "url": "https://gumroad.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "creator-economy",
+      "marketplace",
+      "ecommerce",
+      "saas",
+      "b2c",
+      "neo-brutalism",
+      "illustration",
+      "brand-forward",
+      "light",
+      "dark"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "ecommerce",
+      "navigation"
+    ],
+    "directions": [
+      "brutalist",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "haptic",
+    "url": "https://www.haptic.studio",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-10-05",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "agency",
+      "portfolio",
+      "design-studio",
+      "b2b",
+      "light",
+      "framer",
+      "editorial"
+    ],
+    "when_to_use": [
+      "portfolio",
+      "agency",
+      "landing",
+      "feature-section"
+    ],
+    "directions": [
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": "https://land-book.com/websites/100677-haptic-a-a-design-studio-for-startups-and-scaleups",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "headspace",
+    "url": "https://www.headspace.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "health",
+      "wellness",
+      "mental-health",
+      "consumer",
+      "app-marketing",
+      "b2c",
+      "illustration",
+      "mascot",
+      "light",
+      "warm"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "navigation",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "soft",
+      "expressive"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "hoxton",
+    "url": "https://thehoxton.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "hospitality",
+      "hotel",
+      "travel",
+      "booking",
+      "b2c",
+      "photography",
+      "cream",
+      "warm",
+      "carousel",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "navigation",
+      "hero",
+      "ecommerce",
+      "feature-section"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "knock",
+    "url": "https://knock.app",
+    "source": "manual",
+    "corpus": "production",
+    "captured": "2026-09-21",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "saas",
+      "b2b",
+      "dev-tools",
+      "infrastructure",
+      "developer-tools",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "dashboard",
+      "settings"
+    ],
+    "directions": [
+      "minimalist",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "land-book",
+    "url": "https://solidroad.com",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-06-29",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "saas",
+      "b2b",
+      "ai",
+      "cx",
+      "customer-support",
+      "enterprise",
+      "warm-neutral",
+      "serif",
+      "photographic",
+      "framer"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "interactive-showcase",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "editorial",
+      "soft"
+    ],
+    "gallery_url": "https://land-book.com/",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "lapa",
+    "url": "https://www.foundation-labs.xyz",
+    "source": "lapa",
+    "corpus": "production",
+    "captured": "2026-06-29",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "agency",
+      "portfolio",
+      "brand",
+      "web3",
+      "nft",
+      "creative",
+      "brutalist",
+      "monospace",
+      "type-driven",
+      "acid"
+    ],
+    "when_to_use": [
+      "brand-experience",
+      "portfolio",
+      "agency",
+      "hero",
+      "navigation",
+      "footer",
+      "landing",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "brutalist",
+      "expressive"
+    ],
+    "gallery_url": "https://www.lapa.ninja/",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "lassie",
+    "url": "https://www.lassie.ai",
+    "source": "manual-pick",
+    "corpus": "production",
+    "captured": "2026-06-30",
+    "award_type": "Manual (healthcare AI / B2B automation product marketing)",
+    "score": null,
+    "tags": [
+      "ai",
+      "healthcare",
+      "health-tech",
+      "b2b",
+      "saas",
+      "automation",
+      "agents",
+      "revenue-cycle",
+      "serif",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "lightspark",
+    "url": "https://www.lightspark.com",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-10-12",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "fintech",
+      "api",
+      "payments",
+      "stablecoin",
+      "b2b",
+      "saas",
+      "developer-tools",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "navigation"
+    ],
+    "directions": [
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": "https://land-book.com/websites/100969-lightspark-the-api-for-money-accounts-payments-cards",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "linear",
+    "url": "https://linear.app",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Editorial pick (canonical product UI)",
+    "score": null,
+    "tags": [
+      "saas",
+      "product",
+      "project-management",
+      "dark",
+      "data-dense",
+      "dev-tool",
+      "ai",
+      "developer-tool"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "feature-section",
+      "dashboard",
+      "changelog",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "maven",
+    "url": "https://maven.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "education",
+      "marketplace",
+      "courses",
+      "ai",
+      "b2c",
+      "dark",
+      "serif",
+      "catalog"
+    ],
+    "when_to_use": [
+      "landing",
+      "ecommerce",
+      "navigation",
+      "feature-section",
+      "hero"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "mcmaster",
+    "url": "https://www.mcmaster.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": "Editorial pick (canonical dense-catalog UI)",
+    "score": null,
+    "tags": [
+      "industrial",
+      "ecommerce",
+      "catalog",
+      "b2b",
+      "supplier",
+      "procurement",
+      "data-dense",
+      "utilitarian",
+      "legacy",
+      "light"
+    ],
+    "when_to_use": [
+      "ecommerce",
+      "navigation",
+      "landing",
+      "footer"
+    ],
+    "directions": [
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "mercury",
+    "url": "https://mercury.com",
+    "source": "manual-pick",
+    "corpus": "production",
+    "captured": "2026-06-30",
+    "award_type": "Manual (fintech/dashboard)",
+    "score": null,
+    "tags": [
+      "fintech",
+      "banking",
+      "b2b",
+      "dashboard",
+      "premium",
+      "minimal",
+      "dark",
+      "dual-theme"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero",
+      "navigation",
+      "pricing"
+    ],
+    "directions": [
+      "minimalist",
+      "soft"
+    ],
+    "gallery_url": "https://mercury.com",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "metabase",
+    "url": "https://www.metabase.com",
+    "source": "manual",
+    "corpus": "production",
+    "captured": "2026-09-07",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "saas",
+      "analytics",
+      "bi",
+      "dashboard",
+      "data-table",
+      "ai",
+      "open-source",
+      "b2b",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "dashboard",
+      "data-table"
+    ],
+    "directions": [
+      "soft",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "mintlify",
+    "url": "https://mintlify.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Editorial pick (canonical docs/dev-tool marketing)",
+    "score": null,
+    "tags": [
+      "saas",
+      "developer",
+      "docs",
+      "ai",
+      "b2b",
+      "product-marketing"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "docs",
+      "feature-section",
+      "hero",
+      "changelog",
+      "navigation"
+    ],
+    "directions": [
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "monzo",
+    "url": "https://monzo.com",
+    "source": "manual-pick",
+    "corpus": "production",
+    "captured": "2026-06-30",
+    "award_type": "Manual (fintech/neobank)",
+    "score": null,
+    "tags": [
+      "fintech",
+      "neobank",
+      "consumer",
+      "banking",
+      "b2c",
+      "bold",
+      "coral",
+      "app-marketing"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "brand-experience"
+    ],
+    "directions": [
+      "expressive",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "noth",
+    "url": "https://www.noth.in",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-09-28",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "portfolio",
+      "agency",
+      "creative-studio",
+      "monochrome",
+      "motion",
+      "gsap",
+      "webflow",
+      "dark"
+    ],
+    "when_to_use": [
+      "portfolio",
+      "agency",
+      "interactive-showcase",
+      "hero"
+    ],
+    "directions": [
+      "minimalist",
+      "editorial",
+      "expressive"
+    ],
+    "gallery_url": "https://land-book.com/websites/100445-nothin-home",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "notion",
+    "url": "https://www.notion.com",
+    "source": "Reference",
+    "corpus": "production",
+    "captured": "2026-06-24",
+    "award_type": "Reference",
+    "score": null,
+    "tags": [
+      "saas",
+      "productivity",
+      "ai",
+      "b2b",
+      "collaboration",
+      "light",
+      "warm-neutral",
+      "enterprise"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "landing",
+      "hero",
+      "feature-section",
+      "navigation",
+      "footer",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "minimalist",
+      "soft",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "ourplace",
+    "url": "https://fromourplace.com",
+    "source": "manual-pick",
+    "corpus": "production",
+    "captured": "2026-06-30",
+    "award_type": "Manual (ecommerce/dtc)",
+    "score": null,
+    "tags": [
+      "ecommerce",
+      "dtc",
+      "cookware",
+      "home",
+      "warm",
+      "editorial",
+      "light",
+      "product"
+    ],
+    "when_to_use": [
+      "ecommerce",
+      "product-marketing",
+      "landing",
+      "brand-experience",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "editorial",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "outerbloc",
+    "url": "https://outerbloc.com",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "agency",
+      "design-studio",
+      "portfolio",
+      "branding",
+      "editorial",
+      "warm-neutral",
+      "framer"
+    ],
+    "when_to_use": [
+      "agency",
+      "portfolio",
+      "brand-experience",
+      "hero",
+      "footer",
+      "navigation",
+      "feature-section"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": "https://land-book.com/",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "pitch",
+    "url": "https://pitch.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-06-23",
+    "award_type": "Editorial pick (canonical presentation / deck SaaS — motion-led product marketing)",
+    "score": null,
+    "tags": [
+      "saas",
+      "presentations",
+      "ai",
+      "b2b",
+      "productivity",
+      "dark",
+      "purple",
+      "brand",
+      "motion-dense",
+      "framer"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "landing",
+      "hero",
+      "feature-section",
+      "interactive-showcase",
+      "hero-spectacle",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "expressive",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "plaid",
+    "url": "https://plaid.com",
+    "source": "manual",
+    "corpus": "production",
+    "captured": "2026-09-07",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "fintech",
+      "saas",
+      "b2b",
+      "developer-platform",
+      "api",
+      "marketing",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero",
+      "footer"
+    ],
+    "directions": [
+      "soft",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "posthog",
+    "url": "https://posthog.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "saas",
+      "devtools",
+      "analytics",
+      "b2b",
+      "playful",
+      "illustrated",
+      "anti-minimalist",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "brand-experience"
+    ],
+    "directions": [
+      "expressive",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "public",
+    "url": "https://public.com",
+    "source": "manual-pick",
+    "corpus": "production",
+    "captured": "2026-06-30",
+    "award_type": "Manual (fintech/investing)",
+    "score": null,
+    "tags": [
+      "fintech",
+      "investing",
+      "consumer",
+      "b2c",
+      "premium",
+      "data",
+      "app-marketing"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section"
+    ],
+    "directions": [
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "quanta",
+    "url": "https://www.quantamagazine.org",
+    "source": "manual-pick",
+    "corpus": "production",
+    "captured": "2026-06-30",
+    "award_type": "Manual (editorial/science)",
+    "score": null,
+    "tags": [
+      "editorial",
+      "publication",
+      "science",
+      "magazine",
+      "long-form",
+      "illustrated",
+      "light",
+      "serif"
+    ],
+    "when_to_use": [
+      "editorial",
+      "blog",
+      "landing",
+      "navigation",
+      "footer",
+      "feature-section"
+    ],
+    "directions": [
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "radix",
+    "url": "https://www.radix-ui.com",
+    "source": "Reference",
+    "corpus": "production",
+    "captured": "2026-06-24",
+    "award_type": "Reference",
+    "score": null,
+    "tags": [
+      "developer-tool",
+      "design-system",
+      "component-library",
+      "open-source",
+      "b2b",
+      "light",
+      "react"
+    ],
+    "when_to_use": [
+      "docs",
+      "product-marketing",
+      "landing",
+      "hero",
+      "feature-section",
+      "interactive-showcase",
+      "forms",
+      "navigation"
+    ],
+    "directions": [
+      "minimalist",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "railway",
+    "url": "https://railway.app",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Editorial pick (canonical developer-platform marketing)",
+    "score": null,
+    "tags": [
+      "saas",
+      "developer",
+      "infrastructure",
+      "cloud",
+      "devops",
+      "b2b",
+      "dark",
+      "illustrated"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "landing",
+      "feature-section",
+      "hero",
+      "hero-spectacle",
+      "brand-experience",
+      "footer"
+    ],
+    "directions": [
+      "editorial",
+      "expressive"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "rainbow",
+    "url": "https://rainbow.me",
+    "source": "manual-pick",
+    "corpus": "production",
+    "captured": "2026-06-30",
+    "award_type": "Manual (crypto/wallet)",
+    "score": null,
+    "tags": [
+      "crypto",
+      "web3",
+      "wallet",
+      "consumer",
+      "fintech",
+      "playful",
+      "colorful",
+      "b2c",
+      "app-marketing"
+    ],
+    "when_to_use": [
+      "landing",
+      "hero",
+      "product-marketing",
+      "feature-section",
+      "brand-experience"
+    ],
+    "directions": [
+      "expressive",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "ramp",
+    "url": "https://ramp.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "fintech",
+      "saas",
+      "b2b",
+      "spend-management",
+      "ai",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "rauno",
+    "url": "https://rauno.me",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": "Editorial pick (interaction-design portfolio)",
+    "score": null,
+    "tags": [
+      "portfolio",
+      "personal-site",
+      "design-engineering",
+      "swiss",
+      "monochrome",
+      "typography",
+      "horizontal-scroll"
+    ],
+    "when_to_use": [
+      "portfolio",
+      "navigation",
+      "interactive-showcase",
+      "hero"
+    ],
+    "directions": [
+      "minimalist",
+      "brutalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "resend",
+    "url": "https://resend.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Editorial pick (canonical developer-tool marketing)",
+    "score": null,
+    "tags": [
+      "saas",
+      "developer",
+      "email",
+      "api",
+      "b2b",
+      "dark",
+      "dev-tool"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "feature-section",
+      "hero",
+      "docs",
+      "landing",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "retool",
+    "url": "https://retool.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Editorial pick (canonical product/dev marketing)",
+    "score": null,
+    "tags": [
+      "saas",
+      "b2b",
+      "developer",
+      "internal-tools",
+      "ai",
+      "dark",
+      "enterprise"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "interactive-showcase",
+      "landing",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "minimalist",
+      "expressive"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "rhode",
+    "url": "https://www.rhodeskin.com",
+    "source": "manual-pick",
+    "corpus": "production",
+    "captured": "2026-06-30",
+    "award_type": "Manual (ecommerce/dtc)",
+    "score": null,
+    "tags": [
+      "ecommerce",
+      "dtc",
+      "beauty",
+      "skincare",
+      "minimal",
+      "light",
+      "product",
+      "retail"
+    ],
+    "when_to_use": [
+      "ecommerce",
+      "product-marketing",
+      "landing",
+      "hero",
+      "brand-experience",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "round",
+    "url": "https://round.ai",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "saas",
+      "ai",
+      "b2b",
+      "landing",
+      "enterprise"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "landing",
+      "feature-section"
+    ],
+    "directions": [
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": "https://land-book.com/websites/96385-round-build-ai-agents-for-every-customer",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "router",
+    "url": "https://router.com",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-10-19",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "ai",
+      "llm",
+      "fintech",
+      "developer",
+      "b2b",
+      "saas",
+      "mono",
+      "data-viz"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero",
+      "footer"
+    ],
+    "directions": [
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": "https://land-book.com/websites/100965-ramp-router-the-llm-gateway-that-cuts-inference-costs",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "semafor",
+    "url": "https://www.semafor.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "news",
+      "media",
+      "journalism",
+      "editorial",
+      "print",
+      "serif",
+      "cream",
+      "light",
+      "information-dense"
+    ],
+    "when_to_use": [
+      "editorial",
+      "blog",
+      "navigation"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "sentry",
+    "url": "https://sentry.io",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Editorial pick (developer-tool marketing with brand personality)",
+    "score": null,
+    "tags": [
+      "developer",
+      "observability",
+      "devtools",
+      "saas",
+      "b2b",
+      "dark",
+      "illustration",
+      "mascot"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "landing",
+      "hero",
+      "feature-section",
+      "footer",
+      "brand-experience"
+    ],
+    "directions": [
+      "expressive",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "shadcn",
+    "url": "https://ui.shadcn.com",
+    "source": "manual-pick",
+    "corpus": "production",
+    "captured": "2026-06-30",
+    "award_type": "Manual (dashboard/components)",
+    "score": null,
+    "tags": [
+      "developer-tool",
+      "design-system",
+      "component-library",
+      "dashboard",
+      "app-ui",
+      "open-source",
+      "b2b",
+      "light",
+      "react",
+      "neutral"
+    ],
+    "when_to_use": [
+      "dashboard",
+      "data-table",
+      "settings",
+      "forms",
+      "interactive-showcase",
+      "docs",
+      "navigation",
+      "hero"
+    ],
+    "directions": [
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "shopify-checkout",
+    "url": "https://www.shopify.com/checkout",
+    "source": "manual",
+    "corpus": "production",
+    "captured": "2026-08-31",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "ecommerce",
+      "saas",
+      "b2b",
+      "fintech",
+      "dark",
+      "product-marketing",
+      "variable-font"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "feature-section",
+      "landing",
+      "interactive-showcase",
+      "checkout"
+    ],
+    "directions": [
+      "minimalist",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "societies",
+    "url": "https://societies.ai",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-10-26",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "ai",
+      "b2b",
+      "research",
+      "editorial",
+      "enterprise"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": "https://land-book.com/websites/101530-artificial-societies-understand-people-make-better-decisions",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "stripe-checkout",
+    "url": "https://checkout.stripe.dev",
+    "source": "manual",
+    "corpus": "production",
+    "captured": "2026-08-24",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "fintech",
+      "saas",
+      "b2b",
+      "payments",
+      "product-configurator",
+      "light",
+      "forms"
+    ],
+    "when_to_use": [
+      "checkout",
+      "onboarding",
+      "settings",
+      "forms",
+      "dashboard"
+    ],
+    "directions": [
+      "soft",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "stripe",
+    "url": "https://stripe.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Editorial pick (canonical product/dev marketing)",
+    "score": null,
+    "tags": [
+      "fintech",
+      "developer",
+      "product-marketing",
+      "enterprise",
+      "saas",
+      "logo-wall",
+      "stat-row"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "docs",
+      "pricing",
+      "feature-section",
+      "hero"
+    ],
+    "directions": [
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "stripepress",
+    "url": "https://press.stripe.com",
+    "source": "manual-pick",
+    "corpus": "production",
+    "captured": "2026-06-30",
+    "award_type": "Manual (editorial/publishing)",
+    "score": null,
+    "tags": [
+      "editorial",
+      "publishing",
+      "books",
+      "serif",
+      "dark",
+      "3d",
+      "craft",
+      "catalogue"
+    ],
+    "when_to_use": [
+      "landing",
+      "hero",
+      "portfolio",
+      "ecommerce",
+      "brand-experience"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": "https://press.stripe.com",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "supabase",
+    "url": "https://supabase.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "saas",
+      "developer-tools",
+      "database",
+      "b2b",
+      "open-source",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "interactive-showcase",
+      "navigation"
+    ],
+    "directions": [
+      "minimalist",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "swiper",
+    "url": "https://swiperjs.com",
+    "source": "Reference",
+    "corpus": "production",
+    "captured": "2026-06-24",
+    "award_type": "Reference",
+    "score": null,
+    "tags": [
+      "open-source",
+      "library",
+      "developer-tool",
+      "dark",
+      "carousel",
+      "slider",
+      "interaction",
+      "frontend"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "landing",
+      "hero",
+      "feature-section",
+      "docs",
+      "navigation",
+      "footer",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "minimalist",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "tailwindcss",
+    "url": "https://tailwindcss.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": "Editorial pick (canonical dev-tool marketing)",
+    "score": null,
+    "tags": [
+      "dev-tool",
+      "developer-tool",
+      "css",
+      "open-source",
+      "docs",
+      "saas",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero",
+      "docs",
+      "interactive-showcase",
+      "footer"
+    ],
+    "directions": [
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "teak",
+    "url": "https://teak.io",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "saas",
+      "b2b",
+      "gaming",
+      "landing",
+      "product-marketing",
+      "developer-tool"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "landing",
+      "feature-section",
+      "hero"
+    ],
+    "directions": [
+      "soft",
+      "editorial"
+    ],
+    "gallery_url": "https://land-book.com/websites/96398-teak-retention-engine-for-top-grossing-f2p-games",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "tend",
+    "url": "https://www.hellotend.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": "Editorial Pick",
+    "score": null,
+    "tags": [
+      "healthcare",
+      "dental",
+      "clinic",
+      "local-business",
+      "booking",
+      "consumer",
+      "warm",
+      "serif"
+    ],
+    "when_to_use": [
+      "landing",
+      "hero",
+      "feature-section",
+      "navigation",
+      "product-marketing"
+    ],
+    "directions": [
+      "soft",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "theresonance",
+    "url": "https://viewport.theresonance.studio",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-09-21",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "saas",
+      "mac-app",
+      "product-marketing",
+      "dark",
+      "developer-tools",
+      "design-tools"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "pricing",
+      "feature-section",
+      "changelog"
+    ],
+    "directions": [
+      "minimalist",
+      "soft"
+    ],
+    "gallery_url": "https://land-book.com/websites/99424-viewport-macos-screen-recorder-for-designers",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "thrad",
+    "url": "https://www.thrad.ai",
+    "source": "landbook",
+    "corpus": "production",
+    "captured": "2026-10-19",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "ai",
+      "adtech",
+      "b2b",
+      "saas",
+      "dsp",
+      "warm",
+      "editorial",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist",
+      "soft"
+    ],
+    "gallery_url": "https://land-book.com/websites/101267-thrad-paid-ads-in-ai-the-dsp-for-llms",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "typeform",
+    "url": "https://www.typeform.com",
+    "source": "manual",
+    "corpus": "production",
+    "captured": "2026-08-24",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "saas",
+      "forms",
+      "ai",
+      "b2b",
+      "marketing",
+      "purple",
+      "dark",
+      "serif-display",
+      "webflow"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "forms"
+    ],
+    "directions": [
+      "editorial",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "userflow",
+    "url": "https://userflow.com",
+    "source": "manual",
+    "corpus": "production",
+    "captured": "2026-08-31",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "saas",
+      "b2b",
+      "product-adoption",
+      "onboarding",
+      "ai",
+      "playful",
+      "light"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero",
+      "onboarding"
+    ],
+    "directions": [
+      "soft",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "v0",
+    "url": "https://v0.app",
+    "source": "manual-pick",
+    "corpus": "production",
+    "captured": "2026-06-30",
+    "award_type": "Manual (ai/generative-ui)",
+    "score": null,
+    "tags": [
+      "ai",
+      "generative-ui",
+      "developer-tool",
+      "dark",
+      "product",
+      "vercel",
+      "b2b",
+      "saas"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "empty-state",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "vanta",
+    "url": "https://vanta.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Editorial pick (canonical B2B trust/compliance marketing)",
+    "score": null,
+    "tags": [
+      "saas",
+      "b2b",
+      "security",
+      "compliance",
+      "grc",
+      "fintech-adjacent",
+      "ai",
+      "enterprise"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero"
+    ],
+    "directions": [
+      "editorial",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "vercel",
+    "url": "https://vercel.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Editorial pick (canonical developer-platform marketing)",
+    "score": null,
+    "tags": [
+      "saas",
+      "developer",
+      "infrastructure",
+      "ai",
+      "b2b",
+      "enterprise",
+      "dev-tool",
+      "developer-tool"
+    ],
+    "when_to_use": [
+      "product-marketing",
+      "landing",
+      "feature-section",
+      "hero",
+      "navigation"
+    ],
+    "directions": [
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "warp",
+    "url": "https://warp.dev",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-06-22",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "devtools",
+      "ai",
+      "terminal",
+      "developer-tool",
+      "b2b",
+      "saas",
+      "warm-neutral"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "feature-section",
+      "hero",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "whoop",
+    "url": "https://www.whoop.com",
+    "source": "editorial-pick",
+    "corpus": "production",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "wearable",
+      "health",
+      "fitness",
+      "hardware",
+      "subscription",
+      "consumer",
+      "b2c",
+      "ecommerce",
+      "dark"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "pricing",
+      "feature-section"
+    ],
+    "directions": [
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "worksinprogress",
+    "url": "https://worksinprogress.co",
+    "source": "manual-pick",
+    "corpus": "production",
+    "captured": "2026-06-30",
+    "award_type": "Manual (editorial/long-form)",
+    "score": null,
+    "tags": [
+      "editorial",
+      "publication",
+      "magazine",
+      "long-form",
+      "reading",
+      "serif",
+      "light",
+      "print-inspired"
+    ],
+    "when_to_use": [
+      "editorial",
+      "blog",
+      "navigation",
+      "footer",
+      "hero",
+      "feature-section"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  }
+]

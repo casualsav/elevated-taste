@@ -1,0 +1,65 @@
+{
+  "color": {
+    "bg": "#02090a",
+    "surface": "#ffffff",
+    "fg": "#ffffff",
+    "muted": "#a1a1aa",
+    "accent": "#8645f6",
+    "roles": {
+      "ground-black": "#000000",
+      "ground-navy": "#01072c",
+      "ink-on-light": "#000000",
+      "ink-body-on-light": "rgba(0,0,0,0.6)",
+      "muted-on-light": "#737373",
+      "shoppay-purple": "#6639f6",
+      "shoppay-purple-shade": "#4321b4",
+      "shoppay-purple-tint": "#7951ff",
+      "brand-lime": "#e7fe8e",
+      "brand-mint": "#36f4a4",
+      "hairline-light": "#e5e7eb",
+      "danger": "#f54344",
+      "link-blue": "#1879b9"
+    }
+  },
+  "type": {
+    "families": ["Shopify-Inter", "Inter", "system-ui", "sans-serif"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.25rem", "1.5rem", "1.875rem", "2.25rem", "2.75rem", "3.5rem", "4rem", "6rem"],
+    "weights": [300, 400, 420, 450, 550],
+    "leading": [1.0, 1.1, 1.5, 1.575],
+    "tracking_ramp": { "6rem": "-0.015em", "3.5rem": "-0.01em", "1.5rem": "-0.01em", "1rem": "-0.01em", "0.75rem-caps": "0.06em" },
+    "features": ["tnum"]
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["0.25rem", "0.5rem", "1rem", "1.5rem", "2rem", "2.5rem", "4rem", "5rem", "8rem"],
+    "section_padding_block": ["80px", "128px"]
+  },
+  "radius": {
+    "sm": "4px",
+    "md": "8px",
+    "lg": "12px",
+    "card": "16px",
+    "section": "48px",
+    "pill": "9999px"
+  },
+  "shadow": {
+    "float": "0 30px 40px -15px rgba(0,0,0,0.2)",
+    "card": "0 8px 48px rgba(6,6,8,0.08), 0 4px 8px rgba(24,24,27,0.04), 0 0 2px rgba(24,24,27,0.25)"
+  },
+  "container": { "max": "72rem", "content": "600px" },
+  "motion": {
+    "durations": ["150ms", "200ms", "300ms", "500ms"],
+    "easings": ["cubic-bezier(0.4, 0, 0.2, 1)", "cubic-bezier(0.215, 0.61, 0.355, 1)", "cubic-bezier(0, 0, 0.2, 1)"],
+    "triggers": ["scroll-progress", "in-view", "scroll"],
+    "techniques": ["sticky-pin-scrollytelling", "in-view-fade-rise", "media-parallax", "pinned-header-state"],
+    "scroll_effects": [
+      { "name": "annotated-demo-pin", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "capability-pill-reveal", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "section-fade-rise", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "embedded-media-parallax", "property": "transform", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS position:sticky", "CSS transitions"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Grounds are per-band, not one palette — the page stacks near-black / Shop-Pay purple / white / navy bands, each stitched with a large top radius (section=~48px, real token --radius-theme-5xl). Type scale is responsive token-swap (no clamp; craft.fluid_type=false); values listed are the composite across breakpoints, display=--text-dsp 6rem. Weights are variable-font micro-steps (420/450/550), normalized from raw 400/420/450/550. dark palette OMITTED: the page is dark-first by design but does not re-theme (desktop-dark.png == desktop.png), so craft.theme.dark is just the page's own dark bands, not a toggle. Accent purple is singular; lime/mint appear only as brand-sample decoration."
+}

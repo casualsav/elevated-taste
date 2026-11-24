@@ -1,0 +1,509 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ledger — Web Design Taste · motion toolkit demo</title>
+<meta name="description" content="Elaborate mobile demo built from the Attio production exemplar + the corpus motion toolkit: clip-reveal, count-up, marquee, magnetic CTA, parallax, scroll-progress gauge, horizontal scroll-pin, sticky scrollytelling, and a scroll-reveal page transition. Add ?labels to annotate each technique.">
+<style>
+  /* ── Tokens: verbatim house values from /tokens/tokens.css ── */
+  :root {
+    --color-bg:#ffffff; --color-surface:#f7f8fa; --color-surface-2:#eef0f3;
+    --color-fg:#0b0d12; --color-muted:#5b6472; --color-subtle:#8b94a3; --color-border:#e3e6eb;
+    --color-accent:#2f6df6; --color-accent-fg:#ffffff; --color-success:#1f9d57; --color-focus:#2f6df6;
+    --color-surface-inverse:#0b0d12; --color-fg-inverse:#ffffff; --color-border-inverse:rgba(255,255,255,0.16);
+    --font-sans:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-mono:ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+    --text-xs:0.75rem; --text-sm:0.875rem; --text-base:1rem; --text-md:1.125rem; --text-lg:1.25rem;
+    --text-xl:1.5rem; --text-2xl:1.875rem; --text-3xl:2.25rem; --text-4xl:3rem; --text-5xl:3.75rem; --text-display:4.5rem;
+    --weight-regular:400; --weight-medium:500; --weight-semibold:600; --weight-bold:700;
+    --leading-tight:1.1; --leading-snug:1.25; --leading-normal:1.5; --leading-relaxed:1.7;
+    --tracking-tight:-0.02em; --tracking-normal:0em; --tracking-wide:0.04em;
+    --space-1:0.25rem; --space-2:0.5rem; --space-3:0.75rem; --space-4:1rem; --space-5:1.5rem;
+    --space-6:2rem; --space-7:3rem; --space-8:4rem; --space-9:6rem; --space-10:8rem;
+    --radius-sm:4px; --radius-md:8px; --radius-lg:12px; --radius-xl:16px; --radius-full:9999px;
+    --shadow-sm:0 1px 2px rgba(11,13,18,0.06); --shadow-md:0 4px 12px rgba(11,13,18,0.08); --shadow-lg:0 12px 32px rgba(11,13,18,0.12);
+    --duration-fast:120ms; --duration-base:200ms; --duration-slow:320ms;
+    --ease-standard:cubic-bezier(0.2,0,0,1); --ease-entrance:cubic-bezier(0,0,0,1); --ease-exit:cubic-bezier(0.3,0,1,1);
+    --container-sm:640px;
+    --tint-blue-bg:#e5eeff; --tint-blue-fg:#1d4ed8; --tint-green-bg:#ddf9e4; --tint-green-fg:#157f43;
+    --tint-amber-bg:#fdeccd; --tint-amber-fg:#8a5300; --tint-violet-bg:#ece7fe; --tint-violet-fg:#5b34d6;
+  }
+
+  *,*::before,*::after{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{ margin:0; font-family:var(--font-sans); font-weight:var(--weight-medium); font-size:var(--text-base);
+    line-height:var(--leading-normal); color:var(--color-fg); background:var(--color-bg); -webkit-font-smoothing:antialiased; }
+  .wrap{ max-width:var(--container-sm); margin:0 auto; padding-inline:var(--space-5); }
+  h1,h2,h3{ margin:0; font-weight:var(--weight-semibold); letter-spacing:var(--tracking-tight); line-height:var(--leading-tight); }
+  p{ margin:0; }
+  a{ color:var(--color-accent); text-decoration:none; }
+  svg.lucide{ width:1.15em; height:1.15em; stroke-width:2; }
+  :where(a,button):focus-visible{ outline:2px solid var(--color-focus); outline-offset:2px; border-radius:var(--radius-sm); }
+
+  .display{ font-size:var(--text-4xl); letter-spacing:var(--tracking-tight); line-height:var(--leading-tight); }
+  .eyebrow{ font-family:var(--font-mono); font-size:var(--text-xs); font-weight:var(--weight-medium);
+    letter-spacing:var(--tracking-wide); text-transform:uppercase; color:var(--color-subtle); }
+  .lede{ font-size:var(--text-md); color:var(--color-muted); font-weight:var(--weight-medium); }
+  .muted{ color:var(--color-muted); }
+
+  header.site{ position:sticky; top:0; z-index:20; background:color-mix(in srgb,var(--color-bg) 86%,transparent);
+    backdrop-filter:saturate(1.4) blur(8px); border-bottom:1px solid transparent; transition:border-color var(--duration-base) var(--ease-standard); }
+  header.site.scrolled{ border-bottom-color:var(--color-border); }
+  .nav{ display:flex; align-items:center; justify-content:space-between; height:var(--space-8); }
+  .brand{ display:inline-flex; align-items:center; gap:var(--space-2); font-weight:var(--weight-semibold); letter-spacing:var(--tracking-tight); }
+  .brand .mark{ width:var(--space-5); height:var(--space-5); border-radius:var(--radius-md); background:var(--color-fg); color:var(--color-bg); display:grid; place-items:center; }
+
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:var(--space-2); font:inherit;
+    font-weight:var(--weight-medium); font-size:var(--text-sm); padding:var(--space-3) var(--space-5); border-radius:var(--radius-md);
+    cursor:pointer; border:1px solid transparent; transition:background var(--duration-base) var(--ease-standard),
+    border-color var(--duration-base) var(--ease-standard), transform var(--duration-base) var(--ease-standard); }
+  .btn-primary{ background:var(--color-fg); color:var(--color-bg); }
+  .btn-primary:hover{ background:color-mix(in srgb,var(--color-fg) 88%,var(--color-bg)); }
+  .btn-ghost{ background:var(--color-bg); color:var(--color-fg); border-color:var(--color-border); }
+  .btn-ghost:hover{ background:var(--color-surface); }
+  .btn-sm{ padding:var(--space-2) var(--space-4); }
+  .btn-block{ width:100%; }
+  .cta-row{ display:flex; flex-direction:column; gap:var(--space-3); }
+
+  .tags{ display:flex; flex-wrap:wrap; gap:var(--space-2); }
+  .tag{ display:inline-flex; align-items:center; gap:var(--space-2); font-size:var(--text-xs); font-weight:var(--weight-medium);
+    padding:var(--space-1) var(--space-3); border-radius:var(--radius-full); }
+  .tag::before{ content:""; width:0.5em; height:0.5em; border-radius:var(--radius-full); background:currentColor; opacity:0.8; }
+  .tag.blue{ background:var(--tint-blue-bg); color:var(--tint-blue-fg); }
+  .tag.green{ background:var(--tint-green-bg); color:var(--tint-green-fg); }
+  .tag.amber{ background:var(--tint-amber-bg); color:var(--tint-amber-fg); }
+  .tag.violet{ background:var(--tint-violet-bg); color:var(--tint-violet-fg); }
+
+  section{ padding-block:var(--space-9); }
+  .hero{ padding-top:var(--space-8); padding-bottom:var(--space-7); }
+  .stack>*+*{ margin-top:var(--space-4); }
+  .index{ font-family:var(--font-mono); color:var(--color-subtle); font-size:var(--text-sm); letter-spacing:var(--tracking-wide); }
+
+  /* logo marquee */
+  .marquee{ overflow:hidden; -webkit-mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);
+    mask:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent); border-block:1px solid var(--color-border); padding-block:var(--space-5); }
+  .marquee__track{ display:flex; gap:var(--space-7); width:max-content; animation:marquee 26s linear infinite; }
+  .marquee:hover .marquee__track,.marquee:focus-within .marquee__track{ animation-play-state:paused; }
+  .marquee__track span{ font-family:var(--font-mono); font-size:var(--text-sm); letter-spacing:var(--tracking-wide);
+    text-transform:uppercase; color:var(--color-subtle); white-space:nowrap; }
+  @keyframes marquee{ to{ transform:translateX(-50%); } }
+
+  .frame{ border:1px solid var(--color-border); border-radius:var(--radius-lg); background:var(--color-bg); box-shadow:var(--shadow-md); overflow:hidden; }
+  .frame-bar{ display:flex; align-items:center; gap:var(--space-2); padding:var(--space-3) var(--space-4); border-bottom:1px solid var(--color-border); }
+  .frame-bar .dot{ width:var(--space-2); height:var(--space-2); border-radius:var(--radius-full); background:var(--color-surface-2); }
+  .frame-bar .title{ margin-left:var(--space-2); font-size:var(--text-sm); font-weight:var(--weight-semibold); }
+  .frame-bar .live{ margin-left:auto; display:inline-flex; align-items:center; gap:var(--space-2); font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-muted); }
+  .frame-bar .live i{ width:0.5em; height:0.5em; border-radius:var(--radius-full); background:var(--color-accent); display:inline-block; }
+  .row{ display:grid; grid-template-columns:1.5fr 1fr auto; gap:var(--space-3); align-items:center; padding:var(--space-3) var(--space-4); border-top:1px solid var(--color-border); font-size:var(--text-sm); }
+  .row:first-of-type{ border-top:0; }
+  .row .co{ display:flex; align-items:center; gap:var(--space-3); font-weight:var(--weight-semibold); }
+  .row .av{ width:var(--space-5); height:var(--space-5); border-radius:var(--radius-full); background:var(--color-surface-2); color:var(--color-muted); display:grid; place-items:center; font-size:var(--text-xs); font-weight:var(--weight-semibold); }
+  .row .stage{ color:var(--color-muted); }
+  .chip{ font-size:var(--text-xs); font-weight:var(--weight-medium); padding:var(--space-1) var(--space-2); border-radius:var(--radius-sm); white-space:nowrap; }
+  .chip.green{ background:var(--tint-green-bg); color:var(--tint-green-fg); }
+  .chip.amber{ background:var(--tint-amber-bg); color:var(--tint-amber-fg); }
+  .chip.blue{ background:var(--tint-blue-bg); color:var(--tint-blue-fg); }
+
+  .stats{ display:grid; grid-template-columns:repeat(3,1fr); gap:var(--space-4); border-top:1px solid var(--color-border); padding-top:var(--space-6); }
+  .stat .n{ font-size:var(--text-2xl); letter-spacing:var(--tracking-tight); font-weight:var(--weight-semibold); font-variant-numeric:tabular-nums; }
+  .stat .l{ font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-subtle); margin-top:var(--space-1); }
+
+  .notifs{ position:relative; margin-top:var(--space-6); display:grid; gap:var(--space-4); }
+  .notif{ display:flex; align-items:center; gap:var(--space-3); padding:var(--space-3) var(--space-4); border:1px solid var(--color-border);
+    border-radius:var(--radius-lg); background:var(--color-bg); box-shadow:var(--shadow-sm); will-change:transform; }
+  .notif .ic{ width:var(--space-6); height:var(--space-6); border-radius:var(--radius-md); display:grid; place-items:center; flex:none; }
+  .notif .tx{ font-size:var(--text-sm); font-weight:var(--weight-medium); }
+  .notif .tm{ margin-left:auto; font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-subtle); }
+  .notif.green .ic{ background:var(--tint-green-bg); color:var(--tint-green-fg); }
+  .notif.blue .ic{ background:var(--tint-blue-bg); color:var(--tint-blue-fg); }
+  .notif.amber .ic{ background:var(--tint-amber-bg); color:var(--tint-amber-fg); }
+  .notif.violet .ic{ background:var(--tint-violet-bg); color:var(--tint-violet-fg); }
+
+  .feature .head{ display:flex; align-items:baseline; gap:var(--space-3); }
+  .feature h2{ font-size:var(--text-2xl); }
+  .panel{ border:1px solid var(--color-border); border-radius:var(--radius-lg); background:var(--color-bg); padding:var(--space-5); }
+  .mini{ display:flex; align-items:center; gap:var(--space-3); padding:var(--space-3) 0; }
+  .mini+.mini{ border-top:1px solid var(--color-border); }
+  .mini .ic{ width:var(--space-6); height:var(--space-6); border-radius:var(--radius-md); display:grid; place-items:center; background:var(--color-surface); color:var(--color-muted); flex:none; }
+  .mini .rank{ font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-subtle); margin-left:auto; }
+
+  /* real SVG gauge (scroll-progress) */
+  .report{ display:flex; align-items:center; gap:var(--space-6); }
+  .gauge-wrap{ position:relative; width:var(--space-10); height:var(--space-10); flex:none; }
+  .gauge{ width:100%; height:100%; transform:rotate(-90deg); }
+  .g-track{ fill:none; stroke:var(--color-surface-2); stroke-width:8; }
+  .g-fill{ fill:none; stroke:var(--color-accent); stroke-width:8; stroke-linecap:round; }
+  .g-mark{ fill:var(--color-fg); }
+  .gauge-read{ position:absolute; inset:0; display:grid; place-items:center; text-align:center; transform:rotate(0); }
+  .gauge-read .n{ font-size:var(--text-lg); font-weight:var(--weight-semibold); letter-spacing:var(--tracking-tight); font-variant-numeric:tabular-nums; }
+  .gauge-read .l{ font-family:var(--font-mono); font-size:0.625rem; color:var(--color-subtle); }
+  .report .read .n{ font-size:var(--text-3xl); letter-spacing:var(--tracking-tight); font-weight:var(--weight-semibold); font-variant-numeric:tabular-nums; }
+  .report .read .l{ font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-subtle); }
+
+  /* horizontal scroll-pin */
+  .hpin{ position:relative; height:320dvh; }
+  .hpin__sticky{ position:sticky; top:0; height:100dvh; display:flex; flex-direction:column; justify-content:center; gap:var(--space-5); overflow:hidden; }
+  .hpin__head{ padding-inline:var(--space-5); }
+  .hpin__track{ display:flex; gap:var(--space-4); padding-inline:var(--space-5); will-change:transform; }
+  .hcard{ flex:0 0 80%; max-width:380px; border:1px solid var(--color-border); border-radius:var(--radius-lg); background:var(--color-surface); padding:var(--space-6); min-height:42dvh; display:flex; flex-direction:column; }
+  .hcard .k{ font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-subtle); }
+  .hcard h3{ font-size:var(--text-xl); margin-top:var(--space-3); }
+  .hcard p{ margin-top:var(--space-3); }
+  .hcard .num{ margin-top:auto; font-size:var(--text-3xl); font-weight:var(--weight-semibold); letter-spacing:var(--tracking-tight); }
+
+  .pin-wrap{ position:relative; }
+  .pin{ position:sticky; top:var(--space-8); padding-block:var(--space-5); background:var(--color-bg); }
+  .pin h2{ font-size:var(--text-2xl); }
+  .signals{ display:grid; gap:var(--space-4); margin-top:var(--space-5); }
+  .signal{ border:1px solid var(--color-border); border-radius:var(--radius-lg); padding:var(--space-5); background:var(--color-surface); }
+  .signal .k{ font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-subtle); }
+  .signal h3{ font-size:var(--text-lg); margin-top:var(--space-2); }
+
+  .reveal-stage{ position:relative; height:230dvh; }
+  .reveal-new,.reveal-old{ position:sticky; top:0; height:100dvh; display:grid; place-items:center; padding:var(--space-6); }
+  .reveal-new{ z-index:0; background:var(--color-surface-inverse); color:var(--color-fg-inverse); }
+  .reveal-old{ z-index:2; margin-top:-100dvh; background:var(--color-bg); color:var(--color-fg); border-bottom:1px solid var(--color-border); will-change:transform,opacity; }
+  .reveal-inner{ width:100%; max-width:var(--container-sm); text-align:center; }
+  .reveal-inner>*+*{ margin-top:var(--space-4); }
+  .reveal-new .display{ font-size:var(--text-3xl); }
+  .reveal-new .lede{ color:rgba(255,255,255,0.66); }
+  .reveal-new .btn-primary{ background:var(--color-bg); color:var(--color-fg); }
+  .reveal-new .fineprint{ font-family:var(--font-mono); font-size:var(--text-xs); color:rgba(255,255,255,0.5); }
+  .reveal-old .hint{ font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-subtle); }
+
+  footer{ padding-block:var(--space-7); border-top:1px solid var(--color-border); }
+  .foot{ display:flex; align-items:center; justify-content:space-between; font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-subtle); }
+  .foot a{ color:var(--color-muted); }
+
+  .ptag{ display:inline-flex; align-items:center; gap:var(--space-2); margin-top:var(--space-3);
+    font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-subtle); }
+  .ptag::before{ content:"↳"; color:var(--color-accent); }
+  .hide-labels .ptag{ display:none; }
+
+  /* ══ MOTION (transform/opacity, gated, resting state in DOM) ══ */
+  [data-reveal]{ opacity:0; transform:translateY(20px);
+    transition:opacity var(--duration-slow) var(--ease-entrance), transform var(--duration-slow) var(--ease-entrance); will-change:opacity,transform; }
+  [data-reveal].is-in{ opacity:1; transform:none; }
+  [data-reveal-group]>*{ transition-delay:calc(var(--i,0) * 70ms); }
+
+  [data-recolor]{ color:var(--color-muted); transition:color var(--duration-slow) var(--ease-standard); }
+  [data-recolor].is-in{ color:var(--color-fg); }
+  [data-recolor-panel]{ background:var(--color-bg); transition:background-color var(--duration-slow) var(--ease-standard); }
+  [data-recolor-panel].is-in{ background:var(--color-surface); }
+
+  /* line clip-reveal */
+  .cr-line{ overflow:hidden; }
+  .cr-line>span{ display:block; transform:translateY(115%); transition:transform 0.7s var(--ease-entrance); transition-delay:calc(var(--i,0) * 90ms); }
+  .cr.is-in .cr-line>span{ transform:none; }
+
+  .pulse{ animation:pulse 2.4s var(--ease-standard) infinite; }
+  @keyframes pulse{ 0%,100%{opacity:1;} 50%{opacity:0.35;} }
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{ animation:none !important; transition:none !important; }
+    [data-reveal]{ opacity:1; transform:none; }
+    [data-recolor]{ color:var(--color-fg); }
+    .cr-line>span{ transform:none; }
+    .notif{ transform:none; }
+    .hpin{ height:auto; }
+    .hpin__sticky{ position:static; height:auto; overflow-x:auto; }
+    .reveal-stage{ height:auto; }
+    .reveal-old{ display:none; }
+    .reveal-new{ position:static; height:auto; min-height:60dvh; }
+  }
+
+  @media (min-width:480px){
+    .display,.hero .display{ font-size:var(--text-5xl); }
+    .cta-row{ flex-direction:row; }
+    .btn-block{ width:auto; }
+    .hcard{ flex-basis:46%; }
+  }
+</style>
+</head>
+<body class="hide-labels">
+  <span id="top-sentinel" aria-hidden="true" style="position:absolute;top:0;height:1px;width:1px;"></span>
+
+  <header class="site">
+    <div class="wrap nav">
+      <span class="brand"><span class="mark"><i data-lucide="layers" style="width:14px;height:14px"></i></span>Ledger</span>
+      <a class="btn btn-primary btn-sm" href="#start" data-magnetic>Start free</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- HERO: clip-reveal headline · two-tone · staggered sub-reveal · magnetic CTA -->
+    <section class="hero stack">
+      <p class="eyebrow" data-reveal>Revenue agents · live</p>
+      <h1 class="display cr">
+        <span class="cr-line"><span style="--i:0">Pipeline that compounds.</span></span>
+        <span class="cr-line"><span class="muted" style="--i:1">Every signal becomes revenue data, automatically.</span></span>
+      </h1>
+      <div class="cta-row" data-reveal>
+        <a class="btn btn-primary btn-block" href="#start" id="start" data-magnetic>Start free <i data-lucide="arrow-right"></i></a>
+        <a class="btn btn-ghost btn-block" href="#tour">Book a demo</a>
+      </div>
+      <div class="tags" data-reveal aria-label="What Ledger tracks">
+        <span class="tag blue">Deals</span><span class="tag green">Renewals</span>
+        <span class="tag amber">Signals</span><span class="tag violet">Tasks</span>
+      </div>
+      <p class="ptag" data-reveal>clip-reveal · two-tone-headline · magnetic-cta · soft-tag-palette</p>
+    </section>
+  </main>
+
+  <!-- LOGO MARQUEE -->
+  <div class="marquee" aria-label="Trusted by" tabindex="0">
+    <div class="marquee__track" id="marquee">
+      <span>Greenleaf</span><span>Northwind</span><span>Vertex</span><span>Acme</span><span>Lumen</span><span>Orbit</span><span>Forge</span><span>Atlas</span>
+    </div>
+  </div>
+  <div class="wrap"><p class="ptag">marquee-ticker (pauses on hover/focus)</p></div>
+
+  <main class="wrap">
+    <!-- EMBEDDED PRODUCT FRAME + COUNT-UP STATS -->
+    <section style="padding-top:var(--space-7)" data-reveal>
+      <div class="frame" id="tour" aria-label="Ledger pipeline">
+        <div class="frame-bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="title">Pipeline</span>
+          <span class="live"><i class="pulse"></i>live</span>
+        </div>
+        <div class="row"><span class="co"><span class="av">GL</span>Greenleaf</span><span class="stage">Negotiation</span><span class="chip green">renewal due</span></div>
+        <div class="row"><span class="co"><span class="av">NW</span>Northwind</span><span class="stage">Discovery</span><span class="chip amber">no reply 5d</span></div>
+        <div class="row"><span class="co"><span class="av">VX</span>Vertex</span><span class="stage">Closed won</span><span class="chip blue">expansion</span></div>
+      </div>
+      <p class="ptag">embedded-product-frame</p>
+      <div class="stats">
+        <div class="stat"><div class="n"><span class="count" data-to="3200">3,200</span></div><div class="l">teams</div></div>
+        <div class="stat"><div class="n"><span class="count" data-to="12" data-suffix=" min">12 min</span></div><div class="l">saved / rep / day</div></div>
+        <div class="stat"><div class="n"><span class="count" data-to="98" data-suffix="%">98%</span></div><div class="l">replies drafted</div></div>
+      </div>
+      <p class="ptag">count-up-stats (in-view, eased)</p>
+    </section>
+
+    <!-- PARALLAX NOTIFICATIONS -->
+    <section class="notifs-stage feature stack" data-reveal>
+      <div class="head"><span class="eyebrow">Live signals</span></div>
+      <h2>Nothing slips through.</h2>
+      <p class="lede">Every account change becomes a notification the moment it happens. They drift past as you move through the pipeline.</p>
+      <div class="notifs" aria-label="Recent signals">
+        <div class="notif green"  data-speed="48"><span class="ic"><i data-lucide="check"></i></span><span class="tx">Renewal won · Greenleaf</span><span class="tm">2m</span></div>
+        <div class="notif blue"   data-speed="-34"><span class="ic"><i data-lucide="trending-up"></i></span><span class="tx">Vertex opened pricing twice</span><span class="tm">5m</span></div>
+        <div class="notif amber"  data-speed="64"><span class="ic"><i data-lucide="alert-triangle"></i></span><span class="tx">Northwind silent for 5 days</span><span class="tm">12m</span></div>
+        <div class="notif violet" data-speed="-48"><span class="ic"><i data-lucide="user-plus"></i></span><span class="tx">New champion at Acme</span><span class="tm">1h</span></div>
+        <div class="notif green"  data-speed="28"><span class="ic"><i data-lucide="file-check"></i></span><span class="tx">Quote sent · $48k</span><span class="tm">1h</span></div>
+      </div>
+      <p class="ptag">parallax-drift (IO-gated rAF, smoothed)</p>
+    </section>
+
+    <!-- FEATURE 01 -->
+    <section class="feature stack" data-reveal>
+      <div class="head"><span class="index">[01]</span><span class="eyebrow">Capture</span></div>
+      <h2>Every interaction, structured.</h2>
+      <p class="lede">Email, calls, and meetings sync into the account timeline with no manual entry.</p>
+      <div class="panel" data-reveal-group>
+        <div class="mini" data-reveal style="--i:0"><span class="ic"><i data-lucide="mail"></i></span><div><strong>Email synced</strong><div class="muted">Re: Q3 renewal, parsed to Greenleaf</div></div></div>
+        <div class="mini" data-reveal style="--i:1"><span class="ic"><i data-lucide="phone"></i></span><div><strong>Call logged</strong><div class="muted">18 min, next step captured</div></div></div>
+        <div class="mini" data-reveal style="--i:2"><span class="ic"><i data-lucide="calendar"></i></span><div><strong>Meeting noted</strong><div class="muted">Notes summarized to the deal</div></div></div>
+      </div>
+      <p class="ptag">numbered-section-index · scroll-reveal-in-view (staggered)</p>
+    </section>
+
+    <!-- FEATURE 02 -->
+    <section class="feature stack" data-reveal>
+      <div class="head"><span class="index">[02]</span><span class="eyebrow">Decide</span></div>
+      <h2 data-recolor>The next move, ranked by revenue.</h2>
+      <p class="lede">Agents read the whole context layer and surface the one action that moves each account forward.</p>
+      <div class="panel" data-recolor-panel>
+        <div class="mini"><span class="ic">1</span><div><strong>Send Greenleaf the renewal quote</strong><div class="muted">closes a $48k deal</div></div><span class="rank">98</span></div>
+        <div class="mini"><span class="ic">2</span><div><strong>Re-engage Northwind</strong><div class="muted">silent 5 days, intent rising</div></div><span class="rank">71</span></div>
+        <div class="mini"><span class="ic">3</span><div><strong>Introduce Vertex to onboarding</strong><div class="muted">expansion signal detected</div></div><span class="rank">64</span></div>
+      </div>
+      <p class="ptag">scroll-linked-recolor</p>
+    </section>
+
+    <!-- FEATURE 03: real gauge -->
+    <section class="feature stack" data-reveal>
+      <div class="head"><span class="index">[03]</span><span class="eyebrow">Report</span></div>
+      <h2>Live pipeline math.</h2>
+      <p class="lede">Forecasts update the moment a deal moves. The gauge fills and its marker sweeps as you scroll.</p>
+      <div class="panel report">
+        <div class="gauge-wrap">
+          <svg class="gauge" viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="g-track" cx="60" cy="60" r="50"></circle>
+            <circle class="g-fill" cx="60" cy="60" r="50"></circle>
+            <circle class="g-mark" cx="60" cy="10" r="6"></circle>
+          </svg>
+          <div class="gauge-read"><div class="n"><span class="count" data-prefix="$" data-to="4.2" data-decimals="1" data-suffix="M">$0.0M</span></div><div class="l">forecast</div></div>
+        </div>
+        <div class="read"><div class="n"><span class="count" data-to="72" data-suffix="%">72%</span></div><div class="l">to quarterly target</div></div>
+      </div>
+      <p class="ptag">scroll-progress gauge (fill + marker sweep, eased)</p>
+    </section>
+  </main>
+
+  <!-- HORIZONTAL SCROLL-PIN -->
+  <section class="hpin" aria-label="How it works">
+    <div class="hpin__sticky">
+      <div class="hpin__head wrap"><span class="eyebrow">The loop</span><h2 class="feature" style="font-size:var(--text-2xl)">Four moves, on repeat.</h2></div>
+      <div class="hpin__track" id="htrack">
+        <article class="hcard"><span class="k">01 / CAPTURE</span><h3>Sync every signal</h3><p class="muted">Inbox, calls, calendar, and product events land on the record automatically.</p><div class="num">0 entry</div></article>
+        <article class="hcard"><span class="k">02 / DECIDE</span><h3>Rank by revenue</h3><p class="muted">Agents score the next best action on every account in real time.</p><div class="num">#1 action</div></article>
+        <article class="hcard"><span class="k">03 / ACT</span><h3>Draft and send</h3><p class="muted">The follow-up is written, queued, and waiting for your one-tap approval.</p><div class="num">98%</div></article>
+        <article class="hcard"><span class="k">04 / REPORT</span><h3>Forecast live</h3><p class="muted">Every move updates the forecast the instant it happens.</p><div class="num">$4.2M</div></article>
+      </div>
+      <div class="hpin__head wrap"><p class="ptag">horizontal-scroll-pin (vertical scroll drives a horizontal track)</p></div>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <!-- STICKY-PIN scrollytelling -->
+    <section class="pin-wrap">
+      <div class="pin">
+        <span class="eyebrow">Universal context</span>
+        <h2>One layer. Every signal lands in the same place.</h2>
+        <p class="ptag">sticky-pin-scrollytelling</p>
+      </div>
+      <div class="signals">
+        <div class="signal" data-reveal><div class="k">RISK</div><h3>Renewal at risk</h3><p class="muted">Usage dropped 40% before a renewal. The agent flags it three weeks early.</p></div>
+        <div class="signal" data-reveal><div class="k">INTENT</div><h3>Buying intent</h3><p class="muted">A champion opened pricing twice and forwarded it internally.</p></div>
+        <div class="signal" data-reveal><div class="k">CHANGE</div><h3>Champion left</h3><p class="muted">Your contact changed jobs. Ledger surfaces the warm intro to their replacement.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- REVEAL-STAGE closing -->
+  <section class="reveal-stage" aria-label="Closing">
+    <div class="reveal-new">
+      <div class="reveal-inner">
+        <p class="eyebrow" style="color:rgba(255,255,255,0.5)">Get started</p>
+        <h2 class="display">Start closing in minutes.</h2>
+        <p class="lede">Import your pipeline, connect your inbox, and let the agents work the rest.</p>
+        <div class="cta-row" style="justify-content:center">
+          <a class="btn btn-primary" href="#start" data-magnetic>Start free <i data-lucide="arrow-right"></i></a>
+          <a class="btn btn-ghost" href="#tour" style="background:transparent;color:var(--color-fg-inverse);border-color:var(--color-border-inverse)">Book a demo</a>
+        </div>
+        <p class="fineprint">No card required · 5-minute setup</p>
+      </div>
+    </div>
+    <div class="reveal-old">
+      <div class="reveal-inner">
+        <span class="eyebrow">Recap</span>
+        <h2 class="display">You have seen the whole loop.</h2>
+        <p class="lede">Capture, decide, act, report, and never miss a signal.</p>
+        <p class="hint">keep going ↓</p>
+        <p class="ptag" style="justify-content:center">scroll-reveal-panel (this lifts away to uncover the page behind)</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <div class="foot"><span>LEDGER · 2026</span><span><a href="#">Privacy</a> · <a href="#">Security</a></span></div>
+  </footer>
+
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script>
+    if (window.lucide) lucide.createIcons();
+    if (location.search.includes('labels')) document.body.classList.remove('hide-labels');
+
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const clamp = (v) => Math.min(1, Math.max(0, v));
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+
+    // reveal + recolor + clip-reveal (fires once). No scroll listener.
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) { if (!e.isIntersecting) continue; e.target.classList.add('is-in'); io.unobserve(e.target); }
+    }, { threshold: 0.18, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('[data-reveal],[data-recolor],[data-recolor-panel],.cr').forEach((el) => io.observe(el));
+
+    // header hairline via IO sentinel
+    const header = document.querySelector('header.site');
+    new IntersectionObserver(([e]) => header.classList.toggle('scrolled', !e.isIntersecting), { rootMargin: '0px' })
+      .observe(document.getElementById('top-sentinel'));
+
+    // IO-gated rAF progress driver with lerp smoothing. No scroll listener.
+    function onScrollProgress(el, cb, opts = {}) {
+      if (reduce) { cb(opts.reducedValue ?? (opts.pinned ? 1 : 0)); return; }
+      let running = false, cur = null; const k = opts.smooth ?? 0.16;
+      const tick = () => {
+        const r = el.getBoundingClientRect();
+        const target = opts.centered
+          ? clamp(1 - (r.top + r.height / 2) / innerHeight)
+          : opts.pinned
+            ? clamp(-r.top / Math.max(1, r.height - innerHeight))
+            : clamp(1 - r.top / (innerHeight + r.height));
+        cur = cur == null ? target : cur + (target - cur) * k;
+        cb(cur);
+        if (running) requestAnimationFrame(tick);
+      };
+      new IntersectionObserver(([e]) => {
+        if (e.isIntersecting && !running) { running = true; requestAnimationFrame(tick); }
+        else if (!e.isIntersecting) running = false;
+      }, { threshold: 0 }).observe(el);
+    }
+
+    // count-up (in-view, eased). Final value already in the DOM as fallback.
+    function countUp(el) {
+      const to = parseFloat(el.dataset.to || '0'), dec = parseInt(el.dataset.decimals || '0', 10);
+      const pre = el.dataset.prefix || '', suf = el.dataset.suffix || '';
+      const fmt = (v) => pre + (dec ? v.toFixed(dec) : Math.round(v).toLocaleString()) + suf;
+      if (reduce) { el.textContent = fmt(to); return; }
+      const dur = 1100, t0 = performance.now();
+      const step = (t) => { const p = clamp((t - t0) / dur); el.textContent = fmt(easeOut(p) * to); if (p < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    }
+    document.querySelectorAll('.count').forEach((el) => {
+      const o = new IntersectionObserver(([e]) => { if (e.isIntersecting) { countUp(el); o.unobserve(el); } }, { threshold: 0.6 });
+      o.observe(el);
+    });
+
+    // parallax notifications
+    const notifSec = document.querySelector('.notifs-stage'), chips = [...document.querySelectorAll('.notif')];
+    if (notifSec && chips.length) onScrollProgress(notifSec, (p) => {
+      for (const c of chips) c.style.transform = 'translateY(' + ((p - 0.5) * parseFloat(c.dataset.speed || '0')).toFixed(1) + 'px)';
+    });
+
+    // gauge: fill arc + sweeping marker, eased by scroll progress
+    const gFill = document.querySelector('.g-fill'), gMark = document.querySelector('.g-mark'), gauge = document.querySelector('.gauge-wrap');
+    if (gFill && gauge) {
+      const R = 50, C = 2 * Math.PI * R; gFill.style.strokeDasharray = C; gFill.style.strokeDashoffset = C;
+      onScrollProgress(gauge, (p) => {
+        const f = easeOut(p);                                  // full sweep, centered on the element
+        gFill.style.strokeDashoffset = (C * (1 - f)).toFixed(2);
+        if (gMark) {                                           // place marker on the ring directly (no transform-box)
+          const a = f * 2 * Math.PI;
+          gMark.setAttribute('cx', (60 + R * Math.cos(a)).toFixed(2));
+          gMark.setAttribute('cy', (60 + R * Math.sin(a)).toFixed(2));
+        }
+      }, { centered: true });
+    }
+
+    // horizontal scroll-pin: vertical scroll drives the track left
+    const hpin = document.querySelector('.hpin'), htrack = document.getElementById('htrack');
+    if (hpin && htrack) onScrollProgress(hpin, (p) => {
+      const travel = Math.max(0, htrack.scrollWidth - innerWidth + 24);
+      htrack.style.transform = 'translateX(' + (-easeOut(p) * travel).toFixed(1) + 'px)';
+    }, { pinned: true });
+
+    // reveal-stage: light recap lifts to uncover the pinned dark page
+    const stage = document.querySelector('.reveal-stage'), oldPage = stage && stage.querySelector('.reveal-old');
+    if (stage && oldPage) onScrollProgress(stage, (p) => {
+      const e = easeOut(p);
+      oldPage.style.transform = 'translateY(' + (-e * 100).toFixed(2) + 'vh)';
+      oldPage.style.opacity = (1 - clamp((p - 0.75) / 0.25)).toFixed(2);
+    }, { pinned: true, reducedValue: 1 });
+
+    // magnetic CTA (fine pointer only; not scroll)
+    if (!reduce && matchMedia('(hover:hover) and (pointer:fine)').matches) {
+      document.querySelectorAll('[data-magnetic]').forEach((btn) => {
+        btn.addEventListener('pointermove', (ev) => {
+          const r = btn.getBoundingClientRect();
+          btn.style.transform = 'translate(' + ((ev.clientX - r.left - r.width / 2) * 0.3).toFixed(1) + 'px,' + ((ev.clientY - r.top - r.height / 2) * 0.4).toFixed(1) + 'px)';
+        });
+        btn.addEventListener('pointerleave', () => { btn.style.transform = ''; });
+      });
+    }
+  </script>
+</body>
+</html>

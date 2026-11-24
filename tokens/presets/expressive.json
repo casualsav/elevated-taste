@@ -1,0 +1,55 @@
+{
+  "$description": "Direction preset: expressive. Spectacle/motion flavor — inverts to a family of near-blacks with off-white body, swaps in a saturated electric accent, squares the radii, trades soft shadows for an accent glow, pushes display scale up and display tracking tight, lengthens reveal durations, and opens macro spacing. Partial override; deep-merged over tokens.json by build.mjs. Pair with the expressive corpus for brand work; on production apply to a hero only.",
+  "color": {
+    "bg":        { "$value": "#0a0a0c", "$type": "color" },
+    "surface":   { "$value": "#121317", "$type": "color" },
+    "surface-2": { "$value": "#1b2132", "$type": "color" },
+    "fg":        { "$value": "#e6e6e6", "$type": "color" },
+    "muted":     { "$value": "#a1a0ab", "$type": "color" },
+    "subtle":    { "$value": "#757580", "$type": "color" },
+    "border":    { "$value": "#2a2b33", "$type": "color" },
+    "accent":    { "$value": "#1a2ffb", "$type": "color" },
+    "accent-fg": { "$value": "#ffffff", "$type": "color" },
+    "focus":     { "$value": "#1a2ffb", "$type": "color" }
+  },
+  "font": {
+    "sans":    { "$value": "Inter, system-ui, sans-serif", "$type": "fontFamily" },
+    "display": { "$value": "'Space Grotesk', 'Archivo', Inter, sans-serif", "$type": "fontFamily" },
+    "mono":    { "$value": "'Space Mono', 'JetBrains Mono', ui-monospace, monospace", "$type": "fontFamily" }
+  },
+  "text": {
+    "4xl":     { "$value": "3.5rem", "$type": "dimension" },
+    "5xl":     { "$value": "5rem",   "$type": "dimension" },
+    "display": { "$value": "8rem",   "$type": "dimension" }
+  },
+  "tracking": {
+    "tight": { "$value": "-0.05em", "$type": "dimension" }
+  },
+  "leading": {
+    "tight": { "$value": "1.0", "$type": "number" }
+  },
+  "radius": {
+    "sm":   { "$value": "0px", "$type": "dimension" },
+    "md":   { "$value": "0px", "$type": "dimension" },
+    "lg":   { "$value": "2px", "$type": "dimension" },
+    "xl":   { "$value": "4px", "$type": "dimension" },
+    "full": { "$value": "9999px", "$type": "dimension" }
+  },
+  "shadow": {
+    "sm": { "$value": "none", "$type": "shadow" },
+    "md": { "$value": "0 0 0 1px rgba(26,47,251,0.5)", "$type": "shadow" },
+    "lg": { "$value": "0 0 48px rgba(26,47,251,0.35)", "$type": "shadow" }
+  },
+  "duration": {
+    "base": { "$value": "320ms",  "$type": "duration" },
+    "slow": { "$value": "1200ms", "$type": "duration" }
+  },
+  "ease": {
+    "standard": { "$value": "cubic-bezier(0.25, 0.46, 0.45, 0.94)", "$type": "cubicBezier" },
+    "entrance": { "$value": "cubic-bezier(0.215, 0.61, 0.355, 1)",  "$type": "cubicBezier" }
+  },
+  "space": {
+    "9":  { "$value": "7rem",  "$type": "dimension" },
+    "10": { "$value": "11rem", "$type": "dimension" }
+  }
+}

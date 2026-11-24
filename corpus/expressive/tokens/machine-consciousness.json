@@ -1,0 +1,59 @@
+{
+  "color": {
+    "bg": "#f0f1f1",
+    "surface": "#ffffff",
+    "surface_alt": "#eeeeee",
+    "fg": "#1e1e1e",
+    "muted": "#5f5e5e",
+    "accent": "#1e1e1e",
+    "roles": {
+      "ink": "#1e1e1e",
+      "inverse_bg": "#1e1e1e",
+      "inverse_fg": "#f0f1f1",
+      "hairline": "#1e1e1e",
+      "hairline_soft": "#999999",
+      "neutral": "#666666",
+      "neutral_light": "#aaaaaa",
+      "neutral_lighter": "#cccccc",
+      "rare_highlight": "#b578db",
+      "scrim": "linear-gradient(0deg, #000, rgba(255,255,255,0))"
+    }
+  },
+  "type": {
+    "families": ["Questrial", "sans-serif"],
+    "scale": ["1rem", "1.25rem", "1.5rem", "1.375rem", "2.25rem", "3rem", "3.5rem", "5.625rem", "6rem"],
+    "weights": [400, 500, 700],
+    "leading": [1.2, 1.3, 1.5],
+    "tracking": {
+      "heading": "-0.05em",
+      "display_56": "-2.8px",
+      "display_96": "-5px",
+      "label": "-0.5px"
+    },
+    "notes": "Single family for headings + body; hierarchy from scale (16px→96px, ~6x) and tight negative tracking, not weight or pairing. Bracketed/slash labels set in the same family, uppercase, small."
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "8px", "12px", "16px", "20px", "24px", "32px", "48px", "64px", "80px", "112px"],
+    "page_inset": "64px"
+  },
+  "radius": ["0px", "4px", "8px", "32px", "100%"],
+  "shadow": ["none"],
+  "border": { "width": "1px", "color": "#1e1e1e", "soft": "#999999" },
+  "motion": {
+    "durations": ["200ms", "300ms"],
+    "easings": ["ease"],
+    "triggers": ["load", "in-view", "scroll-progress"],
+    "techniques": ["load-fade-up", "in-view-fade-rise", "serial-id-marquee", "scroll-progress-rotate", "parallax-drift"],
+    "scroll_effects": [
+      { "name": "section-fade-rise", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "block-parallax", "property": "transform", "trigger": "scroll-progress", "safety": "spectacle-only" },
+      { "name": "serial-marquee", "property": "transform", "trigger": "load", "safety": "spectacle-only" },
+      { "name": "starburst-rotate", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "venue-media-parallax", "property": "transform", "trigger": "scroll-progress", "safety": "spectacle-only" }
+    ],
+    "stack": ["GSAP", "GSAP ScrollTrigger", "Webflow IX2", "Swiper", "CSS @keyframes (spin)"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Monochrome ink system; the lilac #b578db is a near-invisible one-off (2 hits) and is NOT a real accent — page is effectively accent-less, roles carried by value + 1px borders. Radius tokens for structure are 0px (sharp/brutalist); 32px/100% radii are only for pill CTAs and circular avatars. No shadows anywhere — elevation is hairline borders only. Dark hero/footer (#1e1e1e) bookend a light (#f0f1f1) body. Display sizes 5.625rem/6rem (90/96px) observed in the wordmark lockup. Reduced-motion guard was absent on the live site and MUST be added on reuse."
+}

@@ -1,0 +1,58 @@
+{
+  "color": {
+    "bg": "#6b4a28",
+    "surface": "#465016",
+    "surface-2": "#23280b",
+    "fg": "#ffffff",
+    "muted": "#dfddcb",
+    "accent": "#465016",
+    "roles": {
+      "world-ground": "#6b4a28",
+      "world-shadow": "#2a1d10",
+      "panel-olive": "#465016",
+      "band-forest": "#23280b",
+      "mid-olive": "#616a37",
+      "parchment": "#dfddcb",
+      "parchment-2": "#d9cdad",
+      "type-on-scene": "#ffffff",
+      "type-on-panel": "#dfddcb",
+      "sticker-fill": "#dfddcb",
+      "sticker-ink": "#232809",
+      "focus-ring": "#101010"
+    }
+  },
+  "type": {
+    "families": ["Nimbus (Helvetica/grotesque)", "NimbusSansExtd (extended display cut)", "NimbusSans, sans-serif"],
+    "scale": ["1rem", "1.125rem", "1.27rem", "1.69rem", "5.75rem"],
+    "weights": [400, 700],
+    "leading": [0.93, 1.5],
+    "tracking": {
+      "eyebrow-caps": "+0.25em",
+      "body": "-0.015em",
+      "display": "-0.009em"
+    },
+    "notes": "One grotesque family, two weights. Hierarchy = scale + tracking polarity: micro caps at wide positive tracking bracket a ~92px display word at slightly-negative tracking. fluid_type:false (stepped, not clamped)."
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["8px", "20px", "24px", "32px", "40px", "60px"]
+  },
+  "radius": ["8px", "15px", "9999px", "organic-blob-mask"],
+  "shadow": ["2.4px 3.6px 0px rgba(66,38,1,0.25)"],
+  "motion": {
+    "durations": ["300ms", "500ms", "600ms"],
+    "easings": ["ease", "cubic-bezier(0.55, 0, 1, 0.45)", "cubic-bezier(0.4, 0, 0.2, 1)"],
+    "triggers": ["scroll-progress", "in-view", "pointer", "load"],
+    "techniques": ["scroll-progress-rotate", "pointer-parallax", "staggered-reveal", "skewed-marquee-loop", "ambient-canvas-grain"],
+    "scroll_effects": [
+      { "name": "diorama-layer-tilt", "property": "transform", "trigger": "scroll-progress", "safety": "spectacle-only" },
+      { "name": "pinned-torn-frame", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "pointer-parallax-depth", "property": "transform", "trigger": "pointer", "safety": "spectacle-only" },
+      { "name": "staggered-title-reveal", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "logo-ribbon-marquee", "property": "transform", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["Vue/Nuxt", "UnoCSS", "vue-boost-marquee", "rAF transform engine", "inline SVG", "HTML <video>", "<canvas>"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Colors sampled from the computed-style frequency table (rgb(70,80,22)=#465016 panel, rgb(35,40,11)=#23280b band, rgb(97,106,55)=#616a37, rgb(223,221,203)=#dfddcb cream, rgb(217,205,173)=#d9cdad). The warm-umber 'bg' (#6b4a28) and world-shadow are read off the painted illustration in the screenshots, not from a token (the site's real custom props are all UnoCSS --un-* internals, dropped). No dark re-theme: theme.supportsDark is a false positive (the illustration is dark) — the 'dark' screenshot is the same scene pre-panel, so color.dark is omitted. Type sizes normalized from px (16/18/20.25/27/92) to rem; leading from 85.56/92≈0.93 display and 24/16=1.5 body. Only one shadow exists — a hard blur-0 offset (sticker), kept verbatim."
+}

@@ -1,0 +1,62 @@
+{
+  "color": {
+    "bg": "#020202",
+    "surface": "#1a1a1a",
+    "surface-2": "#212121",
+    "fg": "#ffffff",
+    "muted": "#d6d3d1",
+    "subtle": "#8c8d91",
+    "border": "#3c3c3c",
+    "accent": "#c0f0fb",
+    "roles": {
+      "hairline-dashed": "#3c3c3c",
+      "link": "#2563eb",
+      "band-cyan": "#c0f0fb",
+      "cover-gradient-warm": "#492711",
+      "cover-gradient-teal": "#313c41",
+      "cover-gradient-slate": "#2c2c2c"
+    },
+    "dark": {
+      "bg": "#020202",
+      "surface": "#1a1a1a",
+      "fg": "#ffffff",
+      "muted": "#d6d3d1",
+      "accent": "#c0f0fb"
+    }
+  },
+  "type": {
+    "families": [
+      "Signifier (transitional serif — headlines/display)",
+      "Switzer (variable grotesque 100-900 — body/UI/kickers)",
+      "Every (bespoke logotype face — wordmark)"
+    ],
+    "scale": ["0.75rem", "0.875rem", "0.9375rem", "1.125rem", "1.25rem", "1.5rem", "2rem", "2.625rem", "3rem"],
+    "weights": [400, 500, 600, 700],
+    "leading": [1.1, 1.15, 1.5],
+    "tracking": ["-0.08em", "-0.04em", "-0.02em", "0", "0.6px"]
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["8px", "12px", "16px", "20px", "24px", "32px", "40px"]
+  },
+  "radius": ["4px", "5px", "10px", "20px", "9999px"],
+  "shadow": ["0 10px 32px rgba(0,0,0,0.35)"],
+  "motion": {
+    "durations": ["120ms", "150ms", "200ms", "300ms", "400ms", "500ms"],
+    "easings": [
+      "cubic-bezier(0.16, 1, 0.3, 1)",
+      "cubic-bezier(0.2, 0, 0, 1)",
+      "cubic-bezier(0.4, 0, 0.2, 1)"
+    ],
+    "triggers": ["in-view", "load", "hover", "scroll-progress"],
+    "techniques": ["in-view-fade-rise", "sticky-masthead", "hover-opacity-dim", "accent-band-icon-marquee"],
+    "scroll_effects": [
+      { "name": "in-view-fade-rise", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "sticky-masthead", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "accent-band-icon-marquee", "property": "transform", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "CSS transitions"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Native dark site (theme.dark.bg #020202); main color roles ARE the dark palette, color.dark mirrors it — no separate light theme was captured. Body is 15px (0.9375rem), below the 16px default, offset by 1.5 leading. Scale from frequency-ranked font-size px (12/14/15/18/20/24/32/42/48) rounded to rem. Cover-gradient roles are per-image linear-gradient tints on product tiles, not systematic tokens — kept as reference only. Tailwind utility --tw-* vars dropped; only the site's real --dur-* / --ease-* timing tokens retained, mapped to house scale. Dashed hairline #3c3c3c maps to house --color-border-on-dark."
+}

@@ -1,0 +1,81 @@
+{
+  "color": {
+    "bg": "#000000",
+    "surface": "#1a1a1a",
+    "surface-2": "#2e2e2e",
+    "fg": "#e6e6e6",
+    "muted": "#757575",
+    "subtle": "#c4c4c4",
+    "border": "rgba(230,230,230,0.2)",
+    "accent": "#ff4d00",
+    "roles": {
+      "fg-strong": "#ffffff",
+      "logo-grid": "#e6e6e6",
+      "accent-glow": "rgba(255,140,0,0.15)",
+      "media-bleed": "varies (per-project full-color thumbnail)"
+    }
+  },
+  "type": {
+    "families": ["Geist", "flauta (display/serif accent)"],
+    "scale": ["0.8125rem", "0.875rem", "1rem", "1.25rem", "1.5rem", "2.375rem", "4.75rem"],
+    "weights": [400, 500, 600],
+    "leading": [1.0, 1.5]
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["4px", "8px", "12px", "16px", "20px", "24px", "56px", "64px", "72px", "128px"]
+  },
+  "radius": ["0px"],
+  "shadow": ["0 0 5px rgba(255,140,0,0.15)"],
+  "motion": {
+    "durations": ["60ms", "100ms", "200ms", "300ms"],
+    "easings": ["linear", "cubic-bezier(0.4, 0, 0.2, 1)", "ease"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": ["ambient-webgl-hero", "point-cloud-case-media", "pinned-nav-and-modal", "hover-accent-fade", "hover-thumbnail-reveal", "diagonal-hatch-drift"],
+    "scroll_effects": [
+      {
+        "name": "pinned nav + pinned modal shells",
+        "property": "position",
+        "trigger": "scroll-progress",
+        "safety": "production-safe",
+        "count": 4,
+        "elements": ["nav bar", "pointer-events-none overlay", "Close [ESC] modal", "CONTACT US / SEND MESSAGE modal"]
+      }
+    ],
+    "continuous_canvas": {
+      "canvases": 3,
+      "raf_per_scroll_pass": 923,
+      "note": "always-on WebGL: wireframe-basement hero + dithered point-cloud case render; no in-view/pause gating captured"
+    },
+    "hover": [
+      {
+        "name": "nav link -> accent + half-fade",
+        "property": "color+opacity",
+        "from": "rgb(230,230,230) @ op 1",
+        "to": "rgb(255,77,0) @ op 0.5",
+        "duration": "60ms linear",
+        "safety": "production-safe"
+      },
+      {
+        "name": "case thumbnail dim-to-reveal",
+        "property": "opacity",
+        "from": "0.5",
+        "to": "1",
+        "duration": "60ms linear",
+        "safety": "production-safe"
+      }
+    ],
+    "keyframes": ["bounce", "fade-in", "fade-in-out", "fade-out-in", "pulse", "spin", "actionable-blink", "diagonalPatternAnimation", "marquee-translate", "subtle-pulse", "accordion-up", "accordion-down"],
+    "stack": ["hand-rolled (no library)", "CSS @keyframes", "<canvas> + requestAnimationFrame", "IntersectionObserver (rootMargin 200px, prefetch-style)"],
+    "reduced_motion": "NOT respected",
+    "params": {
+      "durations_ms": [300, 60, 100, 200],
+      "easings": ["ease", "cubic-bezier(0.4, 0, 0.2, 1)"],
+      "stagger_delays_ms": [],
+      "io_thresholds": [],
+      "io_root_margins": ["200px"]
+    },
+    "evidence": "Agency/spectacle site whose spectacle is GPU canvas, not scroll-choreography. 0 entrance reveals, 0 stagger, only 4 scroll effects (all pin (fixed): nav, pointer-events overlay, Close [ESC] + CONTACT modals). Continuous motion = 3 <canvas> loops, ~923 rAF/scroll-pass. 12 @keyframes + 10 CSS animation rules; 1 IntersectionObserver (rootMargin 200px, 0 targets at capture); 13 mousemove listeners but 0 cursor-followers (likely feed WebGL camera). Hand-rolled (libraries:[], scriptHits:[]). Transitions: 0.3s cubic-bezier(0.4,0,0.2,1) x46, 0.06s linear x39. prefers-reduced-motion NOT respected (prmRules:0, craft.a11y.reduced_motion:false) — the chief liability, compounded by always-on canvas. 12 hover effects: nav links color->#ff4d00 (+opacity 1->0.5), case thumbs opacity 0.5->1. a11y: focus_visible true (doubled black+orange focus ring), img_alt_ratio 1, 30/89 small tap targets. Frames captured the page well (s00 hero, s03 logo-wall+case, s06 pink Shop MrBeast case, s09 contact + BSMNT.26 masthead); continuous canvas motion grounded in probe counts, not stills."
+  },
+  "notes": "Inverted dark theme: near-black #000 ground, off-white #e6e6e6 body (NOT pure white — softens glare on black), pure #fff reserved for emphasis/wordmarks. Single rationed accent #ff4d00 (warm orange) used only on hairline borders + a faint glow shadow; never as a fill. Body type is Geist at a fixed 16px/24px (1.5) across almost the entire page (count 334) — hierarchy is built by SCALE jumps (38px headings -1.52px tracking, 76px display -3.04px tracking), not weight or color. Negative letter-spacing scales with size (tighter as type grows): a deliberate optical-tightening ramp. Zero border-radius everywhere (squared, grotesque/Swiss register). No real shadows except the orange glow micro-accent; the raw rgb(229,231,235) borderColor is a Tailwind preflight default on invisible elements, ignored in favor of the screenshot's dark hairlines. Spacing base is 4px with an editorial macro jump to 56-128px for section rhythm. Two transition systems: a 60ms linear (instant hover feedback / cursor) and a 300ms cubic-bezier(0.4,0,0.2,1) (Material standard) for larger reveals."
+}

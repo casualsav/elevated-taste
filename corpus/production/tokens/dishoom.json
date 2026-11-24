@@ -1,0 +1,76 @@
+{
+  "color": {
+    "bg": "#f0ece0",
+    "surface": "#fffdf9",
+    "fg": "#353839",
+    "muted": "#c4bfaf",
+    "accent": "#e1a894",
+    "roles": {
+      "ink": "#353839",
+      "paper": "#f0ece0",
+      "off-white": "#fffdf9",
+      "rule": "#c4bfaf",
+      "rule-soft": "rgba(196,191,175,0.5)",
+      "hover-fill": "rgba(196,191,175,0.3)",
+      "band-ink": "#353839",
+      "band-ink-2": "#36393a",
+      "surface-dark": "#2a2a2a",
+      "fg-on-dark": "#fffdf9",
+      "muted-on-dark": "rgba(255,253,249,0.6)",
+      "sticker-coral": "#e1a894",
+      "brand-red": "#b52b2a",
+      "brand-green": "#006642",
+      "focus": "#1863dc"
+    }
+  },
+  "type": {
+    "families": ["cheltenhamBT (old-style serif, display + body + captions)", "gill-sans-nova (humanist sans, eyebrows + UI only)", "condensed wood-type grotesque (single ceremonial plaque)"],
+    "scale": ["0.625rem", "0.75rem", "0.875rem", "0.9375rem", "1rem", "1.125rem", "1.3125rem", "1.875rem", "2rem", "2.5rem", "2.8125rem"],
+    "weights": [400, 500, 600, 700],
+    "leading": [1.1, 1.2, 1.3, 1.5],
+    "tracking": {
+      "display": "0.1em",
+      "overline": "0.2em",
+      "eyebrow": "0.25em",
+      "body": "0.02em",
+      "ui": "0.04em"
+    }
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["4px", "8px", "12px", "16px", "20px", "24px", "32px", "40px", "48px", "67px", "80px", "96px"]
+  },
+  "radius": ["0px", "2px", "4px", "6px", "9999px"],
+  "shadow": [
+    "none",
+    "0 -1px 10px rgba(172,171,171,0.3)",
+    "0 32px 68px rgba(0,0,0,0.3)"
+  ],
+  "motion": {
+    "durations": ["150ms", "300ms", "500ms", "700ms", "1000ms"],
+    "easings": ["cubic-bezier(0.4, 0, 0.2, 1)", "ease"],
+    "triggers": ["scroll-progress", "in-view", "hover"],
+    "techniques": [
+      "sticky-hero-zoom-to-fullbleed",
+      "epigraph-to-title-crossfade",
+      "sentinel-driven-header-ink-inversion",
+      "pinned-panel-scrolling-index",
+      "reading-line-text-fill",
+      "band-photo-parallax"
+    ],
+    "scroll_effects": [
+      { "name": "hero-media-zoom", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "hero-sign-fade", "property": "opacity", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "hero-sticky-pin", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "header-ink-inversion", "property": "color", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "header-ground-fill", "property": "background", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "cafe-index-over-pinned-photo", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "reading-line-text-fill", "property": "color", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "band-photo-parallax", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "block-fade-in", "property": "opacity", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["position: sticky", "IntersectionObserver (19 observers / 309 targets; rootMargins 200px, 0px 0px -15% 0px, 0px 0px -98% 0px)", "CSS transitions (54 rules)", "CSS @keyframes (21)", "Swiper (5 carousels)", "requestAnimationFrame"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Site authors no semantic CSS custom properties — the palette lives in Tailwind utility classes, so the hexes are exact, not sampled (beige #f0ece0, black #353839 — a charcoal, never #000, off-white #fffdf9, beige-dark #c4bfaf; beige-medium/light are the same #c4bfaf at 50%/30% alpha). The only authored vars are layout metrics: --header-height 67px, --header-mobile-bottom-bar-height 70px, --announcement-bar-height 80px, --container-padding clamp(1.25rem,3vw,2.5rem). `accent` is nominal: #e1a894 (10 occurrences, the recipe sticker chip) is the closest thing to an accent; per-café hues (#b52b2a, #006642, orange, teal) appear ~4 times each and rank nothing. `color.dark` omitted — craft.theme.supportsDark is false and the profile's `dark` payload is just the light palette echoed back; the dark bands are a device, not a theme. Type scale normalized from px (10/12/13/14/15/16/18/20/21/30/32/40/42/45); 40/42/45 collapsed to one display tier. Tracking recorded as em (raw px-per-size: 32px→3.2px, 30px→6px, 15px→3.75px, 12px→3px, 21px→0.42px) — note it *widens* with size, inverting the usual ramp. Line-heights collapsed from 14 raw values; 24px/16px (1775 hits) is body sans at 1.5. Radius: raw 11px and 50px are third-party (cookie widget, Swiper) and dropped. Only two real box-shadows exist on the page — the 32px/68px one belongs to a modal. Durations from `transition` frequency: 150ms hover (238 rules), 300ms state (131), 500-1000ms hero only. reduced_motion is 'respected' by the probe, but the single @media block holds only Tailwind's opt-in motion-reduce utilities, not a blanket disable."
+}

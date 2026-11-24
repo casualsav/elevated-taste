@@ -1,0 +1,69 @@
+{
+  "color": {
+    "bg": "#f9f9f3",
+    "surface": "#ffffff",
+    "fg": "#29382b",
+    "muted": "rgba(41,56,43,0.6)",
+    "accent": "#465443",
+    "roles": {
+      "ink": "#29382b",
+      "paper": "#f9f9f3",
+      "ink-secondary": "#465443",
+      "on-ink": "#ecefdf",
+      "fg-on-hero": "#ffffff",
+      "border": "#29382b",
+      "border-on-hero": "#ffffff"
+    }
+  },
+  "type": {
+    "families": ["Reckless, serif", "Reckless-Neue, serif", "Roobert, sans-serif"],
+    "scale": ["0.9375rem", "1rem", "1.125rem", "1.25rem", "1.5rem", "1.875rem", "2.25rem", "4.5rem"],
+    "fluid": {
+      "display": "clamp(2rem, -0.5rem + 8vw, 4.5rem)",
+      "h2": "clamp(1.25rem, 0.25rem + 3.2vw, 2.25rem)",
+      "h3": "clamp(1.125rem, 0.375rem + 2.4vw, 1.875rem)"
+    },
+    "weights": [400, 500, 600],
+    "leading": [1.05, 1.15, 1.25, 1.8],
+    "tracking": ["-0.02em", "-0.01em", "0.01em"],
+    "measure": "45ch"
+  },
+  "space": {
+    "base": "20px",
+    "scale": ["15px", "20px", "40px", "60px", "80px", "112px"]
+  },
+  "radius": ["0"],
+  "shadow": ["none"],
+  "grid": {
+    "columns": 14,
+    "columns_mobile": 6,
+    "gap": "20px",
+    "max_width": "120rem"
+  },
+  "motion": {
+    "durations": ["150ms", "300ms", "500ms"],
+    "easings": ["ease", "ease-in-out"],
+    "triggers": ["load", "hover"],
+    "techniques": [
+      "load-fade-video-plate",
+      "hover-color-inversion",
+      "hover-opacity-dim",
+      "section-scoped-sticky-rail",
+      "first-block-polarity-inheritance"
+    ],
+    "scroll_effects": [
+      { "name": "section-scoped sticky rail (listing header / gallery caption)", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "entrance": [
+      { "name": "fadeVideoIn — hero video opacity 0->1 on load", "property": "opacity", "trigger": "load", "safety": "production-safe" }
+    ],
+    "hover": [
+      { "name": "outline button fg/bg inversion", "property": "background", "trigger": "hover", "safety": "production-safe" },
+      { "name": "link opacity 1 -> 0.6", "property": "opacity", "trigger": "hover", "safety": "production-safe" }
+    ],
+    "keyframes": ["fadeVideoIn", "slide"],
+    "stack": ["CSS transitions", "CSS @keyframes", "native <video autoplay muted loop playsinline>", "position: sticky", "IntersectionObserver (third-party only)"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Palette read from the site's own :root + season classes, corroborated by the screenshot. bg is warm paper #f9f9f3 (NOT #fff) and fg is forest ink #29382b (NOT #000); the raw profile confirms the same value serves as `color` on 415 nodes and `border-color` on 378 — borders ARE the ink, so no separate border token exists. `muted` is not a hex in the source: the site dims via `opacity: 0.6`, so it is recorded as the resolved rgba. `accent` is honestly a stretch — the only non-ink chrome color is the newsletter Submit fill #465443 on #ecefdf (a second step of the season ramp); the page has NO chromatic accent and no rendered semantic palette (--color-alert/-error/-success exist in :root but never paint). Photography carries all chroma. The homepage ships `season-vegetable`; sibling classes (season-forest, season-ocean) each remap --color-background/--color-foreground from an 8-step ramp — the theming axis is seasonal, not light/dark, so `color.dark` is omitted (craft.theme.supportsDark: false). Type: --font-size-1..8 collapsed to the 8 rem rungs above; the three largest are fluid clamp() (kept under `fluid`). Display:body ratio is only ~4x (72px/18px desktop). Leading 1.8 for body is the site's dominant line box (32.4px on 18px, 175 nodes). Tracking ramps inversely with size (-0.02em on h1-h3, -0.01em on h4-h5, +0.01em on body/h6). Measure ~45ch measured off the letter column in frame s04 (~360px of 18px serif). space: from --spacing: 1.25rem and its calc() derivatives; --spacing-xl: 112px is the one hand-set step; the 5.28px/7.92px/14.4px values in the raw profile are cookie-plugin em-derived padding and were dropped. radius 0 is the theme's own (`border-radius: 0px` on every button); the 6px/12px/50% entries in the raw profile belong to the cookie banner and Klaviyo widgets — dropped. shadow: the two captured box-shadows are likewise third-party (Klaviyo modal, WP lightbox); theme CSS has none, and craft.elevation.gradients is empty. MOTION: near-zero by intent. The probe's 2 scroll_effects are both `pin (fixed)` on the cookie banner and Klaviyo teaser — dropped as third-party chrome, not design. 9 IntersectionObservers and 15 rAF calls likewise trace to Klaviyo/analytics; 30 of the 35 @keyframes are vendored (klaviyo-*, cmplz-*, WP lightbox), leaving only fadeVideoIn and `slide` (mobile subscribe bar) as authored motion. The frame sequence shows no entrance, pin, parallax or recolor between stops, and no sticky header (--site-header-height: 0) — the header scrolls away, which the frames confirm. `position: sticky` IS used, but only section-scoped (gallery text column, listing headers). reduced_motion: respected via a global `* { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important }` — note this does not stop the looping <video>. A11y from the craft probe: focus_visible true (a dashed border-bottom, not an outline), img_alt_ratio 1.0 across 20 images, but 33 of 79 interactive elements are sub-44px."
+}

@@ -1,0 +1,1525 @@
+[
+  {
+    "slug": "14islands",
+    "url": "https://14islands.com",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "agency",
+      "studio",
+      "portfolio",
+      "monochrome",
+      "editorial",
+      "swiss",
+      "b2b"
+    ],
+    "when_to_use": [
+      "agency",
+      "portfolio",
+      "hero",
+      "brand-experience",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "expressive",
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "a24",
+    "url": "https://a24films.com",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-07-10",
+    "award_type": "Editorial pick (film-studio brand genre)",
+    "score": null,
+    "tags": [
+      "film",
+      "entertainment",
+      "studio",
+      "cinematic",
+      "editorial",
+      "monochrome",
+      "typographic",
+      "catalog",
+      "ecommerce",
+      "brand"
+    ],
+    "when_to_use": [
+      "brand-experience",
+      "landing",
+      "hero",
+      "editorial",
+      "feature-section",
+      "ecommerce",
+      "navigation"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist",
+      "expressive"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "adoratorio",
+    "url": "https://adoratorio.studio",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "portfolio",
+      "agency",
+      "design-studio",
+      "swiss",
+      "monochrome",
+      "light",
+      "motion-led",
+      "typographic"
+    ],
+    "when_to_use": [
+      "agency",
+      "portfolio",
+      "brand-experience",
+      "hero",
+      "hero-spectacle",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "expressive",
+      "editorial",
+      "brutalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "anduril",
+    "url": "https://www.anduril.com",
+    "source": "manual-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-30",
+    "award_type": "Manual (techno-feudal genre)",
+    "score": null,
+    "tags": [
+      "techno-feudal",
+      "defense-tech",
+      "hardware",
+      "cinematic",
+      "3d",
+      "sublime",
+      "gradient",
+      "mythic",
+      "dark",
+      "b2b"
+    ],
+    "when_to_use": [
+      "brand-experience",
+      "hero-spectacle",
+      "hero",
+      "landing",
+      "product-marketing",
+      "feature-section"
+    ],
+    "directions": [
+      "expressive",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "aristide",
+    "url": "https://aristidebenoist.com",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "portfolio",
+      "developer",
+      "motion-led",
+      "monochrome",
+      "dark",
+      "minimal",
+      "gallery"
+    ],
+    "when_to_use": [
+      "portfolio",
+      "brand-experience",
+      "hero-spectacle",
+      "interactive-showcase",
+      "hero",
+      "navigation"
+    ],
+    "directions": [
+      "expressive",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "awwwards",
+    "url": "https://www.meech213.com",
+    "source": "awwwards",
+    "corpus": "expressive",
+    "captured": "2026-06-29",
+    "award_type": "Site of the Day",
+    "score": null,
+    "tags": [
+      "portfolio",
+      "fashion",
+      "photography",
+      "editorial",
+      "creative-director",
+      "light",
+      "warm-monochrome",
+      "motion-led",
+      "webflow"
+    ],
+    "when_to_use": [
+      "portfolio",
+      "brand-experience",
+      "hero-spectacle",
+      "interactive-showcase",
+      "navigation",
+      "landing"
+    ],
+    "directions": [
+      "expressive",
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": "https://www.awwwards.com",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "basement",
+    "url": "https://basement.studio",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Curated (award studio)",
+    "score": null,
+    "tags": [
+      "agency",
+      "studio",
+      "dark",
+      "3d",
+      "webgl",
+      "branding",
+      "portfolio",
+      "b2b"
+    ],
+    "when_to_use": [
+      "agency",
+      "portfolio",
+      "hero-spectacle",
+      "brand-experience",
+      "footer",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "expressive",
+      "editorial",
+      "brutalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "buildinamsterdam",
+    "url": "https://buildinamsterdam.com",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Editorial pick (award studio)",
+    "score": null,
+    "tags": [
+      "agency",
+      "ecommerce",
+      "shopify",
+      "design-studio",
+      "editorial",
+      "warm-monochrome",
+      "motion"
+    ],
+    "when_to_use": [
+      "agency",
+      "portfolio",
+      "brand-experience",
+      "hero",
+      "hero-spectacle",
+      "landing"
+    ],
+    "directions": [
+      "expressive",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "corentinbernadou",
+    "url": "https://corentinbernadou.com",
+    "source": "godly",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "portfolio",
+      "personal",
+      "interactive",
+      "motion-led",
+      "creative-developer",
+      "dark"
+    ],
+    "when_to_use": [
+      "portfolio",
+      "brand-experience",
+      "interactive-showcase",
+      "hero-spectacle",
+      "hero"
+    ],
+    "directions": [
+      "expressive",
+      "editorial",
+      "brutalist"
+    ],
+    "gallery_url": "https://godly.website/websites",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "creativeinc",
+    "url": "https://www.creative.inc",
+    "source": "godly",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "ai",
+      "hardware",
+      "editorial",
+      "serif",
+      "brand",
+      "manifesto",
+      "light",
+      "3d"
+    ],
+    "when_to_use": [
+      "brand-experience",
+      "hero",
+      "hero-spectacle",
+      "landing",
+      "editorial"
+    ],
+    "directions": [
+      "editorial",
+      "expressive"
+    ],
+    "gallery_url": "https://godly.website/websites",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "cssdesignawards",
+    "url": "https://redcollar.co",
+    "source": "cssdesignawards",
+    "corpus": "expressive",
+    "captured": "2026-06-29",
+    "award_type": "Site of the Day",
+    "score": null,
+    "tags": [
+      "agency",
+      "portfolio",
+      "design-studio",
+      "monochrome",
+      "brutalist",
+      "editorial",
+      "red-accent",
+      "motion-led",
+      "b2b",
+      "3d"
+    ],
+    "when_to_use": [
+      "agency",
+      "portfolio",
+      "brand-experience",
+      "hero",
+      "hero-spectacle",
+      "interactive-showcase",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "expressive",
+      "brutalist",
+      "editorial"
+    ],
+    "gallery_url": "https://www.cssdesignawards.com",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "cuberto",
+    "url": "https://cuberto.com",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Editorial pick (award studio)",
+    "score": null,
+    "tags": [
+      "agency",
+      "portfolio",
+      "design-studio",
+      "dark",
+      "monochrome",
+      "motion"
+    ],
+    "when_to_use": [
+      "agency",
+      "portfolio",
+      "brand-experience",
+      "interactive-showcase",
+      "hero",
+      "feature-section",
+      "footer"
+    ],
+    "directions": [
+      "expressive",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "cubiflow",
+    "url": "https://www.cubiflow.com",
+    "source": "godly",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "product",
+      "saas",
+      "3d",
+      "motion-led",
+      "portfolio"
+    ],
+    "when_to_use": [
+      "brand-experience",
+      "hero-spectacle",
+      "agency"
+    ],
+    "directions": [
+      "expressive",
+      "soft"
+    ],
+    "gallery_url": "https://godly.website/websites",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "dogstudio",
+    "url": "https://dogstudio.co",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Editorial pick (award studio)",
+    "score": null,
+    "tags": [
+      "agency",
+      "creative-studio",
+      "3d",
+      "webgl",
+      "dark",
+      "portfolio",
+      "editorial"
+    ],
+    "when_to_use": [
+      "agency",
+      "portfolio",
+      "hero-spectacle",
+      "brand-experience",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "expressive",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "doronsupply",
+    "url": "https://www.doronsupply.com",
+    "source": "godly",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Gallery",
+    "score": null,
+    "tags": [
+      "ecommerce",
+      "dark",
+      "retro-tech",
+      "brutalist",
+      "monospace",
+      "creative-tools",
+      "digital-goods"
+    ],
+    "when_to_use": [
+      "ecommerce",
+      "product-marketing",
+      "hero",
+      "brand-experience",
+      "navigation",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "expressive",
+      "brutalist"
+    ],
+    "gallery_url": "https://godly.website/websites",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "exoape",
+    "url": "https://exoape.com",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "agency",
+      "portfolio",
+      "motion-led",
+      "cinematic",
+      "photographic",
+      "dark"
+    ],
+    "when_to_use": [
+      "brand-experience",
+      "agency",
+      "hero-spectacle",
+      "portfolio",
+      "hero"
+    ],
+    "directions": [
+      "expressive",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "hellomonday",
+    "url": "https://hellomonday.com",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Editorial pick",
+    "score": null,
+    "tags": [
+      "agency",
+      "studio",
+      "portfolio",
+      "editorial",
+      "monochrome",
+      "3d",
+      "light"
+    ],
+    "when_to_use": [
+      "agency",
+      "portfolio",
+      "interactive-showcase",
+      "hero",
+      "brand-experience",
+      "footer"
+    ],
+    "directions": [
+      "expressive",
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "igloo",
+    "url": "https://igloo.inc",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-07-10",
+    "award_type": "Editorial pick",
+    "score": null,
+    "tags": [
+      "web3",
+      "crypto",
+      "3d",
+      "webgl",
+      "interactive",
+      "brand",
+      "monochrome",
+      "creative"
+    ],
+    "when_to_use": [
+      "hero-spectacle",
+      "brand-experience",
+      "interactive-showcase",
+      "landing"
+    ],
+    "directions": [
+      "expressive",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "liquiddeath",
+    "url": "https://liquiddeath.com",
+    "source": "manual-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-30",
+    "award_type": "Manual (ecommerce/brand)",
+    "score": null,
+    "tags": [
+      "ecommerce",
+      "dtc",
+      "beverage",
+      "brand",
+      "irreverent",
+      "bold",
+      "maximalist",
+      "dark",
+      "heavy-metal"
+    ],
+    "when_to_use": [
+      "ecommerce",
+      "brand-experience",
+      "landing",
+      "hero"
+    ],
+    "directions": [
+      "expressive",
+      "brutalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "locomotive",
+    "url": "https://locomotive.ca",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Editorial Pick",
+    "score": null,
+    "tags": [
+      "agency",
+      "portfolio",
+      "editorial",
+      "motion-led",
+      "serif",
+      "light"
+    ],
+    "when_to_use": [
+      "agency",
+      "portfolio",
+      "brand-experience",
+      "hero-spectacle",
+      "footer",
+      "navigation"
+    ],
+    "directions": [
+      "expressive",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "lusion",
+    "url": "https://lusion.co",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Editorial pick",
+    "score": null,
+    "tags": [
+      "agency",
+      "studio",
+      "3d",
+      "webgl",
+      "interactive",
+      "dark",
+      "creative"
+    ],
+    "when_to_use": [
+      "hero-spectacle",
+      "interactive-showcase",
+      "brand-experience",
+      "agency",
+      "portfolio",
+      "hero"
+    ],
+    "directions": [
+      "expressive",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "machine-consciousness",
+    "url": "https://machine-consciousness.ai",
+    "source": "manual-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-30",
+    "award_type": "Manual (event/conference)",
+    "score": null,
+    "tags": [
+      "event",
+      "conference",
+      "ai",
+      "research",
+      "editorial",
+      "brutalist",
+      "monospace",
+      "dark",
+      "grid",
+      "manifesto"
+    ],
+    "when_to_use": [
+      "brand-experience",
+      "landing",
+      "hero",
+      "editorial",
+      "pricing",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "expressive",
+      "editorial",
+      "brutalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "masterclass",
+    "url": "https://www.masterclass.com",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-07-10",
+    "award_type": "Editorial pick (consumer subscription)",
+    "score": null,
+    "tags": [
+      "edtech",
+      "education",
+      "subscription",
+      "consumer",
+      "dark",
+      "video",
+      "celebrity",
+      "conversion",
+      "editorial",
+      "next-js"
+    ],
+    "when_to_use": [
+      "landing",
+      "hero",
+      "product-marketing",
+      "feature-section",
+      "onboarding",
+      "navigation",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "expressive",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "monogrid",
+    "url": "https://weekend-mm-2026-pasticcino-bag-master.monogrid.io",
+    "source": "awwwards",
+    "corpus": "expressive",
+    "captured": "2026-09-14",
+    "award_type": "Site of the Day",
+    "score": null,
+    "tags": [
+      "fashion",
+      "ecommerce",
+      "brand-experience",
+      "illustrated",
+      "storytelling",
+      "painterly",
+      "immersive",
+      "audio"
+    ],
+    "when_to_use": [
+      "brand-experience",
+      "interactive-showcase",
+      "hero-spectacle",
+      "landing",
+      "ecommerce"
+    ],
+    "directions": [
+      "expressive",
+      "editorial"
+    ],
+    "gallery_url": "https://www.awwwards.com/sites/the-tuscan-journey-begins",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "mschf",
+    "url": "https://mschf.xyz",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "brand",
+      "art",
+      "culture",
+      "streetwear",
+      "dark",
+      "monospace",
+      "terminal",
+      "archive",
+      "drop-culture",
+      "ecommerce"
+    ],
+    "when_to_use": [
+      "landing",
+      "brand-experience",
+      "portfolio",
+      "navigation"
+    ],
+    "directions": [
+      "brutalist",
+      "expressive"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "noma",
+    "url": "https://noma.dk",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "restaurant",
+      "hospitality",
+      "food",
+      "brand",
+      "serif",
+      "warm",
+      "photography",
+      "seasonal-theming",
+      "video-hero",
+      "wordpress"
+    ],
+    "when_to_use": [
+      "brand-experience",
+      "editorial",
+      "hero",
+      "landing",
+      "footer"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "northkingdom",
+    "url": "https://northkingdom.com",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Editorial pick",
+    "score": null,
+    "tags": [
+      "agency",
+      "gaming",
+      "dark",
+      "3d",
+      "motion-led",
+      "branding"
+    ],
+    "when_to_use": [
+      "brand-experience",
+      "hero-spectacle",
+      "agency",
+      "hero",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "expressive",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "oatly",
+    "url": "https://www.oatly.com",
+    "source": "manual-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-30",
+    "award_type": "Manual (ecommerce/maximalist)",
+    "score": null,
+    "tags": [
+      "ecommerce",
+      "dtc",
+      "food",
+      "brand",
+      "maximalist",
+      "editorial",
+      "handwritten",
+      "brutalist",
+      "mono",
+      "zine"
+    ],
+    "when_to_use": [
+      "brand-experience",
+      "landing",
+      "ecommerce",
+      "editorial",
+      "product-marketing",
+      "navigation"
+    ],
+    "directions": [
+      "brutalist",
+      "editorial",
+      "expressive"
+    ],
+    "gallery_url": "https://www.oatly.com",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "obys",
+    "url": "https://obys.agency",
+    "source": "godly",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "agency",
+      "portfolio",
+      "motion-led",
+      "experimental",
+      "editorial",
+      "award-submission"
+    ],
+    "when_to_use": [
+      "brand-experience",
+      "agency",
+      "hero-spectacle",
+      "portfolio"
+    ],
+    "directions": [
+      "expressive",
+      "brutalist",
+      "editorial"
+    ],
+    "gallery_url": "https://godly.website/websites",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "odesza",
+    "url": "https://odesza.com",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-07-10",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "music",
+      "artist",
+      "brand",
+      "monochrome",
+      "svg",
+      "dark",
+      "events"
+    ],
+    "when_to_use": [
+      "hero",
+      "brand-experience",
+      "landing",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "minimalist",
+      "expressive"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "olsonkundig",
+    "url": "https://olsonkundig.com",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "architecture",
+      "studio",
+      "dark",
+      "video",
+      "portfolio",
+      "b2b",
+      "brand",
+      "editorial"
+    ],
+    "when_to_use": [
+      "agency",
+      "portfolio",
+      "brand-experience",
+      "hero-spectacle",
+      "footer"
+    ],
+    "directions": [
+      "expressive",
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "phantom",
+    "url": "https://phantom.land",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "agency",
+      "portfolio",
+      "creative-tech",
+      "dark",
+      "monochrome",
+      "glassmorphism",
+      "3d"
+    ],
+    "when_to_use": [
+      "portfolio",
+      "agency",
+      "interactive-showcase",
+      "navigation",
+      "brand-experience"
+    ],
+    "directions": [
+      "expressive",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "playdate",
+    "url": "https://play.date",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-07-10",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "gaming",
+      "hardware",
+      "consumer-product",
+      "ecommerce",
+      "playful",
+      "retro",
+      "monochrome",
+      "1-bit",
+      "brand"
+    ],
+    "when_to_use": [
+      "landing",
+      "product-marketing",
+      "hero",
+      "feature-section",
+      "brand-experience",
+      "ecommerce",
+      "navigation"
+    ],
+    "directions": [
+      "expressive",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "poolsuite",
+    "url": "https://poolsuite.net",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-07-10",
+    "award_type": "Editorial pick (brand-experience / OS metaphor)",
+    "score": null,
+    "tags": [
+      "music",
+      "radio",
+      "brand",
+      "retro",
+      "nostalgia",
+      "pixel",
+      "skeuomorphic",
+      "os-ui",
+      "media-player",
+      "playful"
+    ],
+    "when_to_use": [
+      "brand-experience",
+      "interactive-showcase",
+      "landing",
+      "navigation"
+    ],
+    "directions": [
+      "expressive",
+      "brutalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "praxis",
+    "url": "https://www.praxisnation.com",
+    "source": "manual-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-30",
+    "award_type": "Manual (techno-feudal genre)",
+    "score": null,
+    "tags": [
+      "techno-feudal",
+      "neo-imperial",
+      "neoclassical",
+      "network-state",
+      "heraldic",
+      "monochrome",
+      "manifesto",
+      "minimal"
+    ],
+    "when_to_use": [
+      "brand-experience",
+      "editorial",
+      "hero",
+      "landing"
+    ],
+    "directions": [
+      "expressive",
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "saronic",
+    "url": "https://www.saronic.com",
+    "source": "manual-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-30",
+    "award_type": "Manual (techno-feudal genre)",
+    "score": null,
+    "tags": [
+      "defense-tech",
+      "maritime",
+      "hardware",
+      "b2b",
+      "dark",
+      "cinematic",
+      "heraldic-mark",
+      "techno-feudal",
+      "mono-label"
+    ],
+    "when_to_use": [
+      "brand-experience",
+      "hero",
+      "product-marketing",
+      "landing",
+      "hero-spectacle",
+      "interactive-showcase"
+    ],
+    "directions": [
+      "expressive",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "ssense",
+    "url": "https://www.ssense.com",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-07-10",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "fashion",
+      "luxury",
+      "retail",
+      "magazine",
+      "monochrome",
+      "photography",
+      "typography"
+    ],
+    "when_to_use": [
+      "editorial",
+      "ecommerce",
+      "landing",
+      "blog",
+      "navigation"
+    ],
+    "directions": [
+      "editorial",
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "studiofreight",
+    "url": "https://studiofreight.com",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "agency",
+      "studio",
+      "portfolio",
+      "editorial",
+      "monospace",
+      "contact-sheet",
+      "light"
+    ],
+    "when_to_use": [
+      "portfolio",
+      "agency",
+      "interactive-showcase",
+      "brand-experience",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "expressive",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "teenage-engineering",
+    "url": "https://teenage.engineering",
+    "source": "manual-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-30",
+    "award_type": "Manual (ecommerce/industrial-design)",
+    "score": null,
+    "tags": [
+      "ecommerce",
+      "industrial-design",
+      "hardware",
+      "brand",
+      "grid",
+      "swiss",
+      "playful",
+      "product",
+      "monochrome",
+      "minimal",
+      "catalog"
+    ],
+    "when_to_use": [
+      "ecommerce",
+      "navigation",
+      "brand-experience",
+      "hero",
+      "product-marketing",
+      "footer"
+    ],
+    "directions": [
+      "brutalist",
+      "editorial",
+      "expressive"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "thepudding",
+    "url": "https://pudding.cool",
+    "source": "manual-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-30",
+    "award_type": "Manual (editorial/data-journalism)",
+    "score": null,
+    "tags": [
+      "editorial",
+      "data-journalism",
+      "publication",
+      "scrollytelling",
+      "interactive",
+      "visualization",
+      "playful"
+    ],
+    "when_to_use": [
+      "editorial",
+      "blog",
+      "portfolio",
+      "navigation",
+      "interactive-showcase",
+      "brand-experience"
+    ],
+    "directions": [
+      "editorial",
+      "expressive"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "therow",
+    "url": "https://www.therow.com",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-07-10",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "fashion",
+      "luxury",
+      "ecommerce",
+      "retail",
+      "monochrome",
+      "light",
+      "photography",
+      "shopify"
+    ],
+    "when_to_use": [
+      "hero",
+      "brand-experience",
+      "ecommerce",
+      "navigation",
+      "landing"
+    ],
+    "directions": [
+      "minimalist",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "tikhon",
+    "url": "https://tikhon.io",
+    "source": "godly",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "portfolio",
+      "personal",
+      "monospace",
+      "editorial",
+      "receipt-ui",
+      "low-asset-spectacle"
+    ],
+    "when_to_use": [
+      "portfolio",
+      "brand-experience",
+      "editorial"
+    ],
+    "directions": [
+      "expressive",
+      "brutalist",
+      "minimalist"
+    ],
+    "gallery_url": "https://godly.website/websites",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "urbit",
+    "url": "https://urbit.org",
+    "source": "manual-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-30",
+    "award_type": "Manual (techno-feudal genre)",
+    "score": null,
+    "tags": [
+      "techno-feudal",
+      "neo-feudal",
+      "identity-system",
+      "developer-platform",
+      "dithered",
+      "retro-digital",
+      "monospace",
+      "editorial",
+      "paper",
+      "monochrome",
+      "developer-tool"
+    ],
+    "when_to_use": [
+      "brand-experience",
+      "landing",
+      "hero",
+      "navigation",
+      "docs",
+      "feature-section"
+    ],
+    "directions": [
+      "expressive",
+      "editorial",
+      "brutalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "varda",
+    "url": "https://www.varda.com",
+    "source": "manual-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-30",
+    "award_type": "Manual (techno-feudal genre)",
+    "score": null,
+    "tags": [
+      "aerospace",
+      "space",
+      "hardware",
+      "deeptech",
+      "b2b",
+      "dark",
+      "editorial",
+      "duotone",
+      "blueprint",
+      "two-color"
+    ],
+    "when_to_use": [
+      "brand-experience",
+      "hero",
+      "landing",
+      "feature-section",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "editorial",
+      "brutalist",
+      "expressive"
+    ],
+    "gallery_url": "https://www.varda.com",
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "wokine",
+    "url": "https://wokine.com",
+    "source": "editorial-pick",
+    "corpus": "expressive",
+    "captured": "2026-06-22",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "agency",
+      "portfolio",
+      "motion-led",
+      "monochrome",
+      "editorial",
+      "french"
+    ],
+    "when_to_use": [
+      "agency",
+      "portfolio",
+      "brand-experience",
+      "hero",
+      "navigation",
+      "footer"
+    ],
+    "directions": [
+      "expressive",
+      "editorial"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  }
+]

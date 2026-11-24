@@ -1,0 +1,8 @@
+{
+  "name": "web-design-taste",
+  "description": "Retrieval-augmented web-design taste: distilled corpus of real exemplars, principles, and normalized tokens — consulted before creating or redesigning UI, not for mechanical UI fixes",
+  "version": "1.2.3",
+  "author": { "name": "casualsav" },
+  "repository": "https://github.com/casualsav/elevated-taste",
+  "skills": "./.claude/skills/"
+}

@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# tooling caches & raw capture output (private reference — not redistributed)
+.cache/
+raw/
+graphify-out/
+corpus/production/screenshots/*
+corpus/expressive/screenshots/*
+!corpus/production/screenshots/.gitkeep
+!corpus/expressive/screenshots/.gitkeep
+
+# hook session state (Phase 2 guardrails — design-lint scope per session)
+.claude/.cache/
+
+# misc
+*.log
+.DS_Store
+
+# ephemeral session baton — never commit
+handoff.md
+
+# product builds made WITH this corpus, not part of it (kept in their own repo)
+fascia-course/
+__pycache__/

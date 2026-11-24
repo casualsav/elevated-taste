@@ -1,0 +1,59 @@
+{
+  "color": {
+    "bg": "#EDEDED",
+    "surface": "#FFFFFF",
+    "fg": "#171717",
+    "muted": "#6F6F6F",
+    "accent": "#FFFF02",
+    "roles": {
+      "ground": "#EDEDED",
+      "sheet": "#FFFFFF",
+      "text": "#171717",
+      "caption": "#6F6F6F",
+      "hairline": "#8F8F8F",
+      "focus-ring": "#8F8F8F",
+      "accent-yellow": "#FFFF02",
+      "accent-yellow-p3": "color(display-p3 1 0.94 0.01)",
+      "accent-orange": "#FF6100",
+      "accent-orange-p3": "color(display-p3 0.99 0.4 0.02)",
+      "accent-blue": "#0000FF",
+      "accent-red": "#FF484C",
+      "selection-bg": "#FFFF02",
+      "selection-fg": "#000000"
+    }
+  },
+  "type": {
+    "families": ["X (custom neo-grotesque, Helvetica-class)", "Georgia, serif (em/i only)", "JetBrains Mono (code only)"],
+    "scale": ["0.875rem", "1rem", "1.5rem", "4.6875rem", "5.3125rem", "45rem"],
+    "weights": [400, 500],
+    "leading": [1.0, 1.17, 1.5]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["8px", "16px", "24px", "32px", "40px", "48px", "50px", "56px", "64px", "72px", "80px", "88px"]
+  },
+  "radius": ["4px", "8px", "12px", "16px", "9999px"],
+  "shadow": [],
+  "motion": {
+    "durations": ["200ms", "350ms"],
+    "easings": ["ease", "ease-in-out", "cubic-bezier(0.2, 0.8, 0.2, 1)"],
+    "triggers": ["scroll-progress", "load"],
+    "techniques": [
+      "scroll-camera-pan-zoom",
+      "counter-scaled-chrome",
+      "clip-reveal-line-stagger",
+      "minimap-scroll-tracker",
+      "difference-blend-reticle"
+    ],
+    "scroll_effects": [
+      { "name": "camera-pan-zoom", "property": "transform", "trigger": "scroll-progress", "safety": "spectacle-only" },
+      { "name": "counter-scaled-caption", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "minimap-tracker-translate", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "minimap-tick-fade", "property": "opacity", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "sheet-fade-in", "property": "opacity", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["hand-rolled rAF + scroll listeners", "CSS @keyframes", "IntersectionObserver (offscreen culling, rootMargin 200px)", "mix-blend-mode: difference"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Light-only: a full Radix light+dark scale is loaded but `html` is locked to `.light` and craft.theme.supportsDark is false, so `color.dark` is omitted rather than invented. Accents are authored as display-p3 with sRGB fallbacks; the hex values above are the fallbacks. `type.scale` is three disconnected clusters, not a ratio ramp — 0.875/1rem is chrome, 4.6875/5.3125rem is statement type, and 45rem (720px) is the sheet height used verbatim as `font-size` on the clipped display glyphs (container-derived, not a scale step); do not treat it as a reusable size. `leading` is inferred from the clipped headline line boxes, not from declared `line-height`. `space.scale` is the site's declared `--space-1…11` ramp; the page itself uses only 8/9/40/50/64px — 9px (minimap tick gap) and 50px (sheet padding) are off the 8px grid and were kept as-is rather than rounded, and the 40px rail gutter is derived from the 1240px stride on 1200px sheets (the declared `gap: 8px` never applies, since the sheets are absolutely positioned). `shadow` is empty and that is real: the raw profile records zero box-shadows and zero gradients on this page (shadow tokens are declared but unused). The `cubic-bezier(0.2, 0.8, 0.2, 1)` easing is a declared token, unused on the index. Scroll `transform` values are written per-frame from rAF, so they have no duration — the two durations listed cover only the tracker transition and the sheet entrance."
+}

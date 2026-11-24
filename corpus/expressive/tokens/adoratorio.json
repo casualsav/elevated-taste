@@ -1,0 +1,45 @@
+{
+  "color": {
+    "bg": "#e6e6e6",
+    "surface": "#141414",
+    "fg": "#141414",
+    "muted": "#808080",
+    "accent": "#ff752c",
+    "roles": {
+      "fg-on-dark": "#e6e6e6",
+      "particle-ghost": "#808080",
+      "accent-fg": "#141414"
+    }
+  },
+  "type": {
+    "families": ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
+    "scale": ["0.78rem", "0.94rem", "1.03rem", "1.41rem", "13rem"],
+    "weights": [400, 700],
+    "leading": [1.0, 1.2],
+    "tracking": ["0em", "-0.01em"]
+  },
+  "space": {
+    "base": "9px",
+    "scale": ["0.28rem", "0.7rem", "1.41rem", "2.25rem"]
+  },
+  "radius": ["0", "22.5px"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["200ms", "500ms", "750ms", "1000ms", "1250ms"],
+    "easings": ["cubic-bezier(0.215, 0.61, 0.355, 1)"],
+    "stagger": "150ms",
+    "triggers": ["load", "scroll-progress"],
+    "techniques": ["ascii-particle-ring", "entrance-stagger", "sticky-pin-scrollytelling", "edge-bleed-wordmark", "live-clock-chrome"],
+    "scroll_effects": [
+      { "name": "ascii-particle-field", "property": "transform", "trigger": "load", "safety": "spectacle-only" },
+      { "name": "canvas-fade-in", "property": "opacity", "trigger": "load", "safety": "production-safe" },
+      { "name": "staggered-chrome-entrance", "property": "opacity", "trigger": "load", "safety": "production-safe" },
+      { "name": "pinned-hero-and-work-index", "property": "position", "trigger": "scroll-progress", "safety": "spectacle-only" }
+    ],
+    "stack": ["Locomotive (data-scroll)", "<canvas> + requestAnimationFrame", "IntersectionObserver"],
+    "reduced_motion": "not-respected",
+    "probe": { "canvas": 1, "raf": 477, "io": 3, "io_targets": 44, "scroll_listeners": 1, "mousemove_listeners": 1, "pin_effects": 43, "css_keyframes": ["autofill", "flicker", "blink"], "css_animation_rules": 0, "transition_rules": 12 },
+    "not_captured": ["hover states (hoverEffects: 0)", "cursor followers (cursorFollowers: 0)", "per-frame scroll choreography (Locomotive virtual-scroll pinned the headless capture)"]
+  },
+  "notes": "Screenshot is source of truth for the captured hero, which is strictly two tones: a warm light-grey canvas rgb(230,230,230) #e6e6e6 (raw backgroundColor-confirmed) and near-black ink rgb(20,20,20) #141414 (raw color count 1020). This is a LIGHT inversion of the usual dark expressive studio page. fg/ink and bg are both #141414/#e6e6e6; 'surface' = #141414 is the dark fill used on inverted pill buttons (raw backgroundColor count 89, paired with radius 22.5px and #e6e6e6 text -> a dark pill below the fold, not visible in capture). accent = orange rgb(255,117,44) #ff752c is raw-confirmed (color 14 / bg 36 / border 14 nodes) but does NOT appear in the captured viewport — it is the rationed brand accent on off-capture interactive elements (hover fills / work links); kept as accent, flagged not-in-hero. muted #808080 (rgb 128) is the ghost-grey used for the ASCII particle ring and secondary labels. No semantic palette exists (no success/warning/danger) — intentionally absent. TYPE: raw fontSize px at a ~0.9 device scale -> body 15px=0.78rem(count 855, dominant), labels 12.5px=0.78rem floor, 16.5px=1.03rem, 22.5px=1.41rem; weights only 400 (1037) and 700 (86). The giant edge-bleed 'Adoratorio Studio' wordmark is far off the computed-style scale (it overflows the 1440px viewport on one line) and is set by viewport width, not a fixed token — the 13rem 'scale' tail is a placeholder, treat as 'huge, fluid'. leading ~1.0 for display (raw lineHeight==fontSize on the 22.5px row) and ~1.2 for body (raw 18px/15px). tracking near 0, slightly negative on display. SPACE: base ~9px (raw 4.5px = half-step, 22.5px, 11.25px multiples => 4.5px unit, doubled to ~9px for readability); pill padding 22.5px inline / 4.5px block (raw-confirmed). radius: square everywhere (0) except the 22.5px pill (raw borderRadius single value, count 36 = full-round capsule). shadow none (flat). MOTION: single house easing cubic-bezier(0.215,0.61,0.355,1) (ease-out-cubic) across ALL durations 0.2s/0.5s/0.75s/1s/1.25s (raw transition-confirmed) — the longer 1-1.25s curves drive the ASCII-ring assembly/scatter and wordmark reveal; 0.2-0.5s are hover/state. The particle ring itself is JS-driven (per-letter transforms) and not fully expressed in static computed styles. Mobile screenshot caught the ring mid-scatter (letters dispersed into a loose circle), confirming it is animated, not a static glyph."
+}

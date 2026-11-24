@@ -1,0 +1,350 @@
+{
+  "_note": "Human-curated ingestion queue: app-UI sites the galleries can't supply (see tooling/coverage.mjs gaps) and login/paywalled picks that must NOT be auto-scraped. evolve.mjs ingests these FIRST, before gallery harvest; entries already in the corpus are deduped away, so nothing needs removing after a merge. Give an entry an explicit slug when the natural host slug would collide with an existing exemplar (e.g. a second surface of the same product).",
+  "_schema": {
+    "url": "external exemplar URL (the actual site to capture)",
+    "title": "human label",
+    "source": "mobbin | refero | manual",
+    "corpus": "production | expressive",
+    "tags": [
+      "..."
+    ],
+    "when_to_use": [
+      "..."
+    ],
+    "directions": [
+      "..."
+    ],
+    "added_by": "human",
+    "added_at": "YYYY-MM-DD",
+    "license_note": "private reference; not redistributed"
+  },
+  "production": [
+    {
+      "slug": "grafana-play",
+      "url": "https://play.grafana.org",
+      "title": "Grafana Play (public demo dashboards)",
+      "source": "manual",
+      "tags": [
+        "dashboard",
+        "data-viz",
+        "open-source",
+        "dark"
+      ],
+      "when_to_use": [
+        "dashboard",
+        "data-table"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-07-02",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "stripe-checkout",
+      "url": "https://checkout.stripe.dev",
+      "title": "Stripe Checkout playground",
+      "source": "manual",
+      "tags": [
+        "fintech",
+        "payments"
+      ],
+      "when_to_use": [
+        "checkout",
+        "forms"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-07-02",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "typeform",
+      "url": "https://www.typeform.com",
+      "title": "Typeform (conversational forms)",
+      "source": "manual",
+      "tags": [
+        "forms",
+        "saas",
+        "b2b",
+        "conversational",
+        "survey"
+      ],
+      "when_to_use": [
+        "forms",
+        "onboarding",
+        "product-marketing"
+      ],
+      "directions": [
+        "soft",
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-07-09",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "fillout",
+      "url": "https://www.fillout.com",
+      "title": "Fillout (modern form builder)",
+      "source": "manual",
+      "tags": [
+        "forms",
+        "saas",
+        "b2b",
+        "survey"
+      ],
+      "when_to_use": [
+        "forms",
+        "product-marketing"
+      ],
+      "directions": [
+        "soft",
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-07-09",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "shopify-checkout",
+      "url": "https://www.shopify.com/checkout",
+      "title": "Shopify Checkout (design marketing page)",
+      "source": "manual",
+      "tags": [
+        "ecommerce",
+        "payments",
+        "saas",
+        "b2b"
+      ],
+      "when_to_use": [
+        "checkout",
+        "product-marketing"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-07-09",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "appcues",
+      "url": "https://www.appcues.com",
+      "title": "Appcues (user onboarding product)",
+      "source": "manual",
+      "tags": [
+        "saas",
+        "onboarding",
+        "b2b",
+        "product-led"
+      ],
+      "when_to_use": [
+        "onboarding",
+        "product-marketing"
+      ],
+      "directions": [
+        "soft",
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-07-09",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "userflow",
+      "url": "https://userflow.com",
+      "title": "Userflow (in-app onboarding flows)",
+      "source": "manual",
+      "tags": [
+        "saas",
+        "onboarding",
+        "b2b",
+        "product-led"
+      ],
+      "when_to_use": [
+        "onboarding",
+        "product-marketing"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-07-09",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "baremetrics",
+      "url": "https://baremetrics.com",
+      "title": "Baremetrics (SaaS metrics dashboard)",
+      "source": "manual",
+      "tags": [
+        "saas",
+        "analytics",
+        "dashboard",
+        "fintech",
+        "b2b"
+      ],
+      "when_to_use": [
+        "dashboard",
+        "data-table",
+        "product-marketing"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-07-09",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "june",
+      "url": "https://www.june.so",
+      "title": "June (product analytics dashboard)",
+      "source": "manual",
+      "tags": [
+        "saas",
+        "analytics",
+        "dashboard",
+        "b2b"
+      ],
+      "when_to_use": [
+        "dashboard",
+        "empty-state",
+        "product-marketing"
+      ],
+      "directions": [
+        "minimalist",
+        "soft"
+      ],
+      "added_by": "human",
+      "added_at": "2026-07-09",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "plaid",
+      "url": "https://plaid.com",
+      "title": "Plaid (fintech data platform)",
+      "source": "manual",
+      "tags": [
+        "fintech",
+        "saas",
+        "b2b",
+        "dashboard",
+        "data-viz"
+      ],
+      "when_to_use": [
+        "dashboard",
+        "product-marketing",
+        "feature-section"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-07-09",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "airtable",
+      "url": "https://www.airtable.com",
+      "title": "Airtable (spreadsheet-database hybrid)",
+      "source": "manual",
+      "tags": [
+        "saas",
+        "b2b",
+        "data-table",
+        "database",
+        "productivity"
+      ],
+      "when_to_use": [
+        "data-table",
+        "empty-state",
+        "product-marketing"
+      ],
+      "directions": [
+        "minimalist",
+        "soft"
+      ],
+      "added_by": "human",
+      "added_at": "2026-07-09",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "metabase",
+      "url": "https://www.metabase.com",
+      "title": "Metabase (open-source BI / data tables)",
+      "source": "manual",
+      "tags": [
+        "saas",
+        "b2b",
+        "data-table",
+        "dashboard",
+        "analytics",
+        "open-source"
+      ],
+      "when_to_use": [
+        "data-table",
+        "dashboard",
+        "product-marketing"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-07-09",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "knock",
+      "url": "https://knock.app",
+      "title": "Knock (notification infrastructure — settings-heavy UI)",
+      "source": "manual",
+      "tags": [
+        "saas",
+        "b2b",
+        "notifications",
+        "settings",
+        "developer-tools"
+      ],
+      "when_to_use": [
+        "settings",
+        "docs",
+        "product-marketing"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-07-09",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "cal",
+      "url": "https://cal.com",
+      "title": "Cal.com (open scheduling — settings-dense app)",
+      "source": "manual",
+      "tags": [
+        "saas",
+        "scheduling",
+        "b2b",
+        "open-source"
+      ],
+      "when_to_use": [
+        "settings",
+        "onboarding",
+        "product-marketing"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-07-09",
+      "license_note": "private reference; not redistributed"
+    }
+  ],
+  "expressive": []
+}

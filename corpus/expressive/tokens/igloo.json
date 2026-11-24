@@ -1,0 +1,48 @@
+{
+  "color": {
+    "bg": "#a0a5b1",
+    "surface": "#c3c7ce",
+    "fg": "#ffffff",
+    "muted": "#777c81",
+    "accent": "#ffffff",
+    "roles": {
+      "stage-clear": "#a0a5b1",
+      "sky": "#c3c7ce",
+      "snow": "#e8ebef",
+      "ice-rim": "#ffffff",
+      "shadow": "#5e6572",
+      "hud-plate": "#4c4f53",
+      "hud-plate-fg": "#ffffff",
+      "wireframe": "rgba(255,255,255,0.35)",
+      "wireframe-residue": "rgba(255,255,255,0.08)"
+    }
+  },
+  "type": {
+    "families": ["IBM Plex Mono"],
+    "scale": ["1rem"],
+    "weights": [400],
+    "leading": [1.4]
+  },
+  "space": {
+    "base": null,
+    "scale": []
+  },
+  "radius": [],
+  "shadow": [],
+  "motion": {
+    "durations": [],
+    "easings": [],
+    "triggers": ["load", "hover"],
+    "techniques": [
+      "blueprint-to-render-assembly",
+      "persistent-wireframe-residue",
+      "pointer-camera-parallax",
+      "ambient-canvas-loop",
+      "document-gesture-capture"
+    ],
+    "scroll_effects": [],
+    "stack": ["<canvas> + requestAnimationFrame (WebGL, library not exposed)", "Tweakpane (debug GUI, left in bundle)", "self-hosted woff2"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Grounded in raw/igloo.css + raw/igloo.html, which are ~14 declarations total. Only TWO real custom properties exist on the site: --bgColor: #A0A5B1 and --default-font: sans-serif (declared, never consumed). color.bg is that literal declared value and is also the WebGL clear color. color.muted (#777C81) and roles.hud-plate (#4C4F53) are the ONLY other hard hexes in the stylesheet — they style the Tweakpane debug panel's scrollbar, and the same dark-plate value reads back in the rendered HUD chips. Everything else under color.roles is SAMPLED FROM THE SCREENSHOTS, not from code: the site declares no gradients, no shadows, no radii, and no palette, because every visible pixel except the background is rasterized by the renderer. There is no accent hue at all — hierarchy is pure luminance, so accent is set to the brightest value (#ffffff) rather than invented. type: the site self-hosts IBMPlexMono-Regular and IBMPlexMono-Medium as two SEPARATE @font-face families, both declaring font-weight:400 — the CSS weight axis is never used, emphasis is a family swap. The only computed font-size in the DOM is 16px across all 4 nodes; the visible type scale lives in a texture atlas, so scale is recorded as the single measurable value and leading (1.4) is estimated from the HUD plates in mobile.png. space/radius/shadow are EMPTY because they genuinely do not exist: every box is margin:0 padding:0 width:100% height:100%. motion.durations and motion.easings are EMPTY, not omitted: the probe found 0 @keyframes, 0 CSS animation rules, 0 transition rules and 0 prefers-reduced-motion rules, while counting 197 rAF callbacks and 1 mousemove listener — all timing lives in JS inside the render loop and cannot be honestly extracted. scroll_effects is empty because the document CANNOT SCROLL (html,body{overflow:hidden;touch-action:none}); the 11 captured 'scroll frames' are time samples of the load sequence. craft.theme.supportsDark is false, so color.dark is omitted (the probe's dark block just echoes the single grey field). Frames are the ground truth for the assembly choreography; raw/igloo.json's empty motion arrays reflect an inert DOM, not an inert page."
+}

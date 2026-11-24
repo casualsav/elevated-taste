@@ -1,0 +1,43 @@
+{
+  "color": {
+    "bg": "#f1ece9",
+    "surface": "#f1ece9",
+    "fg": "#161310",
+    "muted": "#6b6660",
+    "accent": "#161310",
+    "roles": {
+      "ink": "#161310",
+      "object-light": "#e9e3df",
+      "object-shadow": "#c9c1bb",
+      "wordmark": "#161310"
+    }
+  },
+  "type": {
+    "families": ["\"STK Bureau Serif\", \"Iowan Old Style\", Baskerville, Georgia, serif"],
+    "scale": ["1rem", "1.25rem", "3.75rem"],
+    "weights": [200, 300, 400],
+    "leading": [0.88, 1.35, 1.5]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["6px", "12px", "16px", "20px", "2rem", "4rem", "6rem"]
+  },
+  "radius": ["9999px"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["75ms", "100ms", "320ms", "520ms", "900ms"],
+    "easings": ["ease", "cubic-bezier(0, 0, 0.2, 1)", "cubic-bezier(0.2, 0.7, 0.2, 1)"],
+    "stagger_ms": [60, 220],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": ["sticky-pin-scrollytelling", "in-view-fade-up", "outline-pill-fill-on-hover", "cursor-follower", "audio-bar-pulse-loop"],
+    "scroll_effects": [
+      { "name": "sticky-pill-nav", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "hero-block-fade-in", "property": "opacity", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "keyframes": ["route-fade-in", "route-fade-out", "logo-rise", "audio-bar-pulse"],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "rAF cursor/audio loop"],
+    "reduced_motion": "not-respected",
+    "notes_motion": "Quietest motion in the expressive set. scroll_effects diff = 3 pin only, 0 real transitions after dropping from==to: NO parallax/scroll-scale/scroll-rotate/recolor (frames confirm the 3D object scrolls as ordinary content, never idle-spins). ~6555 rAF/scroll with canvas:0 + libraries:[] = cursor-follower (2 nodes, 14 mousemove) + audio-bar loop, NOT WebGL, so the claymorphic object is a pre-rendered still. Entrance: 2 reveals only (opacity 0->1 hero block + logo-rise), staggeredEntrance:false. rootMargin:200px. reduced-motion NOT gated."
+  },
+  "notes": "Trusts screenshot over raw profile. bg from raw rgb(241,236,233)=#f1ece9 (warm bone), confirmed in both captures. fg/muted are NOT in the raw profile (it only captured bg) — sampled from the near-black serif ink in screenshots and inferred. SINGLE serif family for display AND body — no sans/mono on the page; the listed family is the raw value, fallbacks trimmed to essentials. Scale normalized to 3 used steps: 16px body, 20px sub-lead, ~60px display (raw 59.59px rounded to text-5xl 3.75rem). Note the inverted weight ramp — weight DROPS as size grows (400 body -> 300 sub -> 200 display) to keep large type elegant; captured as weights [200,300,400]. leading: raw line-heights 24px/16px=1.5 body, 27/20=1.35 sub, 52/60=0.88 display (very tight display leading is load-bearing for the bracketed-headline look). radius full (raw 3.35e7px = effectively pill/circle, used by the toggle + 'Team +' outline pill). No shadows, no real accent color — accent role aliased to ink because hierarchy uses scale, not color. Tracking (not in this schema): display ~-1.2px negative is essential at size. The 3D object colors are sampled estimates, not from raw."
+}

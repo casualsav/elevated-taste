@@ -1,0 +1,52 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#161616",
+    "fg": "#0b0d12",
+    "muted": "#888888",
+    "accent": "#161616",
+    "roles": {
+      "stage-bg": "#161616",
+      "stage-fg": "#ffffff",
+      "stage-muted": "#888888",
+      "overlay-scrim": "rgba(0,0,0,0.5)",
+      "nav-scrim": "rgba(255,255,255,0.95)"
+    }
+  },
+  "type": {
+    "families": ["\"Suisse Intl\"", "sans-serif"],
+    "scale": ["0.8rem", "1rem", "1.125rem", "1.35rem", "2.1rem", "5rem", "6.75rem"],
+    "weights": [300, 400, 500, 700],
+    "leading": [1.0, 1.15, 1.2, 1.4]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.5rem", "0.675rem", "1rem", "1.35rem", "2rem", "3rem", "3.375rem", "5.625rem", "7.5rem", "11.25rem"]
+  },
+  "radius": ["18px", "72px", "1000px", "9999px", "50%"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["200ms", "300ms", "400ms", "500ms", "600ms", "800ms", "1200ms", "15000ms"],
+    "easings": ["cubic-bezier(0.16, 1, 0.3, 1)", "cubic-bezier(0.4, 0, 0, 1)", "ease"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": [
+      "cursor-follow-morph",
+      "pinned-rotating-badge",
+      "parallax-drift",
+      "scroll-scale",
+      "sticky-pin-scrollytelling",
+      "hover-card-zoom"
+    ],
+    "scroll_effects": [
+      { "name": "morphing-custom-cursor", "property": "transform", "trigger": "hover", "safety": "spectacle-only" },
+      { "name": "pinned-rotating-contact-badge", "property": "transform", "trigger": "scroll-progress", "safety": "spectacle-only" },
+      { "name": "parallax-media-and-words", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "in-view-scale-up-headline", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "sticky-navbar-fill", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "hover-card-media-zoom", "property": "transform", "trigger": "hover", "safety": "production-safe" }
+    ],
+    "stack": ["hand-rolled vanilla JS", "CSS @keyframes", "CSS transitions"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Raw profile was captured at ~1.35x device scaling, so sizes read as 12.6/21.6/81/108px etc.; normalized back to a clean ratio scale (body ~16-18px; lead-in ~21.6px=1.35rem; display 81px=5rem and 108px=6.75rem). Palette is pure two-tone: white page + a single near-black 'stage' (rgb(22,22,22), reported as #161616) used for the projects/footer panel; rgb(136,136,136)=#888 is the only muted grey (captions/labels). Accent is the black itself — there is NO chromatic accent; color in cards comes from project imagery only. radius set is bimodal: 18px (cards) and 1000px/9999px (pills) plus 72px (curled stage corners). No box-shadows anywhere — depth is implied by the imagery and the dark panel, not elevation. Signature easing is cubic-bezier(0.16,1,0.3,1) (a strong overshoot-free ease-out) at 0.8-1.2s for scroll reveals, with cubic-bezier(0.4,0,0,1) for snappier state changes; reduced from the noisy multi-prop transition strings in raw. weight 300 is rare (a few large headings); 400 dominates; 700 used sparsely (~12 nodes). MOTION: kept the full captured duration set (200-1200ms); the 15000ms value is the continuous contact-badge spin, not a transition. Stack is hand-rolled (no GSAP/Lenis/Framer/Three; 0 canvas, 0 IntersectionObserver) — 'in-view' triggers are scroll-listener-driven (10 scroll + 9 mousemove listeners, 2137 rAF/scroll pass). 5 @keyframes (cb-fx-rotating-360 = badge, cb-btn_menu-open-* = hamburger). reduced_motion is NOT respected (prmRules:0); the morphing cursor + scroll math are the main-thread cost. Cursor technique grounded in probe counts + the cb-cursor matrix, not the frames (per-frame pointer morph isn't visible in stills)."
+}

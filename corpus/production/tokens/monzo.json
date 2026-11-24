@@ -1,0 +1,54 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f2f8f3",
+    "fg": "#091723",
+    "muted": "rgba(9,23,35,0.6)",
+    "accent": "#ff4f40",
+    "roles": {
+      "surface-green-2": "#e3ebe4",
+      "surface-ink": "#091723",
+      "surface-ink-2": "#112231",
+      "ink-on-dark": "#ffffff",
+      "link": "#0000ee",
+      "hairline": "rgba(9,23,35,0.1)",
+      "scrim": "linear-gradient(rgba(0,24,37,0) 0%, rgba(0,24,37,0.4) 97%)",
+      "disabled-fg": "#545454"
+    }
+  },
+  "type": {
+    "families": ["MonzoSansDisplay, sans-serif", "MonzoSansText, sans-serif"],
+    "scale": ["1rem", "1.25rem", "1.563rem", "1.953rem", "2.441rem", "3.052rem", "3.815rem"],
+    "weights": [400, 600, 800],
+    "leading": [1.1, 1.2, 1.4],
+    "tracking": ["0", "-1px"],
+    "notes": "1.25 (major-third) modular scale on a 16px base; display family + -1px tracking at large sizes, text family for body/UI"
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["8px", "12px", "16px", "24px", "32px", "48px", "64px", "128px"]
+  },
+  "radius": ["4px", "16px", "24px", "32px", "64px", "128px", "500px"],
+  "shadow": [
+    "0 0 10px rgba(0,0,0,0.1)",
+    "0 8px 32px rgba(0,0,0,0.16)"
+  ],
+  "motion": {
+    "durations": ["200ms", "300ms", "350ms", "400ms", "1000ms"],
+    "easings": ["ease", "ease-out", "cubic-bezier(0.22,0,0.12,1)", "cubic-bezier(0,0,0.12,1)"],
+    "triggers": ["in-view", "load", "hover", "tap"],
+    "techniques": ["in-view-fade-rise", "fanned-card-deck-reveal", "card-shimmer-sweep", "tabbed-switcher", "nav-curtain"],
+    "scroll_effects": [
+      { "name": "sticky-header", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "in-view-reveal", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "fanned-card-deck", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "card-shimmer", "property": "background", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stagger_delays_ms": [200],
+    "io_thresholds": [0, 0.2, 0.8],
+    "io_root_margins": ["0px", "200px", "600px"],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "CSS transitions"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Normalized from a noisy raw profile corroborated against screenshots. Coral accent confirmed as the single brand color; editorial blue #0000ee kept as a distinct link role. Display sizes rounded to a clean 1.25 scale (raw had 31.25/39.06/48.83/61.04px). Radii consolidated to the observed ladder; 500px = pill. No GSAP/scroll library detected — motion is component @keyframes + IO reveals only."
+}

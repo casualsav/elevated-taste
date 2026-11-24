@@ -1,0 +1,53 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f9f9fb",
+    "fg": "#1c2024",
+    "muted": "#60646c",
+    "subtle": "#888e95",
+    "accent": "#ff6c52",
+    "roles": {
+      "ink-near-black": "#222222",
+      "hairline": "#cdced6",
+      "hairline-soft": "#e0e1e6",
+      "accent-hover": "#e33a1e",
+      "accent-alt": "#ff573a",
+      "success": "#00aa72",
+      "success-deep": "#00834f",
+      "success-surface": "#d3f1e0",
+      "chip-dark": "#1c2024",
+      "ghost-hover": "#eff0f3"
+    }
+  },
+  "type": {
+    "families": ["Inter", "Inconsolata (mono)"],
+    "scale": ["0.625rem", "0.6875rem", "0.75rem", "0.8125rem", "0.875rem", "0.9375rem", "1rem", "1.125rem", "1.25rem", "1.5rem", "1.75rem", "1.875rem", "3rem", "3.5rem"],
+    "weights": [400, 500, 600],
+    "leading": [1.1, 1.25, 1.5],
+    "tracking": { "display": "-0.225px@30", "heading": "-0.158px@24", "body": "-0.045px@16", "caps-label": "0.42px@15" },
+    "h1": { "desktop": "56px/62px", "mobile": "34px" }
+  },
+  "space": { "base": "4px", "scale": ["4px", "6px", "8px", "10px", "12px", "16px", "24px", "32px", "48px", "80px", "144px"] },
+  "radius": ["4px", "6px", "8px", "16px", "9999px"],
+  "shadow": [
+    "0 14px 30px rgba(28,32,36,0.08)",
+    "0 16px 7px rgba(28,32,36,0.01)",
+    "0 29px 12px rgba(28,32,36,0.01)"
+  ],
+  "container": { "wide": "1440px", "content": "1216px", "prose": "640px" },
+  "motion": {
+    "durations": ["150ms", "200ms", "300ms", "400ms", "700ms", "1000ms"],
+    "easings": ["cubic-bezier(0.4,0,0.2,1)", "cubic-bezier(0,0,0.2,1)", "cubic-bezier(0.4,0,1,1)", "ease-out"],
+    "triggers": ["load", "in-view", "scroll-progress", "hover"],
+    "techniques": ["self-animating-schematic-diagram", "in-view-fade-rise", "condensing-sticky-header", "scroll-scaled-dot-grid", "micro-hover-recolor"],
+    "scroll_effects": [
+      { "name": "connector-dash-flow", "property": "clip", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "in-view-reveal", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "sticky-header-alpha", "property": "background", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "dot-grid-scale", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "canvas 2D", "inline SVG"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Palette normalized from rgb() computed styles to hex; coral #FF6C52 / #E33A1E confirmed verbatim in CSS. Inter dominates (231 vs 32); ppNeueMontreal + openSauce are loaded but not the marketing workhorse and were dropped. Scale trimmed from the noisy px frequency dump to the coherent set. Site's own tokens are a Telegraph ('--tgph-*') design system — not reproduced; house roles inferred. No dark re-theme on the homepage (near-black chips are an inversion accent), so color.dark is omitted despite craft.theme.supportsDark:true."
+}

@@ -1,0 +1,49 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#ffffff",
+    "fg": "#0b0d12",
+    "muted": "#c9c9c9",
+    "accent": null,
+    "roles": {
+      "fg-on-media": "#ffffff",
+      "rule": "#ffffff",
+      "rule-muted": "#c9c9c9",
+      "inactive": "#c9c9c9"
+    }
+  },
+  "type": {
+    "families": ["Obys", "serif"],
+    "scale": ["0.6875rem", "5rem"],
+    "weights": [400],
+    "leading": [1.0, 1.2],
+    "tracking": ["-0.01em", "-0.03em"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["1px", "0.625rem", "2rem", "6rem"]
+  },
+  "radius": ["0"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["400ms", "600ms", "800ms", "1000ms", "1600ms", "3500ms"],
+    "easings": ["cubic-bezier(0.16, 1, 0.3, 1)", "ease"],
+    "triggers": ["scroll-progress", "in-view", "load", "hover"],
+    "techniques": [
+      "sticky-pin-scrollytelling",
+      "parallax-drift",
+      "bracket-focus-reveal",
+      "ambient-live-clock"
+    ],
+    "scroll_effects": [
+      { "name": "pinned plate / scroll-handoff", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "spine parallax drift", "property": "transform", "trigger": "in-view", "safety": "spectacle-only" },
+      { "name": "bracket-frame focus reveal", "property": "opacity+transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "ambient live clock", "property": "text", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["rAF smooth-scroll engine (Locomotive/Lenis-class, inferred)", "CSS transitions", "canvas"],
+    "reduced_motion": "not-respected",
+    "evidence": "Probe: 48 scroll effects (28 pin (fixed) on figure/project divs + 20 transform/parallax, trigger in-view) on the project plates and margin-credit spans; 779 requestAnimationFrame callbacks; 1 <canvas>; transRules 18; keyframeCount 0; 0 IntersectionObserver / 0 scroll / 0 mousemove listeners; 0 prefers-reduced-motion rules (respectsReducedMotion:false); no library global detected (rAF+pin+position:fixed fingerprint => smooth-scroll engine inferred, not asserted). Transitions: 0.8s x39 + 1.6s x38 on cubic-bezier(0.16,1,0.3,1), plus one-offs 1s/0.6s/0.4s(ease)/3.5s. FRAMES ARE WEAK EVIDENCE: scroll-capture stalled — s02..s10 byte-identical, s00..s02 differ <1% (top-bar clock cols 0-1/9-10, small center+margin settle band 4-5, footer band 9); pin/parallax choreography is probe-derived and frame-unconfirmed."
+  },
+  "notes": "Monochrome capture, confirmed by screenshots: only white/black/one grey (#c9c9c9); raw profile lists no accent hue, so accent is null on purpose. Type collapsed from raw 11px/80px to 0.6875rem/5rem (~7x ratio); single 400-weight custom face 'Obys'. Raw body line-height 13.2px on 11px ≈ 1.2 leading; display line-height equals font-size (1.0). Tracking: craft sampler captured only the body (11px -> -0.11px ≈ -0.01em); the display -0.03em (-2.4px on 80px) is from the raw letterSpacing profile, single-source. Padding/gap rounded from raw ~1px and ~10px; the 1px box padding is the brutalist edge-to-edge box treatment, kept as the smallest space step. radius=0 and shadow=none inferred from screenshots (no rounding or elevation visible; raw profile carries no radius/shadow data). Grid: raw 12-col desktop -> 4-col mobile is the underlying CSS-grid track count; the rendered layout is 1 centered spine + 2 margin rails (frame-estimated). States: only link :focus captured (outline 1px rgb(16,16,16); focus_visible:false); no button/card/input/disabled states; supportsDark:false. A11y defects: reduced_motion not respected, focus-visible false, 83/198 small tap targets; img_alt_ratio 1.0 is the one pass. Motion durations are spectacle-scale (0.8s/1.6s, one 3.5s) on a single expo-out curve — durations should NOT be ported to product UI; the curve can be. Screenshot is the source of truth where it disagrees with the noisy raw counts; per motion.evidence, frames are weak (stalled scroll) so pin/parallax are probe-derived."
+}

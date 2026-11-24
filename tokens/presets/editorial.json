@@ -1,0 +1,43 @@
+{
+  "$description": "Direction preset: editorial. Publication flavor — adds a serif display voice, relaxes reading leading, tightens display tracking, mutes the accent to an editorial link-blue, flattens shadows, and widens the reading measure. Partial override; deep-merged over tokens.json by build.mjs. Composes with either corpus.",
+  "color": {
+    "fg":        { "$value": "#1c1a16", "$type": "color" },
+    "bg":        { "$value": "#f6f7f3", "$type": "color" },
+    "surface":   { "$value": "#ffffff", "$type": "color" },
+    "surface-2": { "$value": "#eceee7", "$type": "color" },
+    "muted":     { "$value": "#6b6a64", "$type": "color" },
+    "subtle":    { "$value": "#8c8b83", "$type": "color" },
+    "border":    { "$value": "#dcddd5", "$type": "color" },
+    "accent":    { "$value": "#0e8ef0", "$type": "color" },
+    "focus":     { "$value": "#0e8ef0", "$type": "color" }
+  },
+  "font": {
+    "serif":   { "$value": "'Newsreader', 'IBM Plex Serif', Georgia, 'Times New Roman', serif", "$type": "fontFamily" },
+    "display": { "$value": "'Fraunces', 'Newsreader', Georgia, serif", "$type": "fontFamily" }
+  },
+  "leading": {
+    "normal":  { "$value": "1.6", "$type": "number" },
+    "relaxed": { "$value": "1.8", "$type": "number" }
+  },
+  "tracking": {
+    "tight": { "$value": "-0.035em", "$type": "dimension" },
+    "wide":  { "$value": "0.08em",   "$type": "dimension" }
+  },
+  "weight": {
+    "regular":  { "$value": "400", "$type": "fontWeight" },
+    "semibold": { "$value": "500", "$type": "fontWeight" }
+  },
+  "radius": {
+    "sm": { "$value": "2px", "$type": "dimension" },
+    "md": { "$value": "4px", "$type": "dimension" },
+    "lg": { "$value": "6px", "$type": "dimension" }
+  },
+  "shadow": {
+    "sm": { "$value": "none", "$type": "shadow" },
+    "md": { "$value": "none", "$type": "shadow" },
+    "lg": { "$value": "0 1px 0 rgba(28,26,22,0.08)", "$type": "shadow" }
+  },
+  "container": {
+    "content": { "$value": "680px", "$type": "dimension" }
+  }
+}

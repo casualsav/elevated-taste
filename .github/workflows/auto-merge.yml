@@ -1,0 +1,119 @@
+name: auto-merge-evolve
+# The approval policy from docs/UPGRADES.md §B5: any evolve/* draft PR that
+#   - is older than 48 hours,
+#   - is NOT labeled `hold`,
+#   - passes the full corpus validator on its branch,
+# gets marked ready and squash-merged. You keep a veto (label `hold`, or just
+# close the PR) without being a dependency. Runs daily; also on demand.
+
+on:
+  schedule:
+    - cron: '30 8 * * *' # daily 08:30 UTC (before the Monday evolve run)
+  workflow_dispatch:
+
+concurrency:
+  group: evolve # never overlap with an evolve run mutating branches
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write # dispatch post-merge-derivations + deploy-site after merging (see below)
+
+jobs:
+  merge-ready:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      # Find eligible PRs FIRST: on most days there are none, and installing
+      # Node deps + Playwright with system deps just to exit costs Actions
+      # minutes every day on a private repo.
+      - name: Find evolve PRs older than 48h
+        id: find
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          cutoff=$(date -u -d '48 hours ago' +%Y-%m-%dT%H:%M:%SZ)
+          # isCrossRepository: never auto-merge a PR from a fork. A fork can name its
+          # branch evolve/anything; in a public repo that would let a stranger's PR
+          # merge itself after 48h just by passing the validator.
+          gh pr list --state open --json number,headRefName,createdAt,labels,title,isCrossRepository \
+            --jq '.[] | select(.isCrossRepository | not)
+                       | select(.headRefName | (startswith("evolve/") or startswith("refresh/")))
+                       | select(.createdAt < "'"$cutoff"'")
+                       | select((.labels | map(.name) | contains(["hold"])) | not)
+                       | "\(.number)\t\(.headRefName)\t\(.title)"' > /tmp/prs.tsv || true
+          if [ -s /tmp/prs.tsv ]; then echo "any=true" >> "$GITHUB_OUTPUT"; cat /tmp/prs.tsv
+          else echo "any=false" >> "$GITHUB_OUTPUT"; echo "no eligible evolve PRs"; fi
+      - uses: actions/setup-node@v4
+        if: steps.find.outputs.any == 'true'
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+        if: steps.find.outputs.any == 'true'
+      - name: Install Playwright Chromium (render gate)
+        if: steps.find.outputs.any == 'true'
+        run: npx playwright install --with-deps chromium
+      - name: Merge gated evolve PRs
+        id: merge
+        if: steps.find.outputs.any == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          merged=0
+          while IFS=$'\t' read -r num branch title; do
+            echo "── #$num $branch — $title"
+            git fetch origin "$branch"
+            # Validate the actual POST-MERGE state with MAIN's tooling:
+            # squash-merge the branch onto main locally (no commit), then run
+            # the validator. Checking out the branch wholesale ran whatever
+            # validator existed when the branch was cut (branches predating a
+            # tooling change had no `validate` script at all), and overlaying
+            # just corpus/ regresses files main has since changed (e.g.
+            # sources.json). A merge conflict lands in the hold path, which is
+            # right — a conflicted PR needs a human.
+            git reset --hard -q && git clean -qfd
+            git checkout -f origin/main --detach
+            # reconcile BEFORE validate: evolve PRs deliberately carry only the
+            # source-of-truth files, and post-merge-derivations regenerates
+            # sources.json once the merge lands. Validating without this asks the
+            # branch for state that only exists after merging, so every evolve PR
+            # failed the gate. Regenerating here validates what will actually land.
+            if git merge --squash "origin/$branch" && node tooling/reconcile-sources.mjs && npm run validate && node tooling/render-patterns.mjs --check; then
+              gh pr ready "$num" || true
+              if gh pr merge "$num" --squash --delete-branch; then
+                echo "merged #$num"; merged=$((merged + 1)); echo "merged=$merged" >> "$GITHUB_OUTPUT"
+              else
+                echo "::warning::merge of #$num failed (conflict or protection) — left open"
+              fi
+            else
+              echo "::warning::#$num failed the corpus validator — labeling hold for human review"
+              # Comment ONLY if the hold label sticks — an unlabeled PR gets
+              # reprocessed every day and the comment repeats forever.
+              if gh pr edit "$num" --add-label hold; then
+                gh pr comment "$num" --body "Auto-merge blocked: \`npm run validate\` failed on this branch. Labeled \`hold\` — fix or close." || true
+              else
+                echo "::error::could not add label 'hold' to #$num (does the label exist?) — it WILL be reprocessed next run"
+              fi
+            fi
+            git checkout -f main
+          done < /tmp/prs.tsv
+      # A merge made with GITHUB_TOKEN does NOT fire `push` workflows, so
+      # post-merge-derivations (sources.json + corpus/index.json) and deploy-site
+      # never ran after an auto-merge: merged exemplars sat in corpus/ but were
+      # missing from the retrieval index, and taste.extant.cc stopped updating.
+      # workflow_dispatch IS allowed from GITHUB_TOKEN, so kick both explicitly.
+      - name: Rebuild derived artifacts + redeploy site
+        # !cancelled(): still dispatch if a later PR in the loop errored after earlier ones merged
+        if: ${{ !cancelled() && steps.merge.outputs.merged != '' && steps.merge.outputs.merged != '0' }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh workflow run post-merge.yml --ref main
+          gh workflow run deploy-site.yml --ref main

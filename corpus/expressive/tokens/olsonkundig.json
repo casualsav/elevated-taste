@@ -1,0 +1,70 @@
+{
+  "color": {
+    "bg": "#181213",
+    "surface": "#3B3735",
+    "fg": "#ffffff",
+    "muted": "#75716E",
+    "accent": "#CC953D",
+    "roles": {
+      "steel": "#181213",
+      "dark-concrete": "#3B3735",
+      "concrete": "#75716E",
+      "mist": "#eeecec",
+      "sand": "#F7F7F2",
+      "timber": "#CC953D",
+      "fg-on-media": "#ffffff",
+      "scrim-corner": "linear-gradient(to bottom left, rgba(24,18,19,0) 0%, rgba(24,18,19,0.618) 100%)",
+      "scrim-header": "linear-gradient(to top, rgba(24,18,19,0) 0%, rgba(24,18,19,0.382) 100%)",
+      "media-rest-opacity": "0.875",
+      "focus-fill": "#CC953D",
+      "alert-bg": "#CC953D"
+    }
+  },
+  "type": {
+    "families": ["InterVariable", "Inter, system-ui, sans-serif"],
+    "scale": ["0.8125rem", "1.0625rem", "1.4375rem", "3rem", "4.1875rem"],
+    "weights": [300, 500],
+    "leading": [1.0, 1.08, 1.382, 1.5],
+    "tracking": ["0.01em"],
+    "notes": "Flat positive 0.01em at every size (display included) rather than a negative ramp — Inter's optical sizing does the tightening. Display headings correct the left side-bearing with margin-left: -0.0618em. Sizes step per-breakpoint as percentages (223.5% → 394.1%); no clamp(), no fluid type."
+  },
+  "space": {
+    "base": "15px",
+    "scale": ["15px", "30px", "60px"],
+    "gutter": ["3rem", "1.5rem"],
+    "columns": [12, 6, 3],
+    "column_width": "calc((100vw - var(--gutter)) / var(--columns))",
+    "section_height": "100lvh, capped at 100svh"
+  },
+  "radius": ["0", "50%"],
+  "shadow": ["none", "0 0 0 3px rgba(204,149,61,0.71)"],
+  "motion": {
+    "durations": ["200ms", "400ms", "800ms", "2000ms"],
+    "easings": [
+      "linear",
+      "ease",
+      "cubic-bezier(0.55, 0.055, 0.675, 0.19)",
+      "cubic-bezier(0.4, 0, 0.2, 1)"
+    ],
+    "triggers": ["scroll-progress", "load", "drag/tap", "user-preference"],
+    "techniques": [
+      "fixed-media-stack-crossfade",
+      "blur-dissolve-on-exit",
+      "class-toggle-instead-of-scroll-scrub",
+      "fixed-footer-underlay",
+      "retracting-header-with-gradient-scrim",
+      "staggered-per-letter-svg-wordmark",
+      "user-owned-motion-switch"
+    ],
+    "scroll_effects": [
+      { "name": "media-layer-crossfade", "property": "opacity", "trigger": "scroll-progress", "safety": "spectacle-only" },
+      { "name": "statement-blur-dissolve", "property": "clip", "trigger": "scroll-progress", "safety": "spectacle-only" },
+      { "name": "chrome-blur-lift", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "header-retract", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "fixed-stage-and-footer-pin", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["hand-rolled scroll listeners (3)", "CSS transitions", "Slick.js (carousel only)", "Plyr (media controls)", "Vimeo (6 background videos)"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Ground truth is raw/olsonkundig.css + the rendered DOM; the frequency profile was used only to rank. Normalized away: Plyr's vendor custom properties (--plyr-*), the site's --vh/--winHeight JS fallback for --fillLVH/--fillSVH, and ~28 breakpoints (480–2560 min-width plus orientation and min-height queries) that exist because the layout is height-driven, not width-driven. 'statement-blur-dissolve' is recorded as property:'clip' because the schema has no 'filter' value — the real declaration is `transition: filter .8s linear` → `filter: blur(3rem)`. color.dark is OMITTED deliberately: craft.theme.supportsDark reports true, but the 'dark' palette it returns is identical to the light one — the site is permanently dark and never re-themes (meta.color_scheme: 'normal'). The probe's `respectsReducedMotion: false` / `prmRules: 0` is a FALSE NEGATIVE: there is no @media (prefers-reduced-motion) block, but the preference is read in JS, applied via `body.reduced-motion` rules, and surfaced to the user as a `role=switch` toggle plus an 'Enable Motion' notice — so the user-facing outcome is respected. Shadow list is effectively empty: the only box-shadows in the build are the gold rings of the `motion-pulse` animation on the active toggle. Tracking is uniform (0.17px @ 17px = 0.01em) at every size, which is the opposite of the corpus's usual size-scaled negative ramp — do not generalize it off a variable font."
+}

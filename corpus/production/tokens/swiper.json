@@ -1,0 +1,82 @@
+{
+  "color": {
+    "bg": "#000000",
+    "surface": "rgba(255,255,255,0.05)",
+    "surface-2": "rgba(255,255,255,0.10)",
+    "fg": "#ffffff",
+    "muted": "rgba(255,255,255,0.75)",
+    "subtle": "rgba(255,255,255,0.50)",
+    "border": "rgba(255,255,255,0.15)",
+    "accent": "#5caeff",
+    "roles": {
+      "action": "#5caeff",
+      "action-fg": "#000000",
+      "link": "#5caeff",
+      "link-hover": "#5caeff",
+      "focus": "#9e9e9e",
+      "placeholder": "#969faf",
+      "brand-gradient": "linear-gradient(to right, #5caeff 0%, #ffffff 100%)",
+      "surface-hover": "rgba(255,255,255,0.15)",
+      "scrim": "rgba(50,50,50,0.5)"
+    },
+    "light-mode": {
+      "bg": "#ffffff",
+      "fg": "#1c1e21",
+      "note": "supportsDark:true — site inverts to a white field in light mode; captured/default resting state is dark, distilled above"
+    }
+  },
+  "type": {
+    "families": ["Inter", "ui-monospace"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.5rem", "3rem", "3.5rem", "6rem"],
+    "weights": [400, 500, 600],
+    "leading": [1.1, 1.3, 1.5],
+    "tracking": { "display": "-1.4px", "display-2": "-1.2px", "ui": "normal" }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "8px", "12px", "16px", "32px", "48px", "64px"]
+  },
+  "radius": ["12px", "16px", "24px", "9999px"],
+  "shadow": [
+    "none"
+  ],
+  "elevation_note": "No drop shadows on the page (elevation.shadows ≈ none). Depth is built from hairline white-alpha borders + an accent (sky-blue) glow on active surfaces, never box-shadow.",
+  "motion": {
+    "durations": ["100ms", "200ms", "300ms", "2000ms", "60000ms"],
+    "easings": [
+      "ease",
+      "cubic-bezier(0.4, 0, 0.2, 1)",
+      "cubic-bezier(0.2, 0.8, 0.2, 1)"
+    ],
+    "triggers": ["in-view", "load", "hover", "drag", "continuous"],
+    "techniques": [
+      "in-view-fade-rise",
+      "dual-direction-marquee",
+      "page-top-bg-reveal",
+      "hover-recolor",
+      "loader-spin",
+      "drag-carousel"
+    ],
+    "scroll_effects": [
+      { "name": "in-view fade-rise reveal", "property": "opacity+transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "dual-direction demo marquee (home-videos-row-top/bottom)", "property": "transform", "trigger": "load|continuous", "safety": "production-safe" },
+      { "name": "page-top background glow reveal", "property": "opacity", "trigger": "load", "safety": "production-safe" },
+      { "name": "drag/swipe carousel (library signature, demos only)", "property": "transform", "trigger": "drag", "safety": "production-safe" },
+      { "name": "coverflow 3-D carousel variant", "property": "transform(3d)", "trigger": "drag", "safety": "spectacle-only" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "Swiper (library, on demo routes)"],
+    "reduced_motion": "respected",
+    "evidence": "9 @keyframes (fade-in, page-top-bg-reveal, fadeIn, fadeInUp, reveal, home-videos-row-top, home-videos-row-bottom, demo-preloader-spin, cladd-spinner-rotate); 6 CSS animation rules; 1 IntersectionObserver / 91 targets @ rootMargin 200px; 2 scroll + 8 mousemove listeners; 0 rAF; 0 detected libraries on home; 6 prefers-reduced-motion blocks (respected). interactive probe: carousels 0, draggable 0, video 10, canvas 0 — the live drag carousel is NOT on the home hero; it runs in Playground/Docs demos. Both reported scroll_effects had from==to and were dropped as noise (no real pin/parallax in the frames)."
+  },
+  "a11y": {
+    "focus_visible": true,
+    "reduced_motion": "respected",
+    "img_alt_ratio": 0.99,
+    "defects": [
+      "small_tap_targets: 272 of 334 interactive elements below 44px (mobile hit-area defect)",
+      "focus rings inconsistent: range from 1px rgb(16,16,16) (near-invisible on black) to 2px ~rgb(158,158,158); standardize one high-contrast ≥2px focus-visible ring",
+      "single-hue accent + translucent pill nav: keep non-color affordances and a solid/blur nav backdrop to hold 4.5:1"
+    ]
+  },
+  "notes": "Dark, near-monochrome Inter system with ONE sky-blue accent (#5caeff = rgb(92,174,255), the page's single hue, used 452x as color AND border). Normalized: base weight is 400 (961 of 994 nodes; 500/600/700 are <4%) — hierarchy is SCALE not weight. Two-cluster type ramp: UI 12/14/16/18/24px + display 48/56/96px; body 16->H1 96 is ~6x; in-between sizes dropped as one-offs. Tracking is normal everywhere except 48px+ which tightens to -1.2/-1.4px. Surfaces and borders are white-at-alpha (0.05/0.10/0.15) over black, not separate gray tokens — derive elevation from fg-alpha. radius dominant 24px (51x) on cards/panels, full-pill on chips, 12px on inputs/code; the raw 3.35544e+07px value is the pill (collapsed to 9999px). NO box-shadow anywhere (elevation is borders + accent glow). One brand gradient: sky-blue->white logo sweep. Section spacing is moderate (32px padding, 16px gap) — docs-adjacent, not cathedral marketing spacing. Motion: dominant transition is BARE 0.3s ease (248x) + 0.2s ease (46x) — not a tuned curve (weaker than Attio/Linear's cubic-bezier(0.2,0,0,1)); a few nodes use Material cubic-bezier(0.4,0,0.2,1). The 60000ms/2000ms durations are the marquee/spinner loops. Light mode supported but distilled as dark (captured default). HONESTY: this is the library's marketing/home page captured as an INTERACTION REFERENCE — the signature drag/swipe carousel is the reason to reference it but is NOT running on the home hero (carousels:0, draggable:0 at capture); it lives in Playground/Docs demos. The drag-carousel + coverflow-3d-carousel recipes do not yet exist in the corpus -> patterns_to_build, not patterns. Motion fields evidence-backed (see motion.evidence); static values normalized from the frequency-ranked profile + frames, not exact."
+}

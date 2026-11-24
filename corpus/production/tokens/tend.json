@@ -1,0 +1,64 @@
+{
+  "color": {
+    "bg": "#f9f9f6",
+    "surface": "#ffffff",
+    "fg": "#6c675c",
+    "muted": "#6c675c",
+    "accent": "#0178d1",
+    "roles": {
+      "heading": "#698680",
+      "band-inverse": "#36514c",
+      "band-inverse-deep": "#22322f",
+      "surface-tint-mint": "#eaf4eb",
+      "surface-tint-sage": "#f0f3f2",
+      "surface-tint-warm": "#f8f3ee",
+      "surface-tint-stone": "#f5f5f4",
+      "quote-card": "#698680",
+      "accent-warm": "#bc8452",
+      "accent-warm-deep": "#a57448",
+      "highlight": "#e7fb7e",
+      "coral": "#ffb6a8",
+      "stars": "#ffcc00",
+      "border": "#efede9",
+      "border-strong": "#d1ccc2",
+      "fg-on-dark": "#ffffff",
+      "focus-ring": "#bc8452"
+    }
+  },
+  "type": {
+    "families": ["Nantes, serif", "\"Founders Grotesk\", sans-serif"],
+    "scale": ["1.0625rem", "1.125rem", "1.25rem", "1.375rem", "1.5rem", "1.875rem", "2.375rem", "3rem", "3.625rem", "3.9375rem"],
+    "weights": [300, 400, 500, 700],
+    "leading": [1.19, 1.36, 1.45, 1.5],
+    "tracking": ["0.01em", "0.07em"]
+  },
+  "space": {
+    "base": "10px",
+    "scale": ["10px", "20px", "30px", "40px", "50px", "60px", "70px", "80px", "90px", "100px", "120px", "160px"]
+  },
+  "radius": ["18px", "25px", "38px", "50px", "206px", "50%"],
+  "shadow": [
+    "0 25px 25px 0 rgba(0,0,0,0.10)",
+    "0 0 30px 0 rgba(0,0,0,0.15)"
+  ],
+  "motion": {
+    "durations": ["100ms", "200ms", "300ms", "400ms", "1000ms"],
+    "easings": ["ease-out", "ease", "linear"],
+    "triggers": ["scroll-progress", "in-view", "load", "hover"],
+    "techniques": [
+      "custom-property-parallax",
+      "peek-rail-auto-scroll",
+      "transparent-to-pinned-header",
+      "masked-media-window"
+    ],
+    "scroll_effects": [
+      { "name": "custom-property-parallax", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "peek-rail-auto-scroll", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "transparent-to-pinned-header", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "sticky-locator-map", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["CSS transitions", "CSS @keyframes", "IntersectionObserver", "scroll listener + rAF", "Splide + auto-scroll extension"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Type scale = the clamp() maxima of the site's own --fs-* tokens (single fluid declaration per step; mobile h1 resolves to 39px, desktop to 63px). Space base is 10px, not 8 — every --space-N is a decade multiple. `muted` is intentionally identical to `fg`: the site ships no lighter secondary-text color, so de-emphasis comes from size and family, never from a paler gray. 206px = the site's --border-radius-xlg (12.875rem), the arch crop on photography. `accent` is the CTA blue, which sits deliberately outside the brand palette; `accent-warm` (terracotta) is the true brand accent used for icons, focus rings and secondary buttons. Gradients omitted — the page has exactly one (a 30px mint fade). Dark axis omitted: craft.theme.supportsDark is false and the probe's `dark` block is just the light palette echoed back. Splide's own vendor CSS (its focus rings, fade-track opacity) was excluded as stack noise, not design."
+}

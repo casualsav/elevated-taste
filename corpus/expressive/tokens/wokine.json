@@ -1,0 +1,66 @@
+{
+  "color": {
+    "bg": "#eaeaea",
+    "surface": "#ffffff",
+    "fg": "#181717",
+    "muted": "#939393",
+    "accent": "#dcf48e",
+    "roles": {
+      "canvas": "#eaeaea",
+      "ink": "#181717",
+      "chrome-bg": "#2a2828",
+      "chrome-bg-deep": "#0b0b0b",
+      "chrome-fg": "#ffffff",
+      "chrome-fg-muted": "rgba(255,255,255,0.45)",
+      "footer-bg": "#0b0b0b",
+      "ghost-text": "rgba(24,23,23,0.06)",
+      "accent-lime": "#dcf48e",
+      "scrim": "rgba(8,8,8,0.6)"
+    }
+  },
+  "type": {
+    "families": ["Moderat, sans-serif"],
+    "scale": ["0.625rem", "0.75rem", "0.875rem", "1.125rem", "1.563rem", "1.9rem", "5rem", "10rem", "11rem"],
+    "weights": [400, 500, 900],
+    "leading": [1.0, 1.1, 1.5]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.5rem", "0.75rem", "1rem", "1.75rem", "2.5rem", "3.75rem", "6rem", "10rem"]
+  },
+  "radius": ["8px", "10px", "30px", "9999px"],
+  "shadow": [
+    "0 1px 2px rgba(0,0,0,0.15)"
+  ],
+  "motion": {
+    "durations": ["240ms", "350ms", "420ms", "480ms", "550ms", "600ms", "840ms", "1200ms"],
+    "easings": [
+      "cubic-bezier(0.36, 0.33, 0, 1)",
+      "cubic-bezier(0.165, 0.84, 0.44, 1)",
+      "cubic-bezier(0.77, 0, 0.175, 1)",
+      "cubic-bezier(0.23, 1, 0.32, 1)",
+      "cubic-bezier(0.19, 1, 0.22, 1)",
+      "ease"
+    ],
+    "triggers": ["in-view", "scroll-progress", "load"],
+    "techniques": [
+      "in-view-fade-rise",
+      "hero-glyph-clear-on-scroll",
+      "parallax-drift",
+      "horizontal-marquee",
+      "scroll-reveal-panel",
+      "subtle-scroll-rotate"
+    ],
+    "scroll_effects": [
+      { "name": "in-view fade reveal", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "hero-glyph clear (blob + headline)", "property": "transform+opacity", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "layer parallax drift", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "masthead marquee (Nos réalisations)", "property": "transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "panel-reveal footer", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "subtle ~2 deg rotation", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "hand-rolled rAF scroll loop"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Trusted screenshot over raw profile. (1) Raw reports near-black rgb(24,23,23) and white as the top color/borderColor counts (355/354) — that is the standard reset noise of the live LIGHT-mode page; the actual canvas is a warm light gray (~#eaeaea, seen in hero) with near-black ink, plus DARK chrome surfaces (segmented nav #2a2828, footer #0b0b0b). Recorded both. (2) Lime rgb(220,244,142) appears only 3x — demoted from 'brand color' to a sparing micro-accent; the system is effectively monochrome. (3) Raw sizes are in odd thirds (83.33 / 166.67 / 183.33px) because the page scales type to viewport; normalized to a coarse rem scale — display tier ~10-11rem, secondary display ~5rem, body ~1.125rem (18px), captions/labels ~0.625-0.75rem. (4) Dominant tracking -0.625px at body and a savage -6.67px on display (~ -0.04em); normalized as 'very tight on display'. (5) Only one real shadow exists (1px hairline); elevation is carried by color/contrast, not shadow — shadow scale is intentionally near-empty. (6) Durations/easings taken verbatim from transition data: long 0.48-1.2s reveals on a custom cubic-bezier(0.36,0.33,0,1). Weight set is barely-there 400 body + heavy 900 reserved for a few marks; 500 is rare. (7) MOTION: of 4 captured @keyframes only `marquee-…` is the site's — the other three are the Plyr video player (chrome). 19 in-view opacity fades are the only effects with a real measured from→to; the 8 transform/parallax + 17 'rotate 2.1°' probes name real elements (brand-shield, brand-wokine, Play Showreel, expertise stack) but report from==to (no measured delta) — recorded as present, magnitude unconfirmed, corroborated against frames where possible (hero blob clears s00→s01; marquee visible s06; panel-reveal footer s09→s10). 1643 rAF + 7 scroll + 10 mousemove with libraries:[] = a hand-rolled smooth-scroll/rAF loop, no GSAP/Lenis/Locomotive global detected. reduced_motion = NOT respected (prmRules 0) — a real a11y defect for a motion-dense page. (8) TRACKING varies and inverts: −0.625px flat at body/mid sizes, ≈−2.1 to −2.4px (≈−0.04em) on true display, but POSITIVE +0.2px on the 10px caps labels. (9) GRID columns [1,2,3] are real (not frame-estimated); gutters ~60px are frame-estimated. focus_visible present; img_alt_ratio 1.0."
+}

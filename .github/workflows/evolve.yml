@@ -1,0 +1,92 @@
+name: evolve
+# Weekly self-evolving ingestion — fully off-box (docs/UPGRADES.md §B).
+# harvest → dedupe → resolve → capture → distill (subscription via CLAUDE_CODE_OAUTH_TOKEN)
+# → one draft PR per site → optional Telegram digest.
+#
+# Required secret:  CLAUDE_CODE_OAUTH_TOKEN   (from `claude setup-token` — subscription auth, no API fees)
+# Optional secrets: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID (weekly digest)
+#
+# Note: PRs opened with the built-in GITHUB_TOKEN do not trigger PR-CI workflows —
+# the auto-merge job (auto-merge.yml) re-runs the full validator per PR branch before
+# merging, so the quality gate still applies.
+
+on:
+  schedule:
+    - cron: '0 9 * * 1' # Mondays 09:00 UTC
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'max candidates this run'
+        required: false
+        default: '4'
+
+concurrency:
+  group: evolve
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  evolve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 110
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # pr.mjs branches per site; captures branch push below
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Configure git author
+        run: |
+          git config user.name "taste-evolve[bot]"
+          git config user.email "taste-evolve@users.noreply.github.com"
+
+      - name: Run evolve
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TASTE_GATE: off
+        run: node tooling/evolve.mjs --limit "${{ github.event.inputs.limit || '4' }}"
+
+      - name: Push captures to the captures branch
+        # Screenshots are git-ignored on main (private references) but the directory
+        # site build and PR review need them. They live on the orphan `captures`
+        # branch; this step is additive — only this run's fresh captures exist on
+        # the ephemeral runner.
+        run: |
+          shopt -s nullglob
+          have=(corpus/*/screenshots/*/)
+          if [ ${#have[@]} -eq 0 ]; then echo "no captures this run"; exit 0; fi
+          git fetch origin captures || true
+          wt=$(mktemp -d)
+          if git show-ref --verify --quiet refs/remotes/origin/captures; then
+            git worktree add "$wt" captures
+          else
+            git worktree add --detach "$wt"
+            git -C "$wt" checkout --orphan captures
+            git -C "$wt" rm -rf --quiet . || true
+            echo "Capture store — screenshots for the taste corpus. Written by the evolve workflow." > "$wt/README.md"
+          fi
+          for d in "${have[@]}"; do
+            mkdir -p "$wt/$(dirname "$d")"
+            cp -r "$d" "$wt/$(dirname "$d")/"
+          done
+          git -C "$wt" add -A
+          git -C "$wt" commit -m "captures: evolve run $(date -u +%Y-%m-%d)" || { echo "nothing new"; exit 0; }
+          git -C "$wt" push origin captures

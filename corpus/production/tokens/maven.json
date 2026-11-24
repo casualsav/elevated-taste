@@ -1,0 +1,72 @@
+{
+  "color": {
+    "bg": "#080c28",
+    "surface": "#ffffff",
+    "fg": "#171717",
+    "muted": "#737373",
+    "accent": "#71aeff",
+    "roles": {
+      "page-ground": "#080c28",
+      "sheet": "#ffffff",
+      "sheet-alt": "#fafafa",
+      "surface-raised-on-dark": "#101531",
+      "surface-active-on-dark": "#333a5a",
+      "fg-on-dark": "#f7fbff",
+      "muted-on-dark": "rgba(255,255,255,0.7)",
+      "border-light": "#e5e5e5",
+      "border-on-dark": "#333a5a",
+      "border-faint-on-dark": "rgba(255,255,255,0.2)",
+      "accent-deep": "#1c41ab",
+      "accent-soft": "#b2d3fa",
+      "accent-gradient-end": "#e18ff2",
+      "focus-on-dark": "#8da5ff",
+      "focus-on-light": "#71aeff",
+      "category-ai": "#9747ff",
+      "category-engineering": "#47c8ff",
+      "category-berry": "#931faa",
+      "category-sunrise": "#b33600",
+      "category-turquoise": "#00746b"
+    }
+  },
+  "type": {
+    "families": [
+      "Bureau Serif (transitional serif — display only)",
+      "Bureau Sans (grotesque — all UI/body, weight 300)",
+      "Tickerbit (pixel/ticker face — ordinals only)"
+    ],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.25rem", "1.5rem", "1.875rem", "2rem", "2.5rem", "3.5rem", "4.5rem"],
+    "weights": [300, 500],
+    "leading": [1.11, 1.2, 1.4, 1.5],
+    "tracking": {
+      "display-and-heading": "-0.04em",
+      "body": "0em"
+    }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "8px", "12px", "16px", "24px", "32px", "40px", "48px", "80px"],
+    "fluid_gutter": "1rem → 1.5rem (28rem) → 2.5rem (48rem) → 5rem (80rem) → calc((100dvw - 1280px) / 2) at 1440px",
+    "container_lock": "1280px"
+  },
+  "radius": ["4px", "8px", "12px", "24px", "9999px"],
+  "shadow": ["none", "0 0 0 2px #8da5ff (focus ring, not elevation)"],
+  "motion": {
+    "durations": ["150ms", "200ms", "250ms", "300ms", "500ms", "60000ms"],
+    "easings": ["cubic-bezier(0.4, 0, 0.2, 1)", "cubic-bezier(0, 0, 0.2, 1)", "linear"],
+    "triggers": ["in-view", "hover", "load", "scroll-progress"],
+    "techniques": [
+      "duplicated-track-marquee",
+      "in-view-fade-no-travel",
+      "two-tier-sticky-chrome",
+      "underline-only-hover"
+    ],
+    "scroll_effects": [
+      { "name": "duplicated-track-marquee", "property": "transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "in-view-fade-no-travel", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "two-tier-sticky-chrome", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["CSS @keyframes", "IntersectionObserver (threshold 0, rootMargin 200px)", "CSS transitions"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Normalized from raw px to rem where the site's own custom properties were rem-based. The site is dark-ground-first with white content sheets laid on it — `color.bg` is the navy page body, `color.surface` the white sheet, and `fg`/`muted` are the light-sheet inks; the `*-on-dark` roles carry the inverse. `color.dark` is OMITTED: craft.theme.supportsDark reports true, but its sampled values are degenerate (bg `rgba(0,0,0,0)`, fg equal to the light-mode page ground) and the screenshots show no re-theme — the page has one theme that happens to be dark. Type scale collapses the site's 13 measured px sizes (12–72px) onto the nearest rem steps; 22px/28px one-offs dropped. Tracking is not a ramp: every size ≥18px computes to exactly -0.04em, body to 0. Shadow is listed as `none` because the loaded shadow scale is unused on this page — the only box-shadow that renders is the 2px focus ring. `reduced_motion: respected` follows the stylesheet, which carries one blanket `@media (prefers-reduced-motion: reduce) { *,::before,::after { animation: none; transform: none } }` reset; the raw probe's `respectsReducedMotion: false` / `prmRules: 0` is wrong (sheets partially sampled). The marquee's 60s is a loop duration, not a transition duration — kept in `durations` for provenance, never reuse it as a UI timing."
+}

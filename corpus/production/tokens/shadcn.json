@@ -1,0 +1,51 @@
+{
+  "color": {
+    "bg": "#f4f4f5",
+    "surface": "#ffffff",
+    "fg": "#18181b",
+    "muted": "#71717a",
+    "accent": "#3a5ccc",
+    "roles": {
+      "primary": "#000000",
+      "primary-fg": "#ffffff",
+      "border": "#e4e4e7",
+      "ring": "#a1a1aa",
+      "chart-blue": "#3a5ccc",
+      "chart-deep": "#2f2db5",
+      "chart-light": "#6ea8e0",
+      "destructive": "#dc2626",
+      "warning": "#eab308"
+    }
+  },
+  "type": {
+    "families": ["Geist", "Geist Mono"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.5rem", "1.875rem", "2.25rem", "3rem"],
+    "weights": [400, 500, 600],
+    "leading": [1.1, 1.43, 1.5],
+    "tracking": { "display-48": "-2.4px", "label-12-upper": "0.6px" }
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["4px", "6px", "8px", "12px", "16px", "20px", "24px"]
+  },
+  "radius": ["6px", "8px", "10px", "14px", "full"],
+  "shadow": [
+    "none",
+    "0 1px 2px 0 rgba(0,0,0,0.05)",
+    "0 1px 3px 0 rgba(0,0,0,0.08)"
+  ],
+  "container": ["896px", "1400px", "1600px"],
+  "motion": {
+    "durations": ["100ms", "150ms", "200ms"],
+    "easings": ["cubic-bezier(0.4, 0, 0.2, 1)", "ease"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": ["ghost-hover-wash", "scroll-edge-fade-mask", "disclosure-height-tween", "toast-lifecycle", "skeleton-shimmer", "lazy-mount-io"],
+    "scroll_effects": [
+      { "name": "sticky-nav", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "scroll-edge-fade", "property": "clip", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["CSS @keyframes", "Tailwind transitions", "Radix primitives", "Sonner toast", "IntersectionObserver", "CSS scroll-driven animation (animation-timeline)"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Colors approximated from lab()/oklab() computed values in raw/shadcn.json and corroborated against screenshots — this is the zinc neutral ramp (bg zinc-100 #f4f4f5, border zinc-200 #e4e4e7, fg zinc-950 #18181b, muted zinc-500 #71717a). Site-CTA primary is pure black #000; the blue accent (#3a5ccc, lab(54,13,-75)) lives almost entirely inside the live demos (chart bars, progress fills, in-demo buttons), with a chart ramp to deeper indigo #2f2db5 and lighter blue #6ea8e0; destructive red ~#dc2626 (lab(48,77,61)). Dominant body is 14px/20 (app density), not 16px. Radius full = pills/badges (raw shows ~3.35e7px overflow value). Geist Mono inferred (project ships it for code/inputs; raw fontFamily captured only Geist sans). Spacing base 4px inferred from the 4/6/8/12-px gap cluster."
+}

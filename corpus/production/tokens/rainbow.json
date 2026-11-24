@@ -1,0 +1,59 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f1f3f6",
+    "fg": "#0f101a",
+    "muted": "#777885",
+    "accent": "#ff54bb",
+    "roles": {
+      "ground_lavender": "#ecebfb",
+      "ground_mint": "#e3f3ec",
+      "ground_peach": "#fdeee4",
+      "ground_sky": "#dfe9fb",
+      "tile_cyan": "#00f0f0",
+      "tile_blue": "#33aaff",
+      "tile_yellow": "#ffd400",
+      "tile_magenta": "#ff54bb",
+      "tile_green": "#3ddc4a",
+      "tile_orange": "#ff8a00",
+      "tile_purple": "#8c64ff",
+      "cta_orange": "#ff8a00",
+      "cta_pink": "#ff54bb",
+      "card_slate": "#777885",
+      "card_grey": "#b8b8b8"
+    }
+  },
+  "type": {
+    "families": ["SF Pro Rounded", "-apple-system", "BlinkMacSystemFont", "sans-serif"],
+    "scale": ["1rem", "1.25rem", "1.5rem", "2.25rem", "3.5rem", "6rem"],
+    "weights": [500, 600, 700, 800, 900],
+    "leading": [1.0, 1.1, 1.2, 1.5],
+    "tracking": ["-0.03em", "-0.02em", "-0.01em"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["8px", "10px", "16px", "20px", "24px", "32px", "48px", "64px", "100px"]
+  },
+  "radius": ["16px", "24px", "32px", "40px", "64px", "100px", "9999px"],
+  "shadow": [
+    "rgba(15,16,26,0.086) 0px 0.6px 0.6px -1.25px, rgba(15,16,26,0.075) 0px 2.3px 2.3px -2.5px, rgba(15,16,26,0.03) 0px 10px 10px -3.75px",
+    "rgba(255,255,255,0.59) 0px 0.5px 0.9px -1px inset, rgba(255,255,255,0.4) 0px 8px 14.4px -3px inset, rgba(255,255,255,0.58) 0px -3px 1.8px -1px inset",
+    "rgba(255,255,255,0.32) 0px 5px 32px 12px inset, rgba(255,255,255,0.44) 0px 1px 4px 0px inset"
+  ],
+  "motion": {
+    "durations": ["300ms"],
+    "easings": ["cubic-bezier(0.44, 0, 0.56, 1)", "ease"],
+    "triggers": ["load", "in-view", "scroll-progress", "hover"],
+    "techniques": ["in-view-fade-rise", "scroll-progress-rotate", "parallax-drift", "sticky-pin-scrollytelling", "glossy-pill-hover-swell"],
+    "scroll_effects": [
+      { "name": "constellation-ring-rotate", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "color-card-row-parallax", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "fanned-phone-deck-drift", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "hero-stagger-fade-in", "property": "opacity", "trigger": "load", "safety": "production-safe" },
+      { "name": "nav-pill-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["Framer", "IntersectionObserver", "rAF", "CSS transitions"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Raw fontFamily 'sans-serif' / fontSize 12px (count ~1168) are Framer placeholder/hidden nodes — the real family is SF Pro Rounded (Heavy/Black/Bold/Semibold/Medium) and body copy reads ~20px in screenshots; weights normalized from the named SF Pro Rounded faces (raw reports only 400). Link/border color rgb(0,0,238) is the unstyled-anchor browser default, dropped as noise. Pastel ground hexes are inferred from the gradient washes in the screenshots (raw only captured a few radial/linear stops). Tile colors normalized from saturated icon-square backgrounds. reduced-motion not respected (prmRules: 0)."
+}

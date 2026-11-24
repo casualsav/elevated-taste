@@ -1,0 +1,50 @@
+{
+  "color": {
+    "bg": "#fffef2",
+    "surface": "#f6f5e8",
+    "fg": "#333333",
+    "muted": "#666666",
+    "accent": "#945c26",
+    "roles": {
+      "ink-strong": "#252525",
+      "placeholder": "#e8e7da",
+      "hero-field": "#468254",
+      "hero-scrim": "linear-gradient(rgba(0,0,0,0), #000)",
+      "hero-fg": "#fffef2",
+      "footer-bg": "#333333",
+      "footer-fg": "#fffef2",
+      "link": "#3860be",
+      "bcorp": "#32ae88",
+      "border-hairline": "rgba(51,51,51,0.2)"
+    }
+  },
+  "type": {
+    "families": ["SuisseIntl, sans-serif", "Zapf-Humanist, sans-serif"],
+    "scale": ["0.6875rem", "0.75rem", "0.875rem", "1rem", "1.125rem", "1.5rem", "1.9rem", "2.25rem"],
+    "weights": [400, 500, 700],
+    "leading": [1.33, 1.4, 1.5],
+    "tracking": ["0", "0.01em"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "6px", "8px", "12px", "15px", "16px", "20px", "24px", "32px", "40px"]
+  },
+  "radius": ["0", "2px", "3px", "50%"],
+  "shadow": [
+    "rgba(0,0,0,0.02) 0 0 6px 0, rgba(0,0,0,0.08) 0 2px 4px 0",
+    "rgba(51,51,51,0.2) 0 0 4px 0"
+  ],
+  "motion": {
+    "durations": ["100ms", "200ms", "250ms", "300ms", "400ms", "500ms"],
+    "easings": ["ease", "ease-out", "ease-in-out", "ease-in"],
+    "triggers": ["hover", "load", "scroll-progress"],
+    "techniques": ["disclosure-slide", "mega-menu-slide", "utility-pin", "carousel", "hover-recolor"],
+    "scroll_effects": [
+      { "name": "snackbar-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "back-to-top-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["AOS (present, inactive on home)", "CSS @keyframes", "CSS transitions"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Body type is genuinely tiny (12px dominant, 14px secondary) — kept verbatim as it is the brand choice, but flagged for a11y in the exemplar. Two families: SuisseIntl (grotesque, all body/UI) + Zapf-Humanist (Optima-class humanist display for titles + wordmark); raw labels both 'sans-serif' but the second renders as a stressed humanist. Color is two warm neutrals + photography; amber #945c26 is the only reserved accent (special/EDP labels). Hero green #468254 is photographic, darkened by a transparent→black scrim. Radii rounded down to ~sharp (0–3px); shadows are near-invisible (<10% opacity). Motion normalized to functional chrome only — AOS is loaded but observed doing nothing on scroll; reduced-motion respected."
+}
