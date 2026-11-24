@@ -50,12 +50,16 @@ The reveal is bound to reading position, so it directs attention down the page w
     max-width: 34ch;               /* narrow measure beside full-bleed art */
   }
 
-  /* Mandatory: reduced-motion → no animation, straight to final ink */
+  /* Mandatory: reduced-motion → no animation, straight to final ink. The script never adds
+     .js-reveal when reduced-motion is on at load; this covers a user who switches it on
+     mid-session, after the class is already set. */
   @media (prefers-reduced-motion: reduce) {
     .js-reveal .reveal { transition: none; color: var(--color-fg, #1d1d1f); }
   }
 </style>
 
+<!-- Inline, at the end of <body> (not deferred or async): it must mark the page before first
+     paint, or the text renders in ink and then flashes to muted. -->
 <script>
   // Cheap, transform/opacity-free reveal via IntersectionObserver.
   // rootMargin trims the top so text fills as it clears the nav (Apple uses ~-53px); the bottom
