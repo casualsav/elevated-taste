@@ -1,7 +1,7 @@
 name: validate
 # Corpus consistency gate — runs on every push/PR touching the corpus, tokens, or tooling.
-# (PRs opened by the evolve workflow's GITHUB_TOKEN don't trigger this — auto-merge.yml
-# re-runs the same validator per PR branch before merging.)
+# (Pushes and PRs made by evolve/refresh with GITHUB_TOKEN don't trigger this — those runs
+# gate each site themselves before landing it; see tooling/lib/land.mjs.)
 
 on:
   push:

@@ -5,7 +5,8 @@
  * oldest exemplars and:
  *   - DEAD site (HTTP >= 400 / network error): reported for human review — never auto-removed.
  *   - DRIFTED (screenshot dHash distance > threshold vs the previous capture): re-distilled
- *     and opened as a refresh/<date>-<slug> PR (same gates + 48h auto-merge as evolve PRs).
+ *     and landed on main in the same run if it passes the gate, else held in a refresh/<date>-<slug>
+ *     PR labelled hold (lib/land.mjs, same as evolve).
  *   - unchanged: capture freshened (screenshots re-uploaded to the captures branch), no PR.
  *
  * Prev captures come from the overlay the workflow copies out of the `captures` branch; with
@@ -98,9 +99,9 @@ async function main() {
   }
 
   if (drifted.length) {
-    const { openPullRequests } = await import(pathToFileURL(join(ROOT, 'tooling', 'lib', 'pr.mjs')).href);
-    const results = await openPullRequests(drifted, { kind: 'refresh' });
-    for (const r of results) log(`  PR: ${r.pr?.url || r.error}`);
+    const { landOrHold } = await import(pathToFileURL(join(ROOT, 'tooling', 'lib', 'land.mjs')).href);
+    const results = await landOrHold(drifted, { kind: 'refresh' });
+    for (const r of results) log(`  ${r.slug}: ${r.landed ? `landed ${r.landed.sha.slice(0, 7)}` : r.pr?.url ? `held ${r.pr.url}` : `failed — ${r.error}`}`);
   }
 
   log(`\nrefresh done — ${drifted.length} re-distilled, ${freshened.length} freshened, ${dead.length} dead, ${failed.length} failed`);

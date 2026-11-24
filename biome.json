@@ -332,18 +332,6 @@
     },
     {
       "includes": [
-        "tooling/lib/pr.mjs"
-      ],
-      "linter": {
-        "rules": {
-          "style": {
-            "useTemplate": "off"
-          }
-        }
-      }
-    },
-    {
-      "includes": [
         "tooling/lib/resolve.mjs"
       ],
       "linter": {

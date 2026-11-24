@@ -1,14 +1,16 @@
 name: evolve
 # Weekly self-evolving ingestion — fully off-box (docs/UPGRADES.md §B).
 # harvest → dedupe → resolve → capture → distill (subscription via CLAUDE_CODE_OAUTH_TOKEN)
-# → one draft PR per site → optional Telegram digest.
+# → gate each site and land it on main (one commit per site), or open a PR labelled `hold`
+# when it fails the gate → optional Telegram digest.
 #
 # Required secret:  CLAUDE_CODE_OAUTH_TOKEN   (from `claude setup-token` — subscription auth, no API fees)
 # Optional secrets: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID (weekly digest)
 #
-# Note: PRs opened with the built-in GITHUB_TOKEN do not trigger PR-CI workflows —
-# the auto-merge job (auto-merge.yml) re-runs the full validator per PR branch before
-# merging, so the quality gate still applies.
+# The gate (reconcile-sources + validate + render-patterns --check) runs here, on each
+# site's change merged onto main, because a PR or push made with GITHUB_TOKEN triggers no
+# other workflow. For the same reason the run dispatches post-merge-derivations and
+# deploy-site itself once anything has landed.
 
 on:
   schedule:
@@ -27,6 +29,7 @@ concurrency:
 permissions:
   contents: write
   pull-requests: write
+  actions: write # dispatch post-merge-derivations + deploy-site after landing
 
 jobs:
   evolve:
@@ -35,7 +38,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # pr.mjs branches per site; captures branch push below
+          fetch-depth: 0 # land.mjs works in per-site worktrees; captures branch push below
 
       - uses: actions/setup-node@v4
         with:
@@ -65,6 +68,9 @@ jobs:
         run: node tooling/evolve.mjs --limit "${{ github.event.inputs.limit || '4' }}"
 
       - name: Push captures to the captures branch
+        # !cancelled(): sites may have landed before a later failure; their screenshots must
+        # reach `captures` before deploy-site (which builds --strict) runs.
+        if: ${{ !cancelled() }}
         # Screenshots are git-ignored on main (private references) but the directory
         # site build and PR review need them. They live on the orphan `captures`
         # branch; this step is additive — only this run's fresh captures exist on
@@ -90,3 +96,15 @@ jobs:
           git -C "$wt" add -A
           git -C "$wt" commit -m "captures: evolve run $(date -u +%Y-%m-%d)" || { echo "nothing new"; exit 0; }
           git -C "$wt" push origin captures
+
+      - name: Rebuild derived artifacts + redeploy site
+        # Pushes made with GITHUB_TOKEN fire no `push` workflows, so kick both explicitly —
+        # after the captures push, so the strict site build finds the new screenshots.
+        if: ${{ !cancelled() }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git fetch -q origin main
+          if [ "$(git rev-parse origin/main)" = "${{ github.sha }}" ]; then echo "nothing landed"; exit 0; fi
+          gh workflow run post-merge.yml --ref main
+          gh workflow run deploy-site.yml --ref main
