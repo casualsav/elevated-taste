@@ -1,0 +1,75 @@
+{
+  "color": {
+    "bg": "#fafafa",
+    "surface": "#ffffff",
+    "surface-2": "#f6f6f6",
+    "fg": "#181818",
+    "muted": "#6b6b6b",
+    "accent": "#6b70d6",
+    "roles": {
+      "ink": "#202020",
+      "muted-2": "#777777",
+      "hairline": "#e3e3e3",
+      "surface-dark": "#171717",
+      "surface-dark-2": "#242424",
+      "border-on-dark": "rgba(255,255,255,0.1)",
+      "selection": "#777ce4",
+      "focus": "#6b70d6",
+      "slate-ui": "#839097"
+    }
+  },
+  "type": {
+    "families": ["Inter", "monospace"],
+    "scale": ["0.6875rem", "0.75rem", "0.8125rem", "0.875rem", "1rem", "1.625rem", "3.4375rem", "4.875rem", "7.1rem"],
+    "weights": [400, 500],
+    "leading": [1.01, 1.5],
+    "tracking_ramp": {
+      "7.1rem": "-7.6px",
+      "4.875rem": "-4.5px",
+      "3.4375rem": "-3.4px",
+      "1.125rem": "-0.45px",
+      "1rem": "0px"
+    }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "8px", "12px", "16px", "24px", "32px", "112px"]
+  },
+  "radius": ["4px", "8px", "10px", "16px", "20px", "24px", "999px"],
+  "shadow": [
+    "0 4px 10px rgba(0,0,0,0.035)",
+    "0 12px 50px rgba(0,0,0,0.047)",
+    "0 14px 38px rgba(0,0,0,0.27)"
+  ],
+  "motion": {
+    "durations": ["150ms", "180ms", "200ms", "280ms", "420ms", "650ms", "700ms", "70000ms"],
+    "easings": [
+      "cubic-bezier(0.2, 0.7, 0.2, 1)",
+      "cubic-bezier(0.4, 0, 0.2, 1)",
+      "cubic-bezier(0.22, 1, 0.36, 1)",
+      "cubic-bezier(0, 0, 0.2, 1)",
+      "ease"
+    ],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": [
+      "chapter-theme-crossfade",
+      "sticky-pin-scrollytelling",
+      "scroll-parallax-depth-layers",
+      "scroll-progress-conveyor",
+      "clip-path-diagonal-reveal",
+      "in-view-fade-rise",
+      "scroll-driven-tab-highlight"
+    ],
+    "scroll_effects": [
+      { "name": "chapter-theme-crossfade", "property": "background", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "depth-layer-parallax", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "source-artwork-fade-scale", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "model-conveyor-scale", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "mesh-clip-reveal", "property": "clip", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "active-tab-color-shift", "property": "color", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "requestAnimationFrame scroll-linking", "CSS @keyframes", "CSS transitions"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Monochrome editorial system (Inter-only, weight 400/500) with scale-driven hierarchy and a size-proportional negative-tracking ramp. supportsDark=false, so NO color.dark block: light and dark are scroll CHAPTERS (#fafafa vs #111/#171717), not a theme toggle — dark surfaces live under color.roles. Single accent indigo (#6b70d6 focus / #777ce4 selection) is scoped to canvas-UI selection + focus rings; everything else is grayscale with one #e3e3e3 hairline. Type sizes normalized from fluid computed values (H1 113.76px->7.1rem desktop, 46px mobile). No animation library detected (220 rAF + 4 IO drive custom scroll-linking). Durations/easings should map to house tokens; 70s value is an ambient game-pan loop, not a transition."
+}
