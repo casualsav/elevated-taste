@@ -59,7 +59,7 @@ A weekly run keeps the corpus fresh. It runs **in GitHub Actions** (`.github/wor
 
 ```
 harvest ─▶ dedupe ─▶ resolve ─▶ capture ─▶ distill (claude -p) ─▶ gate ─▶ land on main (or hold PR) ─▶ Telegram digest
- new URLs   vs corpus  detail→site  shots+raw   exemplar/tokens/patterns   gh (never merges)   site + PR links → you approve
+ new URLs   vs corpus  detail→site  shots+raw   exemplar/tokens/patterns   validate+render   pass: commit on main · fail: PR labelled hold   landed + held → you
 ```
 
 `npm run evolve` (add `-- --dry-run` to plan without writing). Config lives in [`evolve.config.json`](evolve.config.json) (the control bot edits it). Each new site is its **own** commit on `main`, so dropping one is a single revert; the Telegram digest lists every landed site with its source and commit, and every held one with its PR. Scheduling + secrets: [`tooling/systemd/`](tooling/systemd/README.md) (systemd user timer + always-on bot, or cron).
