@@ -1,5 +1,5 @@
 // Exemplar directory — progressive enhancement only.
-// Without JS: every card renders with screenshots and live links. With JS:
+// Without JS: every card renders (with screenshots, or as a text card) and live links. With JS:
 // corpus filter + search narrow the grid, and a native <dialog> lightbox shows
 // the full captures + metadata.
 (() => {
@@ -46,7 +46,9 @@
   const group = (label, body) => body ? `<div class="lb__group"><h3>${label}</h3>${body}</div>` : '';
 
   function open(e) {
-    shots.innerHTML = `
+    // Text-only builds carry no captures: hide the shots column.
+    lb.classList.toggle('lb--text', !e.d);
+    shots.innerHTML = !e.d ? '' : `
       <figure>
         <figcaption class="cap-label"><span>Desktop</span><span>${e.d.ow}×${e.d.oh}</span></figcaption>
         <img src="${esc(e.d.src)}" alt="${esc(e.name)} — full desktop capture" loading="lazy">
@@ -58,7 +60,7 @@
     meta.innerHTML = `
       <div>
         <h2 class="lb__title" id="lb-title">${esc(e.name)}</h2>
-        <p class="lb__sub"><span class="corpus corpus--${e.corpus}"><i></i>${e.corpus[0].toUpperCase() + e.corpus.slice(1)}</span> · <span class="mono">${esc(e.captured)}</span></p>
+        <p class="lb__sub"><span class="corpus corpus--${e.corpus}"><i></i>${e.corpus[0].toUpperCase() + e.corpus.slice(1)}</span>${e.captured ? ` · <span class="mono">${esc(e.captured)}</span>` : ''}</p>
       </div>
       <p style="color:var(--color-muted);font-size:var(--text-sm);line-height:var(--leading-snug)">${esc(e.award)}</p>
       <a class="lb__visit" href="${esc(e.url)}" target="_blank" rel="noopener noreferrer">Visit ${esc(e.host)}

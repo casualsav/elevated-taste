@@ -1,7 +1,7 @@
 name: deploy-site
 # Build the exemplar directory in CI and publish to GitHub Pages (taste.extant.cc).
-# Screenshots come from the orphan `captures` branch: seeded once from the capture box
-# (tooling/push-captures.sh), then appended automatically by every evolve run.
+# This repo is public, so the site is built WITHOUT screenshots (--no-shots): captures
+# stay private and are never committed or pushed here.
 #
 # One-time repo setup (Settings → Pages): Source = "GitHub Actions",
 # Custom domain = taste.extant.cc (DNS: CNAME taste → casualsav.github.io).
@@ -28,48 +28,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch captures branch
-        id: captures
-        run: |
-          if git fetch origin captures 2>/dev/null; then
-            git worktree add /tmp/captures origin/captures
-            # overlay screenshots into the git-ignored paths build.py reads
-            for c in production expressive; do
-              if [ -d "/tmp/captures/corpus/$c/screenshots" ]; then
-                mkdir -p "corpus/$c/screenshots"
-                cp -r "/tmp/captures/corpus/$c/screenshots/." "corpus/$c/screenshots/"
-              fi
-            done
-            echo "found=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "::warning::no captures branch yet — seed it from the capture box with tooling/push-captures.sh; skipping deploy."
-            echo "found=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Build site (strict — refuses a partial site)
-        if: steps.captures.outputs.found == 'true'
+      # Text-only build: the public site never includes captures (pictures of
+      # other people's sites). Every exemplar renders as a card that links to
+      # the live site, with its patterns and metadata.
+      - name: Build site (text-only; strict refuses bad frontmatter or an empty site)
         run: |
           pip install --quiet pillow pyyaml
-          PAGES_OUT="$PWD/dist" python3 sites/pages/build.py --strict
+          PAGES_OUT="$PWD/dist" python3 sites/pages/build.py --strict --no-shots
 
       - uses: actions/setup-node@v4
-        if: steps.captures.outputs.found == 'true'
         with:
           node-version: 22
           cache: npm
       - name: Build pattern gallery (renders every recipe; broken recipes fail the deploy)
-        if: steps.captures.outputs.found == 'true'
         run: |
           npm ci
           npx playwright install --with-deps chromium
           node tooling/render-patterns.mjs --gallery "$PWD/dist/patterns"
 
       - name: Upload Pages artifact
-        if: steps.captures.outputs.found == 'true'
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
 
       - name: Deploy to GitHub Pages
-        if: steps.captures.outputs.found == 'true'
         uses: actions/deploy-pages@v4

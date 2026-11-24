@@ -1,8 +1,8 @@
 name: refresh
 # Monthly staleness pass (docs: tooling/refresh.mjs) — re-captures the N oldest exemplars,
 # reports dead sites, re-distills drifted ones as refresh/<date>-<slug> PRs (same validator +
-# render + 48h auto-merge gates as evolve PRs), and freshens unchanged captures on the
-# captures branch. Self-upgrading means CURRENT, not just bigger.
+# render + 48h auto-merge gates as evolve PRs). Captures stay on the runner: this repo
+# is public, so nothing is pushed to a captures branch. Self-upgrading means CURRENT.
 
 on:
   schedule:
@@ -41,20 +41,6 @@ jobs:
       - run: npm install -g @anthropic-ai/claude-code
       - run: pip install --quiet pillow
 
-      - name: Overlay previous captures (drift baseline)
-        run: |
-          if git fetch origin captures 2>/dev/null; then
-            git worktree add /tmp/captures origin/captures
-            for c in production expressive; do
-              if [ -d "/tmp/captures/corpus/$c/screenshots" ]; then
-                mkdir -p "corpus/$c/screenshots"
-                cp -r "/tmp/captures/corpus/$c/screenshots/." "corpus/$c/screenshots/"
-              fi
-            done
-          else
-            echo "::warning::no captures branch — drift can't be judged this run; captures will be freshened only."
-          fi
-
       - name: Configure git author
         run: |
           git config user.name "taste-evolve[bot]"
@@ -66,26 +52,5 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           TASTE_GATE: off
         run: node tooling/refresh.mjs --limit "${{ github.event.inputs.limit || '3' }}"
-
-      - name: Push freshened captures to the captures branch
-        if: always()
-        run: |
-          shopt -s nullglob
-          have=(corpus/*/screenshots/*/)
-          if [ ${#have[@]} -eq 0 ]; then echo "no captures"; exit 0; fi
-          git fetch origin captures || true
-          wt=$(mktemp -d)
-          if git show-ref --verify --quiet refs/remotes/origin/captures; then
-            git worktree add "$wt" captures
-          else
-            git worktree add --detach "$wt"
-            git -C "$wt" checkout --orphan captures
-            git -C "$wt" rm -rf --quiet . || true
-          fi
-          for d in "${have[@]}"; do
-            mkdir -p "$wt/$(dirname "$d")"
-            cp -r "$d" "$wt/$(dirname "$d")/"
-          done
-          git -C "$wt" add -A
-          git -C "$wt" commit -m "captures: refresh run $(date -u +%Y-%m-%d)" || { echo "nothing new"; exit 0; }
-          git -C "$wt" push origin captures
+      # No captures branch in this public repo, so there is no drift baseline:
+      # refresh still reports dead sites, but can't judge visual drift.

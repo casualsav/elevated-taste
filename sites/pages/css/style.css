@@ -234,3 +234,16 @@ ol, ul { list-style: none; padding: 0; }
   .device__cap { transition: none !important; transform: none !important; }
   .card__shot:hover { transform: none; }
 }
+
+/* ── Text-only cards (built with --no-shots: no captures published) ───────── */
+.device__screen--text {
+  display: flex; flex-direction: column; justify-content: flex-end; gap: var(--space-2);
+  padding: var(--space-5); background: var(--color-bg);
+}
+.text-prev__name { font-family: "Newsreader", Georgia, serif; font-size: var(--text-2xl); line-height: 1.05; letter-spacing: -0.01em; color: var(--color-fg); }
+.text-prev__when { font-size: var(--text-sm); line-height: var(--leading-snug); color: var(--color-muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.text-prev__pats { display: flex; flex-wrap: wrap; gap: var(--space-1); margin: 0; padding: 0; list-style: none; }
+.text-prev__pats li { font-size: var(--text-xs); padding: 2px var(--space-2); border: 1px solid var(--color-border); border-radius: var(--radius-full); color: var(--color-muted); }
+.lb--text .lb__panel { grid-template-columns: 1fr; max-width: 520px; }
+.lb--text .lb__shots { display: none; }
+

@@ -40,6 +40,10 @@ from PIL import Image
 Image.MAX_IMAGE_PIXELS = 500_000_000
 
 STRICT = "--strict" in sys.argv or os.environ.get("PAGES_STRICT") == "1"
+# Text-only mode: build every exemplar as a card WITHOUT screenshots, and never
+# publish a capture even if one is present locally. The public deploy uses this:
+# captures are pictures of other people's sites and stay private.
+NO_SHOTS = "--no-shots" in sys.argv or os.environ.get("PAGES_NO_SHOTS") == "1"
 
 SRC = Path(__file__).resolve().parent          # sites/pages/
 REPO = SRC.parents[1]                            # repo root
@@ -110,11 +114,17 @@ def collect():
             sdir = (md.parent / fm["screenshots"]).resolve()
             # screenshots are git-ignored private references; skip exemplars whose
             # captures aren't present on this box rather than crashing the build.
-            if not (sdir / "desktop.png").exists() or not (sdir / "mobile.png").exists():
-                skipped.append(f"{corpus}/{slug}")
-                continue
-            dw, dh, dow, doh = transcode(sdir / "desktop.png", IMG / corpus / slug / "d.webp", DESK_W)
-            mw, mh, mow, moh = transcode(sdir / "mobile.png", IMG / corpus / slug / "m.webp", MOB_W)
+            shots = {}
+            if not NO_SHOTS:
+                if not (sdir / "desktop.png").exists() or not (sdir / "mobile.png").exists():
+                    skipped.append(f"{corpus}/{slug}")
+                    continue
+                dw, dh, dow, doh = transcode(sdir / "desktop.png", IMG / corpus / slug / "d.webp", DESK_W)
+                mw, mh, mow, moh = transcode(sdir / "mobile.png", IMG / corpus / slug / "m.webp", MOB_W)
+                shots = {
+                    "d": {"src": f"img/{corpus}/{slug}/d.webp", "w": dw, "h": dh, "ow": dow, "oh": doh},
+                    "m": {"src": f"img/{corpus}/{slug}/m.webp", "w": mw, "h": mh, "ow": mow, "oh": moh},
+                }
             items.append({
                 "slug": slug, "corpus": corpus, "name": display_name(slug),
                 "url": fm["url"], "host": host_of(fm["url"]),
@@ -125,8 +135,7 @@ def collect():
                 "a11y": fm.get("a11y") or [],
                 "patterns": fm.get("patterns") or [],
                 "captured": str(fm.get("captured") or ""),
-                "d": {"src": f"img/{corpus}/{slug}/d.webp", "w": dw, "h": dh, "ow": dow, "oh": doh},
-                "m": {"src": f"img/{corpus}/{slug}/m.webp", "w": mw, "h": mh, "ow": mow, "oh": moh},
+                **shots,
             })
     if skipped:
         print(f"skipped {len(skipped)} exemplar(s) without local screenshots: {', '.join(skipped)}")
@@ -143,9 +152,8 @@ def card(e):
     npat = len(e["patterns"])
     search = " ".join([e["slug"], e["name"], e["host"], e["corpus"], e["award"],
                        *e["tags"], *e["patterns"], *e["dirs"], *e["when"]]).lower()
-    return f'''      <li class="card" data-corpus="{e['corpus']}" data-search="{esc(search)}">
-        <a class="card__shot" href="{esc(e['url'])}" data-slug="{esc(e['slug'])}" aria-label="Preview {esc(e['name'])}">
-          <span class="device device--desktop">
+    if "d" in e:
+        preview = f'''<span class="device device--desktop">
             <span class="device__bar"><i></i><i></i><i></i><span class="device__addr mono">{esc(e['host'])}</span></span>
             <span class="device__screen">
               <img class="device__cap" loading="lazy" decoding="async" width="{e['d']['w']}" height="{e['d']['h']}" src="{e['d']['src']}" alt="{esc(e['name'])} — desktop">
@@ -155,7 +163,23 @@ def card(e):
             <span class="device__screen">
               <img class="device__cap" loading="lazy" decoding="async" width="{e['m']['w']}" height="{e['m']['h']}" src="{e['m']['src']}" alt="{esc(e['name'])} — mobile">
             </span>
-          </span>
+          </span>'''
+    else:
+        # text-only card (no captures): a browser frame holding the name, the first
+        # "when to use" line and up to three patterns, so the grid keeps its rhythm.
+        pats = "".join(f"<li>{esc(p)}</li>" for p in e["patterns"][:3])
+        when = esc(e["when"][0]) if e["when"] else ""
+        preview = f'''<span class="device device--desktop device--text">
+            <span class="device__bar"><i></i><i></i><i></i><span class="device__addr mono">{esc(e['host'])}</span></span>
+            <span class="device__screen device__screen--text">
+              <span class="text-prev__name">{esc(e['name'])}</span>
+              <span class="text-prev__when">{when}</span>
+              <ul class="text-prev__pats mono">{pats}</ul>
+            </span>
+          </span>'''
+    return f'''      <li class="card" data-corpus="{e['corpus']}" data-search="{esc(search)}">
+        <a class="card__shot" href="{esc(e['url'])}" data-slug="{esc(e['slug'])}" aria-label="Preview {esc(e['name'])}">
+          {preview}
           <span class="card__expand" aria-hidden="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>
         </a>
         <div class="card__meta">
@@ -171,6 +195,11 @@ def card(e):
           </div>
         </div>
       </li>'''
+
+FOOT_NOTE = ("Reference set for the web-design-taste corpus. Each card links to the live site."
+             if NO_SHOTS else
+             "Private reference set — captured for the web-design-taste corpus. Not redistributed.")
+DESC_SHOTS = "" if NO_SHOTS else ", desktop and mobile,"
 
 def page(items):
     n = len(items)
@@ -188,7 +217,7 @@ def page(items):
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Exemplar directory — the taste corpus</title>
-  <meta name="description" content="Every reference site in the web-design-taste corpus: {n} real interfaces, desktop and mobile, with the principles and motion patterns each one teaches.">
+  <meta name="description" content="Every reference site in the web-design-taste corpus: {n} real interfaces{DESC_SHOTS} with the principles and motion patterns each one teaches.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Newsreader:ital,opsz@0,6..72;1,6..72&display=swap" rel="stylesheet">
@@ -231,7 +260,7 @@ def page(items):
 
   <footer class="foot">
     <div class="wrap foot__inner">
-      <span class="mono">Private reference set — captured for the web-design-taste corpus. Not redistributed.</span>
+      <span class="mono">{FOOT_NOTE}</span>
       <span class="mono">{n} exemplars · {nprod} production · {nexpr} expressive</span>
     </div>
   </footer>
@@ -278,7 +307,9 @@ def main():
     if OUT != SRC:
         for sub in ("css", "js"):
             shutil.copytree(SRC / sub, OUT / sub, dirs_exist_ok=True)
-    if IMG.exists():
+    if NO_SHOTS and IMG.exists():
+        shutil.rmtree(IMG)  # never ship captures left over from an earlier build
+    elif IMG.exists():
         prune_orphans(items)
     total = sum(f.stat().st_size for f in IMG.glob("**/*.webp"))
     print(f"built {len(items)} exemplars · {len(list(IMG.glob('**/*.webp')))} webp · {total/1e6:.1f} MB images -> {OUT}")
