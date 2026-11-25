@@ -13,7 +13,7 @@ The throughline across all of them: **discipline is the aesthetic.** These sites
 
 ## Hierarchy & type
 
-**Hierarchy comes from scale, not weight. Pick one weight band (≈400-500) and let a 3-5x size jump between body and display do the ranking.** This is the single most universal rule in the corpus — every minimalist exemplar obeys it. A headline reads as a headline because it is large, not because it is bold; the page stays optically calm at high density and never gets the "everything is shouting" feel. Body sits at 16px; display lands at ~48-110px with little in between — *the gap itself is the hierarchy*. — linear (4x, Inter 400/510/590), stripe (3.5x, Söhne 300/400 only), supabase (4.5x, 400/500 only), vercel (4-7x).
+**Hierarchy comes from scale, not weight. Pick one weight band (≈400-500) and let a 3-5x size jump between body and display do the ranking.** This is the single most universal rule in the corpus — every minimalist exemplar obeys it. A headline reads as a headline because it is large, not because it is bold; the page stays optically calm at high density and never gets the "everything is shouting" feel. Body sits at 16px; display lands at ~48-110px with little in between — *the gap itself is the hierarchy*. (Marketing pages only: app screens keep a ~2× range, see App screens below.) — linear (4x, Inter 400/510/590), stripe (3.5x, Söhne 300/400 only), supabase (4.5x, 400/500 only), vercel (4-7x).
 
 **The bigger the type, the tighter the tracking.** At display sizes default letter-spacing reads loose and amateur; negative tracking (~-0.02 to -0.05em) is what makes oversized headings feel *engineered* rather than ballooned. Bind a `tracking-tight` token to `2xl`+ sizes only; leave body near-zero. — vercel (-0.05em at 110px), resend (-0.05em at 56px), framer (-0.045em), linear (-0.022em).
 
@@ -118,6 +118,32 @@ The throughline across all of them: **discipline is the aesthetic.** These sites
 **Density can also be carried by enclosure instead of air — but then commit to one border color and weight everywhere.** The inverse strategy: when whitespace isn't the separator, a single uniform hairline outline groups and separates everything, giving a packed page comic-panel coherence. This only works *because* the kit stays constrained (one family, one weight, one border, one accent) applied densely. — posthog (warm near-black outline is the most-used color on the page; it does the work elevation does elsewhere), every (one hairline `#3c3c3c`, packed cards / airy sections).
 
 > Anti-pattern mirror (§2/§7): cramped sections vs. legible density is the line — the fix for "too dense" is rhythm + restraint, never a div-mock or a 3-card row; mid-page theme flips and mixed design systems break a dense page's coherence.
+
+---
+
+## App screens — dashboards, tables, forms, settings, sign-in
+
+The rules above are drawn mostly from marketing pages. A screen someone *works in* — a dashboard, a data table, a settings page, a sign-in form, a checkout step — runs on different rules, and several of them invert the ones above. When the brief names an app job, these win. They come from the corpus's real app screens (`surface: app`), not from marketing pages that picture an app.
+
+**The chrome is fixed; only the work scrolls.** A full-height rail, a top bar and an optional sticky per-object strip stay put around one scrolling content area, so the user never loses navigation or context. Inside the rail, zone vertically — primary nav, contextual list, utility links, account at the bottom — before reaching for a second bar. Make the work area the only scroll container; focus order stays sane and the area can hold a panel grid, a table or a form alike. — grafana-play (rail + command bar + sticky strip), catalyst (one 256px rail, four stacked jobs), shadcn-dashboard (collapsible rail). See patterns `dashboard-app-shell`, `collapsible-rail-app-shell`.
+
+**Size panels to their container, not the window.** A content area next to a collapsible rail changes width without the window changing, so viewport breakpoints reflow at the wrong moment. Use container queries for the KPI row and card internals; the grid then reflows the instant the rail opens or closes, with no JS. — shadcn-dashboard (`@container/main`, numbers scale on the card's own width).
+
+**Keep the type range small: about 2×, not 4-6×.** Here the marketing rule turns around. Body sits at 14px, the largest thing on screen (a KPI number or page title) at 24-30px, and hierarchy comes from weight, position and a muted/primary ink pair. A display jump on a dashboard shouts over the numbers it exists to show. — shadcn-dashboard (12/14/16 with 30px only on KPIs), catalyst (KPIs ~1.3× the page heading), grafana-play (28px max, 14/22 body), shadcn-login (one 24px/700 node, everything else 14-16).
+
+**Two inks, or one ink at two or three alphas.** Every string is either primary or muted; there is no third grey and no colored body text. Deciding that per string is most of what keeps a dense screen calm. One foreground token at full, ~0.65 and ~0.3 alpha gives the same ladder on any surface without re-tuning a grey per background. — catalyst (zinc-950 / zinc-500), grafana-play (one text color at 1 / 0.65 / 0.3), shadcn-dashboard (foreground semibold values, muted labels).
+
+**Separate with hairlines and tiny value steps; keep shadows for things that float.** Resting surfaces get one 1px border at low ink or a ~2% lightness step between chrome, content and wells. Drop shadows go to transient layers (menus, popovers, dialogs) and focus. Rule off stat strips and table rows with single hairlines instead of boxing every cell. — shadcn-dashboard (card shadow all-zero, three neutrals ~2% apart), catalyst (KPIs and rows divided by 5% rules), shadcn-login (resting elevation zero), grafana-play (one tight shadow step at most). See pattern `inset-app-panel`.
+
+**Spend color on signal and the one action.** The chrome is neutral; saturated hue goes to data, status, the primary action and the current selection, and nowhere else. When the shell is grey, one green stat reads instantly. — grafana-play (saturation reserved for chart series), stripe-checkout (indigo only on the CTA and the selection ring), shadcn-login (no hue at all: near-black primary, outlined alternatives).
+
+**Numbers align, and status stays quiet.** Set `tabular-nums` wherever numbers live, so columns align and live values don't jitter. Show a delta's direction with an arrow on a neutral or lightly tinted pill (low-alpha fill + saturated text of the same hue), and a row's status with a small dot + label, not a full-color chip. A table should never read as a traffic light. — shadcn-dashboard (tabular KPIs and cells, outline delta pills, dot status), catalyst (lime/pink washes at ~15-20% with -700 text). See patterns `kpi-stat-card-grid`, `kpi-stat-row`.
+
+**A one-task screen is one framed object on a quiet ground.** Sign-in, a checkout step, an invite accept: delete the page chrome and center one bordered card. Pair a per-field secondary action with its field on the label row ("Forgot your password?" beside the Password label). Show selection additively — an accent ring and a tint, no layout shift or text recolor. Decoration (a media half of the card) drops away on mobile. — shadcn-login, stripe-checkout. See patterns `split-card-auth`, `plan-choice-card-pair`, `modal-scale-fade`.
+
+**The focus ring is a first-class token.** On a shadowless, near-colorless screen the focus ring is the strongest visual event, which is right for keyboard-driven forms and tables. Give every control the same visible ring, never remove it, and make it the one place an accent or shadow is allowed at rest. — shadcn-login (one ~3px ring shared by every control), stripe-checkout (2px accent outline for focus and selection). See pattern `two-ring-focus`.
+
+> Anti-pattern mirror (`anti-patterns.md`): a display-size H1 or a hero on an app screen, a card-and-shadow around every cell, red/green fills for every row, a serif on a dashboard, breakpoints that only fire when the window resizes.
 
 ---
 
