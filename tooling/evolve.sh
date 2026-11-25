@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-# Legacy on-box evolve runner — invoked by the systemd user timer (or cron). The canonical
-# weekly run is the `evolve` GitHub Actions workflow; this wrapper is for running it on a box
-# with an active `claude` login, so distillation uses the subscription, not a paid API key.
+# On-box evolve runner, started by the Telegram control bot's /run. The weekly run is the
+# `evolve` GitHub Actions workflow; this wrapper runs one pass on a box with an active `claude`
+# login, so distillation uses the subscription, not a paid API key.
 #
-# It sets a login-like PATH (systemd/cron start with a minimal PATH, so `claude`/`gh`/`node`
+# It sets a login-like PATH (systemd starts with a minimal PATH, so `claude`/`gh`/`node`
 # under ~/.local/bin or /usr/local/bin won't resolve otherwise) and logs to .cache/ (gitignored).
 set -euo pipefail
 

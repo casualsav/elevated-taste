@@ -48,13 +48,12 @@ to `evolve.sh`/`gh`. `/approve` marks a PR ready and squash-merges it, but it is
 it does not merge anything on its own. The unattended write path is the gate in `land.mjs` above,
 not this bot.
 
-# Phase 3 — scheduler / daemons (systemd-less boxes)
+# Phase 3 — running the control bot on a box
 
-For hosts without systemd/cron (e.g. containers): `tooling/daemons.sh start|stop|status` runs
-`tooling/scheduler.mjs` (re-reads `evolve.config.json` every cycle; triggers `evolve.sh` on the
-configured cadence) and the control bot as detached background processes. On a systemd host use
-`tooling/systemd/taste-evolve.{service,timer}` (weekly trigger) and `tooling/systemd/taste-bot.service`
-(always-on control bot) instead — see `tooling/systemd/README.md`.
+Nothing on a box schedules the loop any more; the weekly run is the `evolve` Actions workflow.
+The bot alone can run always-on: `tooling/systemd/taste-bot.service` on a systemd host, or
+`tooling/daemons.sh start|stop|status` on a box without systemd (e.g. a container). Its `/run`
+shells out to `tooling/evolve.sh` for one pass on that box — see `tooling/systemd/README.md`.
 
 # inbox/ — unreviewed signal, never principles
 

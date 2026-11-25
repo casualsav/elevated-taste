@@ -13,7 +13,7 @@ Hooks gate *actions / outcomes* — they **cannot** force skill selection. So be
 
 ## Phase 3 — Self-evolving ✅ built
 
-A weekly loop that harvests new winners, distills them, and lands the ones that pass the gate. It runs **in GitHub Actions** (`.github/workflows/evolve.yml`, Mondays 09:00 UTC); distillation still uses the Claude Code **subscription** through the `CLAUDE_CODE_OAUTH_TOKEN` repo secret (`claude setup-token`), not a paid API key. The on-box scheduler (`tooling/systemd/`, `tooling/daemons.sh`) is the legacy path and still works.
+A weekly loop that harvests new winners, distills them, and lands the ones that pass the gate. It runs **in GitHub Actions** (`.github/workflows/evolve.yml`, Mondays 09:00 UTC); distillation still uses the Claude Code **subscription** through the `CLAUDE_CODE_OAUTH_TOKEN` repo secret (`claude setup-token`), not a paid API key.
 
 Orchestrator `tooling/evolve.mjs` (config: `evolve.config.json`): manual queue (`tooling/manual-sources.json`) + harvest (`harvest.mjs --json`, never touches the canonical `sources.json`) → **dedupe** (`lib/dedupe.mjs`, slug+normalized-url read straight from the exemplar files) → **resolve** detail-page URLs (`lib/resolve.mjs`) → cap → capture → **distill** (`distill.mjs`, ephemeral `claude -p` per candidate, `TASTE_GATE=off` so the Phase-2 hooks can't trap it, structural vet) → **gate and land** (`lib/land.mjs`) → **digest** (`report.mjs`, Telegram).
 
@@ -23,7 +23,7 @@ Orchestrator `tooling/evolve.mjs` (config: `evolve.config.json`): manual queue (
 - **Pause** via `"paused": true` in `evolve.config.json` (or the control bot).
 - **Post-build reflection** — `tooling/reflect.mjs` / the `/reflect` command: after a real build, propose corpus edits to `proposals/` for human review. Never auto-applied.
 
-Prerequisites (Actions): the `CLAUDE_CODE_OAUTH_TOKEN` secret, and optionally `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` for the digest. The legacy on-box path also needs Playwright, an active `claude` login and `gh` auth on the box.
+Prerequisites (Actions): the `CLAUDE_CODE_OAUTH_TOKEN` secret, and optionally `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` for the digest. The control bot's `/run`, which runs one pass on the bot's box, also needs Playwright, an active `claude` login and `gh` auth there.
 
 ### Phase 3.5 — control bot
 - **`tooling/control-bot.mjs`** — a non-agentic Telegram bot (long-poll, no LLM) that edits `evolve.config.json` and drives the loop: `/status` `/run` `/pause` `/resume` `/set`, and `/approve <#>` (squash-merges a held `evolve/*` PR) `/reject <#>` (closes it). Strict chat-id allowlist. Run on demand (`npm run bot`) or always-on (`tooling/systemd/taste-bot.service`). The config file is the source of truth; the bot is an optional front-end.

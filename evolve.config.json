@@ -1,5 +1,5 @@
 {
-  "$description": "Source of truth for the Phase 3 self-evolving loop. Edited by hand or by the CP5 control bot; read by tooling/evolve.mjs and the scheduler. Each site that passes the gate lands on main in the same run; one that fails opens a PR labelled hold for you.",
+  "$description": "Source of truth for the Phase 3 self-evolving loop. Edited by hand or by the CP5 control bot; read by tooling/evolve.mjs (the weekly Actions run reads the copy on main). Each site that passes the gate lands on main in the same run; one that fails opens a PR labelled hold for you.",
   "paused": false,
   "cadence": "weekly",
   "candidates_per_run": 4,
