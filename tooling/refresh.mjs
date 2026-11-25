@@ -4,14 +4,16 @@
  * bigger: sites redesign and captures rot. Monthly (refresh.yml), this re-captures the N
  * oldest exemplars and:
  *   - DEAD site (HTTP >= 400 / network error): reported for human review — never auto-removed.
- *   - DRIFTED (screenshot dHash distance > threshold vs the previous capture): re-distilled
+ *   - DRIFTED (screenshot dHash distance > threshold vs the last recorded fingerprint): re-distilled
  *     and landed on main in the same run if it passes the gate, else held in a refresh/<date>-<slug>
  *     PR labelled hold (lib/land.mjs, same as evolve).
  *   - unchanged: capture freshened locally, no PR.
  *
- * The previous capture is whatever sits in corpus/<corpus>/screenshots/<slug>/ before the run
- * (captures are never pushed, so in CI there is none); with no previous shot, drift can't be
- * judged and the capture is just freshened.
+ * Captures are never pushed, so the comparison point is the site's fingerprint in
+ * corpus/fingerprints.json (tooling/lib/fingerprints.mjs), with a local previous screenshot as a
+ * fallback on a box that has one. Every capture records a fresh fingerprint and `checked` date,
+ * committed to main at the end of the run, so the next pick moves on to the next-oldest sites.
+ * With no fingerprint yet, drift can't be judged: the site is fingerprinted for next time.
  *
  *   node tooling/refresh.mjs --limit 3 [--threshold 60] [--dry-run]
  */
@@ -20,6 +22,7 @@ import { spawnSync } from 'node:child_process';
 import { dirname, join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { loadFingerprints, keyFor, hashPng, distance as fpDistance, commitFingerprints } from './lib/fingerprints.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const log = (...a) => console.log(...a);
@@ -37,16 +40,21 @@ function fmField(md, key) {
   return line ? line.slice(line.indexOf(':') + 1).trim().replace(/^["']|["']$/g, '') : null;
 }
 
+/** Least recently seen first: the later of the exemplar's `captured` date and its last fingerprint check. */
 function oldestExemplars(limit) {
+  const fps = loadFingerprints(ROOT);
   const all = [];
   for (const corpus of ['production', 'expressive']) {
     const dir = join(ROOT, 'corpus', corpus, 'exemplars');
     for (const f of readdirSync(dir).filter((x) => x.endsWith('.md'))) {
       const md = readFileSync(join(dir, f), 'utf8');
-      all.push({ slug: f.replace(/\.md$/, ''), corpus, url: fmField(md, 'url'), captured: fmField(md, 'captured') || '0000-00-00' });
+      const slug = f.replace(/\.md$/, '');
+      const captured = fmField(md, 'captured') || '0000-00-00';
+      const checked = fps[keyFor(corpus, slug)]?.checked || '0000-00-00';
+      all.push({ slug, corpus, url: fmField(md, 'url'), captured, seen: [captured, checked].sort().pop() });
     }
   }
-  return all.filter((e) => e.url).sort((a, b) => a.captured.localeCompare(b.captured)).slice(0, limit);
+  return all.filter((e) => e.url).sort((a, b) => a.seen.localeCompare(b.seen)).slice(0, limit);
 }
 
 async function alive(url) {
@@ -67,10 +75,13 @@ function drift(oldPng, newPng) {
 async function main() {
   const picks = oldestExemplars(LIMIT);
   log(`refresh — ${DRY ? 'DRY RUN' : 'live'} · ${picks.length} oldest exemplar(s), drift threshold ${THRESHOLD}/256`);
-  for (const p of picks) log(`  ${p.captured}  ${p.corpus}/${p.slug}  ${p.url}`);
+  for (const p of picks) log(`  ${p.seen}  ${p.corpus}/${p.slug}  ${p.url}`);
   if (DRY) return;
 
   const dead = [], drifted = [], freshened = [], failed = [];
+  const fps = loadFingerprints(ROOT);
+  const updates = {}; // fingerprints to record for sites that won't stay drifted-and-unlanded
+  const today = new Date().toISOString().slice(0, 10);
   for (const c of picks) {
     const live = await alive(c.url);
     if (!live.ok) { dead.push({ ...c, status: live.status }); log(`  DEAD ${c.slug}: ${live.status}`); continue; }
@@ -83,18 +94,24 @@ async function main() {
     const cap = spawnSync('node', [join(ROOT, 'tooling', 'capture.mjs'), '--url', c.url, '--slug', c.slug, '--corpus', c.corpus, '--settle', '7000'], { cwd: ROOT, encoding: 'utf8' });
     if (cap.status !== 0) { failed.push(c); log(`  capture failed ${c.slug}`); continue; }
 
-    let distance = null;
-    if (prev) { distance = drift(prev, shot); rmSync(dirname(prev), { recursive: true, force: true }); }
-    if (distance == null && prev) log(`  ${c.slug}: drift unknowable (dhash unavailable) — freshened only`);
+    const key = keyFor(c.corpus, c.slug);
+    const hash = hashPng(shot, ROOT);
+    let distance = fpDistance(fps[key]?.dhash, hash);
+    if (distance == null && prev) distance = drift(prev, shot);
+    if (prev) rmSync(dirname(prev), { recursive: true, force: true });
+    if (!hash) log(`  ${c.slug}: dhash unavailable (python3/Pillow?) — drift unknowable, freshened only`);
+    else if (distance == null) log(`  ${c.slug}: no fingerprint yet — recording one for next time`);
+    const fingerprint = hash ? { dhash: hash, checked: today } : null;
 
     if (distance != null && distance > THRESHOLD) {
       log(`  DRIFT ${c.slug}: dHash distance ${distance}/256 — re-distilling`);
       const { distillCandidate } = await import(pathToFileURL(join(ROOT, 'tooling', 'distill.mjs')).href);
       const ok = await distillCandidate({ slug: c.slug, corpus: c.corpus, url: c.url, source: 'refresh' });
-      if (ok) drifted.push({ ...c, distance });
-      else failed.push(c);
+      if (ok) drifted.push({ ...c, distance, fingerprint });
+      else failed.push(c); // keep the old fingerprint so next month still sees the drift
     } else {
       freshened.push({ ...c, distance });
+      if (fingerprint) updates[key] = fingerprint;
       log(`  ${c.slug}: ${distance == null ? 'no previous capture' : `distance ${distance}/256`} — capture freshened, no re-distill`);
     }
   }
@@ -103,7 +120,12 @@ async function main() {
     const { landOrHold } = await import(pathToFileURL(join(ROOT, 'tooling', 'lib', 'land.mjs')).href);
     const results = await landOrHold(drifted, { kind: 'refresh' });
     for (const r of results) log(`  ${r.slug}: ${r.landed ? `landed ${r.landed.sha.slice(0, 7)}` : r.pr?.url ? `held ${r.pr.url}` : `failed — ${r.error}`}`);
+    // Only a landed re-distill adopts the new look; a held one keeps the old fingerprint.
+    for (const r of results) if (r.landed && r.fingerprint) updates[keyFor(r.corpus, r.slug)] = r.fingerprint;
   }
+
+  const fpSha = commitFingerprints(updates, { root: ROOT });
+  log(`fingerprints: ${Object.keys(updates).length} recorded${fpSha && fpSha !== 'unchanged' ? ` (${fpSha} on main)` : fpSha === 'unchanged' ? '' : ' — NOT committed (see above)'}`);
 
   log(`\nrefresh done — ${drifted.length} re-distilled, ${freshened.length} freshened, ${dead.length} dead, ${failed.length} failed`);
   for (const d of dead) log(`  DEAD (human review — deprecate or re-point): ${d.corpus}/${d.slug} ${d.url} (${d.status})`);

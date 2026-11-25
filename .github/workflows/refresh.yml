@@ -2,9 +2,9 @@ name: refresh
 # Monthly staleness pass (docs: tooling/refresh.mjs) — re-captures the N oldest exemplars,
 # reports dead sites, re-distills drifted ones and lands each that passes the gate on main in the
 # same run (a failing one opens a refresh/<date>-<slug> PR labelled hold, as evolve does).
-# Captures stay on the ephemeral runner and are never pushed, so a run has no previous capture
-# to judge drift against unless one is present locally. Self-upgrading means CURRENT, not just
-# bigger.
+# Captures stay on the ephemeral runner and are never pushed; drift is judged against each site's
+# fingerprint in corpus/fingerprints.json instead, which the run updates on main. Self-upgrading
+# means CURRENT, not just bigger.
 
 on:
   schedule:
