@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ingest.sh — run the full exemplar ingestion pipeline for one site, in the
-# order that keeps CI green (captures branch is pushed BEFORE anything hits main).
+# order that keeps CI green. Screenshots stay local: never pushed anywhere.
 #
 #   bash tooling/ingest.sh <url> <slug> <production|expressive> [--settle 6000]
 #
@@ -28,8 +28,6 @@ size=$(stat -c%s "corpus/$corpus/screenshots/$slug/desktop.png")
 node tooling/distill.mjs --slug "$slug" --corpus "$corpus" --url "$url"
 npm run validate
 npm run index:build
-python3 sites/pages/build.py
-bash tooling/push-captures.sh
 
 echo
 echo "✓ $slug ingested. Review the distilled exemplar, then commit + push:"

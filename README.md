@@ -55,7 +55,7 @@ Retrieval is mechanical too: `npm run query -- --brief "dark saas dashboard" [--
 
 ## Self-evolving loop (Phase 3)
 
-A weekly run keeps the corpus fresh. It runs **in GitHub Actions** (`.github/workflows/evolve.yml`, Mondays) — distillation still uses your Claude Code **subscription** via the `CLAUDE_CODE_OAUTH_TOKEN` repo secret (`claude setup-token`), not a paid API key. Each new site is gated in the same run (reconcile + `npm run validate` + render check on the change merged onto `main`): a pass lands on `main` as one commit per site (revert it to drop the site); a fail opens a PR labelled `hold`, the only PRs you ever see. The run then regenerates the derived artifacts (`post-merge.yml`) and redeploys the directory site (`deploy-site.yml` → taste.extant.cc). The legacy on-box scheduler (`tooling/systemd/`, control bot) still works but is no longer the canonical path.
+A weekly run keeps the corpus fresh. It runs **in GitHub Actions** (`.github/workflows/evolve.yml`, Mondays) — distillation still uses your Claude Code **subscription** via the `CLAUDE_CODE_OAUTH_TOKEN` repo secret (`claude setup-token`), not a paid API key. Each new site is gated in the same run (reconcile + `npm run validate` + render check on the change merged onto `main`): a pass lands on `main` as one commit per site (revert it to drop the site); a fail opens a PR labelled `hold`, the only PRs you ever see. The run then regenerates the derived artifacts (`post-merge.yml`). The legacy on-box scheduler (`tooling/systemd/`, control bot) still works but is no longer the canonical path.
 
 ```
 harvest ─▶ dedupe ─▶ resolve ─▶ capture ─▶ distill (claude -p) ─▶ gate ─▶ land on main (or hold PR) ─▶ Telegram digest

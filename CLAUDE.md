@@ -18,10 +18,10 @@ When asked to add / ingest a site into the corpus, do **not** eyeball a screensh
 3. **Distill** (Opus reads the HTML/CSS/profile/screenshots → exemplar + tokens + patterns):
    `node tooling/distill.mjs --slug <slug> --corpus <corpus> --url <url>`
 4. **Verify** the capture isn't a bot-wall/blank (small desktop.png ⇒ check the image; retry with a realistic UA if blocked).
-5. **Validate + reindex** — `npm run validate` (token contract, controlled vocabulary, cross-refs, sources sync; must pass) then `npm run index:build` (regenerates `corpus/index.json`, the retrieval index — commit it with the exemplar). Then rebuild the directory site: `python3 sites/pages/build.py`.
-6. **Push captures BEFORE pushing main** — `bash tooling/push-captures.sh` (syncs `corpus/*/screenshots/` to the orphan `captures` branch CI reads). The deploy-site workflow fires on the main push and builds `--strict`: if the new exemplar's screenshots aren't on `captures` yet, the deploy fails. Then commit + push main.
+5. **Validate + reindex** — `npm run validate` (token contract, controlled vocabulary, cross-refs, sources sync; must pass) then `npm run index:build` (regenerates `corpus/index.json`, the retrieval index — commit it with the exemplar). Then commit + push main.
+6. **Never push screenshots** to this repo, on any branch: they are pictures of other people's sites and stay private.
 
-`raw/` and `corpus/*/screenshots/` are git-ignored private references — commit only the distilled `exemplars/`, `tokens/`, `patterns/`, and `sources.json`. Full method: `tooling/distill-prompt.md`. Deploy/serving notes: `sites/pages/README.md`.
+`raw/` and `corpus/*/screenshots/` are git-ignored private references — commit only the distilled `exemplars/`, `tokens/`, `patterns/`, and `sources.json`. Full method: `tooling/distill-prompt.md`.
 
 # Phase 3 — self-evolving pipeline (unattended)
 
@@ -32,8 +32,8 @@ live `main` and gated there (`reconcile-sources` + `npm run validate` + `render-
 --check`, `tooling/lib/land.mjs`). A pass is pushed straight to `main` **without a human in the
 loop**, one commit per site so a revert drops it; a fail goes to an `evolve/*` (or `refresh/*`)
 branch with a PR labelled `hold`, and nothing merges those automatically. The run then dispatches
-`post-merge.yml` and `deploy-site.yml`, since GITHUB_TOKEN pushes fire no workflows. Beyond that it
-only appends to the orphan `captures` branch and rewrites its own `evolve.config.json` bookkeeping
+`post-merge.yml`, since GITHUB_TOKEN pushes fire no workflows. Beyond that it only rewrites its own
+`evolve.config.json` bookkeeping
 (`last_run`). This gate is the unattended-write boundary of the pipeline.
 
 # Phase 3 — Telegram control bot (governance)
