@@ -50,7 +50,10 @@ import {
 } from './lib/scope.mjs';
 import { checkResponsive } from './lib/responsive-check.mjs';
 import { captureShots } from './lib/screenshot.mjs';
-import { tasteRepo } from './lib/taste-repo.mjs';
+import { pluginHookShadowed, tasteRepo } from './lib/taste-repo.mjs';
+
+// Installed both as a plugin and in this project (or globally)? Only the non-plugin copy runs.
+if (pluginHookShadowed('stop-gate.mjs')) process.exit(0);
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = process.env.CLAUDE_PROJECT_DIR || resolve(HERE, '..', '..'); // the project being edited

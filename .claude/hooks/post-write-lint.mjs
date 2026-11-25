@@ -18,7 +18,10 @@ import { readFileSync } from 'node:fs';
 import { dirname, resolve, join, relative } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { addFile, writeScope, readScope, getFlag, setFlag } from './lib/scope.mjs';
-import { tasteRepo } from './lib/taste-repo.mjs';
+import { pluginHookShadowed, tasteRepo } from './lib/taste-repo.mjs';
+
+// Installed both as a plugin and in this project (or globally)? Only the non-plugin copy runs.
+if (pluginHookShadowed('post-write-lint.mjs')) process.exit(0);
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = process.env.CLAUDE_PROJECT_DIR || resolve(HERE, '..', '..'); // the project being edited

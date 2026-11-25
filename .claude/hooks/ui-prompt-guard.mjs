@@ -21,7 +21,10 @@
 import { readFileSync } from 'node:fs';
 import { dirname, resolve, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { tasteRepo } from './lib/taste-repo.mjs';
+import { pluginHookShadowed, tasteRepo } from './lib/taste-repo.mjs';
+
+// Installed both as a plugin and in this project (or globally)? Only the non-plugin copy runs.
+if (pluginHookShadowed('ui-prompt-guard.mjs')) process.exit(0);
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const exit0 = () => process.exit(0);

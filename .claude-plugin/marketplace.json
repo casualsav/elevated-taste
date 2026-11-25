@@ -1,0 +1,12 @@
+{
+  "name": "elevated-taste",
+  "description": "Web Design Taste: a design-taste corpus of real exemplars, with the skill, guardrail hooks, /compose and a design critic for Claude Code",
+  "owner": { "name": "casualsav" },
+  "plugins": [
+    {
+      "name": "web-design-taste",
+      "source": "./",
+      "description": "Consult a distilled corpus of real sites before building or redesigning UI; lint and gate what ships"
+    }
+  ]
+}
