@@ -6,7 +6,7 @@
  * commit, so a bad site is one `git revert` away. The gate the old daily auto-merge job ran
  * then checks that exact post-merge state:
  *
- *   node tooling/reconcile-sources.mjs && npm run validate && node tooling/render-patterns.mjs --check
+ *   reconcile-sources && validate && render-patterns --check && build-index && eval-retrieval
  *
  * Pass → the commit is pushed straight to the base branch. Fail → the commit goes to a
  * <kind>/<date>-<slug> branch and a PR labelled `hold` carries the failing output, so the only
@@ -25,7 +25,10 @@ import { fileURLToPath } from 'node:url';
 const HERE = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(HERE, '..', '..');
 
-export const GATE = 'node tooling/reconcile-sources.mjs && npm run validate && node tooling/render-patterns.mjs --check';
+// build-index + eval-retrieval: the new site is in the index the eval reads, so a landing that
+// makes retrieval worse is held instead of breaking the next person's CI. The rebuilt index is
+// never committed here (post-merge-derivations owns it); only the site's own commit is pushed.
+export const GATE = 'node tooling/reconcile-sources.mjs && npm run validate && node tooling/render-patterns.mjs --check && node tooling/build-index.mjs && node tooling/eval-retrieval.mjs';
 
 function git(args, cwd = ROOT) {
   return spawnSync('git', args, { cwd, encoding: 'utf8' });
