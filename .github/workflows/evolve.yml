@@ -53,6 +53,8 @@ jobs:
       - name: Install Claude Code CLI
         run: npm install -g @anthropic-ai/claude-code
 
+      - run: pip install --quiet pillow # tooling/dhash.py (fingerprints for refresh drift)
+
       - name: Configure git author
         run: |
           git config user.name "taste-evolve[bot]"

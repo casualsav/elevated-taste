@@ -33,8 +33,9 @@ live `main` and gated there (`reconcile-sources` + `npm run validate` + `render-
 loop**, one commit per site so a revert drops it; a fail goes to an `evolve/*` (or `refresh/*`)
 branch with a PR labelled `hold`, and nothing merges those automatically. The run then dispatches
 `post-merge.yml`, since GITHUB_TOKEN pushes fire no workflows. Beyond that it only rewrites its own
-`evolve.config.json` bookkeeping
-(`last_run`). This gate is the unattended-write boundary of the pipeline.
+bookkeeping: `evolve.config.json` (`last_run`) and `corpus/fingerprints.json` (each landed or
+refreshed site's screenshot dHash, so the monthly refresh can spot a redesign without keeping
+screenshots; `tooling/lib/fingerprints.mjs`). This gate is the unattended-write boundary of the pipeline.
 
 # Phase 3 — Telegram control bot (governance)
 
