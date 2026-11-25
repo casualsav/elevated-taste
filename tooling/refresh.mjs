@@ -7,10 +7,11 @@
  *   - DRIFTED (screenshot dHash distance > threshold vs the previous capture): re-distilled
  *     and landed on main in the same run if it passes the gate, else held in a refresh/<date>-<slug>
  *     PR labelled hold (lib/land.mjs, same as evolve).
- *   - unchanged: capture freshened (screenshots re-uploaded to the captures branch), no PR.
+ *   - unchanged: capture freshened locally, no PR.
  *
- * Prev captures come from the overlay the workflow copies out of the `captures` branch; with
- * no previous shot, drift can't be judged and the capture is just freshened.
+ * The previous capture is whatever sits in corpus/<corpus>/screenshots/<slug>/ before the run
+ * (captures are never pushed, so in CI there is none); with no previous shot, drift can't be
+ * judged and the capture is just freshened.
  *
  *   node tooling/refresh.mjs --limit 3 [--threshold 60] [--dry-run]
  */
@@ -74,7 +75,7 @@ async function main() {
     const live = await alive(c.url);
     if (!live.ok) { dead.push({ ...c, status: live.status }); log(`  DEAD ${c.slug}: ${live.status}`); continue; }
 
-    // stash the previous capture (from the captures-branch overlay) before we overwrite it
+    // stash the previous capture (if one is on disk) before we overwrite it
     const shot = join(ROOT, 'corpus', c.corpus, 'screenshots', c.slug, 'desktop.png');
     let prev = null;
     if (existsSync(shot)) { prev = join(mkdtempSync(join(tmpdir(), `refresh-${c.slug}-`)), 'old.png'); copyFileSync(shot, prev); }

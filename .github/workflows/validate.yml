@@ -6,9 +6,9 @@ name: validate
 on:
   push:
     branches: [main]
-    paths: ['corpus/**', 'tokens/**', 'tooling/**', 'sites/**', 'package.json', 'biome.json', 'ruff.toml', '.shellcheck-baseline', '.github/workflows/validate.yml']
+    paths: ['corpus/**', 'tokens/**', 'tooling/**', 'package.json', 'biome.json', 'ruff.toml', '.shellcheck-baseline', '.github/workflows/validate.yml']
   pull_request:
-    paths: ['corpus/**', 'tokens/**', 'tooling/**', 'sites/**', 'package.json', 'biome.json', 'ruff.toml', '.shellcheck-baseline']
+    paths: ['corpus/**', 'tokens/**', 'tooling/**', 'package.json', 'biome.json', 'ruff.toml', '.shellcheck-baseline']
   workflow_dispatch:
 
 permissions:

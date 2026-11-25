@@ -235,7 +235,7 @@ async function main() {
 
   const raw = await getCandidates(cfg, args);
   // Slug now only for candidates already pointing at the real site; detail-page candidates
-  // get theirs from the resolved URL inside resolveCandidates (see D1 in docs/UPGRADES.md).
+  // get theirs from the resolved URL inside resolveCandidates.
   const candidates = raw.map((c) => (c.needs_resolve ? { ...c } : { ...c, slug: c.slug || slugFromUrl(c.url) }));
   log(`candidates in: ${candidates.length}`);
 

@@ -154,7 +154,7 @@ function galleryIndex(entries) {
 <title>Pattern gallery — the taste corpus</title>
 <link rel="stylesheet" href="../css/style.css">
 <style>
-  /* gallery-specific layout on the directory site's tokens */
+  /* gallery layout on the shared stylesheet's tokens */
   .pg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--space-6) var(--space-5); padding-block: var(--space-7) var(--space-9); }
   .pg-card { display: flex; flex-direction: column; gap: var(--space-2); }
   .pg-shot { display: block; border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; background: var(--color-surface); box-shadow: var(--shadow-sm); }

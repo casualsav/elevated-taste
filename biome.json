@@ -115,22 +115,6 @@
     },
     {
       "includes": [
-        "sites/pages/js/app.js"
-      ],
-      "linter": {
-        "rules": {
-          "style": {
-            "useTemplate": "off"
-          },
-          "suspicious": {
-            "noRedundantUseStrict": "off",
-            "useIterableCallbackReturn": "off"
-          }
-        }
-      }
-    },
-    {
-      "includes": [
         "tooling/build-index.mjs"
       ],
       "linter": {
@@ -477,18 +461,6 @@
         "rules": {
           "complexity": {
             "useArrowFunction": "off"
-          }
-        }
-      }
-    },
-    {
-      "includes": [
-        "sites/pages/css/style.css"
-      ],
-      "linter": {
-        "rules": {
-          "complexity": {
-            "noImportantStyles": "off"
           }
         }
       }
