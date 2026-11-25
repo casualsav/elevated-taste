@@ -43,3 +43,5 @@ jobs:
           npm run index:build
       - name: Validate corpus (token contract, vocabulary, cross-refs, sources)
         run: npm run validate
+      - name: Retrieval eval (real briefs must still find the right exemplars)
+        run: npm run eval:retrieval
