@@ -1,6 +1,7 @@
 {
-  "_note": "Retrieval eval for tooling/query.mjs: plain-language briefs, as a person would type them, with the exemplars a designer would want back. A case passes when any listed slug ranks in the top 3. tooling/eval-retrieval.mjs runs these in CI and fails if the pass count drops below min_hit3. Raise min_hit3 when ranking improves; add a case whenever a real brief came back wrong.",
-  "min_hit3": 20,
+  "_note": "Retrieval eval for tooling/query.mjs: plain-language briefs, as a person would type them, with the exemplars a designer would want back. A case passes when any listed slug ranks in the top 3. tooling/eval-retrieval.mjs runs these in CI and fails if the pass count drops below min_hit3. Raise min_hit3 when ranking improves; add a case whenever a real brief came back wrong. min_app_first floors how many app-job briefs rank a real app screen (surface: app) first.",
+  "min_hit3": 23,
+  "min_app_first": 12,
   "cases": [
     {
       "brief": "settings page for a SaaS app with forms and toggles",
@@ -207,6 +208,32 @@
       "relevant": [
         "dishoom",
         "noma"
+      ]
+    },
+    {
+      "brief": "sign in page",
+      "relevant": [
+        "shadcn-login"
+      ]
+    },
+    {
+      "brief": "dashboard for a developer tool startup",
+      "relevant": [
+        "grafana-play",
+        "shadcn-dashboard"
+      ]
+    },
+    {
+      "brief": "checkout for a skincare store",
+      "relevant": [
+        "stripe-checkout",
+        "shopify-checkout"
+      ]
+    },
+    {
+      "brief": "sign up form for a banking app",
+      "relevant": [
+        "shadcn-login"
       ]
     }
   ]

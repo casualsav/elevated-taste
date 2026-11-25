@@ -21,6 +21,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { SURFACE_FOR } from './coverage.mjs';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 
@@ -49,8 +50,12 @@ function resolveRepo(args) {
 // "dark"/"light" are NOT stopwords: they are real tags (a dark dev-tool page is a different
 // donor from a light one), and dropping them made "dark landing page" rank light sites first.
 export const STOP = new Set('a an and or the of to for with in on at by from into as is are be this that these those your you our their it its my we us site page app build design ui ux using use want need make more most very some any all it a i new'.split(/\s+/));
-export const tokenizeBrief = (brief) => String(brief || '')
-  .toLowerCase().replace(/[^a-z0-9\s-]/g, ' ').split(/\s+/)
+// Two-word phrases that name one job, joined before "in"/"up" fall to STOP: "sign in page"
+// otherwise reduces to "sign" and finds no auth screen at all.
+const PHRASES = [[/\b(sign|log)[\s-]+in\b/g, 'signin'], [/\b(sign)[\s-]+up\b/g, 'signup']];
+export const tokenizeBrief = (brief) => PHRASES
+  .reduce((s, [re, to]) => s.replace(re, to), String(brief || '').toLowerCase())
+  .replace(/[^a-z0-9\s-]/g, ' ').split(/\s+/)
   .filter((t) => t.length > 1 && !STOP.has(t));
 
 export const has = (arr, v) => (arr || []).some((x) => String(x).toLowerCase() === v);
@@ -109,6 +114,11 @@ export function scoreEntry(entry, { wantWhen = [], wantDir = [], wantTags = [], 
   const implied = (inferredWhen ?? inferWhen(briefTokens)).filter((w) => !wantWhen.includes(w));
   const impliedHits = implied.filter((w) => has(entry.when_to_use, w));
   if (impliedHits.length) { s += 3 * impliedHits.length; why.push(`implies:${impliedHits.join('+')}`); }
+
+  // A real app screen beats a marketing page about an app when the brief is an app job: someone
+  // asking for an admin dashboard wants the dashboard itself, not the product's landing page.
+  const surfaceHits = [...wantWhen, ...implied].filter((w) => SURFACE_FOR[w] && SURFACE_FOR[w] === entry.surface && has(entry.when_to_use, w));
+  if (surfaceHits.length) { s += 2; why.push(`surface:${entry.surface}`); }
 
   const labels = new Set([...(entry.tags || []), ...(entry.when_to_use || []), entry.slug || ''].flatMap((x) => [String(x).toLowerCase(), ...words(x)]));
   const tags = new Set((entry.tags || []).map((t) => String(t).toLowerCase()));
