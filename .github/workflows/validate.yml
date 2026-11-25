@@ -8,7 +8,7 @@ on:
     branches: [main]
     paths: ['corpus/**', 'tokens/**', 'tooling/**', 'package.json', 'biome.json', 'ruff.toml', '.shellcheck-baseline', '.github/workflows/validate.yml']
   pull_request:
-    paths: ['corpus/**', 'tokens/**', 'tooling/**', 'package.json', 'biome.json', 'ruff.toml', '.shellcheck-baseline']
+    paths: ['corpus/**', 'tokens/**', 'tooling/**', 'package.json', 'biome.json', 'ruff.toml', '.shellcheck-baseline', '.github/workflows/validate.yml']
   workflow_dispatch:
 
 permissions:
@@ -47,3 +47,50 @@ jobs:
         run: npm run eval:retrieval
       - name: Unit tests (tooling/test)
         run: npm test
+
+  # Every pattern's reference implementation has to run in a real browser: no JS errors, no
+  # console errors, no sideways scroll at 1280 or 375. Evolve's land gate checks this for the
+  # sites it lands; this job checks it for hand-made PRs, which otherwise merged unrendered.
+  # Only the patterns a PR touches are rendered, or all of them when the renderer, the tokens
+  # or this workflow change.
+  render:
+    if: github.event_name == 'pull_request' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Pick the patterns to render
+        id: pick
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+        run: |
+          if [ -z "$BASE" ]; then echo "files=ALL" >> "$GITHUB_OUTPUT"; exit 0; fi
+          changed=$(git diff --name-only --diff-filter=AMR "$BASE" HEAD)
+          if printf '%s\n' "$changed" | grep -qE '^(tooling/render-patterns\.mjs|tokens/|\.github/workflows/validate\.yml)'; then
+            echo "files=ALL" >> "$GITHUB_OUTPUT"
+          else
+            files=$(printf '%s\n' "$changed" | grep -E '^corpus/[a-z]+/patterns/[^/]+\.md$' | tr '\n' ' ')
+            echo "files=$files" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-node@v4
+        if: steps.pick.outputs.files != ''
+        with:
+          node-version: 22
+          cache: npm
+      - if: steps.pick.outputs.files != ''
+        run: npm ci && npx playwright install --with-deps chromium
+      - name: Rebuild tokens.css (the post-merge state the patterns render against)
+        if: steps.pick.outputs.files != ''
+        run: node tokens/build.mjs
+      - name: Render the picked patterns
+        if: steps.pick.outputs.files != ''
+        env:
+          FILES: ${{ steps.pick.outputs.files }}
+        run: |
+          if [ "$FILES" = ALL ]; then node tooling/render-patterns.mjs --check
+          else
+            # shellcheck disable=SC2086 # FILES is a space-separated list of repo paths
+            node tooling/render-patterns.mjs --check $FILES
+          fi
