@@ -1,5 +1,7 @@
 # Owner rejected all-caps mono microlabels (dark studio-console storefront)
 
+> Promoted: taste/owner.md (owner taste profile). This note keeps the full context.
+
 **Context:** the owner's storefront + full customer journey (studio chat,
 auth, download gate), rethemed Jul 9 2026 to the dark studio-console
 direction. The technical-registration motif used monospace microlabels

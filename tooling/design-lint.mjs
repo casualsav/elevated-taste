@@ -326,6 +326,21 @@ export function lintText(name, text, opts = {}) {
       }
     }
 
+    // owner rule 1 (taste/owner.md): caps microlabels only in a designed display face, never
+    // in system/ui monospace. One rule block that sets both uppercase and a mono family is the
+    // rejected treatment. Advisory: a mono font var can't always be resolved from here.
+    const MONO = /\b(monospace|ui-monospace|[\w-]*mono[\w-]*|menlo|consolas|courier)\b/i;
+    for (const bm of chunk.matchAll(/\{([^{}]*)\}/g)) {
+      const body = bm[1];
+      const up = body.match(/text-transform\s*:\s*uppercase/i);
+      const fam = body.match(/font-family\s*:\s*([^;}]+)/i) || body.match(/(?:^|[;\s])font\s*:\s*([^;}]+)/i);
+      if (up && fam && MONO.test(fam[1])) {
+        add('warn', 'owner-mono-caps', 'taste/owner.md rule 1', start + bm.index + 1 + up.index,
+          'All-caps text in a monospace face: the owner rejected caps mono microlabels. Use sentence case with tracking near .02em, or set caps in the display face.',
+          'drop text-transform:uppercase; letter-spacing:.02em');
+      }
+    }
+
     // custom-property DEFINITION lines (--foo: #abc;) — defining your own token IS the
     // tokenized discipline, so raw-color must not flag them as "hardcoded".
     const customPropRanges = [];
