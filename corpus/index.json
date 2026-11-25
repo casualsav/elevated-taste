@@ -425,8 +425,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "organic-mask-alternating-rows",
@@ -528,8 +527,7 @@
         "content-grid"
       ],
       "a11y": [
-        "reduced-motion-respected",
-        "tap-targets-risky"
+        "reduced-motion-respected"
       ],
       "patterns": [
         "kicker-led-section-header",
@@ -620,8 +618,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "pinned-hero-curtain-reveal",
@@ -717,8 +714,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "layered-progressive-blur-nav",
@@ -818,7 +814,6 @@
       "a11y": [
         "focus-visible",
         "alt-coverage-high",
-        "tap-targets-risky",
         "reduced-motion-ignored"
       ],
       "patterns": [
@@ -898,8 +893,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "billboard-tile-stack",
@@ -998,8 +992,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "scalloped-band-edge",
@@ -1097,8 +1090,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "pastel-bloom-backdrop",
@@ -1201,8 +1193,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "prose-manifesto-landing",
@@ -1391,7 +1382,6 @@
       "a11y": [
         "alt-coverage-high",
         "focus-visible-missing",
-        "tap-targets-risky",
         "reduced-motion-ignored"
       ],
       "patterns": [
@@ -1482,8 +1472,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "hairline-grid-canvas",
@@ -1658,8 +1647,7 @@
       ],
       "a11y": [
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "inset-app-panel",
@@ -1744,8 +1732,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-low",
-        "tap-targets-risky"
+        "alt-coverage-low"
       ],
       "patterns": [
         "hero-inline-transaction",
@@ -1838,8 +1825,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "split-showcase-active-list",
@@ -1935,8 +1921,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "notched-section-transition",
@@ -2033,8 +2018,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "blend-difference-pinned-chrome",
@@ -2133,8 +2117,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "monochrome-tone-triad",
@@ -2228,8 +2211,7 @@
       ],
       "a11y": [
         "reduced-motion-ignored",
-        "focus-visible",
-        "tap-targets-risky"
+        "focus-visible"
       ],
       "patterns": [
         "floating-pill-nav",
@@ -2508,8 +2490,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "letterpress-frame-card",
@@ -2604,8 +2585,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-partial",
-        "tap-targets-risky"
+        "alt-coverage-partial"
       ],
       "patterns": [
         "sticky-section-label-fade",
@@ -2699,8 +2679,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "auth-first-hero",
@@ -2795,8 +2774,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "mono-eyebrow-fluid-masthead",
@@ -2898,8 +2876,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "dark-broadsheet-rule-grid",
@@ -2995,8 +2972,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-partial",
-        "tap-targets-risky"
+        "alt-coverage-partial"
       ],
       "patterns": [
         "photo-first-catalog-row",
@@ -3091,8 +3067,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible-missing",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "tonal-band-scroll-field",
@@ -3189,8 +3164,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "oversized-display-headline",
@@ -3294,8 +3268,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "hairline-banded-sections",
@@ -3475,8 +3448,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "underlined-caps-info-block",
@@ -3564,8 +3536,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "dashboard-app-shell",
@@ -3654,8 +3625,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "chapter-theme-crossfade",
@@ -3753,8 +3723,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "sticky-narrative-channel-list",
@@ -3856,8 +3825,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "offset-stack-button",
@@ -3957,8 +3925,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible-missing",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "scroll-scrub-word-brighten",
@@ -4047,8 +4014,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "intent-router-hero",
@@ -4147,8 +4113,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-ok"
+        "alt-coverage-high"
       ],
       "patterns": [
         "scroll-condensing-booking-header",
@@ -4251,8 +4216,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "in-view-reveal-blur-rise",
@@ -4354,8 +4318,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "blueprint-column-rules",
@@ -4717,8 +4680,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "ambient-drift-card-field",
@@ -4819,8 +4781,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "feature-section-header",
@@ -4917,8 +4878,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-ok"
+        "alt-coverage-high"
       ],
       "patterns": [
         "ruled-catalog-grid",
@@ -5010,8 +4970,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible-missing",
-        "alt-coverage-partial",
-        "tap-targets-risky"
+        "alt-coverage-partial"
       ],
       "patterns": [
         "fixed-cell-catalog-grid",
@@ -5195,7 +5154,6 @@
       "a11y": [
         "focus-visible",
         "alt-coverage-high",
-        "tap-targets-risky",
         "reduced-motion-respected"
       ],
       "patterns": [
@@ -5293,8 +5251,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "embedded-product-frame",
@@ -5489,7 +5446,6 @@
       "a11y": [
         "reduced-motion-ignored",
         "alt-coverage-high",
-        "tap-targets-risky",
         "focus-visible-missing"
       ],
       "patterns": [
@@ -5583,8 +5539,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "scroll-linked-recolor",
@@ -5692,8 +5647,7 @@
         "split-hero"
       ],
       "a11y": [
-        "reduced-motion-respected",
-        "tap-targets-risky"
+        "reduced-motion-respected"
       ],
       "patterns": [
         "scrolling-trust-marquee",
@@ -5793,8 +5747,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "edge-bleed-wordmark-masthead",
@@ -5896,8 +5849,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible-missing",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "oversized-display-headline",
@@ -5999,7 +5951,6 @@
       "a11y": [
         "focus-visible",
         "alt-coverage-high",
-        "tap-targets-risky",
         "reduced-motion-respected"
       ],
       "patterns": [
@@ -6101,8 +6052,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-partial",
-        "tap-targets-risky"
+        "alt-coverage-partial"
       ],
       "patterns": [
         "os-shell-window-frame",
@@ -6381,8 +6331,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-low",
-        "tap-targets-risky"
+        "alt-coverage-low"
       ],
       "patterns": [
         "oversized-display-headline",
@@ -6478,8 +6427,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "painterly-illustrated-hero",
@@ -6670,8 +6618,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "inline-metric-pill",
@@ -6770,8 +6717,7 @@
       ],
       "a11y": [
         "reduced-motion-ignored",
-        "focus-visible",
-        "tap-targets-risky"
+        "focus-visible"
       ],
       "patterns": [
         "scroll-camera-rail",
@@ -6861,8 +6807,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "code-block-hero",
@@ -6965,8 +6910,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "perspective-screenshot-field-hero",
@@ -7066,8 +7010,7 @@
         "content-grid"
       ],
       "a11y": [
-        "reduced-motion-respected",
-        "tap-targets-risky"
+        "reduced-motion-respected"
       ],
       "patterns": [
         "product-spotlight-card",
@@ -7158,8 +7101,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "serif-display-on-neutral",
@@ -7259,8 +7201,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "ambient-wordmark-light-sweep",
@@ -7359,8 +7300,7 @@
       ],
       "a11y": [
         "focus-visible-missing",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "dotted-rule-editorial-grid",
@@ -7452,8 +7392,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "hand-drawn-section-divider",
@@ -7556,8 +7495,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "kpi-stat-card-grid",
@@ -7644,8 +7582,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "split-card-auth",
@@ -7732,8 +7669,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "live-component-masonry",
@@ -7826,8 +7762,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "scrollytelling-annotated-demo",
@@ -7917,8 +7852,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "pinned-scrub-list-focus",
@@ -8007,8 +7941,7 @@
       ],
       "a11y": [
         "alt-coverage-high",
-        "reduced-motion-ignored",
-        "tap-targets-risky"
+        "reduced-motion-ignored"
       ],
       "patterns": [
         "soft-elevation-surface",
@@ -8101,8 +8034,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "two-tone-headline",
@@ -8295,8 +8227,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "two-tone-display-hero",
@@ -8394,8 +8325,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "oversized-display-headline",
@@ -8494,8 +8424,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "annotated-blueprint-hero",
@@ -8678,8 +8607,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "arch-portrait-flanked-hero",
@@ -8772,8 +8700,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "fixed-viewport-bezel",
@@ -8869,8 +8796,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "line-draw-connector-reveal",
@@ -8967,8 +8893,7 @@
       "a11y": [
         "focus-visible",
         "alt-coverage-high",
-        "reduced-motion-respected",
-        "tap-targets-risky"
+        "reduced-motion-respected"
       ],
       "patterns": [
         "section-corner-glow-band",
@@ -9072,8 +8997,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "sticky-stack-recede",
@@ -9168,8 +9092,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "input-as-hero-composer",
@@ -9262,8 +9185,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "serif-display-on-tinted-canvas",
@@ -9362,8 +9284,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "mono-label-metadata",
@@ -9561,8 +9482,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "section-theme-tokens",
@@ -9745,8 +9665,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "staggered-display-headline",
@@ -9844,8 +9763,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "oversized-title-media-row",
@@ -9949,8 +9867,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "ascii-particle-ring",
@@ -10044,8 +9961,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "cinematic-media-mosaic",
@@ -10146,8 +10062,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "scroll-reveal-text-fill",
@@ -10242,8 +10157,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible-missing",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "edge-bleed-portrait-strip",
@@ -10417,8 +10331,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "case-study-split-row",
@@ -10510,8 +10423,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "split-stage-hero",
@@ -10603,8 +10515,7 @@
       ],
       "a11y": [
         "reduced-motion-ignored",
-        "focus-visible-missing",
-        "tap-targets-risky"
+        "focus-visible-missing"
       ],
       "patterns": [
         "editorial-masthead",
@@ -10693,8 +10604,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "headline-bracketed-object",
@@ -10888,8 +10798,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "curved-stage-section",
@@ -10980,8 +10889,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "webgl-thumbnail-sphere",
@@ -11065,8 +10973,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible-missing",
-        "alt-coverage-partial",
-        "tap-targets-risky"
+        "alt-coverage-partial"
       ],
       "patterns": [
         "ghost-index-hover-list",
@@ -11168,8 +11075,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible-missing",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "terminal-window-product-card",
@@ -11257,8 +11163,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "serif-italic-counterpoint",
@@ -11347,8 +11252,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-low",
-        "tap-targets-risky"
+        "alt-coverage-low"
       ],
       "patterns": [
         "staggered-masonry-feed",
@@ -11508,8 +11412,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "flavor-hero-carousel",
@@ -11601,8 +11504,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "serif-list-index",
@@ -11689,8 +11591,7 @@
       ],
       "a11y": [
         "reduced-motion-ignored",
-        "focus-visible-missing",
-        "tap-targets-risky"
+        "focus-visible-missing"
       ],
       "patterns": [
         "inset-canvas-stage",
@@ -11882,8 +11783,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "intent-quiz-hero",
@@ -11979,8 +11879,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-ok"
+        "alt-coverage-high"
       ],
       "patterns": [
         "torn-paper-viewport-frame",
@@ -12074,8 +11973,7 @@
       ],
       "a11y": [
         "reduced-motion-ignored",
-        "focus-visible-missing",
-        "tap-targets-ok"
+        "focus-visible-missing"
       ],
       "patterns": [
         "indexed-catalog-rows",
@@ -12163,8 +12061,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "currentcolor-ink-theme",
@@ -12252,8 +12149,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "split-wordmark-emblem-hero",
@@ -12436,8 +12332,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "centered-spine-index",
@@ -12526,8 +12421,7 @@
       ],
       "a11y": [
         "reduced-motion-ignored",
-        "focus-visible-missing",
-        "tap-targets-risky"
+        "focus-visible-missing"
       ],
       "patterns": [
         "nav-invert-past-hero",
@@ -12618,8 +12512,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-partial",
-        "tap-targets-risky"
+        "alt-coverage-partial"
       ],
       "patterns": [
         "statement-blur-dissolve-stage",
@@ -12713,8 +12606,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "floating-glass-capsule-nav",
@@ -12813,8 +12705,7 @@
       ],
       "a11y": [
         "reduced-motion-respected",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "section-palette-handoff",
@@ -12910,8 +12801,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-partial",
-        "tap-targets-risky"
+        "alt-coverage-partial"
       ],
       "patterns": [
         "beveled-chrome-panel",
@@ -13007,8 +12897,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "monospace-manifesto-column",
@@ -13184,7 +13073,6 @@
       "a11y": [
         "alt-coverage-high",
         "focus-visible-missing",
-        "tap-targets-risky",
         "reduced-motion-ignored"
       ],
       "patterns": [
@@ -13268,8 +13156,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible-missing",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "tight-thumbnail-mosaic",
@@ -13362,8 +13249,7 @@
       "a11y": [
         "reduced-motion-respected",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "directory-nav",
@@ -13533,8 +13419,7 @@
       ],
       "a11y": [
         "reduced-motion-ignored",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "image-first-hero-under-transparent-header",
@@ -13626,8 +13511,7 @@
       ],
       "a11y": [
         "reduced-motion-ignored",
-        "focus-visible",
-        "tap-targets-risky"
+        "focus-visible"
       ],
       "patterns": [
         "receipt-ledger",
@@ -13716,8 +13600,7 @@
       "a11y": [
         "reduced-motion-ignored",
         "focus-visible",
-        "alt-coverage-high",
-        "tap-targets-risky"
+        "alt-coverage-high"
       ],
       "patterns": [
         "sticky-scrollspy-rail",
