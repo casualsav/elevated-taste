@@ -1,0 +1,62 @@
+{
+  "color": {
+    "bg": "#f5f5f5",
+    "surface": "#ffffff",
+    "surface-2": "#e5e5e5",
+    "fg": "#0a0a0a",
+    "muted": "#737373",
+    "accent": "#0a0a0a",
+    "roles": {
+      "card": "#ffffff",
+      "media-panel": "#e5e5e5",
+      "border": "#e5e5e5",
+      "input": "#e5e5e5",
+      "ring": "#a3a3a3",
+      "placeholder": "#737373",
+      "primary": "#0a0a0a",
+      "primary-fg": "#fafafa"
+    },
+    "dark": {
+      "bg": "#0a0a0a",
+      "surface": "#171717",
+      "surface-2": "#262626",
+      "fg": "#fafafa",
+      "muted": "#a3a3a3",
+      "accent": "#fafafa",
+      "border": "rgba(255,255,255,0.1)"
+    }
+  },
+  "type": {
+    "families": ["Geist", "Geist Fallback", "Geist Mono (unused on this screen)"],
+    "scale": ["0.875rem", "1rem", "1.5rem"],
+    "weights": [400, 500, 700],
+    "leading": [1.33, 1.5, 1.43],
+    "notes": "24px/32 h1 @700 is the only large/bold node; 16px @400 = inputs/button; 14px @500 = labels/links; 14px @400 = legal/muted"
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["8px", "12px", "16px", "24px", "28px", "32px", "40px"]
+  },
+  "radius": ["8px", "14px"],
+  "shadow": [
+    "none (resting — all captured box-shadows transparent)",
+    "0 1px 2px rgba(0,0,0,0.05) (focus only, under the ring)"
+  ],
+  "motion": {
+    "durations": ["150ms"],
+    "easings": ["cubic-bezier(0.4, 0, 0.2, 1)", "ease"],
+    "triggers": ["hover", "focus"],
+    "techniques": ["hover-fill-swap", "hover-opacity-darken", "focus-ring"],
+    "scroll_effects": [],
+    "stack": ["CSS transitions", "IntersectionObserver (present, 0 targets — unused)"],
+    "reduced_motion": "respected"
+  },
+  "layout": {
+    "card_max_width": "896px",
+    "form_column_width": "384px",
+    "control_height": "36px",
+    "grid": "md:grid-cols-2 (form + media panel), collapses to 1 column on mobile",
+    "breakpoints": ["~600px", "~1024px"]
+  },
+  "notes": "Palette normalized from captured lab() colors, all with a=b=0 — i.e. the shadcn new-york-v4 NEUTRAL base (neutral-50..950). bg is the page field (bg-muted), surface the card, surface-2 the media panel. Resting elevation is genuinely zero; shadow lives only under the focus ring. Dark axis filled from craft.theme.dark (supportsDark=true): surfaces #171717/#262626, fg white, borders white@10%. Motion is near-absent — library @keyframes (sonner/accordion/shimmer) exist but do not run on this screen."
+}
