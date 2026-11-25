@@ -81,6 +81,35 @@ async function recentHistory() {
   }
 }
 
+/**
+ * The owner's own rules (taste/owner.md), as one-liners. They win over corpus defaults inside
+ * their scope, so they go in front of the model on every UI prompt. Fail-open: no file, no lines.
+ */
+function ownerRuleLines(md) {
+  const rules = [];
+  let inRules = false;
+  for (const line of String(md || '').split('\n')) {
+    if (/^##\s+/.test(line)) { inRules = /^##\s+Rules\b/i.test(line); continue; }
+    const m = inRules && line.match(/^- \*\*(.+?)\*\*/);
+    if (m) rules.push(m[1]);
+  }
+  if (!rules.length) return [];
+  return [
+    "• OWNER RULES (taste/owner.md) — the owner's own verdicts; they override corpus defaults inside their scope (read the file for scope), and say when you apply one:",
+    ...rules.map((r, i) => `  ${i + 1}. ${r}`),
+  ];
+}
+
+function ownerRules() {
+  try {
+    const projectRepo = process.env.CLAUDE_PROJECT_DIR || resolve(HERE, '..', '..');
+    const repo = tasteRepo(projectRepo).path;
+    return ownerRuleLines(readFileSync(join(repo, 'taste', 'owner.md'), 'utf8'));
+  } catch {
+    return [];
+  }
+}
+
 const donorSlugs = (row) => (row.donors || []).map((d) => String(d).split(':')[0]);
 
 /**
@@ -108,7 +137,7 @@ async function main() {
   try { input = JSON.parse(readFileSync(0, 'utf8') || '{}'); } catch { return exit0(); }
   if (!isUi(input.prompt || '')) return exit0();
   const rows = await recentHistory();
-  const rules = [...BASE_RULES, ...hardConstraintLines(rows)];
+  const rules = [...BASE_RULES, ...ownerRules(), ...hardConstraintLines(rows)];
   process.stdout.write(JSON.stringify({
     hookSpecificOutput: { hookEventName: 'UserPromptSubmit', additionalContext: rules.join('\n') },
   }));

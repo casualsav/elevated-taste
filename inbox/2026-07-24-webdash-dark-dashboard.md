@@ -1,5 +1,7 @@
 # capture: dark data-dense trading dashboard redesign (w.suchag.com webdash)
 
+> Promoted: taste/owner.md (owner taste profile). This note keeps the full context.
+
 **Context:** 2026-07-24, owner's private weather-market trading dashboard
 (server-rendered aiohttp page, inline CSS only, hard page-weight budget: zero
 external requests). Audience: the owner, trading Kalshi temperature markets

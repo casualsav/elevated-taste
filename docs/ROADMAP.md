@@ -13,17 +13,20 @@ Hooks gate *actions / outcomes* — they **cannot** force skill selection. So be
 
 ## Phase 3 — Self-evolving ✅ built
 
-A weekly loop that harvests new winners, distills them, and **opens a draft PR for human review** — it **never auto-merges** (unsupervised, the corpus drifts toward trend-chasing spectacle and degrades). It runs **on this box** so distillation uses the Claude Code **subscription** (`claude -p`), not a paid API key — which is why it's a local scheduler, not a GitHub-hosted Actions cron (hosted runners have no subscription).
+A weekly loop that harvests new winners, distills them, and lands the ones that pass the gate. It runs **in GitHub Actions** (`.github/workflows/evolve.yml`, Mondays 09:00 UTC); distillation still uses the Claude Code **subscription** through the `CLAUDE_CODE_OAUTH_TOKEN` repo secret (`claude setup-token`), not a paid API key. The on-box scheduler (`tooling/systemd/`, `tooling/daemons.sh`) is the legacy path and still works.
 
-Orchestrator `tooling/evolve.mjs` (config: `evolve.config.json`): harvest (`harvest.mjs --json`, never touches the canonical `sources.json`) → **dedupe** (`lib/dedupe.mjs`, slug+normalized-url read straight from the exemplar files, so a merged site is deduped immediately) → **resolve** detail-page URLs (`lib/resolve.mjs`) → cap → capture → **distill** (`distill.mjs`, ephemeral `claude -p` per candidate, `TASTE_GATE=off` so the Phase-2 hooks can't trap it, structural vet) → **one draft PR per site** (`lib/pr.mjs`, via `gh`, never merges) → **digest** (`report.mjs`, Telegram: each site + its PR link). Scheduling + secrets: `tooling/systemd/` (+ cron fallback).
+Orchestrator `tooling/evolve.mjs` (config: `evolve.config.json`): manual queue (`tooling/manual-sources.json`) + harvest (`harvest.mjs --json`, never touches the canonical `sources.json`) → **dedupe** (`lib/dedupe.mjs`, slug+normalized-url read straight from the exemplar files) → **resolve** detail-page URLs (`lib/resolve.mjs`) → cap → capture → **distill** (`distill.mjs`, ephemeral `claude -p` per candidate, `TASTE_GATE=off` so the Phase-2 hooks can't trap it, structural vet) → **gate and land** (`lib/land.mjs`) → **digest** (`report.mjs`, Telegram).
 
-- **Approval gate** — each new site is its **own** draft PR, so you pick and choose; the corpus changes only when you **merge** a site's PR. The weekly Telegram digest links each site (source + PR). Pause via `"paused": true` in `evolve.config.json` (or the control bot).
+- **The gate is the approval step.** Each site is committed on its own in a throwaway worktree off live `main` and checked there (`reconcile-sources` + `npm run validate` + `render-patterns.mjs --check`). A pass is pushed straight to `main` as one commit per site, so dropping a site is one `git revert`. A fail goes to an `evolve/<date>-<slug>` branch with a PR labelled `hold`; nothing merges those automatically. The run then dispatches `post-merge.yml` to rebuild the derived files (pushes made with `GITHUB_TOKEN` fire no workflows).
+- **Monthly refresh** — `refresh.yml` re-captures the oldest exemplars, reports dead sites and re-distills ones whose screenshot drifted, landing them through the same gate (`refresh/<date>-<slug>` hold PRs on a fail).
+- **Captures stay private.** Screenshots and `raw/` live only on the runner and are never pushed to this repo, on any branch.
+- **Pause** via `"paused": true` in `evolve.config.json` (or the control bot).
 - **Post-build reflection** — `tooling/reflect.mjs` / the `/reflect` command: after a real build, propose corpus edits to `proposals/` for human review. Never auto-applied.
 
-Prerequisites: Playwright (already in repo), an active `claude` login on the box, `gh` auth, and (optional) `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` for the report.
+Prerequisites (Actions): the `CLAUDE_CODE_OAUTH_TOKEN` secret, and optionally `TELEGRAM_BOT_TOKEN` + `TELEGRAM_CHAT_ID` for the digest. The legacy on-box path also needs Playwright, an active `claude` login and `gh` auth on the box.
 
 ### Phase 3.5 — control bot
-- **`tooling/control-bot.mjs`** — a non-agentic Telegram bot (long-poll, no LLM) that edits `evolve.config.json` and drives the loop: `/status` `/run` `/pause` `/resume` `/set`, and per-site `/approve <#>` (marks the draft ready, then squash-merges) `/reject <#>` (closes). Strict chat-id allowlist. Run on demand (`npm run bot`) or always-on (`tooling/systemd/taste-bot.service`). The config file is the source of truth; the bot is an optional front-end.
+- **`tooling/control-bot.mjs`** — a non-agentic Telegram bot (long-poll, no LLM) that edits `evolve.config.json` and drives the loop: `/status` `/run` `/pause` `/resume` `/set`, and `/approve <#>` (squash-merges a held `evolve/*` PR) `/reject <#>` (closes it). Strict chat-id allowlist. Run on demand (`npm run bot`) or always-on (`tooling/systemd/taste-bot.service`). The config file is the source of truth; the bot is an optional front-end.
 
 ## Seams left in Phase 1
 

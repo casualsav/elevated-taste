@@ -1,5 +1,8 @@
 # Scheduling the weekly evolve run (this box)
 
+> Legacy path. The canonical weekly run is the `evolve` GitHub Actions workflow
+> (`.github/workflows/evolve.yml`); use these units only to run the loop on your own box.
+
 The self-evolving loop runs **locally** so distillation uses your Claude Code **subscription**
 (`claude -p`), not a paid API key. Pick systemd (recommended) or cron.
 

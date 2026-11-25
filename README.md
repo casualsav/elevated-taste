@@ -17,6 +17,8 @@ Phase 1 (corpus + Skill + `CLAUDE.md`), Phase 2 (guardrails), and Phase 3 (self-
 .claude/settings.json              # wires the hooks
 .claude/commands/reflect.md        # Phase 3 /reflect slash command
 corpus/{production,expressive}/     # exemplars, patterns, tokens, principles, sources
+taste/owner.md                     # the owner's own rules from real build verdicts (win over corpus defaults)
+inbox/                             # unreviewed build notes; promoted ones feed taste/owner.md
 directions/                        # aesthetic presets (minimalist, brutalist, soft, …)
 tokens/                            # tokens.json → tokens.css (+ presets/)
 preview/                           # zero-config static server for reference implementations
@@ -53,7 +55,7 @@ Run the lint by hand: `npm run lint:design -- path/to/file.html` (exit 1 if any 
 
 Every exemplar records its `surface` (`app` · `docs` · `site`), and `node tooling/coverage.mjs` counts app jobs (dashboard, forms, settings, auth …) only from real `app` screens, so a homepage that pictures a dashboard no longer fills the dashboard quota. App screens the galleries can't supply are queued in `tooling/manual-sources.json`.
 
-Retrieval is mechanical too: `npm run query -- --brief "dark saas dashboard" [--direction minimalist]` returns a scored donor/pattern shortlist instead of reading the 380KB `corpus/index.json` whole; `corpus/index.summary.json` is the compact skim view. Tailwind projects generate a token-named theme preset with `node tokens/build.mjs --tailwind` → `tokens/tailwind.preset.mjs`.
+Retrieval is mechanical too: `npm run query -- --brief "dark saas dashboard" [--direction minimalist]` returns a scored donor/pattern shortlist instead of reading the 380KB `corpus/index.json` whole; `corpus/index.summary.json` is the compact skim view. Plain words map to the category vocabulary ("login screen" finds auth exemplars), and `npm run eval:retrieval` checks a set of real briefs in [`tooling/eval/retrieval-cases.json`](tooling/eval/retrieval-cases.json) against the exemplars they should return; CI fails if fewer of them hit than before. Tailwind projects generate a token-named theme preset with `node tokens/build.mjs --tailwind` → `tokens/tailwind.preset.mjs`.
 
 ## Self-evolving loop (Phase 3)
 

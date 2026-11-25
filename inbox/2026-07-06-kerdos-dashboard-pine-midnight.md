@@ -1,5 +1,7 @@
 # Kerdos owner dashboard — proven system beat fresh taste-guided build
 
+> Promoted: taste/owner.md (owner taste profile). This note keeps the full context.
+
 **Context:** 2026-07-06, the owner dashboard for Kerdos (the back-office money
 agent), shipped as a Telegram Mini App the owner uses from his phone. Two
 versions built the same day, same data, same author-agent.

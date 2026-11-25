@@ -214,6 +214,24 @@ async function sendReport(payload, cfg) {
   return res;
 }
 
+/** Fingerprint each landed site's capture so the monthly refresh can tell when it is redesigned
+ *  (tooling/lib/fingerprints.mjs). Bookkeeping only; a miss never fails the run. */
+async function recordFingerprints(landedSites, cfg = {}) {
+  if (!landedSites.length) return;
+  try {
+    const fp = await import(pathToFileURL(join(ROOT, 'tooling/lib/fingerprints.mjs')).href);
+    const today = new Date().toISOString().slice(0, 10);
+    const updates = {};
+    for (const r of landedSites) {
+      const hash = fp.hashPng(join(ROOT, 'corpus', r.corpus, 'screenshots', r.slug, 'desktop.png'), ROOT);
+      if (hash) updates[fp.keyFor(r.corpus, r.slug)] = { dhash: hash, checked: today };
+      else log(`  fingerprint skipped: ${r.slug} (dhash unavailable)`);
+    }
+    const sha = fp.commitFingerprints(updates, { root: ROOT, base: cfg.pr_base || 'main' });
+    log(`fingerprints: ${Object.keys(updates).length} recorded${sha && sha !== 'unchanged' ? ` (${sha})` : sha ? '' : ' — NOT committed (see above)'}`);
+  } catch (e) { log(`fingerprints not recorded: ${e.message}`); }
+}
+
 function touchLastRun(extra = {}) {
   try {
     const p = join(ROOT, 'evolve.config.json');
@@ -272,6 +290,7 @@ async function main() {
   // land.mjs returns per-site failures on `.error`; print them, so a run that distilled fine but
   // landed nothing never reads like a clean one.
   for (const r of results.filter((x) => x.error)) log(`  landing failed: ${r.slug} — ${r.error}`);
+  await recordFingerprints(results.filter((r) => r.landed && r.landed.sha !== 'DRY'), cfg);
   if (!args.noReport) { try { await sendReport({ results, skipped, degraded: degradedSites }, cfg); } catch (e) { log(`report failed: ${e.message}`); } }
   touchLastRun();
   log('\ndone. Passing sites are on main (one commit each); failing ones wait in a hold PR.');

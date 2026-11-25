@@ -50,6 +50,9 @@ Read (open, don't skim from memory):
 - `corpus/<corpus>/principles.md` — the synthesized house taste for that lane.
 - `.claude/skills/web-design-taste/references/anti-patterns.md` — the full slop gate (you apply
   the judgment-level entries the lint can't mechanize).
+- `taste/owner.md` — the owner's own rules from real build verdicts. Inside a rule's scope it
+  outranks principles.md and anti-patterns.md: a build that breaks an owner rule is a REVISE item,
+  and one that follows an owner rule over a corpus default is correct, not a finding.
 
 ### Dimension 0 — Concept (checked first; this dimension can veto the verdict)
 Before anything else, state in ONE sentence the specific idea this build embodies, derived from
