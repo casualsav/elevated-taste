@@ -3,6 +3,7 @@ slug: apple-airpods-pro
 url: https://www.apple.com/airpods-pro/
 source: manual-pick
 corpus: expressive
+surface: site
 captured: 2026-07-06
 award_type: Manual (product-marketing/scroll-cinema)
 score: null

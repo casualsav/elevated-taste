@@ -3,6 +3,7 @@ slug: grafana-play
 url: https://play.grafana.org
 source: manual
 corpus: production
+surface: app
 captured: 2026-08-24
 award_type: null
 score: null

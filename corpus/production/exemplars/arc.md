@@ -3,6 +3,7 @@ slug: arc
 url: https://arc.net
 source: editorial-pick
 corpus: production
+surface: site
 captured: 2026-06-22
 award_type: Editorial pick (consumer-software brand marketing)
 score: null

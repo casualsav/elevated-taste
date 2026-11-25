@@ -3,6 +3,7 @@ slug: thrad
 url: https://www.thrad.ai
 source: landbook
 corpus: production
+surface: site
 captured: 2026-10-19
 award_type: Gallery
 score: null

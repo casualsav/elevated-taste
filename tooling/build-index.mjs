@@ -123,6 +123,7 @@ for (const corpus of CORPORA) {
     exemplars.push({
       slug, corpus,
       url: meta.url || null,
+      surface: meta.surface || null,
       tags: meta.tags || [],
       when_to_use: meta.when_to_use || [],
       directions: meta.directions || [],
@@ -211,7 +212,7 @@ const summary = {
   counts: index.counts,
   vocabulary: index.vocabulary,
   exemplars: exemplars.map((e) => ({
-    slug: e.slug, corpus: e.corpus, tags: e.tags,
+    slug: e.slug, corpus: e.corpus, surface: e.surface, tags: e.tags,
     when_to_use: e.when_to_use, directions: e.directions, layout: e.layout, summary: clip(e.summary),
   })),
   patterns: patterns.map((p) => ({

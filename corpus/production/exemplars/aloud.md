@@ -3,6 +3,7 @@ slug: aloud
 url: https://www.aloud.sh
 source: landbook
 corpus: production
+surface: site
 captured: 2026-09-28
 award_type: Gallery
 score: null

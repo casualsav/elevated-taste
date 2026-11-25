@@ -3,6 +3,7 @@ slug: theresonance
 url: https://viewport.theresonance.studio
 source: landbook
 corpus: production
+surface: site
 captured: 2026-09-21
 award_type: Gallery
 score: null

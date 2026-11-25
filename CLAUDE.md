@@ -13,7 +13,7 @@ For ANY UI / frontend / CSS work in this repo (or built with this corpus):
 
 When asked to add / ingest a site into the corpus, do **not** eyeball a screenshot and hand-write an exemplar. Run the capture → distill pipeline, which pulls the site's **real code** (full rendered HTML, every stylesheet's CSS, computed-style profile, motion/`@keyframes` fingerprint, craft/a11y/theme) — distillation is grounded in that, corroborated by the screenshots.
 
-1. Add an entry to `corpus/<production|expressive>/sources.json` (slug, url, tags, when_to_use, directions — see `tooling/distill-prompt.md` for the controlled vocabulary).
+1. Add an entry to `corpus/<production|expressive>/sources.json` (slug, url, surface, tags, when_to_use, directions — see `tooling/distill-prompt.md` for the controlled vocabulary). `surface` is what the page shows: `app` for a working product screen, `docs`, or `site` for any public website (a homepage that pictures a dashboard is `site`).
 2. **Capture** (writes screenshots + `raw/<slug>.{json,html,css}`):
    `node tooling/capture.mjs --url <url> --slug <slug> --corpus <corpus> --settle 6000`
 3. **Distill** (Opus reads the HTML/CSS/profile/screenshots → exemplar + tokens + patterns):

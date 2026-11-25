@@ -3,6 +3,7 @@ slug: gumloop
 url: https://www.gumloop.com
 source: landbook
 corpus: production
+surface: site
 captured: 2026-10-26
 award_type: Gallery
 score: null

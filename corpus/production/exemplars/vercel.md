@@ -3,6 +3,7 @@ slug: vercel
 url: https://vercel.com
 source: editorial-pick
 corpus: production
+surface: site
 captured: 2026-06-22
 award_type: Editorial pick (canonical developer-platform marketing)
 score: null

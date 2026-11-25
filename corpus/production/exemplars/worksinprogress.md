@@ -3,6 +3,7 @@ slug: worksinprogress
 url: https://worksinprogress.co
 source: manual-pick
 corpus: production
+surface: site
 captured: 2026-06-30
 award_type: Manual (editorial/long-form)
 score: null

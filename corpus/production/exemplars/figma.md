@@ -3,6 +3,7 @@ slug: figma
 url: https://www.figma.com
 source: Reference
 corpus: production
+surface: site
 captured: 2026-06-24
 award_type: "Reference"
 score: null

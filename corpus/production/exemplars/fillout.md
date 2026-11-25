@@ -3,6 +3,7 @@ slug: fillout
 url: https://www.fillout.com
 source: manual
 corpus: production
+surface: site
 captured: 2026-08-24
 award_type: null
 score: null

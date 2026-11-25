@@ -3,6 +3,7 @@ slug: shadcn
 url: https://ui.shadcn.com
 source: manual-pick
 corpus: production
+surface: docs
 captured: 2026-06-30
 award_type: Manual (dashboard/components)
 score: null

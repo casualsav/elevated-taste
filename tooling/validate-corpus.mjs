@@ -32,6 +32,9 @@ export const DIRECTIONS = new Set(['minimalist', 'brutalist', 'soft', 'editorial
 // layout — mirrors the "layout" bullet in distill-prompt.md's controlled retrieval vocabulary;
 // missing is legal (the backfill is in flight across the existing corpus), an unknown value is not.
 export const LAYOUT = new Set(['split-hero', 'center-stack', 'full-bleed', 'bento', 'dense-grid', 'editorial-columns', 'content-grid', 'app-shell', 'catalog', 'canvas-immersive', 'os-metaphor', 'collage', 'text-only', 'scroll-theater']);
+// surface — what the capture actually shows (distill-prompt.md). Required: a marketing page that
+// pictures a dashboard is `site`, not `app`, and coverage counts only real app screens for app jobs.
+export const SURFACE = new Set(['app', 'docs', 'site']);
 export const A11Y_FLAGS = new Set(['reduced-motion-respected', 'reduced-motion-ignored', 'focus-visible', 'focus-visible-missing', 'alt-coverage-high', 'alt-coverage-partial', 'alt-coverage-low', 'tap-targets-ok', 'tap-targets-risky']);
 const PATTERN_SAFETY = new Set(['production-safe', 'spectacle-only']);
 
@@ -108,6 +111,8 @@ function checkExemplars() {
       for (const d of meta.directions || []) if (!DIRECTIONS.has(d)) err(`${rel}: direction "${d}" not in {${[...DIRECTIONS].join(', ')}}`);
       for (const l of meta.layout || []) if (!LAYOUT.has(l)) err(`${rel}: layout "${l}" not in controlled vocabulary`); // absent field is legal — backfill in flight
       for (const a of meta.a11y || []) if (!A11Y_FLAGS.has(a)) err(`${rel}: a11y flag "${a}" not in controlled vocabulary`);
+      if (!meta.surface) err(`${rel}: missing surface (app | docs | site)`);
+      else if (!SURFACE.has(meta.surface)) err(`${rel}: surface "${meta.surface}" not in {${[...SURFACE].join(', ')}}`);
       for (const p of meta.patterns || []) {
         const anywhere = CORPORA.some((c) => existsSync(join(ROOT, 'corpus', c, 'patterns', `${p}.md`)));
         if (!anywhere) err(`${rel}: cited pattern "${p}" has no file in either corpus`);

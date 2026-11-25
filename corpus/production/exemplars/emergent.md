@@ -3,6 +3,7 @@ slug: emergent
 url: https://emergent.sh
 source: manual-pick
 corpus: production
+surface: site
 captured: 2026-07-06
 award_type: Manual (owner pick)
 score: null

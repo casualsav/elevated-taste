@@ -3,6 +3,7 @@ slug: every
 url: https://every.to
 source: refresh
 corpus: production
+surface: site
 captured: 2026-08-05
 award_type: null
 score: null

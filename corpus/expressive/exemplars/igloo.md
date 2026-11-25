@@ -3,6 +3,7 @@ slug: igloo
 url: https://igloo.inc
 source: editorial-pick
 corpus: expressive
+surface: site
 captured: 2026-07-10
 award_type: Editorial pick
 score: null

@@ -3,6 +3,7 @@ slug: lightspark
 url: https://www.lightspark.com
 source: landbook
 corpus: production
+surface: site
 captured: 2026-10-12
 award_type: Gallery
 score: null

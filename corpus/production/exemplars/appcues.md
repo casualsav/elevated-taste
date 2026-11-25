@@ -3,6 +3,7 @@ slug: appcues
 url: https://www.appcues.com
 source: manual
 corpus: production
+surface: site
 captured: 2026-08-31
 award_type: null
 score: null

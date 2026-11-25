@@ -3,6 +3,7 @@ slug: outerbloc
 url: https://outerbloc.com
 source: landbook
 corpus: production
+surface: site
 captured: 2026-06-22
 award_type: Gallery
 score: null

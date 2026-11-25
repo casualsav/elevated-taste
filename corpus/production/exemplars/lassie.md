@@ -3,6 +3,7 @@ slug: lassie
 url: https://www.lassie.ai
 source: manual-pick
 corpus: production
+surface: site
 captured: 2026-06-30
 award_type: Manual (healthcare AI / B2B automation product marketing)
 score: null

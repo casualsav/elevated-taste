@@ -3,6 +3,7 @@ slug: adoratorio
 url: https://adoratorio.studio
 source: editorial-pick
 corpus: expressive
+surface: site
 captured: 2026-06-22
 award_type: Curated
 score: null

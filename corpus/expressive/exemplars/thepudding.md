@@ -3,6 +3,7 @@ slug: thepudding
 url: https://pudding.cool
 source: manual-pick
 corpus: expressive
+surface: site
 captured: 2026-06-30
 award_type: Manual (editorial/data-journalism)
 score: null

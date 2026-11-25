@@ -3,6 +3,7 @@ slug: playdate
 url: https://play.date
 source: editorial-pick
 corpus: expressive
+surface: site
 captured: 2026-07-10
 award_type: Curated
 score: null

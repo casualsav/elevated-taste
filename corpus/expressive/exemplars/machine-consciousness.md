@@ -3,6 +3,7 @@ slug: machine-consciousness
 url: https://machine-consciousness.ai
 source: manual-pick
 corpus: expressive
+surface: site
 captured: 2026-06-30
 award_type: Manual (event/conference)
 score: null

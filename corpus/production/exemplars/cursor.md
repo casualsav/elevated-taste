@@ -3,6 +3,7 @@ slug: cursor
 url: https://cursor.com
 source: manual-pick
 corpus: production
+surface: site
 captured: 2026-06-30
 award_type: Manual (ai/developer-tool)
 score: null

@@ -3,6 +3,7 @@ slug: praxis
 url: https://www.praxisnation.com
 source: manual-pick
 corpus: expressive
+surface: site
 captured: 2026-06-30
 award_type: Manual (techno-feudal genre)
 score: null

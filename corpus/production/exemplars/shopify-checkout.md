@@ -3,6 +3,7 @@ slug: shopify-checkout
 url: https://www.shopify.com/checkout
 source: manual
 corpus: production
+surface: site
 captured: 2026-08-31
 award_type: null
 score: null

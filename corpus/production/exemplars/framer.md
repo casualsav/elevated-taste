@@ -3,6 +3,7 @@ slug: framer
 url: https://framer.com
 source: refresh
 corpus: production
+surface: site
 captured: 2026-09-05
 award_type: null
 score: null

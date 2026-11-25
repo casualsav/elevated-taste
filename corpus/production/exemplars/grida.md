@@ -3,6 +3,7 @@ slug: grida
 url: https://grida.co
 source: landbook
 corpus: production
+surface: site
 captured: 2026-11-02
 award_type: Gallery
 score: null

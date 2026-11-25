@@ -3,6 +3,7 @@ slug: supabase
 url: https://supabase.com
 source: editorial-pick
 corpus: production
+surface: site
 captured: 2026-06-22
 award_type: Curated
 score: null

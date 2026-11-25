@@ -3,6 +3,7 @@ slug: vanta
 url: https://vanta.com
 source: editorial-pick
 corpus: production
+surface: site
 captured: 2026-06-22
 award_type: Editorial pick (canonical B2B trust/compliance marketing)
 score: null

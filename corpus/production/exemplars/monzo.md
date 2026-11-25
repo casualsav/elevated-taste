@@ -3,6 +3,7 @@ slug: monzo
 url: https://monzo.com
 source: manual-pick
 corpus: production
+surface: site
 captured: 2026-06-30
 award_type: Manual (fintech/neobank)
 score: null

@@ -53,6 +53,8 @@ Skills and `CLAUDE.md` *bias* selection; hooks gate *outcomes*. Four guardrails 
 
 Run the lint by hand: `npm run lint:design -- path/to/file.html` (exit 1 if any error). The lint distinguishes `error` (gates the Stop-gate) from `warn` (advisory) — only high-precision Tells are errors, so heuristics never trap a session. Escape hatch: set `TASTE_GATE=off` to mute every hook (use when a brief deliberately wants a flagged pattern). If the hooks are installed but the taste clone can't be resolved (stale `REPO_PATH.txt`), they warn **once, loudly** instead of disappearing silently.
 
+Every exemplar records its `surface` (`app` · `docs` · `site`), and `node tooling/coverage.mjs` counts app jobs (dashboard, forms, settings, auth …) only from real `app` screens, so a homepage that pictures a dashboard no longer fills the dashboard quota. App screens the galleries can't supply are queued in `tooling/manual-sources.json`.
+
 Retrieval is mechanical too: `npm run query -- --brief "dark saas dashboard" [--direction minimalist]` returns a scored donor/pattern shortlist instead of reading the 380KB `corpus/index.json` whole; `corpus/index.summary.json` is the compact skim view. Plain words map to the category vocabulary ("login screen" finds auth exemplars), and `npm run eval:retrieval` checks a set of real briefs in [`tooling/eval/retrieval-cases.json`](tooling/eval/retrieval-cases.json) against the exemplars they should return; CI fails if fewer of them hit than before. Tailwind projects generate a token-named theme preset with `node tokens/build.mjs --tailwind` → `tokens/tailwind.preset.mjs`.
 
 ## Self-evolving loop (Phase 3)

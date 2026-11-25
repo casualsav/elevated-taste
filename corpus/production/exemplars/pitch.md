@@ -3,6 +3,7 @@ slug: pitch
 url: https://pitch.com
 source: editorial-pick
 corpus: production
+surface: site
 captured: 2026-06-23
 award_type: Editorial pick (canonical presentation / deck SaaS — motion-led product marketing)
 score: null

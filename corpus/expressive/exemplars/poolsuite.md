@@ -3,6 +3,7 @@ slug: poolsuite
 url: https://poolsuite.net
 source: editorial-pick
 corpus: expressive
+surface: site
 captured: 2026-07-10
 award_type: Editorial pick (brand-experience / OS metaphor)
 score: null
