@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
-# Weekly evolve runner — invoked by the systemd user timer (or cron). Runs ON THIS BOX so the
-# distillation uses the Claude Code SUBSCRIPTION (claude -p), not a paid API key.
+# Legacy on-box evolve runner — invoked by the systemd user timer (or cron). The canonical
+# weekly run is the `evolve` GitHub Actions workflow; this wrapper is for running it on a box
+# with an active `claude` login, so distillation uses the subscription, not a paid API key.
 #
 # It sets a login-like PATH (systemd/cron start with a minimal PATH, so `claude`/`gh`/`node`
 # under ~/.local/bin or /usr/local/bin won't resolve otherwise) and logs to .cache/ (gitignored).

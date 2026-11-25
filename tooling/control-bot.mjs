@@ -7,7 +7,8 @@
  * this bot is an optional front-end. Strictly gated to one chat id (the owner).
  *
  * Commands: /status /run /pause /resume /set <key> <value> /approve [pr#] /reject [pr#] /help
- *   /approve merges the draft PR (your approval gate); /reject closes it. Nothing else can merge.
+ *   /approve squash-merges a held evolve/* PR (one that failed the gate); /reject closes it.
+ *   Sites that pass the gate land on main without a PR (tooling/lib/land.mjs).
  *
  *   TELEGRAM_BOT_TOKEN=… TELEGRAM_CHAT_ID=… npm run bot
  *   node tooling/control-bot.mjs --check     # offline: validate config + show parsed commands, no network
