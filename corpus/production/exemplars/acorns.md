@@ -11,7 +11,7 @@ tags: [fintech, consumer, investing, app-marketing, b2c, illustration, mascot, g
 when_to_use: [landing, product-marketing, hero, feature-section, interactive-showcase]
 directions: [soft, expressive]
 layout: [split-hero]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

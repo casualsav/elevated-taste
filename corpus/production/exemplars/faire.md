@@ -11,7 +11,7 @@ tags: [ecommerce, marketplace, wholesale, b2b, retail, editorial, serif, light, 
 when_to_use: [landing, ecommerce, product-marketing, feature-section, hero, navigation]
 directions: [editorial, soft]
 layout: [catalog, full-bleed]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-partial, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-partial]
 provenance:
   gallery_url: null
   robots_ok: true

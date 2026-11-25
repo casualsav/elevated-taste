@@ -11,7 +11,7 @@ tags: [saas, design-tool, creative, collaboration, b2b, multi-color, expressive-
 when_to_use: [landing, product-marketing, hero, feature-section, interactive-showcase, navigation, footer]
 directions: [expressive, editorial]
 layout: [split-hero, content-grid]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

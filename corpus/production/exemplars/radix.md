@@ -11,7 +11,7 @@ tags: [developer-tool, design-system, component-library, open-source, b2b, light
 when_to_use: [docs, product-marketing, landing, hero, feature-section, interactive-showcase, forms, navigation]
 directions: [minimalist, soft]
 layout: [split-hero]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-low, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-low]
 provenance:
   gallery_url: null
   robots_ok: true

@@ -10,7 +10,7 @@ score: null
 tags: [apple, product-marketing, hardware, consumer-electronics, light, photography-led, scrollytelling, motion-led]
 when_to_use: [product-marketing, landing, hero, feature-section, brand-experience, interactive-showcase, navigation]
 directions: [expressive, editorial, minimalist]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

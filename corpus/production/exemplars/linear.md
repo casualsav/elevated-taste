@@ -11,7 +11,7 @@ tags: [saas, product, project-management, dark, data-dense, dev-tool, ai, develo
 when_to_use: [product-marketing, feature-section, dashboard, changelog, navigation, footer]
 directions: [minimalist]
 layout: [split-hero]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

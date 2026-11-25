@@ -11,7 +11,7 @@ tags: [ai, b2b, saas, agents, enterprise, product-marketing, light]
 when_to_use: [landing, product-marketing, feature-section, hero, interactive-showcase]
 directions: [minimalist, soft]
 layout: [bento, scroll-theater]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://land-book.com/websites/101533-gumloop-build-ai-agents-for-work
   robots_ok: true

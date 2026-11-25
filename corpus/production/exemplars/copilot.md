@@ -11,7 +11,7 @@ tags: [fintech, personal-finance, consumer, ios, app, premium, dark, b2c]
 when_to_use: [product-marketing, landing, hero]
 directions: [minimalist, soft]
 layout: [center-stack, bento]
-a11y: [reduced-motion-ignored, focus-visible, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible]
 provenance:
   gallery_url: null
   robots_ok: true

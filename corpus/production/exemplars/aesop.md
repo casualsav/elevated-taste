@@ -11,7 +11,7 @@ tags: [ecommerce, dtc, beauty, luxury, retail, editorial, restraint, light]
 when_to_use: [ecommerce, product-marketing, landing, brand-experience, navigation, footer]
 directions: [editorial, minimalist]
 layout: [split-hero, content-grid]
-a11y: [reduced-motion-respected, tap-targets-risky]
+a11y: [reduced-motion-respected]
 provenance:
   gallery_url: null
   robots_ok: true

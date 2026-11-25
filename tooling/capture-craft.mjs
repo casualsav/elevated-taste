@@ -79,8 +79,17 @@ function craftProfileFn() {
 
   // a11y
   const inter = [...document.querySelectorAll('button,a,[role="button"],input,select,textarea')];
-  let small = 0;
-  for (const b of inter) { const r = b.getBoundingClientRect(); if (r.width > 0 && r.height > 0 && (r.width < 40 || r.height < 40)) small++; }
+  // Target boxes for the WCAG 2.2 target-size check (classified in Node by tapTargets()).
+  const tapBoxes = [];
+  for (const b of inter) {
+    const r = b.getBoundingClientRect(); const c = css(b);
+    if (r.width <= 0 || r.height <= 0 || c.visibility === 'hidden' || c.display === 'none' || c.pointerEvents === 'none') continue;
+    if (b.closest('[aria-hidden="true"],[inert]')) continue;
+    const parent = b.parentElement;
+    const inline = c.display === 'inline' && b.tagName === 'A' && !!parent
+      && [...parent.childNodes].some((n) => n !== b && n.nodeType === 3 && n.textContent.trim().length > 1);
+    tapBoxes.push({ x: Math.round(r.left + r.width / 2), y: Math.round(r.top + r.height / 2), w: Math.round(r.width), h: Math.round(r.height), inline });
+  }
   const imgs = [...document.querySelectorAll('img')];
   const withAlt = imgs.filter((i) => i.hasAttribute('alt')).length;
 
@@ -109,7 +118,7 @@ function craftProfileFn() {
     grid: { columns: rank(gridCols, 4), flex_columns: rank(flexCols, 4), gap: rank(gaps, 4), container_max_width: rank(maxW, 3) },
     a11y: {
       focus_visible: focusVisible,
-      small_tap_targets: small,
+      tap_boxes: tapBoxes,
       interactive_count: inter.length,
       img_count: imgs.length,
       img_alt_ratio: imgs.length ? +(withAlt / imgs.length).toFixed(2) : null,
@@ -118,8 +127,29 @@ function craftProfileFn() {
   };
 }
 
+/**
+ * Target size per WCAG 2.2 SC 2.5.8 (AA). A target under 24×24 CSS px fails unless it is a link
+ * inside a sentence (the inline exception) or no other target's centre is within 24px of its own
+ * (the spacing exception, approximated centre to centre). The old probe counted every target
+ * under 40px, text links included, so 113 of 143 exemplars read as risky and the flag meant
+ * nothing. risky = at least 3 failing targets and over 5% of those measured; ok = none fail;
+ * anything between gives no flag (the distill prompt omits a flag the evidence doesn't settle).
+ */
+export function tapTargets(boxes = []) {
+  const measured = boxes.filter((t) => !t.inline);
+  const undersized = measured.filter((t) => t.w < 24 || t.h < 24);
+  const failing = undersized.filter((t) => boxes.some((o) => o !== t && Math.hypot(o.x - t.x, o.y - t.y) < 24));
+  const ratio = measured.length ? failing.length / measured.length : 0;
+  const flag = !measured.length ? null
+    : failing.length === 0 ? 'tap-targets-ok'
+      : failing.length >= 3 && ratio > 0.05 ? 'tap-targets-risky' : null;
+  return { method: 'wcag-2.2-2.5.8', measured: measured.length, undersized: undersized.length, failing: failing.length, fail_ratio: +ratio.toFixed(3), flag };
+}
+
 export async function craftProfile(page) {
-  return page.evaluate(craftProfileFn).catch(() => null);
+  const out = await page.evaluate(craftProfileFn).catch(() => null);
+  if (out?.a11y) { out.a11y.tap_targets = tapTargets(out.a11y.tap_boxes); delete out.a11y.tap_boxes; }
+  return out;
 }
 
 // focus / disabled recipes (needs real focus() from Node)

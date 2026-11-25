@@ -11,7 +11,7 @@ tags: [agency, studio, portfolio, monochrome, editorial, swiss, b2b]
 when_to_use: [agency, portfolio, hero, brand-experience, navigation, footer]
 directions: [expressive, editorial, minimalist]
 layout: [content-grid, full-bleed]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

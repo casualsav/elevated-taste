@@ -11,7 +11,7 @@ tags: [agency, studio, 3d, webgl, interactive, dark, creative]
 when_to_use: [hero-spectacle, interactive-showcase, brand-experience, agency, portfolio, hero]
 directions: [expressive, minimalist]
 layout: [canvas-immersive]
-a11y: [reduced-motion-ignored, focus-visible-missing, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible-missing]
 provenance:
   gallery_url: null
   robots_ok: true

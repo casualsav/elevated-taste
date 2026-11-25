@@ -11,7 +11,7 @@ tags: [education, marketplace, courses, ai, b2c, dark, serif, catalog]
 when_to_use: [landing, ecommerce, navigation, feature-section, hero]
 directions: [editorial, minimalist]
 layout: [catalog, dense-grid]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-ok]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

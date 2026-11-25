@@ -11,7 +11,7 @@ tags: [saas, productivity, ai, b2b, collaboration, light, warm-neutral, enterpri
 when_to_use: [product-marketing, landing, hero, feature-section, navigation, footer, interactive-showcase]
 directions: [minimalist, soft, editorial]
 layout: [center-stack, bento]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

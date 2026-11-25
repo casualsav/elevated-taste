@@ -11,7 +11,7 @@ tags: [fashion, luxury, ecommerce, retail, monochrome, light, photography, shopi
 when_to_use: [hero, brand-experience, ecommerce, navigation, landing]
 directions: [minimalist, editorial]
 layout: [full-bleed]
-a11y: [reduced-motion-ignored, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

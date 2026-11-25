@@ -11,7 +11,7 @@ tags: [industrial, ecommerce, catalog, b2b, supplier, procurement, data-dense, u
 when_to_use: [ecommerce, navigation, landing, footer]
 directions: [minimalist]
 layout: [catalog, dense-grid]
-a11y: [reduced-motion-ignored, focus-visible-missing, alt-coverage-partial, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible-missing, alt-coverage-partial]
 provenance:
   gallery_url: null
   robots_ok: true

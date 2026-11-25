@@ -11,7 +11,7 @@ tags: [saas, b2b, security, compliance, grc, fintech-adjacent, ai, enterprise]
 when_to_use: [landing, product-marketing, feature-section, hero]
 directions: [editorial, soft]
 layout: [center-stack, bento]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

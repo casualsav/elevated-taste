@@ -11,7 +11,7 @@ tags: [consumer, software, browser, productivity, b2c, brand, warm, expressive-r
 when_to_use: [landing, product-marketing, hero, brand-experience, feature-section, interactive-showcase]
 directions: [expressive, editorial]
 layout: [center-stack, bento]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

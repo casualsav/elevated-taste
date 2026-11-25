@@ -11,7 +11,7 @@ tags: [design-studio, agency, portfolio, healthcare, editorial, dark, green, rec
 when_to_use: [landing, agency, portfolio, hero, feature-section, footer]
 directions: [editorial, soft, expressive]
 layout: [center-stack, full-bleed]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://land-book.com/websites/102130-voy-design-designing-for-a-100-years-for-healthy-living
   robots_ok: true

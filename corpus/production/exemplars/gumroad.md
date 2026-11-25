@@ -11,7 +11,7 @@ tags: [creator-economy, marketplace, ecommerce, saas, b2c, neo-brutalism, illust
 when_to_use: [landing, product-marketing, hero, feature-section, ecommerce, navigation]
 directions: [brutalist, soft]
 layout: [center-stack, bento]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

@@ -11,7 +11,7 @@ tags: [open-source, library, developer-tool, dark, carousel, slider, interaction
 when_to_use: [product-marketing, landing, hero, feature-section, docs, navigation, footer, interactive-showcase]
 directions: [minimalist, soft]
 layout: [bento]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

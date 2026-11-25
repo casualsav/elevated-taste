@@ -11,7 +11,7 @@ tags: [restaurant, hospitality, food, local-business, multi-location, photograph
 when_to_use: [landing, hero, feature-section, navigation]
 directions: [editorial, minimalist]
 layout: [content-grid, full-bleed]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

@@ -11,7 +11,7 @@ tags: [ecommerce, dtc, cookware, home, warm, editorial, light, product]
 when_to_use: [ecommerce, product-marketing, landing, brand-experience, navigation, footer]
 directions: [editorial, soft]
 layout: [content-grid, split-hero]
-a11y: [reduced-motion-respected, tap-targets-risky]
+a11y: [reduced-motion-respected]
 provenance:
   gallery_url: null
   robots_ok: true

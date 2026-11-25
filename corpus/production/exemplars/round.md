@@ -11,7 +11,7 @@ tags: [saas, ai, b2b, landing, enterprise]
 when_to_use: [product-marketing, landing, feature-section]
 directions: [minimalist, editorial]
 layout: [center-stack, bento]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://land-book.com/websites/96385-round-build-ai-agents-for-every-customer
   robots_ok: true

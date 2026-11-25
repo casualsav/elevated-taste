@@ -11,7 +11,7 @@ tags: [developer-tool, design-system, component-library, dashboard, app-ui, open
 when_to_use: [dashboard, data-table, settings, forms, interactive-showcase, docs, navigation, hero]
 directions: [minimalist]
 layout: [center-stack, content-grid]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

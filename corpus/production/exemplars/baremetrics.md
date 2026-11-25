@@ -11,7 +11,7 @@ tags: [saas, analytics, dashboard, fintech, b2b, marketing, light]
 when_to_use: [landing, product-marketing, feature-section, hero, dashboard]
 directions: [soft, minimalist]
 layout: [split-hero, content-grid]
-a11y: [alt-coverage-high, focus-visible-missing, tap-targets-risky, reduced-motion-ignored]
+a11y: [alt-coverage-high, focus-visible-missing, reduced-motion-ignored]
 provenance:
   gallery_url: null
   robots_ok: true

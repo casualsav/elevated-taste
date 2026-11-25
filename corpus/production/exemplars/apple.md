@@ -11,7 +11,7 @@ tags: [consumer, hardware, retail, ecommerce, glass, light, product-marketing]
 when_to_use: [landing, product-marketing, hero, navigation, ecommerce]
 directions: [minimalist, soft]
 layout: [full-bleed, center-stack]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

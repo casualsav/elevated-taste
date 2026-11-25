@@ -11,7 +11,7 @@ tags: [agency, studio, portfolio, editorial, monochrome, 3d, light]
 when_to_use: [agency, portfolio, interactive-showcase, hero, brand-experience, footer]
 directions: [expressive, editorial, minimalist]
 layout: [center-stack, content-grid]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-low, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-low]
 provenance:
   gallery_url: null
   robots_ok: true

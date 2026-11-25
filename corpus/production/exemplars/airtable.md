@@ -11,7 +11,7 @@ tags: [saas, b2b, ai, enterprise, productivity, data-table]
 when_to_use: [landing, product-marketing, feature-section, hero, navigation]
 directions: [minimalist, editorial]
 layout: [split-hero, full-bleed]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

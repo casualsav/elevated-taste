@@ -11,7 +11,7 @@ tags: [ai, llm, fintech, developer, b2b, saas, mono, data-viz]
 when_to_use: [landing, product-marketing, feature-section, hero, footer]
 directions: [minimalist, editorial]
 layout: [center-stack, full-bleed]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://land-book.com/websites/100965-ramp-router-the-llm-gateway-that-cuts-inference-costs
   robots_ok: true

@@ -11,7 +11,7 @@ tags: [saas, forms, ai, b2b, marketing, purple, dark, serif-display, webflow]
 when_to_use: [landing, product-marketing, hero, feature-section, forms]
 directions: [editorial, soft]
 layout: [center-stack, content-grid]
-a11y: [focus-visible, alt-coverage-high, reduced-motion-respected, tap-targets-risky]
+a11y: [focus-visible, alt-coverage-high, reduced-motion-respected]
 provenance:
   gallery_url: null
   robots_ok: true

@@ -11,7 +11,7 @@ tags: [energy, cleantech, climate, fintech, b2b, saas, developer, api, data-viz,
 when_to_use: [landing, product-marketing, feature-section, hero, footer]
 directions: [minimalist, editorial]
 layout: [content-grid, center-stack]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://land-book.com/websites/101538-enode-orchestrating-energy-for-the-next-grid
   robots_ok: true

@@ -11,7 +11,7 @@ tags: [design-tool, creative-tools, ai, canvas, gaming, saas, product-marketing,
 when_to_use: [landing, product-marketing, hero, feature-section, interactive-showcase]
 directions: [minimalist, editorial]
 layout: [scroll-theater, full-bleed]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://land-book.com/websites/100941-an-open-canvas-to-design-and-create-grida
   robots_ok: true

@@ -11,7 +11,7 @@ tags: [dev-tool, developer-tool, css, open-source, docs, saas, light]
 when_to_use: [landing, product-marketing, feature-section, hero, docs, interactive-showcase, footer]
 directions: [minimalist]
 layout: [bento, content-grid]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

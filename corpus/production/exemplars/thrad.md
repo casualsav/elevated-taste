@@ -11,7 +11,7 @@ tags: [ai, adtech, b2b, saas, dsp, warm, editorial, light]
 when_to_use: [landing, product-marketing, feature-section, hero, interactive-showcase]
 directions: [editorial, minimalist, soft]
 layout: [editorial-columns, full-bleed]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://land-book.com/websites/101267-thrad-paid-ads-in-ai-the-dsp-for-llms
   robots_ok: true

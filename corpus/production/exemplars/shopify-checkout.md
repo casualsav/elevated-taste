@@ -11,7 +11,7 @@ tags: [ecommerce, saas, b2b, fintech, dark, product-marketing, variable-font]
 when_to_use: [product-marketing, feature-section, landing, interactive-showcase, checkout]
 directions: [minimalist, soft]
 layout: [scroll-theater, dense-grid]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

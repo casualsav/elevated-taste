@@ -11,7 +11,7 @@ tags: [legal, law-firm, professional-services, b2b, corporate, editorial, serif,
 when_to_use: [landing, hero, editorial, feature-section, navigation, footer]
 directions: [editorial, expressive]
 layout: [collage, content-grid]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

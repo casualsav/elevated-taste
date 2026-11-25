@@ -11,7 +11,7 @@ tags: [music, artist, brand, monochrome, svg, dark, events]
 when_to_use: [hero, brand-experience, landing, navigation, footer]
 directions: [minimalist, expressive]
 layout: [full-bleed, center-stack]
-a11y: [reduced-motion-ignored, focus-visible-missing, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible-missing]
 provenance:
   gallery_url: null
   robots_ok: true

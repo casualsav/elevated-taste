@@ -11,7 +11,7 @@ tags: [b2b, saas, dark, industrial, data, security]
 when_to_use: [landing, product-marketing, feature-section, hero]
 directions: [brutalist, editorial]
 layout: [scroll-theater, editorial-columns]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://land-book.com/websites/101080-colmez-powering-next-generation-hazardous-waste-teams
   robots_ok: true

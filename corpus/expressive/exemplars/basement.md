@@ -11,7 +11,7 @@ tags: [agency, studio, dark, 3d, webgl, branding, portfolio, b2b]
 when_to_use: [agency, portfolio, hero-spectacle, brand-experience, footer, interactive-showcase]
 directions: [expressive, editorial, brutalist]
 layout: [editorial-columns, full-bleed]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

@@ -11,7 +11,7 @@ tags: [agency, ecommerce, shopify, b2b, editorial, monochrome, portfolio]
 when_to_use: [agency, portfolio, landing, feature-section, navigation]
 directions: [editorial, minimalist]
 layout: [editorial-columns, content-grid]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-partial, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-partial]
 provenance:
   gallery_url: https://land-book.com/websites/99836-ecommerce-website-design-and-development-shopify-agency-domaine-is-the-leading-shopify-partner-for-global-brands
   robots_ok: true

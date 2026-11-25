@@ -11,7 +11,7 @@ tags: [saas, developer-tools, database, b2b, open-source, light]
 when_to_use: [landing, product-marketing, hero, feature-section, interactive-showcase, navigation]
 directions: [minimalist, soft]
 layout: [center-stack, bento]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

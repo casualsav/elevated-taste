@@ -11,7 +11,7 @@ tags: [saas, analytics, bi, dashboard, data-table, ai, open-source, b2b, light]
 when_to_use: [landing, product-marketing, hero, feature-section, dashboard, data-table]
 directions: [soft, minimalist]
 layout: [center-stack, content-grid]
-a11y: [focus-visible, alt-coverage-high, tap-targets-risky, reduced-motion-respected]
+a11y: [focus-visible, alt-coverage-high, reduced-motion-respected]
 provenance:
   gallery_url: null
   robots_ok: true

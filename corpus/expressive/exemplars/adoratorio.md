@@ -11,7 +11,7 @@ tags: [portfolio, agency, design-studio, swiss, monochrome, light, motion-led, t
 when_to_use: [agency, portfolio, brand-experience, hero, hero-spectacle, interactive-showcase]
 directions: [expressive, editorial, brutalist]
 layout: [canvas-immersive, full-bleed]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

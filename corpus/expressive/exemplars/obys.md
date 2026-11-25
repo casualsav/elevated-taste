@@ -11,7 +11,7 @@ tags: [agency, portfolio, motion-led, experimental, editorial, award-submission]
 when_to_use: [brand-experience, agency, hero-spectacle, portfolio]
 directions: [expressive, brutalist, editorial]
 layout: [center-stack]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://godly.website/websites
   robots_ok: true

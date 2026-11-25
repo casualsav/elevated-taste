@@ -11,7 +11,7 @@ tags: [techno-feudal, neo-imperial, neoclassical, network-state, heraldic, monoc
 when_to_use: [brand-experience, editorial, hero, landing]
 directions: [expressive, editorial, minimalist]
 layout: [center-stack]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

@@ -11,7 +11,7 @@ tags: [nonprofit, charity, donation, fundraising, photography, serif, yellow, li
 when_to_use: [landing, hero, forms, product-marketing, feature-section]
 directions: [editorial, soft]
 layout: [split-hero, center-stack]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-low, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-low]
 provenance:
   gallery_url: null
   robots_ok: true

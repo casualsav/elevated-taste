@@ -11,7 +11,7 @@ tags: [ai, hardware, editorial, serif, brand, manifesto, light, 3d]
 when_to_use: [brand-experience, hero, hero-spectacle, landing, editorial]
 directions: [editorial, expressive]
 layout: [center-stack]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://godly.website/websites
   robots_ok: true

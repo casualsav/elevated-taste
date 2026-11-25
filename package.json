@@ -11,6 +11,7 @@
     "index:build": "node tooling/build-index.mjs",
     "query": "node tooling/query.mjs",
     "eval:retrieval": "node tooling/eval-retrieval.mjs",
+    "test": "node --test tooling/test/*.test.mjs",
     "validate": "node tooling/validate-corpus.mjs",
     "lint": "biome lint . && pipx run ruff==0.17.6 check . && bash tooling/lint-shell.sh",
     "consolidate": "node tooling/consolidate-patterns.mjs",

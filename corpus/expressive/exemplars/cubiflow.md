@@ -11,7 +11,7 @@ tags: [product, saas, 3d, motion-led, portfolio]
 when_to_use: [brand-experience, hero-spectacle, agency]
 directions: [expressive, soft]
 layout: [canvas-immersive]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://godly.website/websites
   robots_ok: true

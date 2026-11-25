@@ -11,7 +11,7 @@ tags: [agency, portfolio, design-studio, b2b, light, framer, editorial]
 when_to_use: [portfolio, agency, landing, feature-section]
 directions: [minimalist, editorial]
 layout: [content-grid, bento]
-a11y: [reduced-motion-ignored, focus-visible-missing, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible-missing, alt-coverage-high]
 provenance:
   gallery_url: https://land-book.com/websites/100677-haptic-a-a-design-studio-for-startups-and-scaleups
   robots_ok: true

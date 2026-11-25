@@ -11,7 +11,7 @@ tags: [ecommerce, dtc, beauty, skincare, minimal, light, product, retail]
 when_to_use: [ecommerce, product-marketing, landing, hero, brand-experience, navigation, footer]
 directions: [minimalist, editorial]
 layout: [split-hero, content-grid]
-a11y: [reduced-motion-respected, tap-targets-risky]
+a11y: [reduced-motion-respected]
 provenance:
   gallery_url: null
   robots_ok: true

@@ -11,7 +11,7 @@ tags: [healthcare, dental, clinic, local-business, booking, consumer, warm, seri
 when_to_use: [landing, hero, feature-section, navigation, product-marketing]
 directions: [soft, editorial]
 layout: [center-stack, content-grid]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

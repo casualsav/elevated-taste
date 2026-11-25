@@ -11,7 +11,7 @@ tags: [architecture, studio, dark, video, portfolio, b2b, brand, editorial]
 when_to_use: [agency, portfolio, brand-experience, hero-spectacle, footer]
 directions: [expressive, minimalist, editorial]
 layout: [scroll-theater, full-bleed]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-partial, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-partial]
 provenance:
   gallery_url: null
   robots_ok: true

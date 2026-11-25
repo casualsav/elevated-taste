@@ -11,7 +11,7 @@ tags: [restaurant, hospitality, food, brand, serif, warm, photography, seasonal-
 when_to_use: [brand-experience, editorial, hero, landing, footer]
 directions: [editorial, minimalist]
 layout: [editorial-columns, full-bleed]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

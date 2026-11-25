@@ -11,7 +11,7 @@ tags: [techno-feudal, defense-tech, hardware, cinematic, 3d, sublime, gradient, 
 when_to_use: [brand-experience, hero-spectacle, hero, landing, product-marketing, feature-section]
 directions: [expressive, editorial]
 layout: [bento, full-bleed]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

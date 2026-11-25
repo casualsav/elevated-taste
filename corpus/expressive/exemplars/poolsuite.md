@@ -11,7 +11,7 @@ tags: [music, radio, brand, retro, nostalgia, pixel, skeuomorphic, os-ui, media-
 when_to_use: [brand-experience, interactive-showcase, landing, navigation]
 directions: [expressive, brutalist]
 layout: [os-metaphor, center-stack]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-partial, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-partial]
 provenance:
   gallery_url: null
   robots_ok: true

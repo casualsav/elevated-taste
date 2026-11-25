@@ -11,7 +11,7 @@ tags: [portfolio, agency, creative-studio, monochrome, motion, gsap, webflow, da
 when_to_use: [portfolio, agency, interactive-showcase, hero]
 directions: [minimalist, editorial, expressive]
 layout: [scroll-theater, editorial-columns]
-a11y: [reduced-motion-ignored, alt-coverage-high, tap-targets-risky, focus-visible-missing]
+a11y: [reduced-motion-ignored, alt-coverage-high, focus-visible-missing]
 provenance:
   gallery_url: https://land-book.com/websites/100445-nothin-home
   robots_ok: true

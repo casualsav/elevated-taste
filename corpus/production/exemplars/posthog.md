@@ -11,7 +11,7 @@ tags: [saas, devtools, analytics, b2b, playful, illustrated, anti-minimalist, li
 when_to_use: [landing, product-marketing, hero, feature-section, brand-experience]
 directions: [expressive, soft]
 layout: [os-metaphor, content-grid]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-partial, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-partial]
 provenance:
   gallery_url: null
   robots_ok: true

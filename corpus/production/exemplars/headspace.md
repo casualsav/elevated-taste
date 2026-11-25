@@ -11,7 +11,7 @@ tags: [health, wellness, mental-health, consumer, app-marketing, b2c, illustrati
 when_to_use: [landing, product-marketing, hero, feature-section, navigation, interactive-showcase]
 directions: [soft, expressive]
 layout: [split-hero, full-bleed]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

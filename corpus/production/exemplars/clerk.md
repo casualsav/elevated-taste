@@ -11,7 +11,7 @@ tags: [developer, auth, saas, b2b, product-marketing, dark, components]
 when_to_use: [product-marketing, landing, feature-section, hero, auth, pricing, footer, navigation]
 directions: [minimalist]
 layout: [center-stack, bento]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true
