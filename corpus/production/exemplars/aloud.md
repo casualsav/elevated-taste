@@ -11,7 +11,7 @@ tags: [ai, dev-tools, mac-app, productivity, saas, dark, monochrome]
 when_to_use: [landing, product-marketing, feature-section, hero]
 directions: [minimalist, soft]
 layout: [center-stack, editorial-columns]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://land-book.com/websites/100472-aloud-say-it-ship-it-feedback-your-coding-agent-can-run
   robots_ok: true

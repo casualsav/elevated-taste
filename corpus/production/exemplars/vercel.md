@@ -11,7 +11,7 @@ tags: [saas, developer, infrastructure, ai, b2b, enterprise, dev-tool, developer
 when_to_use: [product-marketing, landing, feature-section, hero, navigation]
 directions: [minimalist]
 layout: [split-hero]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

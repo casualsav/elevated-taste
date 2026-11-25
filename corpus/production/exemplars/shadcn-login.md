@@ -11,7 +11,7 @@ tags: [saas, b2b, auth, design-system, shadcn, tailwind, neutral, light, dark, f
 when_to_use: [auth, forms, onboarding]
 directions: [minimalist, soft]
 layout: [center-stack, split-hero]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

@@ -11,7 +11,7 @@ tags: [wearable, health, fitness, hardware, subscription, consumer, b2c, ecommer
 when_to_use: [landing, product-marketing, hero, pricing, feature-section]
 directions: [minimalist, editorial]
 layout: [full-bleed, content-grid]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

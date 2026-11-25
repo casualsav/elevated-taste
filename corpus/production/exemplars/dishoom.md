@@ -11,7 +11,7 @@ tags: [restaurant, hospitality, food, brand, b2c, editorial, photography, serif,
 when_to_use: [landing, brand-experience, hero, editorial, feature-section]
 directions: [editorial]
 layout: [editorial-columns, full-bleed]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

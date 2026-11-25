@@ -11,7 +11,7 @@ tags: [saas, mac-app, product-marketing, dark, developer-tools, design-tools]
 when_to_use: [landing, product-marketing, hero, pricing, feature-section, changelog]
 directions: [minimalist, soft]
 layout: [center-stack, full-bleed]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://land-book.com/websites/99424-viewport-macos-screen-recorder-for-designers
   robots_ok: true

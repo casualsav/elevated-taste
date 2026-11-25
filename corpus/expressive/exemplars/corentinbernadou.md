@@ -11,7 +11,7 @@ tags: [portfolio, personal, interactive, motion-led, creative-developer, dark]
 when_to_use: [portfolio, brand-experience, interactive-showcase, hero-spectacle, hero]
 directions: [expressive, editorial, brutalist]
 layout: [canvas-immersive]
-a11y: [reduced-motion-ignored, focus-visible-missing, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible-missing]
 provenance:
   gallery_url: https://godly.website/websites
   robots_ok: true

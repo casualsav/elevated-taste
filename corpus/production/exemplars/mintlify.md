@@ -11,7 +11,7 @@ tags: [saas, developer, docs, ai, b2b, product-marketing]
 when_to_use: [product-marketing, docs, feature-section, hero, changelog, navigation]
 directions: [minimalist]
 layout: [split-hero, bento]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

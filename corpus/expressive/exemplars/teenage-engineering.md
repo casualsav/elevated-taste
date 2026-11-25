@@ -11,7 +11,7 @@ tags: [ecommerce, industrial-design, hardware, brand, grid, swiss, playful, prod
 when_to_use: [ecommerce, navigation, brand-experience, hero, product-marketing, footer]
 directions: [brutalist, editorial, expressive]
 layout: [catalog, dense-grid]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

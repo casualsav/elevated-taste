@@ -11,7 +11,7 @@ tags: [news, media, journalism, editorial, print, serif, cream, light, informati
 when_to_use: [editorial, blog, navigation]
 directions: [editorial, minimalist]
 layout: [editorial-columns, dense-grid]
-a11y: [focus-visible-missing, alt-coverage-high, tap-targets-risky]
+a11y: [focus-visible-missing, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

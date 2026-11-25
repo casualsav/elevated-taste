@@ -11,7 +11,7 @@ tags: [saas, dashboard, b2b, analytics, data-table, tailwind, zinc, light, dark]
 when_to_use: [dashboard, data-table, navigation, settings]
 directions: [minimalist, soft]
 layout: [app-shell, dense-grid]
-a11y: [focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

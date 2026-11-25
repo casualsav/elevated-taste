@@ -11,7 +11,7 @@ tags: [fintech, developer, product-marketing, enterprise, saas, logo-wall, stat-
 when_to_use: [product-marketing, docs, pricing, feature-section, hero]
 directions: [soft]
 layout: [bento, center-stack]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

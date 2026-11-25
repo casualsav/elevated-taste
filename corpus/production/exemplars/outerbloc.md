@@ -11,7 +11,7 @@ tags: [agency, design-studio, portfolio, branding, editorial, warm-neutral, fram
 when_to_use: [agency, portfolio, brand-experience, hero, footer, navigation, feature-section]
 directions: [editorial, minimalist]
 layout: [content-grid, split-hero]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://land-book.com/
   robots_ok: true

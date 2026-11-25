@@ -45,3 +45,5 @@ jobs:
         run: npm run validate
       - name: Retrieval eval (real briefs must still find the right exemplars)
         run: npm run eval:retrieval
+      - name: Unit tests (tooling/test)
+        run: npm test

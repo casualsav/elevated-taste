@@ -11,7 +11,7 @@ tags: [agency, ecommerce, shopify, design-studio, editorial, warm-monochrome, mo
 when_to_use: [agency, portfolio, brand-experience, hero, hero-spectacle, landing]
 directions: [expressive, editorial]
 layout: [split-hero]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

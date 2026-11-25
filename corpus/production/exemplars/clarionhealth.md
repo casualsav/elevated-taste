@@ -11,7 +11,7 @@ tags: [healthcare, saas, ai, b2b, editorial, warm, serif]
 when_to_use: [landing, product-marketing, feature-section, hero, navigation]
 directions: [editorial, soft]
 layout: [full-bleed, scroll-theater]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://land-book.com/websites/100493-home
   robots_ok: true

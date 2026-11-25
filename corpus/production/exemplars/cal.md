@@ -11,7 +11,7 @@ tags: [saas, scheduling, b2b, developer-tools, open-source, light, monochrome, f
 when_to_use: [landing, product-marketing, hero, feature-section, navigation]
 directions: [minimalist, soft]
 layout: [split-hero, content-grid]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

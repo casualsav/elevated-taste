@@ -11,7 +11,7 @@ tags: [portfolio, developer, motion-led, monochrome, dark, minimal, gallery]
 when_to_use: [portfolio, brand-experience, hero-spectacle, interactive-showcase, hero, navigation]
 directions: [expressive, minimalist]
 layout: [canvas-immersive]
-a11y: [reduced-motion-ignored, focus-visible-missing, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible-missing, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

@@ -11,7 +11,7 @@ tags: [developer, observability, devtools, saas, b2b, dark, illustration, mascot
 when_to_use: [product-marketing, landing, hero, feature-section, footer, brand-experience]
 directions: [expressive, soft]
 layout: [center-stack]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

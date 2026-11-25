@@ -11,7 +11,7 @@ tags: [ecommerce, dark, retro-tech, brutalist, monospace, creative-tools, digita
 when_to_use: [ecommerce, product-marketing, hero, brand-experience, navigation, interactive-showcase]
 directions: [expressive, brutalist]
 layout: [catalog, full-bleed]
-a11y: [reduced-motion-ignored, focus-visible-missing, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible-missing, alt-coverage-high]
 provenance:
   gallery_url: https://godly.website/websites
   robots_ok: true

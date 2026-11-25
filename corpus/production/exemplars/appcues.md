@@ -11,7 +11,7 @@ tags: [saas, b2b, product-marketing, warm, pastel, serif, editorial]
 when_to_use: [landing, product-marketing, feature-section, hero]
 directions: [soft, editorial]
 layout: [center-stack, scroll-theater]
-a11y: [focus-visible, alt-coverage-high, tap-targets-risky, reduced-motion-ignored]
+a11y: [focus-visible, alt-coverage-high, reduced-motion-ignored]
 provenance:
   gallery_url: null
   robots_ok: true

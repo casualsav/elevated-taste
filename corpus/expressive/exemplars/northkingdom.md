@@ -11,7 +11,7 @@ tags: [agency, gaming, dark, 3d, motion-led, branding]
 when_to_use: [brand-experience, hero-spectacle, agency, hero, interactive-showcase]
 directions: [expressive, minimalist]
 layout: [canvas-immersive, full-bleed]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

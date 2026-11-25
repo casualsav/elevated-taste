@@ -11,7 +11,7 @@ tags: [gis, maps, geospatial, saas, b2b, data, dark, green, webflow]
 when_to_use: [landing, product-marketing, hero, feature-section, navigation]
 directions: [editorial, minimalist]
 layout: [center-stack, content-grid]
-a11y: [reduced-motion-ignored, focus-visible-missing, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible-missing, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

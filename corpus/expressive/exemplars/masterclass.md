@@ -11,7 +11,7 @@ tags: [edtech, education, subscription, consumer, dark, video, celebrity, conver
 when_to_use: [landing, hero, product-marketing, feature-section, onboarding, navigation, interactive-showcase]
 directions: [expressive, editorial]
 layout: [split-hero, full-bleed]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

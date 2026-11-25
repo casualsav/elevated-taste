@@ -11,7 +11,7 @@ tags: [fintech, saas, b2b, spend-management, ai, light]
 when_to_use: [landing, product-marketing, hero, feature-section, navigation, footer]
 directions: [minimalist, editorial]
 layout: [split-hero, bento]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

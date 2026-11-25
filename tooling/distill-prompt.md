@@ -59,6 +59,8 @@ a11y: [<evidence-backed flags>]          # from the craft probe, controlled voca
                                          # focus-visible|focus-visible-missing ·
                                          # alt-coverage-high|partial|low · tap-targets-ok|risky
                                          # omit a flag when the evidence doesn't determine it
+                                         # tap-targets: copy craft a11y.tap_targets.flag as-is
+                                         # (WCAG 2.2 24px rule, text links exempt); omit if null
 provenance:
   gallery_url: <listing url>
   robots_ok: true

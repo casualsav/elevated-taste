@@ -11,7 +11,7 @@ tags: [saas, b2b, dev-tools, infrastructure, developer-tools, light]
 when_to_use: [landing, product-marketing, feature-section, dashboard, settings]
 directions: [minimalist, soft]
 layout: [content-grid, bento]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

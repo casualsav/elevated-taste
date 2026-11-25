@@ -11,7 +11,7 @@ tags: [portfolio, personal-site, design-engineering, swiss, monochrome, typograp
 when_to_use: [portfolio, navigation, interactive-showcase, hero]
 directions: [minimalist, brutalist]
 layout: [canvas-immersive, scroll-theater]
-a11y: [reduced-motion-ignored, focus-visible, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible]
 provenance:
   gallery_url: null
   robots_ok: true

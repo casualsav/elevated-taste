@@ -11,7 +11,7 @@ tags: [ai, media, publishing, editorial, dark, subscription, b2b, serif]
 when_to_use: [editorial, blog, landing, product-marketing, footer]
 directions: [editorial, minimalist]
 layout: [content-grid, editorial-columns]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

@@ -11,7 +11,7 @@ tags: [fintech, saas, b2b, developer-platform, api, marketing, light]
 when_to_use: [landing, product-marketing, feature-section, hero, footer]
 directions: [soft, minimalist]
 layout: [split-hero, bento]
-a11y: [focus-visible, alt-coverage-high, tap-targets-risky, reduced-motion-respected]
+a11y: [focus-visible, alt-coverage-high, reduced-motion-respected]
 provenance:
   gallery_url: null
   robots_ok: true

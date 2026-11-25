@@ -11,7 +11,7 @@ tags: [agency, portfolio, design-studio, dark, monochrome, motion]
 when_to_use: [agency, portfolio, brand-experience, interactive-showcase, hero, feature-section, footer]
 directions: [expressive, minimalist]
 layout: [center-stack, content-grid]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

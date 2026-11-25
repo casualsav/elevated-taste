@@ -11,7 +11,7 @@ tags: [portfolio, personal, monospace, editorial, receipt-ui, low-asset-spectacl
 when_to_use: [portfolio, brand-experience, editorial]
 directions: [expressive, brutalist, minimalist]
 layout: [center-stack, text-only]
-a11y: [reduced-motion-ignored, focus-visible, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible]
 provenance:
   gallery_url: https://godly.website/websites
   robots_ok: true

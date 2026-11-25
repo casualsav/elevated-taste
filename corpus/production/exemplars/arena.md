@@ -11,7 +11,7 @@ tags: [saas, knowledge-tool, editorial, indie, subscription, text-heavy, light]
 when_to_use: [landing, pricing, product-marketing, editorial, footer]
 directions: [minimalist, editorial]
 layout: [text-only, center-stack]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

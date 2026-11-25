@@ -11,7 +11,7 @@ tags: [fintech, api, payments, stablecoin, b2b, saas, developer-tools, light]
 when_to_use: [landing, product-marketing, hero, feature-section, navigation]
 directions: [minimalist, editorial]
 layout: [center-stack, editorial-columns]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://land-book.com/websites/100969-lightspark-the-api-for-money-accounts-payments-cards
   robots_ok: true

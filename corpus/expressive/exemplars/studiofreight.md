@@ -11,7 +11,7 @@ tags: [agency, studio, portfolio, editorial, monospace, contact-sheet, light]
 when_to_use: [portfolio, agency, interactive-showcase, brand-experience, navigation, footer]
 directions: [expressive, editorial]
 layout: [content-grid]
-a11y: [reduced-motion-ignored, focus-visible-missing, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible-missing, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

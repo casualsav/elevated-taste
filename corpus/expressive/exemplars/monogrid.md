@@ -11,7 +11,7 @@ tags: [fashion, ecommerce, brand-experience, illustrated, storytelling, painterl
 when_to_use: [brand-experience, interactive-showcase, hero-spectacle, landing, ecommerce]
 directions: [expressive, editorial]
 layout: [full-bleed, canvas-immersive]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-ok]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://www.awwwards.com/sites/the-tuscan-journey-begins
   robots_ok: true

@@ -11,7 +11,7 @@ tags: [fintech, saas, b2b, payments, product-configurator, light, forms]
 when_to_use: [checkout, onboarding, settings, forms, dashboard]
 directions: [soft, minimalist]
 layout: [app-shell, center-stack]
-a11y: [alt-coverage-high, reduced-motion-ignored, tap-targets-risky]
+a11y: [alt-coverage-high, reduced-motion-ignored]
 provenance:
   gallery_url: null
   robots_ok: true

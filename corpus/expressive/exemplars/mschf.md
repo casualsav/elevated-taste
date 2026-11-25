@@ -11,7 +11,7 @@ tags: [brand, art, culture, streetwear, dark, monospace, terminal, archive, drop
 when_to_use: [landing, brand-experience, portfolio, navigation]
 directions: [brutalist, expressive]
 layout: [text-only, catalog]
-a11y: [reduced-motion-ignored, focus-visible-missing, tap-targets-ok]
+a11y: [reduced-motion-ignored, focus-visible-missing]
 provenance:
   gallery_url: null
   robots_ok: true

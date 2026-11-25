@@ -11,7 +11,7 @@ tags: [techno-feudal, neo-feudal, identity-system, developer-platform, dithered,
 when_to_use: [brand-experience, landing, hero, navigation, docs, feature-section]
 directions: [expressive, editorial, brutalist]
 layout: [editorial-columns]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

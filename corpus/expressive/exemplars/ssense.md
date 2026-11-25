@@ -11,7 +11,7 @@ tags: [fashion, luxury, retail, magazine, monochrome, photography, typography]
 when_to_use: [editorial, ecommerce, landing, blog, navigation]
 directions: [editorial, minimalist]
 layout: [editorial-columns, content-grid]
-a11y: [alt-coverage-high, focus-visible-missing, tap-targets-risky, reduced-motion-ignored]
+a11y: [alt-coverage-high, focus-visible-missing, reduced-motion-ignored]
 provenance:
   gallery_url: null
   robots_ok: true

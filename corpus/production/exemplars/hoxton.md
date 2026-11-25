@@ -11,7 +11,7 @@ tags: [hospitality, hotel, travel, booking, b2c, photography, cream, warm, carou
 when_to_use: [landing, navigation, hero, ecommerce, feature-section]
 directions: [editorial, minimalist]
 layout: [catalog, full-bleed]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-ok]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

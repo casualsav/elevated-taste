@@ -11,7 +11,7 @@ tags: [saas, developer, infrastructure, cloud, devops, b2b, dark, illustrated]
 when_to_use: [product-marketing, landing, feature-section, hero, hero-spectacle, brand-experience, footer]
 directions: [editorial, expressive]
 layout: [center-stack]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

@@ -11,7 +11,7 @@ tags: [agency, portfolio, motion-led, cinematic, photographic, dark]
 when_to_use: [brand-experience, agency, hero-spectacle, portfolio, hero]
 directions: [expressive, editorial]
 layout: [full-bleed]
-a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

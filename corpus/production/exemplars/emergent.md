@@ -11,7 +11,7 @@ tags: [ai, agents, saas, developer-tools, b2b, plg, light, pills, y-combinator]
 when_to_use: [landing, product-marketing, pricing, hero, auth, feature-section, navigation, footer]
 directions: [minimalist, soft]
 layout: [split-hero]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

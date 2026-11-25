@@ -11,7 +11,7 @@ tags: [dashboard, saas, b2b, data-table, admin, app-shell, neutral, light, dark]
 when_to_use: [dashboard, data-table, navigation, settings]
 directions: [minimalist]
 layout: [app-shell, dense-grid]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

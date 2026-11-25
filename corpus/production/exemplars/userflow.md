@@ -11,7 +11,7 @@ tags: [saas, b2b, product-adoption, onboarding, ai, playful, light]
 when_to_use: [landing, product-marketing, feature-section, hero, onboarding]
 directions: [soft, minimalist]
 layout: [split-hero, scroll-theater]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

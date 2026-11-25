@@ -11,7 +11,7 @@ tags: [ai, b2b, research, editorial, enterprise]
 when_to_use: [landing, product-marketing, feature-section, hero, interactive-showcase]
 directions: [editorial, minimalist]
 layout: [scroll-theater, full-bleed]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: https://land-book.com/websites/101530-artificial-societies-understand-people-make-better-decisions
   robots_ok: true

@@ -11,7 +11,7 @@ tags: [dashboard, observability, data-viz, dark, b2b, saas, app-shell]
 when_to_use: [dashboard, data-table, navigation, settings, empty-state]
 directions: [minimalist]
 layout: [app-shell, dense-grid]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

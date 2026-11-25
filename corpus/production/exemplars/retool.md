@@ -11,7 +11,7 @@ tags: [saas, b2b, developer, internal-tools, ai, dark, enterprise]
 when_to_use: [product-marketing, hero, feature-section, interactive-showcase, landing, navigation, footer]
 directions: [minimalist, expressive]
 layout: [bento, center-stack]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

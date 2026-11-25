@@ -11,7 +11,7 @@ tags: [saas, developer, email, api, b2b, dark, dev-tool]
 when_to_use: [product-marketing, feature-section, hero, docs, landing, interactive-showcase]
 directions: [minimalist, editorial]
 layout: [center-stack, bento]
-a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true

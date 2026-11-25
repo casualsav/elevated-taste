@@ -11,7 +11,7 @@ tags: [gaming, hardware, consumer-product, ecommerce, playful, retro, monochrome
 when_to_use: [landing, product-marketing, hero, feature-section, brand-experience, ecommerce, navigation]
 directions: [expressive, soft]
 layout: [full-bleed, center-stack]
-a11y: [reduced-motion-respected, alt-coverage-high, tap-targets-risky]
+a11y: [reduced-motion-respected, alt-coverage-high]
 provenance:
   gallery_url: null
   robots_ok: true
