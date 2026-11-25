@@ -12,6 +12,9 @@
  * listed sites would read as retrieval getting worse. Exits 1 when fewer cases than `min_hit3` hit in the top 3,
  * so CI catches a ranking or tagging change that makes retrieval worse.
  *
+ * It also counts "app screen first": of the briefs that name an app job the corpus has a real
+ * app screen for, how many rank one first. Exits 1 below `min_app_first`.
+ *
  *   node tooling/eval-retrieval.mjs            # table + totals
  *   node tooling/eval-retrieval.mjs --json
  */
@@ -38,15 +41,22 @@ for (const c of spec.cases) {
   const ranked = rankEntries(index.exemplars, { corpus: c.corpus || 'production', briefTokens, inferredWhen: implied });
   const slugs = ranked.map((r) => r.e.slug);
   const first = ranked.findIndex((r) => right(r.e));
-  rows.push({ brief: c.brief, hit3: first > -1 && first < 3, rank: first + 1 || null, rr: first > -1 ? 1 / (first + 1) : 0, top3: slugs.slice(0, 3) });
+  const appCase = appJobs.length > 0 && index.exemplars.some((e) => e.surface === 'app' && appJobs.some((w) => (e.when_to_use || []).includes(w)));
+  rows.push({ brief: c.brief, hit3: first > -1 && first < 3, rank: first + 1 || null, rr: first > -1 ? 1 / (first + 1) : 0, top3: slugs.slice(0, 3),
+    appCase, appFirst: appCase && ranked[0]?.e.surface === 'app' });
 }
 
 const hits = rows.filter((r) => r.hit3).length;
 const mrr = rows.reduce((a, r) => a + r.rr, 0) / rows.length;
 const min = spec.min_hit3 ?? 0;
-if (asJson) console.log(JSON.stringify({ hit3: hits, cases: rows.length, mrr: +mrr.toFixed(3), min_hit3: min, rows }, null, 2));
+const appCases = rows.filter((r) => r.appCase);
+const appFirst = appCases.filter((r) => r.appFirst).length;
+const minApp = spec.min_app_first ?? 0;
+if (asJson) console.log(JSON.stringify({ hit3: hits, cases: rows.length, mrr: +mrr.toFixed(3), min_hit3: min, app_first: appFirst, app_cases: appCases.length, min_app_first: minApp, rows }, null, 2));
 else {
-  for (const r of rows) console.log(`${r.hit3 ? 'PASS' : 'MISS'}  rank ${String(r.rank ?? '-').padStart(3)}  ${r.brief.padEnd(54)} top3: ${r.top3.join(', ')}`);
+  for (const r of rows) console.log(`${r.hit3 ? 'PASS' : 'MISS'}  rank ${String(r.rank ?? '-').padStart(3)}  ${r.appCase ? (r.appFirst ? 'app' : '---') : '   '}  ${r.brief.padEnd(54)} top3: ${r.top3.join(', ')}`);
   console.log(`\nhit@3 ${hits}/${rows.length} · MRR ${mrr.toFixed(3)} · floor ${min}`);
+  console.log(`app screen first ${appFirst}/${appCases.length} app-job briefs · floor ${minApp}`);
 }
 if (hits < min) { console.error(`retrieval got worse: ${hits} case(s) hit in the top 3, floor is ${min}`); process.exit(1); }
+if (appFirst < minApp) { console.error(`app briefs got worse: ${appFirst} ranked a real app screen first, floor is ${minApp}`); process.exit(1); }
