@@ -3,6 +3,7 @@ slug: oatly
 url: https://www.oatly.com
 source: manual-pick
 corpus: expressive
+surface: site
 captured: 2026-06-30
 award_type: Manual (ecommerce/maximalist)
 score: null

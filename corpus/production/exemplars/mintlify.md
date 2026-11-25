@@ -3,6 +3,7 @@ slug: mintlify
 url: https://mintlify.com
 source: editorial-pick
 corpus: production
+surface: site
 captured: 2026-06-22
 award_type: Editorial pick (canonical docs/dev-tool marketing)
 score: null

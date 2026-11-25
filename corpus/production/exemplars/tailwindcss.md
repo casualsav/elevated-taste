@@ -3,6 +3,7 @@ slug: tailwindcss
 url: https://tailwindcss.com
 source: editorial-pick
 corpus: production
+surface: site
 captured: 2026-07-10
 award_type: Editorial pick (canonical dev-tool marketing)
 score: null

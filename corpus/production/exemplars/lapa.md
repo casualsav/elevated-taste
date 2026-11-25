@@ -3,6 +3,7 @@ slug: lapa
 url: https://www.foundation-labs.xyz
 source: lapa
 corpus: production
+surface: site
 captured: 2026-06-29
 award_type: Gallery
 score: null

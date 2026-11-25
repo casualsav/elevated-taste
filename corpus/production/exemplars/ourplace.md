@@ -3,6 +3,7 @@ slug: ourplace
 url: https://fromourplace.com
 source: manual-pick
 corpus: production
+surface: site
 captured: 2026-06-30
 award_type: Manual (ecommerce/dtc)
 score: null

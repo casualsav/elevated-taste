@@ -3,6 +3,7 @@ slug: domaineworldwide
 url: https://domaineworldwide.com
 source: landbook
 corpus: production
+surface: site
 captured: 2026-10-05
 award_type: Gallery
 score: null

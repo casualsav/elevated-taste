@@ -3,6 +3,7 @@ slug: airtable
 url: https://www.airtable.com
 source: manual
 corpus: production
+surface: site
 captured: 2026-09-07
 award_type: null
 score: null

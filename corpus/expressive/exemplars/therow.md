@@ -3,6 +3,7 @@ slug: therow
 url: https://www.therow.com
 source: editorial-pick
 corpus: expressive
+surface: site
 captured: 2026-07-10
 award_type: null
 score: null

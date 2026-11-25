@@ -3,6 +3,7 @@ slug: cssdesignawards
 url: https://redcollar.co
 source: cssdesignawards
 corpus: expressive
+surface: site
 captured: 2026-06-29
 award_type: Site of the Day
 score: null

@@ -48,7 +48,7 @@ function buildPrompt(c) {
     `- Raw style + motion profile: raw/${slug}.json (frequency-ranked computed styles + motion block; approximate — corroborate against the code + screenshots, never ground-truth).`,
     `- Provenance (use this for the frontmatter provenance block; in the evolve flow there is no sources.json entry yet):`,
     '```json',
-    JSON.stringify({ slug, corpus, url: url || null, title: c.title || null, source: c.source || 'editorial-pick', gallery_url: c.gallery_url || null, award_type: c.award_type || null, harvested_at: c.harvested_at || null }, null, 2),
+    JSON.stringify({ slug, corpus, url: url || null, title: c.title || null, source: c.source || 'editorial-pick', gallery_url: c.gallery_url || null, award_type: c.award_type || null, harvested_at: c.harvested_at || null, surface_hint: c.surface || null }, null, 2),
     '```',
     ``,
     `Write exactly the three outputs defined in distill-prompt.md:`,
@@ -183,7 +183,7 @@ function mockWrite(c) {
   mkdirSync(p.patternsDir, { recursive: true });
   writeFileSync(p.exemplar, [
     '---', `slug: ${c.slug}`, `url: ${c.url || ''}`, `corpus: ${c.corpus}`,
-    'captured: 2026-06-23', 'tags: [mock]', 'when_to_use: [landing]', 'directions: [minimalist]',
+    'surface: site', 'captured: 2026-06-23', 'tags: [mock]', 'when_to_use: [landing]', 'directions: [minimalist]',
     '---', '', `# ${c.slug} (MOCK)`, '',
     'Mock distillation stub written offline to exercise the Phase 3 pipeline end to end — the orchestrator, the structural vet, and the reconcile step. This is not a real exemplar and must never be committed to the corpus; the `mock` tag marks it for removal. A real distillation run replaces this body with transferable, cross-exemplar design principles drawn from the screenshots and the normalized token snapshot.',
   ].join('\n') + '\n');

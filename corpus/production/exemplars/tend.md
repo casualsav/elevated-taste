@@ -3,6 +3,7 @@ slug: tend
 url: https://www.hellotend.com
 source: editorial-pick
 corpus: production
+surface: site
 captured: 2026-07-10
 award_type: Editorial Pick
 score: null

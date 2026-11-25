@@ -3,6 +3,7 @@ slug: rainbow
 url: https://rainbow.me
 source: manual-pick
 corpus: production
+surface: site
 captured: 2026-06-30
 award_type: Manual (crypto/wallet)
 score: null

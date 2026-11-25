@@ -3,6 +3,7 @@ slug: rauno
 url: https://rauno.me
 source: editorial-pick
 corpus: production
+surface: site
 captured: 2026-07-10
 award_type: Editorial pick (interaction-design portfolio)
 score: null

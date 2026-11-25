@@ -3,6 +3,7 @@ slug: ardor
 url: https://ardor.cloud
 source: landbook
 corpus: production
+surface: site
 captured: 2026-10-12
 award_type: Gallery
 score: null

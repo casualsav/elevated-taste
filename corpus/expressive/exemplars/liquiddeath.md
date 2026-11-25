@@ -3,6 +3,7 @@ slug: liquiddeath
 url: https://liquiddeath.com
 source: manual-pick
 corpus: expressive
+surface: site
 captured: 2026-06-30
 award_type: Manual (ecommerce/brand)
 score: null

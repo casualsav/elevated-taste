@@ -3,6 +3,7 @@ slug: doronsupply
 url: https://www.doronsupply.com
 source: godly
 corpus: expressive
+surface: site
 captured: 2026-06-22
 award_type: Gallery
 score: null

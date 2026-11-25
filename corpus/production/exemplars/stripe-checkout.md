@@ -3,6 +3,7 @@ slug: stripe-checkout
 url: https://checkout.stripe.dev
 source: manual
 corpus: production
+surface: app
 captured: 2026-08-24
 award_type: null
 score: null

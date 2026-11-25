@@ -3,6 +3,7 @@ slug: mcmaster
 url: https://www.mcmaster.com
 source: editorial-pick
 corpus: production
+surface: site
 captured: 2026-07-10
 award_type: Editorial pick (canonical dense-catalog UI)
 score: null

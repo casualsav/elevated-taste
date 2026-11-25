@@ -3,6 +3,7 @@ slug: rhode
 url: https://www.rhodeskin.com
 source: manual-pick
 corpus: production
+surface: site
 captured: 2026-06-30
 award_type: Manual (ecommerce/dtc)
 score: null

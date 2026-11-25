@@ -3,6 +3,7 @@ slug: dogstudio
 url: https://dogstudio.co
 source: editorial-pick
 corpus: expressive
+surface: site
 captured: 2026-06-22
 award_type: Editorial pick (award studio)
 score: null

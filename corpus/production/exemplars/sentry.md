@@ -3,6 +3,7 @@ slug: sentry
 url: https://sentry.io
 source: editorial-pick
 corpus: production
+surface: site
 captured: 2026-06-22
 award_type: Editorial pick (developer-tool marketing with brand personality)
 score: null

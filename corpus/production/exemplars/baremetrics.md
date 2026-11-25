@@ -3,6 +3,7 @@ slug: baremetrics
 url: https://baremetrics.com
 source: manual
 corpus: production
+surface: site
 captured: 2026-08-31
 award_type: null
 score: null

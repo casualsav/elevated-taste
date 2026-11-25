@@ -3,6 +3,7 @@ slug: attio
 url: https://attio.com
 source: editorial-pick
 corpus: production
+surface: site
 captured: 2026-06-23
 award_type: Editorial pick (canonical CRM / data-product marketing)
 score: null

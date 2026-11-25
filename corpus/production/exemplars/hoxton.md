@@ -3,6 +3,7 @@ slug: hoxton
 url: https://thehoxton.com
 source: editorial-pick
 corpus: production
+surface: site
 captured: 2026-07-10
 award_type: null
 score: null

@@ -3,6 +3,7 @@ slug: basement
 url: https://basement.studio
 source: editorial-pick
 corpus: expressive
+surface: site
 captured: 2026-06-22
 award_type: Curated (award studio)
 score: null

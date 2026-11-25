@@ -3,6 +3,7 @@ slug: haptic
 url: https://www.haptic.studio
 source: landbook
 corpus: production
+surface: site
 captured: 2026-10-05
 award_type: Gallery
 score: null

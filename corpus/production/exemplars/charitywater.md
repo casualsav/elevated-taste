@@ -3,6 +3,7 @@ slug: charitywater
 url: https://www.charitywater.org
 source: editorial-pick
 corpus: production
+surface: site
 captured: 2026-07-10
 award_type: null
 score: null

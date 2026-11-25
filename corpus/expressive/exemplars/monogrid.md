@@ -3,6 +3,7 @@ slug: monogrid
 url: https://weekend-mm-2026-pasticcino-bag-master.monogrid.io
 source: awwwards
 corpus: expressive
+surface: site
 captured: 2026-09-14
 award_type: Site of the Day
 score: null

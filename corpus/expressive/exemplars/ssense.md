@@ -3,6 +3,7 @@ slug: ssense
 url: https://www.ssense.com
 source: editorial-pick
 corpus: expressive
+surface: site
 captured: 2026-07-10
 award_type: Curated
 score: null

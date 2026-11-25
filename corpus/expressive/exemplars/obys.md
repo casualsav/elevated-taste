@@ -3,6 +3,7 @@ slug: obys
 url: https://obys.agency
 source: godly
 corpus: expressive
+surface: site
 captured: 2026-06-22
 award_type: Curated
 score: null

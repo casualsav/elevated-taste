@@ -16,9 +16,226 @@
     ],
     "added_by": "human",
     "added_at": "YYYY-MM-DD",
-    "license_note": "private reference; not redistributed"
+    "license_note": "private reference; not redistributed",
+    "surface": "app | docs | site (what the page shows; app = a working product screen, not a page about one)"
   },
   "production": [
+    {
+      "slug": "shadcn-dashboard",
+      "url": "https://ui.shadcn.com/view/new-york-v4/dashboard-01",
+      "title": "shadcn/ui dashboard-01 block (sidebar, KPI cards, chart, data table)",
+      "source": "manual",
+      "surface": "app",
+      "tags": [
+        "app-ui",
+        "app-shell",
+        "dashboard",
+        "data-table",
+        "component-library",
+        "light"
+      ],
+      "when_to_use": [
+        "dashboard",
+        "data-table",
+        "navigation"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-11-25",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "shadcn-login",
+      "url": "https://ui.shadcn.com/view/new-york-v4/login-04",
+      "title": "shadcn/ui login-04 block (form + image)",
+      "source": "manual",
+      "surface": "app",
+      "tags": [
+        "app-ui",
+        "auth",
+        "forms",
+        "component-library",
+        "light"
+      ],
+      "when_to_use": [
+        "auth",
+        "forms"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-11-25",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "catalyst",
+      "url": "https://catalyst-demo.tailwindui.com",
+      "title": "Catalyst app template demo: overview dashboard",
+      "source": "manual",
+      "surface": "app",
+      "tags": [
+        "app-ui",
+        "app-shell",
+        "dashboard",
+        "data-table",
+        "light"
+      ],
+      "when_to_use": [
+        "dashboard",
+        "data-table",
+        "navigation"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-11-25",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "catalyst-orders",
+      "url": "https://catalyst-demo.tailwindui.com/orders",
+      "title": "Catalyst app template demo: orders table",
+      "source": "manual",
+      "surface": "app",
+      "tags": [
+        "app-ui",
+        "app-shell",
+        "data-table",
+        "light"
+      ],
+      "when_to_use": [
+        "data-table"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-11-25",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "catalyst-settings",
+      "url": "https://catalyst-demo.tailwindui.com/settings",
+      "title": "Catalyst app template demo: settings form",
+      "source": "manual",
+      "surface": "app",
+      "tags": [
+        "app-ui",
+        "app-shell",
+        "settings",
+        "forms",
+        "light"
+      ],
+      "when_to_use": [
+        "settings",
+        "forms"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-11-25",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "mui-dashboard",
+      "url": "https://mui.com/material-ui/getting-started/templates/dashboard/",
+      "title": "MUI free Dashboard template (live demo)",
+      "source": "manual",
+      "surface": "app",
+      "tags": [
+        "app-ui",
+        "app-shell",
+        "dashboard",
+        "data-viz",
+        "material"
+      ],
+      "when_to_use": [
+        "dashboard",
+        "data-table",
+        "navigation"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-11-25",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "mui-crud",
+      "url": "https://mui.com/material-ui/getting-started/templates/crud-dashboard/",
+      "title": "MUI free CRUD dashboard template (live demo)",
+      "source": "manual",
+      "surface": "app",
+      "tags": [
+        "app-ui",
+        "app-shell",
+        "data-table",
+        "forms",
+        "material"
+      ],
+      "when_to_use": [
+        "data-table",
+        "forms"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-11-25",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "mui-checkout",
+      "url": "https://mui.com/material-ui/getting-started/templates/checkout/",
+      "title": "MUI free Checkout template (live demo)",
+      "source": "manual",
+      "surface": "app",
+      "tags": [
+        "app-ui",
+        "checkout",
+        "forms",
+        "material"
+      ],
+      "when_to_use": [
+        "checkout",
+        "forms"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-11-25",
+      "license_note": "private reference; not redistributed"
+    },
+    {
+      "slug": "mui-sign-up",
+      "url": "https://mui.com/material-ui/getting-started/templates/sign-up/",
+      "title": "MUI free Sign-up template (live demo)",
+      "source": "manual",
+      "surface": "app",
+      "tags": [
+        "app-ui",
+        "auth",
+        "forms",
+        "material"
+      ],
+      "when_to_use": [
+        "auth",
+        "forms"
+      ],
+      "directions": [
+        "minimalist"
+      ],
+      "added_by": "human",
+      "added_at": "2026-11-25",
+      "license_note": "private reference; not redistributed"
+    },
     {
       "slug": "grafana-play",
       "url": "https://play.grafana.org",

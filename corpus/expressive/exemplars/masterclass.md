@@ -3,6 +3,7 @@ slug: masterclass
 url: https://www.masterclass.com
 source: editorial-pick
 corpus: expressive
+surface: site
 captured: 2026-07-10
 award_type: Editorial pick (consumer subscription)
 score: null

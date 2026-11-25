@@ -3,6 +3,7 @@ slug: land-book
 url: https://solidroad.com
 source: landbook
 corpus: production
+surface: site
 captured: 2026-06-29
 award_type: Gallery
 score: null

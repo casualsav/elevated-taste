@@ -3,6 +3,7 @@ slug: awwwards
 url: https://www.meech213.com
 source: awwwards
 corpus: expressive
+surface: site
 captured: 2026-06-29
 award_type: Site of the Day
 score: null

@@ -34,6 +34,7 @@ The Skill routes requests by matching these fields, so consistency matters more 
 - **`directions`** — choose from: `minimalist` · `brutalist` · `soft` · `editorial` · `expressive`. (These five are the direction presets. Use additional flavor words only as `tags`, not here.)
 - **`when_to_use`** — choose from: `landing` · `product-marketing` · `pricing` · `feature-section` · `hero` · `dashboard` · `data-table` · `settings` · `onboarding` · `auth` · `docs` · `changelog` · `blog` · `editorial` · `portfolio` · `agency` · `ecommerce` · `checkout` · `navigation` · `footer` · `forms` · `empty-state` · `brand-experience` · `interactive-showcase` · `hero-spectacle`.
   **This list is closed, and it is NOT interchangeable with `layout`.** `when_to_use` answers *"what job is the reader building?"*; `layout` answers *"what is this page's skeleton?"*. A structural archetype — `app-shell`, `dense-grid`, `bento`, `split-hero`, `full-bleed`, `editorial-columns`, `content-grid`, `catalog`, `canvas-immersive`, `os-metaphor`, `collage`, `text-only`, `scroll-theater` — is **never** a valid `when_to_use` value, however well it describes the page. Put it in `layout` and pick the job terms here (a dashboard shell is `dashboard` / `settings` / `navigation`, with `app-shell` in `layout`). Anything outside the list above fails the corpus validator.
+- **`surface`** — what the capture actually shows, exactly one of: `app` (a working product screen: dashboard, table, form, settings, sign-in, checkout, onboarding — the thing itself, not a page about it) · `docs` (documentation or a component reference with live examples) · `site` (every public website: marketing, landing, editorial, store, portfolio). A product's homepage that *pictures* its dashboard is `site`. Keep `when_to_use` honest the same way: on a `site`, list an app job (`dashboard`, `settings` …) only when the page shows a usable rendition of it, not a screenshot in a hero. The provenance block below may carry a `surface` hint from the human who queued the page; keep it unless the capture plainly disagrees.
 - **`tags`** — free-form industry/medium tags (`fintech`, `ai`, `gaming`, `b2b`, `dark`, `3d`, …); reuse existing ones where possible.
 - **`layout`** — the page's dominant structural archetype, 1–2 from: `split-hero` · `center-stack` · `full-bleed` · `bento` · `dense-grid` · `editorial-columns` · `content-grid` · `app-shell` · `catalog` · `canvas-immersive` · `os-metaphor` · `collage` · `text-only` · `scroll-theater`. Judge from the frames and `architecture` profile (what the skeleton IS), not from the tags. This axis exists to break the split-hero monoculture in retrieval — be honest when a site really is `split-hero`.
 
@@ -45,6 +46,7 @@ slug: <slug>
 url: <exemplar url>
 source: <gallery>            # awwwards | landbook | ...
 corpus: <production|expressive>
+surface: <app|docs|site>                 # what the capture shows — see controlled vocabulary
 captured: <YYYY-MM-DD>
 award_type: <e.g. Site of the Day | Gallery | Curated>
 score: <number|null>

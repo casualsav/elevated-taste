@@ -10,7 +10,7 @@
   "capture_settle_ms": 7000,
   "distill_timeout_min": 25,
   "category_targets": {
-    "dashboard": 5, "data-table": 3, "forms": 3, "settings": 2, "onboarding": 2,
+    "dashboard": 4, "data-table": 3, "forms": 3, "settings": 2, "onboarding": 2,
     "auth": 2, "empty-state": 2, "checkout": 2, "pricing": 4, "docs": 3
   },
   "report": { "telegram": true },
