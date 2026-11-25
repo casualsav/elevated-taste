@@ -1,0 +1,213 @@
+{
+  "_note": "Retrieval eval for tooling/query.mjs: plain-language briefs, as a person would type them, with the exemplars a designer would want back. A case passes when any listed slug ranks in the top 3. tooling/eval-retrieval.mjs runs these in CI and fails if the pass count drops below min_hit3. Raise min_hit3 when ranking improves; add a case whenever a real brief came back wrong.",
+  "min_hit3": 20,
+  "cases": [
+    {
+      "brief": "settings page for a SaaS app with forms and toggles",
+      "relevant": [
+        "shadcn",
+        "grafana-play",
+        "knock",
+        "stripe-checkout",
+        "radix"
+      ]
+    },
+    {
+      "brief": "admin data table with filters and bulk actions",
+      "relevant": [
+        "grafana-play",
+        "metabase",
+        "shadcn",
+        "airtable"
+      ]
+    },
+    {
+      "brief": "analytics dashboard with charts and KPIs",
+      "relevant": [
+        "grafana-play",
+        "metabase",
+        "baremetrics",
+        "mercury",
+        "linear"
+      ]
+    },
+    {
+      "brief": "login and sign up screens",
+      "relevant": [
+        "clerk",
+        "emergent"
+      ]
+    },
+    {
+      "brief": "checkout with a cart summary and payment form",
+      "relevant": [
+        "stripe-checkout",
+        "shopify-checkout"
+      ]
+    },
+    {
+      "brief": "first-run onboarding checklist for new users",
+      "relevant": [
+        "userflow",
+        "stripe-checkout"
+      ]
+    },
+    {
+      "brief": "empty state for a project with no data yet",
+      "relevant": [
+        "v0",
+        "grafana-play"
+      ]
+    },
+    {
+      "brief": "multi-step form with inline validation",
+      "relevant": [
+        "typeform",
+        "fillout",
+        "stripe-checkout",
+        "radix",
+        "shadcn"
+      ]
+    },
+    {
+      "brief": "API documentation site with code samples",
+      "relevant": [
+        "stripe",
+        "mintlify",
+        "resend",
+        "tailwindcss",
+        "radix",
+        "shadcn"
+      ]
+    },
+    {
+      "brief": "pricing page comparing three plans",
+      "relevant": [
+        "stripe",
+        "clerk",
+        "mercury",
+        "emergent",
+        "ardor",
+        "arena"
+      ]
+    },
+    {
+      "brief": "changelog and release notes page",
+      "relevant": [
+        "linear",
+        "mintlify",
+        "theresonance"
+      ]
+    },
+    {
+      "brief": "dark landing page for a developer tool",
+      "relevant": [
+        "linear",
+        "vercel",
+        "resend",
+        "railway",
+        "sentry",
+        "clerk",
+        "v0",
+        "retool"
+      ]
+    },
+    {
+      "brief": "long-read magazine article",
+      "relevant": [
+        "quanta",
+        "every",
+        "worksinprogress",
+        "semafor"
+      ]
+    },
+    {
+      "brief": "premium skincare shop",
+      "relevant": [
+        "aesop",
+        "rhode",
+        "ourplace"
+      ]
+    },
+    {
+      "brief": "blog index with article cards",
+      "relevant": [
+        "every",
+        "quanta",
+        "semafor",
+        "worksinprogress"
+      ]
+    },
+    {
+      "brief": "portfolio for a creative studio",
+      "corpus": "both",
+      "relevant": [
+        "14islands",
+        "locomotive",
+        "studiofreight",
+        "obys",
+        "cuberto",
+        "dogstudio",
+        "lusion",
+        "basement",
+        "phantom",
+        "hellomonday",
+        "outerbloc",
+        "lapa",
+        "haptic",
+        "noth"
+      ]
+    },
+    {
+      "brief": "notification preferences screen",
+      "relevant": [
+        "knock",
+        "shadcn",
+        "grafana-play"
+      ]
+    },
+    {
+      "brief": "team members list with roles and invites",
+      "relevant": [
+        "shadcn",
+        "grafana-play",
+        "attio",
+        "airtable"
+      ]
+    },
+    {
+      "brief": "homepage for an observability tool",
+      "relevant": [
+        "sentry",
+        "grafana-play",
+        "posthog"
+      ]
+    },
+    {
+      "brief": "marketing site for a fintech app",
+      "relevant": [
+        "mercury",
+        "monzo",
+        "cashapp",
+        "stripe",
+        "acorns"
+      ]
+    },
+    {
+      "brief": "component library documentation",
+      "relevant": [
+        "shadcn",
+        "radix",
+        "tailwindcss"
+      ]
+    },
+    {
+      "brief": "restaurant website",
+      "corpus": "both",
+      "relevant": [
+        "dishoom",
+        "noma"
+      ]
+    }
+  ]
+}

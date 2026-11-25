@@ -46,7 +46,9 @@ function resolveRepo(args) {
   return join(HERE, '..');
 }
 
-export const STOP = new Set('a an and or the of to for with in on at by from into as is are be this that these those your you our their it its my we us site page app build design ui ux dark light using use want need make more most very some any all it a i'.split(/\s+/));
+// "dark"/"light" are NOT stopwords: they are real tags (a dark dev-tool page is a different
+// donor from a light one), and dropping them made "dark landing page" rank light sites first.
+export const STOP = new Set('a an and or the of to for with in on at by from into as is are be this that these those your you our their it its my we us site page app build design ui ux using use want need make more most very some any all it a i new'.split(/\s+/));
 export const tokenizeBrief = (brief) => String(brief || '')
   .toLowerCase().replace(/[^a-z0-9\s-]/g, ' ').split(/\s+/)
   .filter((t) => t.length > 1 && !STOP.has(t));
@@ -54,12 +56,49 @@ export const tokenizeBrief = (brief) => String(brief || '')
 export const has = (arr, v) => (arr || []).some((x) => String(x).toLowerCase() === v);
 export const A11Y_RISK = ['tap-targets-risky', 'focus-visible-missing'];
 
+// Plain words people type → the controlled `when_to_use` vocabulary. Without this a brief only
+// reached a category if it used the exact vocabulary word ("auth", "data-table"), so "login
+// screen" or "API documentation" found nothing relevant. Keys are single brief tokens; a token
+// may name several categories.
+export const WHEN_SYNONYMS = {
+  auth: ['auth'], login: ['auth'], signin: ['auth'], 'sign-in': ['auth'], signup: ['auth'], 'sign-up': ['auth'], password: ['auth'], sso: ['auth'],
+  table: ['data-table'], tables: ['data-table'], 'data-table': ['data-table'], grid: ['data-table'], spreadsheet: ['data-table'], rows: ['data-table'],
+  dashboard: ['dashboard'], dashboards: ['dashboard'], analytics: ['dashboard'], kpi: ['dashboard'], kpis: ['dashboard'], metrics: ['dashboard'], charts: ['dashboard'], admin: ['dashboard', 'data-table'],
+  settings: ['settings'], preferences: ['settings'], toggles: ['settings', 'forms'], account: ['settings'],
+  form: ['forms'], forms: ['forms'], validation: ['forms'], fields: ['forms'], inputs: ['forms'], survey: ['forms'], 'multi-step': ['forms', 'onboarding'],
+  checkout: ['checkout'], cart: ['checkout', 'ecommerce'], payment: ['checkout'], payments: ['checkout'],
+  onboarding: ['onboarding'], 'first-run': ['onboarding'], welcome: ['onboarding'], setup: ['onboarding'], checklist: ['onboarding'],
+  empty: ['empty-state'], 'empty-state': ['empty-state'], 'zero-state': ['empty-state'],
+  docs: ['docs'], documentation: ['docs'], api: ['docs'], reference: ['docs'], guide: ['docs'], guides: ['docs'],
+  pricing: ['pricing'], plans: ['pricing'], tiers: ['pricing'],
+  changelog: ['changelog'], release: ['changelog'], releases: ['changelog'],
+  blog: ['blog'], articles: ['blog', 'editorial'], article: ['editorial', 'blog'], posts: ['blog'],
+  magazine: ['editorial'], editorial: ['editorial'], 'long-read': ['editorial'], longread: ['editorial'], journalism: ['editorial'],
+  shop: ['ecommerce'], store: ['ecommerce'], storefront: ['ecommerce'], ecommerce: ['ecommerce'], 'e-commerce': ['ecommerce'], product: [],
+  portfolio: ['portfolio'], studio: ['portfolio', 'agency'], agency: ['agency'],
+  landing: ['landing'], homepage: ['landing'], hero: ['hero'], footer: ['footer'], nav: ['navigation'], navigation: ['navigation'],
+};
+// A few brief words that name a tag under another word.
+export const TAG_SYNONYMS = { skincare: ['beauty', 'skincare'], cosmetics: ['beauty'], developer: ['developer', 'developer-tool', 'dev-tool', 'developer-tools', 'devtools'], dev: ['developer-tool', 'dev-tool', 'devtools'], bank: ['banking', 'fintech'], banking: ['banking', 'fintech'] };
+
+/** when_to_use categories a brief implies, from WHEN_SYNONYMS (deduped, in brief order). */
+export function inferWhen(briefTokens = []) {
+  return [...new Set(briefTokens.flatMap((t) => WHEN_SYNONYMS[t] || []))];
+}
+
+const stem = (w) => (w.length > 4 && w.endsWith('s') && !w.endsWith('ss') ? w.slice(0, -1) : w);
+const words = (s) => String(s || '').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean).map(stem);
+
 // ── scoring ──────────────────────────────────────────────────────────────────
 // +3 per --when in when_to_use · +3 per --layout · +2 per --direction · +2 per --tags ·
-// +1 per brief token found in tags/when_to_use/summary/slug · -1 if a risky a11y flag present.
+// +3 per category the brief implies (inferWhen) that the entry's when_to_use has ·
+// +1 per brief word matching a whole tag/when_to_use/slug word, or a tag synonym ·
+// +0.5 per brief word found only in the summary ·
+// -0.5 if a risky a11y flag is present (a tie-break: it never removes a matching entry).
+// Whole-word matching: "form" no longer matches "platform", nor "table" "stable".
 // Pure (no module-level args) so build-sheet.mjs can reuse it for per-layer donor ranking
 // instead of forking the scoring rule.
-export function scoreEntry(entry, { wantWhen = [], wantDir = [], wantTags = [], wantLayout = [], briefTokens = [] } = {}) {
+export function scoreEntry(entry, { wantWhen = [], wantDir = [], wantTags = [], wantLayout = [], briefTokens = [], inferredWhen } = {}) {
   const why = [];
   let s = 0;
   for (const w of wantWhen) if (has(entry.when_to_use, w)) { s += 3; why.push(`when:${w}`); }
@@ -67,25 +106,37 @@ export function scoreEntry(entry, { wantWhen = [], wantDir = [], wantTags = [], 
   for (const d of wantDir) if (has(entry.directions, d)) { s += 2; why.push(`dir:${d}`); }
   for (const t of wantTags) if (has(entry.tags, t)) { s += 2; why.push(`tag:${t}`); }
 
-  const hay = [
-    ...(entry.tags || []), ...(entry.when_to_use || []),
-    entry.summary || '', entry.slug || '',
-  ].join(' ').toLowerCase();
+  const implied = (inferredWhen ?? inferWhen(briefTokens)).filter((w) => !wantWhen.includes(w));
+  const impliedHits = implied.filter((w) => has(entry.when_to_use, w));
+  if (impliedHits.length) { s += 3 * impliedHits.length; why.push(`implies:${impliedHits.join('+')}`); }
+
+  const labels = new Set([...(entry.tags || []), ...(entry.when_to_use || []), entry.slug || ''].flatMap((x) => [String(x).toLowerCase(), ...words(x)]));
+  const tags = new Set((entry.tags || []).map((t) => String(t).toLowerCase()));
+  const summary = new Set(words(entry.summary));
   const matched = new Set();
-  for (const tok of briefTokens) if (!matched.has(tok) && hay.includes(tok)) { s += 1; matched.add(tok); }
+  const soft = new Set();
+  for (const tok of briefTokens) {
+    if (matched.has(tok) || soft.has(tok)) continue;
+    if (labels.has(tok) || labels.has(stem(tok)) || (TAG_SYNONYMS[tok] || []).some((t) => tags.has(t))) { s += 1; matched.add(tok); }
+    else if (summary.has(stem(tok))) { s += 0.5; soft.add(tok); }
+  }
   if (matched.size) why.push(`brief:${[...matched].join('+')}`);
+  if (soft.size) why.push(`summary:${[...soft].join('+')}`);
 
   const risks = (entry.a11y || []).filter((f) => A11Y_RISK.includes(f));
-  if (risks.length) { s -= 1; why.push(`-a11y:${risks.join('+')}`); }
-  return { s, why };
+  if (s > 0 && risks.length) { s = Math.max(s - 0.5, 0.25); why.push(`-a11y:${risks.join('+')}`); }
+  return { s, why, implied: impliedHits.length };
 }
 
-/** Rank entries by scoreEntry against a corpus filter; keeps only s > 0, ties broken by slug. */
+/** Rank entries by scoreEntry against a corpus filter; keeps only s > 0. Ties go to the entry
+ *  matching more implied categories, then the more specific one (fewer when_to_use), then slug. */
 export function rankEntries(items, { corpus = 'production', ...scoreOpts } = {}) {
   const inCorpus = (e) => corpus === 'both' || e.corpus === corpus;
   return items.filter(inCorpus).map((e) => ({ e, ...scoreEntry(e, scoreOpts) }))
     .filter((r) => r.s > 0)
-    .sort((a, b) => b.s - a.s || a.e.slug.localeCompare(b.e.slug));
+    .sort((a, b) => b.s - a.s || b.implied - a.implied
+      || (a.e.when_to_use || []).length - (b.e.when_to_use || []).length
+      || a.e.slug.localeCompare(b.e.slug));
 }
 
 // ── CLI ──────────────────────────────────────────────────────────────────────
