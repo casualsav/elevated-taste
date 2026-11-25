@@ -25,7 +25,7 @@ One modal component that arrives two ways depending on viewport: on desktop it *
 
 <div class="scrim" data-scrim hidden></div>
 <div class="sheet" id="chooser" role="dialog" aria-modal="true" aria-label="Choose an integration" hidden>
-  <!-- e.g. the selectable-option-card-pair goes here -->
+  <!-- e.g. the plan-choice-card-pair goes here -->
 </div>
 ```
 

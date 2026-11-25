@@ -16,7 +16,7 @@ provenance:
   gallery_url: https://land-book.com/websites/102130-voy-design-designing-for-a-100-years-for-healthy-living
   robots_ok: true
   license_note: "private reference; not redistributed"
-patterns: [in-view-reveal-stagger, pointer-follow-preview]
+patterns: [in-view-reveal-blur-rise, pointer-follow-preview]
 tokens_snapshot: ../tokens/joinvoy.json
 screenshots: ../screenshots/joinvoy/
 ---
@@ -44,7 +44,7 @@ screenshots: ../screenshots/joinvoy/
 
 ## Interaction & motion (techniques)
 
-- **In-view fade-rise-deblur, IntersectionObserver-gated, staggered.** *Trigger:* in-view. *Mechanism:* elements start `opacity:0; translateY(20–35px); blur(4px)` and transition to rest on `.is-visible` (set by IO at thresholds ~0.13–0.25, rootMargin `-25px`/`-100px`); children stagger via `--delay`/`--principle-delay`/nth-child delays. *Reads as:* content settling into place, unhurried and premium. *Transfers to:* any section entrance. *Safety:* **production-safe** — only `transform`/`opacity`/`filter`; reduced-motion jumps to end state. See `patterns/in-view-reveal-stagger.md`.
+- **In-view fade-rise-deblur, IntersectionObserver-gated, staggered.** *Trigger:* in-view. *Mechanism:* elements start `opacity:0; translateY(20–35px); blur(4px)` and transition to rest on `.is-visible` (set by IO at thresholds ~0.13–0.25, rootMargin `-25px`/`-100px`); children stagger via `--delay`/`--principle-delay`/nth-child delays. *Reads as:* content settling into place, unhurried and premium. *Transfers to:* any section entrance. *Safety:* **production-safe** — only `transform`/`opacity`/`filter`; reduced-motion jumps to end state. See `patterns/in-view-reveal-blur-rise.md`.
 - **Per-word masked reveal.** *Trigger:* in-view. *Mechanism:* each word wrapped in `.word-mask` (overflow clip) with an inner span translated/blurred up, released on `.is-visible` with per-word delay — the about statement writes itself in. *Reads as:* editorial, typeset-by-typeset arrival. *Transfers to:* hero/section statements. *Safety:* **production-safe**; PRM disables it.
 - **Scroll-spy glass nav with active dot.** *Trigger:* scroll-progress / in-view. *Mechanism:* IO on sections toggles `.active` on the matching pill link, which fades in a coral `::after` dot and brightens the label; the pill itself is a fixed `backdrop-filter:blur(16px)` glass capsule. *Reads as:* persistent orientation without a heavy header. *Transfers to:* any single-page site nav. *Safety:* **production-safe**.
 - **Pointer-following preview thumbnail.** *Trigger:* hover (pointer). *Mechanism:* a `position:fixed` preview card tracks the cursor (`transform:translate(-50%,-70%)`), fading/scaling in (`.visible`) while hovering a list row. *Reads as:* a lightweight peek/index interaction. *Transfers to:* portfolio/work indexes, link lists, glossaries. *Safety:* **production-safe** — transform-only; hide on touch/reduced-motion. See `patterns/pointer-follow-preview.md`.
@@ -59,5 +59,5 @@ Reduced motion is respected comprehensively (`prefers-reduced-motion` + `body.mo
 - **Spectacle-only:** draggable hero canvas world (main-thread rAF/mousemove cost) and ambient collaborator cursors (decorative, cursor:none override). Reuse only where a brand hero justifies the budget; always keep the static fallback.
 
 ## Extracted patterns
-- `in-view-reveal-stagger` — IntersectionObserver-gated fade-rise-deblur with child stagger and a mandatory reduced-motion/no-JS off-ramp; the house entrance for any section.
+- `in-view-reveal-blur-rise` — IntersectionObserver-gated fade-rise-deblur with child stagger and a mandatory reduced-motion/no-JS off-ramp; the house entrance for any section.
 - `pointer-follow-preview` — a fixed thumbnail that tracks the cursor while hovering a list row; a lightweight index/peek interaction for portfolios and link lists.

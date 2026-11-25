@@ -112,3 +112,9 @@ Separating *chrome* from *content* is the core move. The rail and header are `po
   </main>
 </div>
 ```
+
+## Merged in
+`app-shell-scroll-frame` (a second write-up of the same Grafana shell) was folded in here. What it added:
+- The top bar's usual contents are breadcrumbs, search and actions; the sticky strip under it is optional and per object.
+- Depth comes from a z-order (rail < header < sticky toolbar < popovers and toasts) carried by surface-tint steps, not shadows.
+- Because the content well is the only scroll container, focus order stays sane and the well can hold anything: a panel grid, a table or a form.

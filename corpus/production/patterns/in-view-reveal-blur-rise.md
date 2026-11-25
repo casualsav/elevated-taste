@@ -75,3 +75,6 @@ It animates only compositor-friendly properties (`opacity`, `filter`, `transform
   }
 </script>
 ```
+
+## Merged in
+`in-view-reveal-stagger` (Joinvoy's version of the same fade, rise and de-blur entrance) was folded in here; Joinvoy now cites this pattern. Its variant adds the marker as an `is-visible` class once per section and staggers the section's children, and it holds to the same rule: with no JavaScript, or under reduced motion, everything sits at its resting state.

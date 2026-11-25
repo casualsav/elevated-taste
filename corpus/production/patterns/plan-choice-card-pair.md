@@ -108,3 +108,10 @@ Pickers fail when the selected state moves things or recolors text, forcing the 
   .choice__input:focus-visible ~ .choice__title { outline: 2px solid var(--color-focus, #675dff); outline-offset: 2px; }
 </style>
 ```
+
+## Merged in
+`selectable-comparison-cards`, `selectable-radio-cards` and `selectable-option-card-pair` were three more write-ups of this same Stripe Checkout picker and were folded in here. What they added:
+- Let the chip row **pre-classify the tradeoff** ("No code · Low code" vs "More code") so the cost of each option is read before the title.
+- An alternative hover: fade a soft brand gradient into an *unselected* card's image well to preview the choice, instead of lifting it with a shadow.
+- Commit the choice with one shared primary button below the cards, not a button per card.
+- Gate any tint or shadow transition behind `prefers-reduced-motion: reduce`; the selected outline still shows, it just appears without easing.

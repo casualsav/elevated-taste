@@ -64,3 +64,6 @@ Duplicating the track and translating it by exactly `-50%` makes the loop seamle
   }
 </style>
 ```
+
+## Merged in
+`pause-on-hover-logo-marquee` (a second write-up of the same Fillout strip) was folded in here. The point it stressed: the hover pause is what lets a visitor stop and read one logo, so keep it, and the strip replaces a static wall of 30 logos with a compact one that implies "too many to fit".

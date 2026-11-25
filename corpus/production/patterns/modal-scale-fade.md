@@ -69,3 +69,8 @@ Scaling from `0.97` (not `0.8`) is a *whisper* of motion — enough to signal "n
   function closeDialog() { scrim.removeAttribute('data-open'); }
 </script>
 ```
+
+## Merged in
+`scale-in-modal` (a second write-up of the same Stripe Checkout dialog) was folded in here. What it added:
+- The same open works as a product's **first frame**: an onboarding gate, a confirm step or a command palette floated over a dimmed workspace.
+- A heavy, soft ambient shadow on the panel (large blur, low alpha) lifts it while the scrim pushes the page back, so the dialog is unmistakably the subject.
