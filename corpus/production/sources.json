@@ -425,6 +425,39 @@
     "license_note": "private reference; not redistributed"
   },
   {
+    "slug": "catalyst",
+    "url": "https://catalyst-demo.tailwindui.com",
+    "source": "manual",
+    "corpus": "production",
+    "captured": "2026-11-25",
+    "award_type": "Curated",
+    "score": null,
+    "tags": [
+      "saas",
+      "dashboard",
+      "b2b",
+      "analytics",
+      "data-table",
+      "tailwind",
+      "zinc",
+      "light",
+      "dark"
+    ],
+    "when_to_use": [
+      "dashboard",
+      "data-table",
+      "navigation",
+      "settings"
+    ],
+    "directions": [
+      "minimalist",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
     "slug": "charitywater",
     "url": "https://www.charitywater.org",
     "source": "editorial-pick",
@@ -2428,6 +2461,71 @@
     ],
     "directions": [
       "expressive",
+      "soft"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "shadcn-dashboard",
+    "url": "https://ui.shadcn.com/view/new-york-v4/dashboard-01",
+    "source": "manual",
+    "corpus": "production",
+    "captured": "2026-11-25",
+    "award_type": null,
+    "score": null,
+    "tags": [
+      "dashboard",
+      "saas",
+      "b2b",
+      "data-table",
+      "admin",
+      "app-shell",
+      "neutral",
+      "light",
+      "dark"
+    ],
+    "when_to_use": [
+      "dashboard",
+      "data-table",
+      "navigation",
+      "settings"
+    ],
+    "directions": [
+      "minimalist"
+    ],
+    "gallery_url": null,
+    "robots_ok": true,
+    "license_note": "private reference; not redistributed"
+  },
+  {
+    "slug": "shadcn-login",
+    "url": "https://ui.shadcn.com/view/new-york-v4/login-04",
+    "source": "manual",
+    "corpus": "production",
+    "captured": "2026-11-25",
+    "award_type": "Reference component (shadcn/ui new-york-v4 \"login-04\" block)",
+    "score": null,
+    "tags": [
+      "saas",
+      "b2b",
+      "auth",
+      "design-system",
+      "shadcn",
+      "tailwind",
+      "neutral",
+      "light",
+      "dark",
+      "form"
+    ],
+    "when_to_use": [
+      "auth",
+      "forms",
+      "onboarding"
+    ],
+    "directions": [
+      "minimalist",
       "soft"
     ],
     "gallery_url": null,
