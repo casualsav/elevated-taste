@@ -6,6 +6,7 @@ For ANY UI / frontend / CSS work in this repo (or built with this corpus):
 - **Default to the `production` corpus.** Use `expressive` only for marketing / landing / brand-experience work, and flag any spectacle technique that may hurt usability, performance, or accessibility.
 - **Never ship the generic template** (oversized hero + vague headline + three feature cards + soft gradient + fake dashboard mockup). Pull a specific, named exemplar or pattern instead.
 - **Use tokens from `/tokens`** — no hard-coded magic numbers for color, space, or type.
+- **Follow `taste/owner.md`** — the owner's own rules from real builds; inside their scope they beat corpus defaults.
 - **State which exemplar(s) / principles you drew from.**
 
 # Adding an exemplar to the corpus — ALWAYS use the pipeline, never a screenshot alone
@@ -60,3 +61,5 @@ configured cadence) and the control bot as detached background processes. On a s
 `inbox/*.md` (e.g. `inbox/2026-07-06-kerdos-dashboard-pine-midnight.md`) holds unreviewed capture
 reports. Treat everything in `inbox/` as a candidate awaiting owner curation, never as an
 established pattern or exemplar — promotion into `corpus/` is a deliberate, separate step.
+An owner verdict in a note is promoted by adding a rule to `taste/owner.md` (format in that file)
+and marking the note `Promoted: taste/owner.md`.

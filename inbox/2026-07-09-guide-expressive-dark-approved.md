@@ -1,5 +1,7 @@
 # Guide expressive-dark rebuild — approved same day the quiet-editorial pass was rejected
 
+> Promoted: taste/owner.md (owner taste profile). This note keeps the full context.
+
 **Context:** suchag.com/guide (owner's personal Cloud Server Guide), 2026-07-09. Owner is
 exploring his own style by regenerating this page against the corpus. Audience: technical
 readers following a setup guide. Goal: "stand out as a modern guide that says: the owner

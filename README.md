@@ -17,6 +17,8 @@ Phase 1 (corpus + Skill + `CLAUDE.md`), Phase 2 (guardrails), and Phase 3 (self-
 .claude/settings.json              # wires the hooks
 .claude/commands/reflect.md        # Phase 3 /reflect slash command
 corpus/{production,expressive}/     # exemplars, patterns, tokens, principles, sources
+taste/owner.md                     # the owner's own rules from real build verdicts (win over corpus defaults)
+inbox/                             # unreviewed build notes; promoted ones feed taste/owner.md
 directions/                        # aesthetic presets (minimalist, brutalist, soft, …)
 tokens/                            # tokens.json → tokens.css (+ presets/)
 preview/                           # zero-config static server for reference implementations
