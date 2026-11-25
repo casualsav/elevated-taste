@@ -1,0 +1,60 @@
+{
+  "color": {
+    "bg": "#000000",
+    "surface": "rgba(255,255,255,0.15)",
+    "fg": "#ffffff",
+    "muted": "rgba(255,255,255,0.4)",
+    "accent": "#ffffff",
+    "roles": {
+      "glass-fill": "rgba(255,255,255,0.15)",
+      "glass-fill-strong": "rgba(255,255,255,0.25)",
+      "hairline": "rgba(255,255,255,0.2)",
+      "consent-card-bg": "#ffffff",
+      "consent-card-fg": "#000000",
+      "consent-card-muted": "rgba(0,0,0,0.4)"
+    }
+  },
+  "type": {
+    "families": [
+      "\"Helvetica Now\", Helvetica, Arial, sans-serif",
+      "ballinger-mono, ui-monospace, monospace"
+    ],
+    "scale": ["0.6875rem", "0.875rem", "1rem", "1.125rem", "1.5rem", "3rem", "3.5rem"],
+    "weights": [400, 500, 700],
+    "leading": [1.1, 1.1, 1.5]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["3px", "8px", "16px", "24px", "32px", "40px", "48px"]
+  },
+  "radius": ["14px", "32px", "40px", "48px", "9999px"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["200ms", "300ms", "700ms", "1000ms", "1400ms"],
+    "stagger": "350ms",
+    "easings": [
+      "ease",
+      "ease-in-out",
+      "cubic-bezier(0.16, 1, 0.3, 1)",
+      "cubic-bezier(0.93, -0.24, 0.4, 1.17)"
+    ],
+    "triggers": ["load", "in-view", "hover", "scroll-progress"],
+    "techniques": [
+      "cursor-reactive-canvas-field",
+      "image-reveal-plate-entrance",
+      "continuous-rotation",
+      "overshoot-capsule-reveal",
+      "skew-stretch-page-transition",
+      "blinking-status-dot"
+    ],
+    "scroll_effects": [
+      { "name": "ambient-canvas-field", "property": "canvas", "trigger": "in-view", "safety": "spectacle-only" },
+      { "name": "image-reveal-plate", "property": "clip", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "timezone-icon-fade", "property": "opacity", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "fixed-pin-chrome", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "<canvas> + rAF (WebGL-likely)", "mousemove-driven JS"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Trusted screenshot over raw. Canvas is pure #000 (raw reports no explicit bg color because the body black comes from a parent/WebGL layer not sampled as backgroundColor; every sampled bg is a translucent white overlay). Single accent = white itself; there is no chromatic accent — color comes entirely from the project thumbnails. The dominant backgroundColor rgba(255,255,255,0.15) (260 hits) is the frosted-glass fill on the floating nav capsule and the metadata chips, paired with a rgba(255,255,255,0.2) hairline and 14px radius — normalized as surface/glass-fill + hairline roles. Two type families only: Helvetica Now (body/UI, w500) and ballinger-mono (the tiny ~10.9px labels, w400) — mono size normalized to 0.6875rem. Big pill radii 40/48px kept distinct from the 14px chip radius; full radius inferred for circular controls. Display sizes (48/56px) are sparse (hero line + the consent card's Accept/Decline), not a deep heading scale. Motion is overwhelmingly 0.2s ease-in-out; the lone springy cubic-bezier(0.93,-0.24,0.4,1.17) overshoot is the playful capsule/label reveal — kept as the signature easing. No box-shadows anywhere; depth is faked with translucency + blur, so shadow normalized to none. MOTION: the spectacle is canvas-driven and NOT DOM-distillable — across frames s00→s10 the grid does not scroll-translate (9 position:fixed pins; the only DOM property animation captured is the timezone icon opacity 0.85→0.40). Real motion lives in 1 <canvas> + ~330 rAF calls + 13 mousemove listeners (cursor-reactive field) plus 22 @keyframes whose NAMES carry the intent: styles_image-reveal (in-view plate clip, 350ms stagger, eased cubic-bezier(0.16,1,0.3,1)), styles_rotation (ambient spin loop), Loader_skew/stretch/move-* + TransitionElementContainer (skew-stretch page transition, 700–1400ms), cubic-bezier(0.93,-0.24,0.4,1.17) overshoot on the capsule reveal, Timezones_blinking-dot. Durations/easings/stagger repointed to .motion.params. reduced_motion = not-respected (prmRules:0) — a real defect on a heavy-motion site; any reuse must add prefers-reduced-motion fallbacks. scroll_effects.property uses canvas/clip as coarse buckets since the exact animated props are inside the shader, not the DOM. Genuinely-new techniques (cursor-reactive-canvas-field, overshoot-capsule-reveal, skew-stretch-page-transition) have no existing recipe and are listed as patterns_to_build in the exemplar, not in patterns:."
+}

@@ -1,0 +1,48 @@
+{
+  "color": {
+    "bg": "#201819",
+    "surface": "#1D1A15",
+    "fg": "#FFFFFF",
+    "muted": "#E2CAB0",
+    "accent": "#FFD943",
+    "roles": {
+      "void-stage": "#201819",
+      "fg-on-dark": "#FFFFFF",
+      "muted-serif-on-dark": "#E2CAB0",
+      "footer-bg": "#FFFFFF",
+      "fg-on-light": "#1D1A15",
+      "accent-yellow": "#FFD943",
+      "item-color": "per-item (from each book cover; e.g. #18185E navy, #F366FF magenta, #E2CA90 tan)"
+    }
+  },
+  "type": {
+    "families": ["Ivar Text", "Ivar Display", "Ivar Headline", "Georgia"],
+    "scale": ["1rem", "1.06rem", "1.31rem", "1.86rem", "3rem"],
+    "weights": [400, 500, 600, 700],
+    "leading": [1.1, 1.4, 1.5],
+    "tracking": "0.32px on small/chrome text"
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["8px", "16px", "40px", "52px", "58px", "180px", "315px"],
+    "note": "180-315px block padding isolates one object per viewport"
+  },
+  "radius": ["0px", "2px", "3px"],
+  "shadow": ["none — depth is baked into the rendered book art, not CSS"],
+  "motion": {
+    "durations": ["200ms", "300ms", "500ms"],
+    "easings": ["ease", "ease-out", "cubic-bezier(0.4, 0, 0.2, 1)"],
+    "triggers": ["scroll-progress", "in-view", "load", "hover"],
+    "techniques": ["sticky-pin-void", "index-rail-scroll-progress", "fixed-perspective-object", "concentric-canvas"],
+    "scroll_effects": [
+      { "name": "pinned-background-void", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "pinned-book-data-layer", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "pinned-section-nav", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "podcast-glyph-fade-in", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "concentric-vinyl-canvas", "property": "transform", "trigger": "in-view", "safety": "spectacle-only" }
+    ],
+    "stack": ["CSS position:fixed", "requestAnimationFrame", "<canvas>"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Dark warm-black bg normalized to #201819 (theme.dark.bg); #1D1A15 is the dominant text/dark-surface value. Accent yellow #FFD943 and tan #E2CAB0 are the only site-level non-neutrals; all other color is per-item from book covers. No CSS shadows or chrome gradients observed — richness is in the rendered art. keyframeCount 0; motion runs on rAF/canvas (337 rAF calls, 2 canvas, 1 video, 3 marquee). No IntersectionObserver. Type scale converted from px (16/17/21/29.8/48) at 16px base; the only large type is the white about-section display."
+}

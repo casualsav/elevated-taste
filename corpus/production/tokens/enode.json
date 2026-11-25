@@ -1,0 +1,82 @@
+{
+  "color": {
+    "bg": "#f4f2f1",
+    "surface": "#ffffff",
+    "surface-card": "#f0eeed",
+    "fg": "#252322",
+    "muted": "#4c4948",
+    "subtle": "#6e6a68",
+    "border": "#dcd8d6",
+    "hairline": "#e8e5e3",
+    "accent": "#b0f87d",
+    "roles": {
+      "signal-brand": "#b0f87c",
+      "control-link": "#b0f87c",
+      "focus-ring": "#b0f87c",
+      "node": "#99e467",
+      "accent-soft": "#c5ff9b",
+      "accent-deep": "#265f1b",
+      "success": "#55973b",
+      "ink-deep-black": "#161514",
+      "gray-75": "#f8f7f7",
+      "gray-125": "#efedeb",
+      "gray-350": "#a19d9b",
+      "text-secondary-alpha": "rgba(37,35,34,0.827)",
+      "text-tertiary-alpha": "rgba(37,35,34,0.63)",
+      "glass-thin": "rgba(21,20,19,0.11)",
+      "glass-thick": "rgba(21,20,19,0.56)"
+    }
+  },
+  "type": {
+    "families": ["\"Enode Sans\" (variable 375-635)", "\"Enode Mono\""],
+    "scale": ["0.75rem", "0.875rem", "0.9375rem", "1.125rem", "1.25rem", "1.375rem", "1.5rem", "1.875rem", "2.25rem", "2.75rem", "clamp(2.125rem, 1.211rem + 3.9vw, 4.25rem)"],
+    "roles": {
+      "masthead": "clamp(2.125rem, 1.211rem + 3.9vw, 4.25rem)/1.05, -0.02em, 475",
+      "display": "2.75rem/1.05, -0.015em, 500",
+      "h1": "2.25rem/1.15, -0.015em, 500",
+      "h2": "1.875rem/1.2, -0.01em, 510",
+      "h3": "1.5rem/1.25, -0.005em, 520",
+      "standfirst": "clamp(1.5rem, .866rem + 2.7vw, 2.5rem)/1.15, -0.015em, 470",
+      "body": "1.125rem/1.45, 470",
+      "label": "0.875rem/1.4, -0.005em, 450",
+      "fine": "0.75rem/1.45, 475",
+      "button": "0.9375rem/1.5, +0.005em, 490"
+    },
+    "weights": [450, 470, 490, 500, 510, 520, 535],
+    "leading": [1.05, 1.15, 1.25, 1.45, 1.5, 1.625],
+    "tracking": {"masthead": "-0.02em", "display": "-0.015em", "mono-eyebrow-caps": "+0.04em"},
+    "features": ["kern", "zero (mono slashed-zero)"],
+    "notes": "One variable sans does all text in a ~450-535 weight band; mono is a semantic label/data layer. .cap-trim utility optically trims the cap/baseline box (margin: calc(0.344em - 0.5lh)). Scale is role-named with metrics bundled per role."
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["4px", "6px", "8px", "12px", "20px", "24px", "32px", "96px", "128px"],
+    "notes": "6/8/12px micro-gaps inside chips & data rows; 20px layout gap; section rhythm py-24/py-32 (96/128px)."
+  },
+  "radius": ["2px", "4px", "6px", "8px", "10px", "16px", "9999px"],
+  "shadow": [
+    "inset 0 0 0 1px oklch(92.14% .0032 48.7)",
+    "inset 0 0 0 1px oklch(20% .004 48.7/.04)",
+    "rgba(0,0,0,0.02) 0 0 0 0.5px, rgba(0,0,0,0.05) 0 0 1px 0, #fff 0 0 1px 1px inset",
+    "rgba(255,255,255,0.5) 0 0 0 1px inset, rgba(24,21,20,0.28) 0 24px 64px -12px"
+  ],
+  "backdrop_filter": ["blur(2px)", "blur(3px)", "blur(4px)", "blur(8px)", "blur(24px) brightness(.92)", "blur(32px) brightness(1.06) saturate(1.25)"],
+  "motion": {
+    "durations": ["150ms", "200ms", "300ms", "400ms", "500ms", "520ms", "700ms"],
+    "easings": ["cubic-bezier(0.16,1,0.3,1)", "cubic-bezier(0.4,0,0.2,1)", "cubic-bezier(0,0,0.2,1)", "cubic-bezier(0.32,0.72,0,1)"],
+    "triggers": ["in-view", "scroll-progress", "hover", "load"],
+    "techniques": ["in-view-reveal-blur-rise", "hero-video-crossfade-with-glass-labels", "ambient-product-demo-loops", "pinned-glass-header", "section-theme-crossfade", "iso-cube-rotate-in", "scroll-section-index"],
+    "scroll_effects": [
+      {"name": "reveal-enter (blur+rise+fade)", "property": "opacity|filter|transform", "trigger": "in-view", "safety": "production-safe"},
+      {"name": "hero-video-crossfade", "property": "opacity|filter", "trigger": "in-view", "safety": "production-safe"},
+      {"name": "progress-ring / charge-pulse / forecast-drift loops", "property": "transform|opacity|clip", "trigger": "in-view", "safety": "production-safe"},
+      {"name": "iso-cube-rotate", "property": "transform", "trigger": "in-view", "safety": "production-safe"},
+      {"name": "pinned-header glass + section theme-fade", "property": "background|color", "trigger": "scroll-progress", "safety": "production-safe"}
+    ],
+    "stagger_delays_ms": [120, 200, 320, 360],
+    "keyframes_sample": ["reveal-enter", "reveal-safety", "progress-ring-first", "forecast-drift", "charge-pulse", "pulse-breathe", "webhook-log-line", "chat-turn", "beat-flare"],
+    "stack": ["IntersectionObserver (29 observers / 33 targets)", "CSS @keyframes (22)", "requestAnimationFrame micro-loops", "CSS backdrop-filter glass"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Palette normalized from the site's warm-gray (~48.7 oklch hue) ramp + the enode-lime brand family; one page accent (#b0f87d) rationed to eyebrow dot / CTA-hover / focus / live demo accents. color.dark OMITTED: the page never re-themes to dark (both captures are cream; probe 'dark.bg' was transparent = false positive). A scoped [data-mode=\"dark\"] exists only to re-contrast the insides of diagram/phone/browser mockups, not the page. Durations/easings taken from the real --ease-* and transition tokens. Shadows are inset-hairline-first; drop shadows appear only on floating glass panels."
+}

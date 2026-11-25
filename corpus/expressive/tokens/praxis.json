@@ -1,0 +1,45 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#ffffff",
+    "fg": "#101010",
+    "muted": "#6b6b6b",
+    "accent": null,
+    "roles": {
+      "text": "#101010",
+      "focus-ring": "#101010",
+      "image-tint": "#cfe0ee",
+      "note": "monochrome on white; the pale ice-blue is an imagery GRADE (desaturate + blow-out toward white), not a UI token. No accent hue, no dark mode."
+    }
+  },
+  "type": {
+    "families": ["\"Chivo Mono\", monospace", "\"Times New Roman\", serif (wordmark glyph only)"],
+    "scale": ["0.75rem", "0.9375rem", "1rem"],
+    "weights": [400, 700],
+    "leading": [1.2, 1.5],
+    "tracking": { "label-12px": "0.6px", "label-15px": "0.75px" },
+    "notes": "Near-flat scale: 12px caption/label, 15px and 16px body, NO display tier (no measurable h1). Hierarchy from weight (700 keyword emphasis) + uppercase + positive tracking + position, not size. Labels uppercase, positively tracked (mono-caps technical signature)."
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["2px", "10px", "16px", "24px", "40px", "64px", "112px", "128px"],
+    "notes": "Cosmic section rhythm: 128px/112px padding-block between bands; tiny 2px intra-label spacing. Contrast of micro vs macro spacing is the rhythm."
+  },
+  "radius": ["0"],
+  "shadow": ["none"],
+  "container": { "text": "800px-896px", "full-row": "1520px" },
+  "motion": {
+    "durations": ["150ms"],
+    "easings": ["cubic-bezier(0.4, 0, 0.2, 1)"],
+    "triggers": ["scroll-progress", "in-view", "load", "hover"],
+    "techniques": ["sticky-chrome-pin", "in-view-fade", "ambient-loop-video"],
+    "scroll_effects": [
+      { "name": "sticky-header-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "in-view-fade", "property": "opacity", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "keyframes": ["fadeIn", "bounce"],
+    "stack": ["IntersectionObserver (4 obs / 11 targets, threshold 0.3, rootMargin 200px)", "HTML <video> (looping globe)", "CSS transitions"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Normalized from raw/praxis.json + screenshots/frames. fg #101010 taken from the focus-outline color (true text reads ~black); muted is inferred for tiny secondary labels. image-tint records the bleached-blue imagery grade, deliberately NOT a color token. in-view-fade is probe-inferred (IO targets + fadeIn keyframe), frame-unconfirmed (0 entrance reveals captured). Site is otherwise near-static: only confirmed scroll effect is the header pin; one ambient <video>. The 212 rAF / 10 mousemove footprint is consistent with subtle cursor parallax but no hover/cursor effect was captured — omitted as unconfirmed."
+}

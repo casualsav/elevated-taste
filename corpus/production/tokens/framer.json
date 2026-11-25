@@ -1,0 +1,48 @@
+{
+  "color": {
+    "bg": "#050505",
+    "surface": "#111111",
+    "surface-2": "#1e1e1e",
+    "surface-3": "#242424",
+    "fg": "#ffffff",
+    "muted": "#999999",
+    "faint": "rgba(255,255,255,0.6)",
+    "accent": "#0099ff",
+    "roles": {
+      "accent-electric": "#0000ee",
+      "success": "#00bb88",
+      "warm": "#d67a5c",
+      "hairline": "rgba(255,255,255,0.08)",
+      "hairline-strong": "rgba(255,255,255,0.1)"
+    }
+  },
+  "type": {
+    "families": ["Inter", "Inter Variable", "Input Mono (mono)", "GT Walsheim (display)"],
+    "scale": ["0.875rem", "1rem", "1.125rem", "1.5rem", "2.25rem", "2.75rem", "3.375rem"],
+    "weights": [400, 500, 600],
+    "leading": [1.0, 1.15, 1.5],
+    "tracking": ["-0.14px body", "-0.6px heading", "-2.16px display"]
+  },
+  "space": { "base": "5px", "scale": ["5px", "10px", "15px", "20px", "25px", "40px", "100px", "120px"] },
+  "radius": ["6px", "8px", "15px", "20px", "100px"],
+  "shadow": [
+    "rgba(0,0,0,0.2) 0 2px 6px 0",
+    "rgba(0,0,0,0.25) 0 4px 8px 0",
+    "rgba(0,153,255,0.2) 0 5px 5px 0"
+  ],
+  "motion": {
+    "durations": ["750ms"],
+    "easings": ["ease", "steps(12)"],
+    "triggers": ["in-view", "scroll-progress", "hover", "load"],
+    "techniques": ["in-view-fade-rise", "sticky-companion-panel", "scroll-progress-card-fan", "marquee-loop", "opacity-dim-hover"],
+    "scroll_effects": [
+      { "name": "section-fade-rise", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "card-fan-scale", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "sticky-panel-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "logo-gallery-marquee", "property": "transform", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "position:sticky", "Framer runtime"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Dark-native (no light re-theme) so the dark palette IS the base palette; color.dark omitted. fontSize histogram is dominated by 12px (Framer canvas placeholder noise) — real display sizes read from the 36/44/54px buckets and the screenshots. rgb(0,0,238) is the electric-indigo hero-frame glow, not a default-link artifact. Base spacing normalized to a 5px increment with 100–120px section padding; radius collapsed to the 6/8/15/20/100 set (8px dominant)."
+}

@@ -1,0 +1,57 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f6f6f6",
+    "surface-2": "#fafafa",
+    "fg": "#111112",
+    "muted": "#595b5c",
+    "accent": "#0ba299",
+    "roles": {
+      "accent-deep": "#088181",
+      "teal-ink": "#012e37",
+      "navy": "#02294b",
+      "interactive-blue": "#0072cf",
+      "link-blue": "#0a85ea",
+      "purple": "#7646ec",
+      "code-bg": "#111111",
+      "hairline": "rgba(17,17,17,0.08)",
+      "stat-purple": "#6748d8",
+      "stat-magenta": "#b14edb",
+      "gradient-mint": "linear-gradient(48deg,#cdf5fd,#d8fef3 50%,#e8fed7)",
+      "gradient-lavender": "linear-gradient(46deg,#e6e6ff 3%,#e5effe 47%,#ccf8ff)",
+      "gradient-purple": "linear-gradient(254deg,#6748d8 12%,#b14edb 96%)"
+    }
+  },
+  "type": {
+    "families": ["Cern", "Plaid Sans", "Helvetica", "Inconsolata (mono)", "Bowery Street (display accent)"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.25rem", "1.625rem", "1.875rem", "3.125rem", "3.625rem", "4.75rem"],
+    "weights": [400, 500, 600],
+    "leading": [1.05, 1.5],
+    "tracking": ["-3.4px @76px", "-2px @58/50px", "-0.9px @70px", "-0.5px @26px", "-0.4px @20px"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "8px", "12px", "16px", "24px", "30px", "32px", "40px", "50px", "88px"]
+  },
+  "radius": ["2px", "4px", "8px", "16px", "20px", "100px"],
+  "shadow": [
+    "0 2px 4px hsla(0,0%,7%,0.08)",
+    "0 2px 8px rgba(0,0,0,0.06), inset 0 0 0 1px rgba(255,255,255,0.12), 0 6px 12px rgba(85,85,85,0.12)",
+    "0 1px 16.5px rgba(0,0,0,0.14)"
+  ],
+  "motion": {
+    "durations": ["100ms", "150ms", "200ms", "250ms", "300ms", "350ms", "500ms", "10000ms"],
+    "easings": ["ease", "ease-out", "ease-in-out", "cubic-bezier(0.23,1.2,0.32,1)"],
+    "triggers": ["in-view", "load", "hover", "scroll-progress"],
+    "techniques": ["inview-fade-rise", "staggered-entrance", "animated-number-flow", "logo-marquee", "mini-product-demo-loop", "pill-luminosity-hover"],
+    "scroll_effects": [
+      { "name": "inview-fade-rise", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "staggered-entrance", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "animated-number-flow", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "logo-marquee", "property": "transform", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "requestAnimationFrame", "canvas (product demos)"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Normalized from a 314-token design system; collapsed the large t5-*/color-* component-token set to role-level values. Accent is the Plaid teal-green (#0ba299/#088181); a separate blue (#0072cf/#0a85ea) drives form/interactive states — kept distinct. No dark theme (supportsDark:false), so color.dark omitted. Duotone hero photo and pastel card gradients carry brand saturation; reading surfaces stay white. Stat numerals recolor per-figure (pink/magenta/purple/green) — captured as role hues. 412 IntersectionObserver targets confirm in-view stagger is the dominant motion; reduced-motion genuinely respected (7 prm rules)."
+}

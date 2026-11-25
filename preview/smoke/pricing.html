@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing - Corvid</title>
+  <link rel="stylesheet" href="../../tokens/tokens.css" />
+  <style>
+    *,
+    *::before,
+    *::after { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      background: var(--color-bg);
+      color: var(--color-fg);
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      line-height: var(--leading-normal);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    /* ---- visually-hidden, but available to assistive tech ---- */
+    .sr-only {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ---- consistent focus affordance, palette-tuned ---- */
+    :where(a, button, [role="switch"]):focus-visible {
+      outline: 2px solid var(--color-focus);
+      outline-offset: 2px;
+      border-radius: var(--radius-sm);
+    }
+
+    /* =====================================================================
+       SECTION SHELL
+       Whitespace is the separator (principle: Space & rhythm). Large macro
+       voids around a 1280px capped column; no per-section background box.
+       ===================================================================== */
+    .pricing {
+      max-width: var(--container-xl);
+      margin-inline: auto;
+      padding-block: var(--space-10) var(--space-9);
+      padding-inline: var(--space-5);
+    }
+
+    .pricing__head {
+      max-width: 46rem;
+      margin-inline: auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    /* mono eyebrow = the "metadata" register (pattern: mono-label-metadata) */
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin: 0;
+    }
+
+    /* two-tone headline: ink lead + muted continuation, one size, one weight
+       (pattern: two-tone-headline). Scale does the hierarchy, not weight. */
+    .pricing__title {
+      margin: 0;
+      font-size: var(--text-4xl);
+      font-weight: var(--weight-medium);
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+      color: var(--color-fg);
+      text-wrap: balance;
+    }
+    .pricing__title .detail { color: var(--color-muted); }
+
+    /* ---------------------------------------------------------------------
+       BILLING TOGGLE  -  real switch semantics (role=switch + aria-checked)
+       Light accent / ink track: thumb is the bg colour so the control reads
+       as a single calm object. Animates transform only, gated below.
+       --------------------------------------------------------------------- */
+    .billing {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-top: var(--space-3);
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+    }
+    .billing__opt {
+      font-variant-numeric: tabular-nums;
+      transition: color var(--duration-fast) var(--ease-standard);
+    }
+    .billing__opt[data-active="true"] {
+      color: var(--color-fg);
+      font-weight: var(--weight-medium);
+    }
+
+    .switch {
+      position: relative;
+      inline-size: 3rem;
+      block-size: 1.625rem;
+      padding: 0;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      background: var(--color-surface-2);
+      cursor: pointer;
+      flex: none;
+    }
+    .switch__thumb {
+      position: absolute;
+      inset-block: 2px;
+      inset-inline-start: 2px;
+      inline-size: 1.25rem;
+      border-radius: var(--radius-full);
+      background: var(--color-fg);
+    }
+    .switch[aria-checked="true"] { background: var(--color-fg); border-color: var(--color-fg); }
+    .switch[aria-checked="true"] .switch__thumb {
+      background: var(--color-bg);
+      transform: translateX(1.375rem);
+    }
+
+    /* the annual saving sits next to the switch as a real, concrete number */
+    .billing__save {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-fg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      padding: var(--space-1) var(--space-3);
+    }
+
+    /* =====================================================================
+       TIER GRID  -  uniform hairline-bordered shell (ramp / teak): structure
+       from 1px borders + whitespace, near-zero shadow. NOT three identical
+       cards: the middle tier inverts to ink (round: section-scoped inversion)
+       to mark "recommended" with the single accent, no second hue.
+       ===================================================================== */
+    .tiers {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-5);
+      margin-top: var(--space-8);
+      align-items: start;
+    }
+
+    .tier {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+      padding: var(--space-6);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+    }
+
+    /* the highlighted, recommended tier */
+    .tier--featured {
+      background: var(--color-fg);
+      border-color: var(--color-fg);
+      color: var(--color-bg);
+      box-shadow: var(--shadow-lg); /* the one element allowed to "float" */
+    }
+
+    .tier__top {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .tier__row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-3);
+    }
+    .tier__name {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-muted);
+      margin: 0;
+    }
+    .tier--featured .tier__name { color: var(--color-subtle); }
+
+    /* the recommended badge - mono, outlined, inherits the inverted ink */
+    .tier__badge {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-bg);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      border-radius: var(--radius-full);
+      padding: var(--space-1) var(--space-3);
+      white-space: nowrap;
+    }
+
+    .tier__pitch {
+      margin: 0;
+      font-size: var(--text-sm);
+      line-height: var(--leading-normal);
+      color: var(--color-muted);
+      min-height: 2.6em; /* keeps the three price rows aligned */
+    }
+    .tier--featured .tier__pitch { color: var(--color-subtle); }
+
+    /* price: the one big number. Scale carries it; mono = "a live figure". */
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-2);
+      font-family: var(--font-mono);
+      font-variant-numeric: tabular-nums;
+    }
+    .price__amount {
+      font-size: var(--text-4xl);
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--tracking-tight);
+      line-height: 1;
+    }
+    .price__unit {
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+    }
+    .tier--featured .price__unit { color: var(--color-subtle); }
+
+    /* secondary line: annual equivalent / contact note. Reserves height so
+       cards stay aligned whether or not the line is present. */
+    .price__note {
+      font-size: var(--text-xs);
+      color: var(--color-muted);
+      min-height: 1.2em;
+    }
+    .tier--featured .price__note { color: var(--color-subtle); }
+
+    /* ---- CTA: one primary action per tier, AA contrast both themes ---- */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: var(--space-3) var(--space-5);
+      font-family: var(--font-sans);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      line-height: var(--leading-tight);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+    /* solid ink CTA on light cards */
+    .btn--primary {
+      background: var(--color-fg);
+      color: var(--color-bg);
+      border-color: var(--color-fg);
+    }
+    /* quiet, hairline CTA on light cards (secondary tiers de-emphasised) */
+    .btn--ghost {
+      background: transparent;
+      color: var(--color-fg);
+      border-color: var(--color-border);
+    }
+    /* inverted card: the CTA flips to the bg colour so it stays the brightest
+       object on the dark tier (arc: differentiate by fill, not a 2nd colour) */
+    .tier--featured .btn--primary {
+      background: var(--color-bg);
+      color: var(--color-fg);
+      border-color: var(--color-bg);
+    }
+
+    /* ---- feature list: one hairline divider above it, no row borders ---- */
+    .features {
+      list-style: none;
+      margin: 0;
+      padding: var(--space-5) 0 0;
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      font-size: var(--text-sm);
+    }
+    .tier--featured .features { border-top-color: rgba(255, 255, 255, 0.18); }
+
+    .features__cap {
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-wide);
+      text-transform: uppercase;
+      color: var(--color-subtle);
+    }
+    .feature {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      color: var(--color-muted);
+    }
+    .tier--featured .feature { color: var(--color-surface); }
+
+    /* check mark - inline SVG primitive, currentColor, consistent stroke */
+    .feature svg {
+      flex: none;
+      margin-top: 0.15em;
+      color: var(--color-fg);
+    }
+    .tier--featured .feature svg { color: var(--color-bg); }
+    .feature strong {
+      font-weight: var(--weight-medium);
+      color: var(--color-fg);
+    }
+    .tier--featured .feature strong { color: var(--color-bg); }
+
+    .pricing__foot {
+      margin-top: var(--space-8);
+      text-align: center;
+      font-size: var(--text-sm);
+      color: var(--color-muted);
+    }
+    .pricing__foot a {
+      color: var(--color-fg);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+
+    /* ---------------------------------------------------------------------
+       MOTION  -  feedback only, transform/opacity only, fully gated.
+       Resting state lives in the DOM; this block only adds it back.
+       --------------------------------------------------------------------- */
+    @media (prefers-reduced-motion: no-preference) {
+      .tier {
+        transition: transform var(--duration-base) var(--ease-standard),
+                    border-color var(--duration-base) var(--ease-standard);
+      }
+      .tier:hover { transform: translateY(calc(var(--space-1) * -1)); }
+      .tier:not(.tier--featured):hover { border-color: var(--color-subtle); }
+      .switch__thumb { transition: transform var(--duration-base) var(--ease-standard); }
+      .switch, .billing__save { transition: background var(--duration-base) var(--ease-standard),
+                                            border-color var(--duration-base) var(--ease-standard); }
+      .btn { transition: transform var(--duration-fast) var(--ease-standard),
+                         opacity var(--duration-fast) var(--ease-standard); }
+      .btn:hover { opacity: 0.92; }
+      .btn:active { transform: translateY(1px); }
+    }
+
+    /* ---------------------------------------------------------------------
+       RESPONSIVE  -  collapse to one column, type voices intact.
+       --------------------------------------------------------------------- */
+    @media (max-width: 64rem) {
+      .tiers { grid-template-columns: 1fr; max-width: 30rem; margin-inline: auto; gap: var(--space-5); }
+      /* on stacked layout the featured tier sits between the others naturally */
+    }
+    @media (max-width: 40rem) {
+      .pricing { padding-block: var(--space-9) var(--space-8); }
+      .pricing__title { font-size: var(--text-3xl); }
+      .billing { flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="pricing" aria-labelledby="pricing-title">
+      <div class="pricing__head">
+        <p class="eyebrow">Pricing</p>
+        <h1 class="pricing__title" id="pricing-title">
+          Pay for the email you send.
+          <span class="detail">No platform fee, no per-contact tax.</span>
+        </h1>
+
+        <!-- Billing period control: real switch semantics + visible labels.
+             The labels are also the accessible context for the switch. -->
+        <div class="billing">
+          <span class="billing__opt" id="lbl-monthly" data-active="true">Monthly</span>
+          <button
+            type="button"
+            class="switch"
+            id="billing-switch"
+            role="switch"
+            aria-checked="false"
+            aria-labelledby="lbl-monthly lbl-annual">
+            <span class="switch__thumb" aria-hidden="true"></span>
+            <span class="sr-only">Bill annually</span>
+          </button>
+          <span class="billing__opt" id="lbl-annual" data-active="false">Annual</span>
+          <span class="billing__save">2 months free</span>
+        </div>
+      </div>
+
+      <div class="tiers">
+        <!-- ===================== TIER 1 ===================== -->
+        <article class="tier" aria-labelledby="tier-hobby">
+          <div class="tier__top">
+            <div class="tier__row">
+              <h2 class="tier__name" id="tier-hobby">Solo</h2>
+            </div>
+            <p class="tier__pitch">For a side project sending its first transactional mail.</p>
+          </div>
+
+          <div>
+            <p class="price">
+              <span class="price__amount" data-price data-monthly="$0" data-annual="$0">$0</span>
+              <span class="price__unit">/ month</span>
+            </p>
+            <p class="price__note" data-note data-monthly="Up to 3,000 emails / month" data-annual="Up to 3,000 emails / month">Up to 3,000 emails / month</p>
+          </div>
+
+          <a class="btn btn--ghost" href="#start-solo">Start for free</a>
+
+          <ul class="features">
+            <li class="features__cap" aria-hidden="true">Includes</li>
+            <li class="feature">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>1 sending domain</span>
+            </li>
+            <li class="feature">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>REST API and SMTP relay</span>
+            </li>
+            <li class="feature">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>3-day event logs</span>
+            </li>
+            <li class="feature">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Community support</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- ===================== TIER 2 (recommended) ===================== -->
+        <article class="tier tier--featured" aria-labelledby="tier-team">
+          <div class="tier__top">
+            <div class="tier__row">
+              <h2 class="tier__name" id="tier-team">Team</h2>
+              <span class="tier__badge">Most picked</span>
+            </div>
+            <p class="tier__pitch">For a growing product that lives and dies by deliverability.</p>
+          </div>
+
+          <div>
+            <p class="price">
+              <span class="price__amount" data-price data-monthly="$24" data-annual="$20">$24</span>
+              <span class="price__unit">/ month</span>
+            </p>
+            <p class="price__note" data-note data-monthly="50,000 emails, then $0.40 / 1k" data-annual="Billed $240 / year, 2 months free">50,000 emails, then $0.40 / 1k</p>
+          </div>
+
+          <a class="btn btn--primary" href="#start-team">Start 14-day trial</a>
+
+          <ul class="features">
+            <li class="features__cap" aria-hidden="true">Everything in Solo, plus</li>
+            <li class="feature">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span><strong>10 sending domains</strong> with auto DKIM</span>
+            </li>
+            <li class="feature">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Dedicated IP pool</span>
+            </li>
+            <li class="feature">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>30-day logs and bounce webhooks</span>
+            </li>
+            <li class="feature">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Email support, 1-day response</span>
+            </li>
+          </ul>
+        </article>
+
+        <!-- ===================== TIER 3 ===================== -->
+        <article class="tier" aria-labelledby="tier-scale">
+          <div class="tier__top">
+            <div class="tier__row">
+              <h2 class="tier__name" id="tier-scale">Scale</h2>
+            </div>
+            <p class="tier__pitch">For high-volume senders that need a deliverability partner.</p>
+          </div>
+
+          <div>
+            <p class="price">
+              <span class="price__amount" data-price data-monthly="$89" data-annual="$74">$89</span>
+              <span class="price__unit">/ month</span>
+            </p>
+            <p class="price__note" data-note data-monthly="250,000 emails, volume rates above" data-annual="Billed $888 / year, 2 months free">250,000 emails, volume rates above</p>
+          </div>
+
+          <a class="btn btn--ghost" href="#contact-sales">Talk to us</a>
+
+          <ul class="features">
+            <li class="features__cap" aria-hidden="true">Everything in Team, plus</li>
+            <li class="feature">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Unlimited domains and sub-accounts</span>
+            </li>
+            <li class="feature">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Warmup and reputation monitoring</span>
+            </li>
+            <li class="feature">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>99.9% uptime SLA</span>
+            </li>
+            <li class="feature">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8.5l3 3 7-7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Shared Slack and onboarding engineer</span>
+            </li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="pricing__foot">
+        All plans include unlimited team members and SOC 2 reporting.
+        Need something specific? <a href="#contact-sales">Talk to our team</a>.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    // Progressive enhancement: monthly (resting) prices already in the DOM.
+    // The switch swaps to the data-annual values and flips the labels.
+    (function () {
+      var sw = document.getElementById('billing-switch');
+      if (!sw) return;
+      var monthlyLbl = document.getElementById('lbl-monthly');
+      var annualLbl = document.getElementById('lbl-annual');
+      var prices = document.querySelectorAll('[data-price]');
+      var notes = document.querySelectorAll('[data-note]');
+
+      function render(annual) {
+        sw.setAttribute('aria-checked', String(annual));
+        monthlyLbl.setAttribute('data-active', String(!annual));
+        annualLbl.setAttribute('data-active', String(annual));
+        var key = annual ? 'annual' : 'monthly';
+        prices.forEach(function (el) { el.textContent = el.dataset[key]; });
+        notes.forEach(function (el) { el.textContent = el.dataset[key]; });
+      }
+
+      sw.addEventListener('click', function () {
+        render(sw.getAttribute('aria-checked') !== 'true');
+      });
+      // Space/Enter are native for <button role=switch>; keep keyboard parity.
+      sw.addEventListener('keydown', function (e) {
+        if (e.key === ' ' || e.key === 'Enter') {
+          e.preventDefault();
+          render(sw.getAttribute('aria-checked') !== 'true');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

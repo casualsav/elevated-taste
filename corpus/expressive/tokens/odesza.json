@@ -1,0 +1,62 @@
+{
+  "color": {
+    "bg": "#eeeeee",
+    "surface": "#eeeeee",
+    "fg": "#262744",
+    "muted": "#262744",
+    "accent": "#262744",
+    "roles": {
+      "ink": "#262744",
+      "paper": "#eeeeee",
+      "border": "#262744",
+      "button-bg": "#262744",
+      "button-fg": "#eeeeee",
+      "button-bg-hover": "#eeeeee",
+      "button-fg-hover": "#262744",
+      "nav-fg-over-hero": "#eeeeee",
+      "nav-fg-scrolled": "#262744",
+      "scrim": "rgba(238, 238, 238, 0.81)"
+    }
+  },
+  "type": {
+    "families": ["Inter", "ErotiqueRegular"],
+    "scale": ["1rem", "1.125rem", "1.375rem", "2.25rem", "3.625rem"],
+    "weights": [400, 600, 700],
+    "leading": [1.0, 1.09],
+    "tracking": ["-1px"],
+    "case": "uppercase (global, set on html/body)"
+  },
+  "space": {
+    "base": "15px",
+    "scale": ["7.5px", "15px", "30px", "45px", "95px"]
+  },
+  "radius": ["6px", "10px", "50%"],
+  "shadow": [],
+  "motion": {
+    "durations": ["100ms", "150ms", "300ms", "1000ms", "1200ms"],
+    "easings": ["ease", "ease-in-out", "cubic-bezier(0, 0.5, 0.5, 1)"],
+    "triggers": ["scroll-progress", "hover", "load"],
+    "techniques": [
+      "hero-clearance-nav-invert",
+      "two-color-state-swap",
+      "full-viewport-load-curtain"
+    ],
+    "scroll_effects": [
+      {
+        "name": "hero-clearance-nav-invert",
+        "property": "background",
+        "trigger": "scroll-progress",
+        "safety": "production-safe"
+      },
+      {
+        "name": "pinned-chrome-nav-and-footer",
+        "property": "transform",
+        "trigger": "scroll-progress",
+        "safety": "production-safe"
+      }
+    ],
+    "stack": ["CSS @keyframes", "CSS transitions", "vanilla scroll listener", "jQuery (present, unused for motion)"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Two-color system, normalized to ink #262744 / paper #EEEEEE — 'muted' and 'accent' are the same ink because the site has no third hue; the roles map carries the real semantics (hover states swap the pair). No shadows or gradients exist on the page, so `shadow` is empty rather than invented. Type scale converted from px at the site's 22px base (16/18/22/36/58px); leading is 1.0 (line-height equals font-size on nearly every element) — reproduced honestly rather than rounded up to a house 1.5. `50%` radius belongs only to the modal's close button. Motion durations 1000ms/1200ms come from the load curtain and its bar keyframe, not from page choreography — the page's real interaction timings are 150ms (nav inversion) and 300ms (button swap). The profile's `scroll_effects` reported four `position: fixed` 'pins'; these are static fixed layers (nav, footer, cookie banner), not scroll-driven effects — only the class-toggled nav inversion is a genuine scroll effect, and the pinned-chrome entry is recorded for the layering story. `craft.theme.dark` is a false positive (the probe echoed the light palette; `supportsDark` is false), so no `color.dark` block. Hero blue is photographic, from a background JPEG — not a UI token."
+}

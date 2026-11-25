@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Verdigris — design &amp; commerce studio</title>
+
+  <!--
+    Corpus: expressive · Direction: expressive (dark gallery register)
+    Backbone pattern: split-stage-hero (buildinamsterdam) — left speaks, right performs.
+      Realized as inset-canvas-stage (lusion) + edge-bleed-wordmark, because a dark
+      register makes a black/paper value-split band weak; the framed plate + glow
+      carries the "performs" zone instead.
+    Type: staggered-display-headline (14islands), single weight, scale-only hierarchy,
+      size-scaled negative tracking. Voice: serif-italic-counterpoint (exoape).
+    Chrome: monospace-hud-chrome corner metadata. Color: monochrome chrome, one
+      rationed accent spent as a single glow on one object. Motion: one easing token,
+      long reveal for the brand moment, gated by prefers-reduced-motion.
+    Tokens: /tokens/tokens.expressive.css (built via `node tokens/build.mjs --preset=expressive`).
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500&family=Newsreader:ital,opsz,wght@1,18,400&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="/tokens/tokens.expressive.css" />
+
+  <style>
+    /* Expressive override: the preset ships no display face, and the seed --font-sans
+       is Inter (a hard-fail in the expressive corpus). Rebind to a deliberate grotesque
+       and add a rationed serif for the one voice line. Everything else is var(--token). */
+    :root {
+      --font-sans: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --font-serif: "Newsreader", Georgia, "Times New Roman", serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--color-bg);
+      color: var(--color-fg);
+      font-family: var(--font-sans);
+      font-weight: var(--weight-regular);
+      line-height: var(--leading-normal);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; }
+
+    /* Fixed grain — the only blanket texture; pointer-events none, never on a scroller. */
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: 50;
+      pointer-events: none;
+      opacity: 0.05;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ---- shell: top HUD bar · split main · bottom HUD bar ---------------------- */
+    .hero {
+      position: relative;
+      min-height: 100dvh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      gap: var(--space-7);
+      padding: var(--space-5) var(--space-6);
+      overflow: hidden;
+    }
+
+    .bar {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-5);
+    }
+    .brand {
+      margin: 0;
+      font-size: var(--text-md);
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--tracking-tight);
+    }
+    .nav {
+      display: flex;
+      gap: var(--space-5);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+    }
+    .nav a {
+      color: var(--color-muted);
+      text-decoration: none;
+      transition: color var(--duration-fast) var(--ease-standard);
+    }
+    .nav a:hover { color: var(--color-fg); }
+
+    /* ---- the split: speech (left) performs-as-type · stage (right) performs ---- */
+    .main {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      gap: var(--space-8);
+    }
+
+    .speech {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-6);
+      max-width: 18ch;
+      min-width: 0;
+    }
+    .eyebrow {
+      margin: 0;
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      color: var(--color-muted);
+    }
+
+    /* single weight; rank is scale + position. negative tracking is load-bearing. */
+    .display {
+      margin: 0;
+      padding-bottom: 0.08em;                 /* reserve descender (line-height 1.0) */
+      font-weight: var(--weight-regular);
+      font-size: clamp(var(--text-5xl), 8.4vw, var(--text-display));
+      line-height: var(--leading-tight);
+      letter-spacing: var(--tracking-tight);
+      max-width: 100%;
+    }
+    .display .line { display: block; }
+    .display .line--2 { padding-inline-start: 0.14em; }   /* staggered offset */
+    .display .line--3 { padding-inline-start: 0.34em; }
+    .display .dim { color: var(--color-subtle); }         /* demote by value, not weight */
+
+    /* one serif italic line = the human/voice note, rationed to a single paragraph */
+    .lead {
+      margin: 0;
+      max-width: 34ch;
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: var(--text-lg);
+      line-height: var(--leading-normal);
+      color: var(--color-muted);
+    }
+
+    .actions { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-5);
+      border: 1px solid transparent;
+      border-radius: var(--radius-xl);
+      font: inherit;
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-tight);
+      text-decoration: none;
+      cursor: pointer;
+      transition:
+        transform var(--duration-base) var(--ease-standard),
+        box-shadow var(--duration-base) var(--ease-standard),
+        border-color var(--duration-base) var(--ease-standard),
+        background var(--duration-base) var(--ease-standard);
+    }
+    .btn--primary { background: var(--color-accent); color: var(--color-accent-fg); }
+    .btn--primary:hover { transform: translateY(-1px); box-shadow: var(--shadow-lg); }
+    .btn--ghost { color: var(--color-fg); border-color: var(--color-border); }
+    .btn--ghost:hover { border-color: var(--color-fg); }
+    .btn .arrow { transition: transform var(--duration-base) var(--ease-standard); }
+    .btn--primary:hover .arrow { transform: translateX(3px); }
+    a:focus-visible, .btn:focus-visible {
+      outline: 2px solid var(--color-focus);
+      outline-offset: 3px;
+    }
+
+    /* ---- stage: a contained, framed canvas holding ONE loud object ------------- */
+    .stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(
+        135% 120% at 70% 22%,
+        var(--color-surface-2),
+        var(--color-surface) 44%,
+        var(--color-bg) 100%
+      );
+    }
+    /* faint engineering grid floor, masked to fade at the edges */
+    .stage::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.5;
+      background-image:
+        linear-gradient(var(--color-border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+      background-size: var(--space-6) var(--space-6);
+      -webkit-mask-image: radial-gradient(120% 95% at 50% 38%, #000, transparent 78%);
+      mask-image: radial-gradient(120% 95% at 50% 38%, #000, transparent 78%);
+    }
+    /* the rationed accent: one soft glow, spent on this single object */
+    .stage__glow {
+      position: absolute;
+      width: 56%;
+      aspect-ratio: 1;
+      border-radius: var(--radius-full);
+      background: var(--color-accent);
+      filter: blur(80px);
+      opacity: 0.55;
+      pointer-events: none;
+    }
+    /* edge-bleed brand mark — clipped by the frame; reads as "this continues" */
+    .monogram {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-weight: var(--weight-regular);
+      font-size: clamp(11rem, 40vmin, 24rem);
+      line-height: 0.8;
+      letter-spacing: var(--tracking-tight);
+      color: var(--color-fg);
+      text-shadow: 0 0 70px color-mix(in srgb, var(--color-accent) 40%, transparent);
+      will-change: transform;
+    }
+    .stage__cap {
+      position: absolute;
+      left: var(--space-4);
+      bottom: var(--space-4);
+      z-index: 2;
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      color: var(--color-subtle);
+    }
+
+    .foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-5);
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: var(--tracking-wide);
+      color: var(--color-subtle);
+    }
+
+    /* ---- restack, don't collapse: keep both zones, speech on top -------------- */
+    @media (max-width: 900px) {
+      .main { grid-template-columns: 1fr; gap: var(--space-7); }
+      .speech { max-width: 22ch; }
+      .stage { aspect-ratio: 16 / 10; }
+    }
+    @media (max-width: 600px) {
+      .hero { gap: var(--space-6); padding: var(--space-5) var(--space-5); }
+      .nav { display: none; }
+      .speech { max-width: 100%; }
+      .foot { font-size: 0.7rem; }
+      /* shrink the display so the longest word never clips the viewport */
+      .display { font-size: clamp(2.4rem, 12vw, 3.5rem); }
+      .display .line--2 { padding-inline-start: 0.08em; }
+      .display .line--3 { padding-inline-start: 0.2em; }
+    }
+
+    /* ---- motion: one curve, long reveal for the brand moment, fully gated ----- */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal { opacity: 0; transform: translateY(1.4rem); animation: rise var(--duration-slow) var(--ease-standard) both; }
+      .reveal[data-d="0"] { animation-delay: 0.00s; }
+      .reveal[data-d="1"] { animation-delay: 0.09s; }
+      .reveal[data-d="2"] { animation-delay: 0.18s; }
+      .reveal[data-d="3"] { animation-delay: 0.27s; }
+      .reveal[data-d="4"] { animation-delay: 0.36s; }
+      .reveal[data-d="5"] { animation-delay: 0.45s; }
+      @keyframes rise { to { opacity: 1; transform: none; } }
+
+      .stage { opacity: 0; animation: rise var(--duration-slow) var(--ease-standard) 0.2s both; }
+      .monogram { animation: float 9s var(--ease-standard) 1.5s infinite alternate; }
+      @keyframes float { to { transform: translateY(-3%); } }
+    }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="hero">
+    <!-- top HUD: wordmark + primary nav -->
+    <div class="bar">
+      <p class="brand reveal" data-d="0">Verdigris&#174;</p>
+      <nav class="nav reveal" data-d="1" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#studio">Studio</a>
+        <a href="#journal">Journal</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="main">
+      <!-- speech zone: type performs -->
+      <div class="speech">
+        <p class="eyebrow reveal" data-d="1">Independent design &amp; commerce studio</p>
+        <h1 class="display reveal" data-d="2">
+          <span class="line">Flagship</span>
+          <span class="line line--2">stores,</span>
+          <span class="line line--3"><span class="dim">engineered.</span></span>
+        </h1>
+        <p class="lead reveal" data-d="3">
+          Eight years designing and shipping commerce for fashion, beauty, and home brands.
+        </p>
+        <div class="actions reveal" data-d="4">
+          <a class="btn btn--primary" href="#work">See the work <span class="arrow" aria-hidden="true">&rarr;</span></a>
+          <a class="btn btn--ghost" href="#contact">Start a project</a>
+        </div>
+      </div>
+
+      <!-- stage zone: one framed object performs -->
+      <div class="stage reveal" data-d="3" role="img" aria-label="Verdigris brand mark">
+        <span class="stage__glow" aria-hidden="true"></span>
+        <p class="monogram" aria-hidden="true">V</p>
+        <span class="stage__cap">Brand mark / 2016</span>
+      </div>
+    </div>
+
+    <!-- bottom HUD: real status, not decoration -->
+    <div class="foot">
+      <span class="reveal" data-d="5">Available for projects from August</span>
+      <span class="reveal" data-d="5">&#169; 2026 Verdigris Studio</span>
+    </div>
+  </header>
+</body>
+</html>

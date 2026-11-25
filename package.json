@@ -1,0 +1,35 @@
+{
+  "name": "web-design-taste",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Retrieval-augmented design-taste system: a distilled corpus + a Skill that upgrades UI/UX quality at build time.",
+  "scripts": {
+    "harvest": "node tooling/harvest.mjs",
+    "capture": "node tooling/capture.mjs",
+    "tokens:build": "node tokens/build.mjs",
+    "index:build": "node tooling/build-index.mjs",
+    "query": "node tooling/query.mjs",
+    "eval:retrieval": "node tooling/eval-retrieval.mjs",
+    "validate": "node tooling/validate-corpus.mjs",
+    "lint": "biome lint . && pipx run ruff==0.17.6 check . && bash tooling/lint-shell.sh",
+    "consolidate": "node tooling/consolidate-patterns.mjs",
+    "render:check": "node tooling/render-patterns.mjs --check",
+    "render:gallery": "node tooling/render-patterns.mjs --gallery",
+    "refresh": "node tooling/refresh.mjs",
+    "preview": "node preview/serve.mjs",
+    "lint:design": "node tooling/design-lint.mjs",
+    "evolve": "node tooling/evolve.mjs",
+    "distill": "node tooling/distill.mjs",
+    "reflect": "node tooling/reflect.mjs",
+    "bot": "node tooling/control-bot.mjs",
+    "daemons": "bash tooling/daemons.sh"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.9",
+    "playwright": "^1.49.0"
+  }
+}

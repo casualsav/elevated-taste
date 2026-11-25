@@ -1,0 +1,74 @@
+---
+slug: masterclass
+url: https://www.masterclass.com
+source: editorial-pick
+corpus: expressive
+surface: site
+captured: 2026-07-10
+award_type: Editorial pick (consumer subscription)
+score: null
+tags: [edtech, education, subscription, consumer, dark, video, celebrity, conversion, editorial, next-js]
+when_to_use: [landing, hero, product-marketing, feature-section, onboarding, navigation, interactive-showcase]
+directions: [expressive, editorial]
+layout: [split-hero, full-bleed]
+a11y: [reduced-motion-ignored, focus-visible, alt-coverage-high, tap-targets-risky]
+provenance:
+  gallery_url: null
+  robots_ok: true
+  license_note: "private reference; not redistributed"
+patterns: [intent-quiz-hero, scroll-gated-cta-bar]
+tokens_snapshot: ../tokens/masterclass.json
+screenshots: ../screenshots/masterclass/
+---
+
+## What works (transferable principles)
+
+- **One responsive scale token drives both type *and* space.** `--mc-scale-N` / `--font-scale-N` / `--spacing-scale-N` are the *same* index remapped at two breakpoints (step 9 = 34 → 38 → 48px; step 12 = 72 → 80 → 96px), and `fluid_type` is false — no `clamp()` anywhere. So a heading and the air around it shrink by the same ratio at the same moment, and mobile never gets desktop rhythm with smaller text. **Transfers to:** any design system — bind type and spacing to one index instead of two independent ramps, and rescale the *token*, not the component. Discrete steps also give you exact control at each breakpoint that fluid interpolation cannot.
+
+- **On a dark ground, elevation is a surface-lightness step — not a shadow.** The page has literally **zero drop shadows**: all four `box-shadow` values in the profile are `inset` rings (`0 0 0 2px inset`) used as selection/focus outlines. Depth comes from a four-rung lightness ladder — page `#0d0d0e` → control `#222326` → hover `#303136` → tint `#43454c` — and hover simply climbs one rung. **Transfers to:** every dark UI. Drop shadows are nearly invisible on near-black and cost you compositing; a +6% lightness step reads as "raised" instantly, animates as a pure color transition, and doubles as the hover affordance.
+
+- **Ultra-condensed uppercase display, sub-1 leading, *positive* tracking — everything else is one grotesk at two weights.** The brand face (`Sohne Schmal`, uppercase, weight 600–800) runs at `line-height: 0.85` and `letter-spacing: 0.01em`; the workhorse (`Sohne`, 400/600 only) carries all 2,335 text nodes. Note the inversion of the usual ramp: the condensed caps get *looser* tracking because condensed uppercase collides with itself, while the wide 64px serif/sans headings go negative (`-0.64px`). **Transfers to:** tracking should follow *width and case*, not just size. Condensed + caps → open it up; wide + lowercase → tighten it. And a two-weight workhorse is enough when a single characterful display face does the shouting.
+
+- **Sub-brand bands: a section may swap its entire type + color world, but never the master's nav or CTA color.** The Certificates band abandons the whole system — an Ivar Display Condensed *serif*, cream `#fffef2` on olive `#211d0d`, chartreuse `#dcff00` button — and the At Work band does it again. The crimson `#e32652` global CTA and the black header are the only things that never move. **Transfers to:** multi-product marketing pages. Let each product own a full-bleed band with its own face and palette, and hold the parent identity in exactly two invariants (nav chrome + primary action color). You get portfolio range without the page dissolving into a template.
+
+- **The hero's primary action is a self-segmentation quiz, not a CTA.** Instead of "Get started," the left half is *"What brings you to MasterClass today?"* — eight one-tap intent rows, then Continue. The visitor's first click is a declaration of interest, which both personalizes the next screen and converts a passive scroll into an investment. **Transfers to:** any product with heterogeneous audiences (education, tooling, marketplaces). The cost of one extra step is repaid by segmentation data *and* by the commitment effect; the button still exists, it just now knows something. See `patterns/intent-quiz-hero.md`.
+
+- **Faces are the product, so the media is treated as content, not decoration.** 209 images at a `1.0` alt ratio; the hero's right half is a two-column auto-scrolling wall of instructor portraits with a real pause control; the class grid puts serif titles *over* the instructor's face rather than beside it. The three gradients on the whole page are all functional legibility scrims (`linear-gradient(to top, #000, transparent 45%)`) over photography, never decorative fills. **Transfers to:** any catalog where a person or artifact *is* the value — spend the pixel budget on the asset, use gradients only where text must survive on top of it, and give every image a real alt.
+
+- **Restraint that lets the noise work:** one accent hue (crimson, plus its single pressed shade), zero drop shadows, zero decorative gradients, **zero CSS Grid** (267 flex containers — the 12-column token is nominal), 1264px container, radii capped at 8/12/16/24. Every bit of spectacle is spent on photography and one condensed face.
+
+## Design-system read
+- **Type:** Desktop scale `12 · 14 · 16 · 20 · 24 · 32 · 48 · 64 · 80` (body 16 / 24, i.e. leading 1.5); ratio hovers around 1.25–1.5. Three families in strict roles: **Sohne Schmal** (condensed caps, display/brand only) · **Sohne** (400 + 600, *all* UI and body) · **Ivar Display Condensed** (serif, class titles + the Certificates sub-brand only). Named leading tokens go all the way to `--mc-lh-heading--ultra-tight: 0.9`, and the brand class overrides to `0.85`. Hierarchy is created by **scale + width/case contrast**; weight barely participates (400 covers 1,950 nodes, 600 covers 398). Body carries positive tracking (`+0.32px` at 16px ≈ `0.02em`) — a deliberate legibility choice on a near-black ground, where tight text closes up.
+- **Color:** A four-rung neutral ladder on near-black — page `#0d0d0e`, control/surface `#222326`, hover `#303136`, tint `#43454c` — with `#272c33` as the hairline/divider and `#191c21` as the only translucent panel (`0.95` alpha, the sticky bar). Text: `#ffffff` primary, `#9ea0a9` muted, `#d4d5d9` medium. Exactly one brand hue: crimson `#e32652` (pressed `#c71a42`) reserved for the primary action. Two *editorial* colors that are not system tokens: gold `#eed37f` (`--mc-color-announce`, badges) and cream `#fffef2` (`--mc-color-nameplate`). Chartreuse `#dcff00` appears **only as a raw arbitrary gradient value**, never as a token — the tell that it is campaign paint, not system.
+- **Spacing rhythm:** Base 4px, but the ladder is non-linear and *responsive*: `4 · 8 · 12 · 16 · 18 · 18 · 20 · 20 · 34 · 46 · 60 · 72` on mobile becomes `… 20 · 24 · 28 · 32 · 48 · 64 · 80 · 96` at ≥960px. Small steps are pinned (touch targets don't shrink); only the section-rhythm steps (9–12) grow. Dominant gap is 20px; section padding `96px` inline.
+- **Layout system:** Flex everywhere (267 flex / 0 grid). Content container `min(1264px, 100vw)`; a secondary 497px measure for centered copy. Breakpoints at **576 / 768 / 960 / 1200**, with the scale remap firing at 768 and 960. Nav: 11 links desktop → hamburger (2 visible) mobile. Horizontal card rails use `scroll-snap-type: x mandatory` with `scroll-snap-align: start` — native snap, no carousel library.
+- **Layering / page architecture:** **Single flat dark scroll.** `has_static_backdrop: false`, `has_blend_overlay: false`, zero `mix-blend-mode`. Only two persistent layers: an *opaque* black pinned header (`z 1030`) and a fixed bottom CTA bar (`z 1001`, `rgba(25,28,33,0.95)`) that is `opacity: 0; transform: translateY(100%); visibility: hidden` at rest. `backdrop-filter: blur(6px)` exists on exactly one element (a jump nav). The 100% "transparent sections" figure is the default-transparent artifact, not a reveal effect — there is nothing behind them. Depth is entirely the surface ladder above.
+- **Motion / easing intent:** Base `200ms` / `250ms` for state, `300ms` with an overshoot curve `cubic-bezier(0.29, 1.185, 1, 1)` for playful pops, `500ms` for the sticky bar, and `40–50s` linear for marquees. Motion says *"a library is always moving past you"* — content drifts (marquee, snap rails), chrome arrives (sticky bar), and nothing narrates. 19 IntersectionObservers over 140 targets are overwhelmingly lazy-load and analytics, not choreography.
+- **Density:** High in the rails (5+ cards visible, 12-item category list), low everywhere else — each band does one job with 96px of air around it. Legibility survives because the body face is neutral, tracked open, and set at 1.5 leading against a four-rung contrast ladder.
+- **Hierarchy:** **Scale + width/case**, then position. Color ranks only the single action (crimson) — it is the one saturated thing on a monochrome page, so it always wins the eye without needing size.
+- **Restraint:** No drop shadows. No decorative gradients. No CSS Grid. No parallax, no scrollytelling, no cursor follower, no canvas, no WebGL, no animation library. For an "expressive" site the *code* is remarkably plain — the expression is photography, one condensed face, and one red.
+
+## Interaction & motion (evidence: 6 `@keyframes`, 2 CSS animation rules, 52 rAF, 19 IO / 140 targets, 0 `prefers-reduced-motion` rules; frames s00→s10)
+
+- **Scroll-gated conversion bar** — *Trigger:* in-view (a sentinel leaves the viewport). *Mechanism:* a `position: fixed` bottom bar transitions `transform: translateY(100%) → translateY(0)`, `opacity: 0 → 1`, `visibility: hidden → visible` over `500ms` when an "active" class lands. Frames confirm it: absent at s00, present from s04 onward carrying an instructor avatar stack + *"Starting at $10/month"* + the crimson CTA. *Reads as:* the offer follows you once you've shown intent by scrolling, without stealing the first impression. *Transfers to:* any long conversion page — it is the honest alternative to an on-load modal. *Safety:* **production-safe** — `transform`/`opacity` only (no reflow), and `visibility` is transitioned so the bar is correctly hidden from AT and tab order at rest. Costs nothing on the main thread. See `patterns/scroll-gated-cta-bar.md`.
+
+- **Infinite dual-track marquee (duplicated track)** — *Trigger:* load. *Mechanism:* `@keyframes … { 0% { transform: translateX(0) } 100% { transform: translateX(-50%) } }` on a track whose children are duplicated once, run `linear infinite` at `var(--scroll-duration, 40s)`; the vertical hero variant is the same trick on `translateY` at ~50s. Frame s00 shows the two instructor columns mid-drift with a pause button overlaid. *Reads as:* an inexhaustible catalog — "there is always more." *Transfers to:* logo walls, testimonial rails, any "we have too much to show you" surface. *Safety:* **production-safe with a caveat** — `transform`-only and GPU-cheap, but it animates forever (never idles, so it prevents the compositor from sleeping) and here it is **not gated on `prefers-reduced-motion`**. Always ship the pause control (this site does) *and* the PRM guard (this site doesn't). See `patterns/intent-quiz-hero.md`.
+
+- **Mask-feathered snap rail** — *Trigger:* drag/scroll. *Mechanism:* a native `scroll-snap-type: x mandatory` rail whose overflow edges are faded by `mask-image: linear-gradient(to right, var(--edge) …, var(--inner) …, var(--edge) 100%)` with `--edge: rgba(0,0,0,0.2)` and a `--feather` of ~192px — so partially-visible cards dim rather than being clipped by a hard box edge. *Reads as:* the rail continues past the frame. *Transfers to:* any horizontal card rail. *Safety:* **production-safe** — pure CSS, no JS, no scroll listener; `mask-image` needs a `-webkit-` prefix on older Safari, and the fade must not be the *only* affordance that more cards exist (keep the arrows).
+
+- **Surface-step hover** — *Trigger:* hover. *Mechanism:* 12 recorded hover effects, all the same move: `background` climbs one rung on the neutral ladder (`#222326 → #303136`) over `250ms ease`; the crimson CTA goes to its single pressed shade (`#e32652 → #d61a46`). Nothing scales, lifts, or shadows. *Reads as:* a control acknowledging you, not performing. *Transfers to:* every dark UI — one property, one token step, one duration. *Safety:* **production-safe**.
+
+- **Overshoot pop for playful controls** — *Trigger:* state change. *Mechanism:* `300ms cubic-bezier(0.29, 1.185, 1, 1)` — an ease-out that overshoots past 1 and settles, applied to small interactive chrome (10 occurrences). *Reads as:* springy, toy-like; the one place the page allows itself personality. *Transfers to:* checkboxes, chips, badges — never to layout or anything a user waits on. *Safety:* **production-safe** in small doses; overshoot on a large moving surface reads as instability.
+
+**Reduced motion is NOT respected** — `prmRules: 0`, and no `@media (prefers-reduced-motion: reduce)` block exists in 22 stylesheets. Two perpetual marquees and a translating sticky bar run regardless. This is the site's clearest defect; every pattern below fixes it.
+
+## Production-safety note
+- **`prefers-reduced-motion` ignored (defect).** Perpetual marquees are exactly the case PRM exists for. Gate them: `animation-play-state: paused` under reduce, and drop the sticky bar's transition to `none` so it simply appears.
+- **76 small tap targets out of 175 interactive elements (defect).** The condensed chrome and dense rails push controls under 44px, and the fixed bar adds a second row of them at the bottom edge of the viewport. Enforce a 44px minimum when porting.
+- **Perpetual `linear infinite` animation** keeps the compositor awake for the life of the page — a real battery cost on mobile. Pause it when off-screen (`IntersectionObserver` → `animation-play-state`), which the site does not do.
+- **Keep:** `alt` ratio 1.0 across 209 images · visible focus ring present (2px white, `--mc-color-element-focus-outline`) · disabled state carries `opacity 0.3` + `cursor: not-allowed` · native `scroll-snap` instead of a carousel library · `font-display: swap` on every face · zero drop shadows.
+- **Note the tracker load:** 20 Segment + GTM/Meta/LinkedIn/Bing/DoubleClick/Contentsquare/Sprig/Maze resources. Copy the design, not the third-party budget.
+
+## Extracted patterns
+- `intent-quiz-hero` — split hero whose primary action is a one-tap self-segmentation checklist rather than a CTA, opposite a mask-feathered auto-scrolling media wall with a real pause control.
+- `scroll-gated-cta-bar` — fixed bottom conversion bar that slides in once a hero sentinel scrolls out of view; `transform`/`opacity`/`visibility` only, IntersectionObserver-driven, reduced-motion aware.

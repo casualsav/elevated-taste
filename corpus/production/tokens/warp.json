@@ -1,0 +1,77 @@
+{
+  "color": {
+    "bg": "#fcfcfc",
+    "surface": "#f8f5ee",
+    "fg": "#0a0908",
+    "muted": "#5f5d59",
+    "accent": "#c7aeff",
+    "roles": {
+      "bg-warm": "#fcfcfc",
+      "surface-cream": "#f8f5ee",
+      "surface-tint-lavender": "#f6f1ff",
+      "fg-ink": "#0a0908",
+      "fg-muted": "#5f5d59",
+      "fg-subtle": "#646159",
+      "border-hairline": "#c4c0ba",
+      "accent-lavender": "#c7aeff",
+      "accent-lavender-deep": "#bda6f7",
+      "accent-terracotta": "#d97757",
+      "on-dark": "#fcfcfc",
+      "control-ink": "#0a0908",
+      "control-ink-fg": "#fcfcfc",
+      "panel-dark": "#141414"
+    }
+  },
+  "type": {
+    "families": [
+      "theFuture (humanist geometric display sans)",
+      "Inter (body / UI sans)",
+      "Azeret Mono (labels, buttons, eyebrows, terminal chrome)"
+    ],
+    "scale": ["0.75rem", "0.875rem", "0.9375rem", "1rem", "1.875rem", "3rem", "3.15rem", "4.05rem", "6rem"],
+    "weights": [400, 500, 600],
+    "leading": [1.06, 1.1, 1.5]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "8px", "12px", "16px", "24px", "32px", "40px", "64px", "96px"]
+  },
+  "radius": ["2px", "3px", "6px", "9999px"],
+  "shadow": [
+    "0 8px 30px rgba(0,0,0,0.12)",
+    "0 12px 32px -8px rgba(0,0,0,0.28), 0 2px 8px rgba(0,0,0,0.10)",
+    "inset 0 0 0 1px rgba(31,31,31,1)"
+  ],
+  "motion": {
+    "durations": ["100ms", "150ms", "200ms", "240ms", "300ms", "320ms", "400ms", "500ms"],
+    "easings": [
+      "cubic-bezier(0.4, 0, 0.2, 1)",
+      "cubic-bezier(0.16, 1, 0.3, 1)",
+      "ease-in-out"
+    ],
+    "stagger_ms": [80, 160],
+    "io_thresholds": ["0.12", "0.15", "0.5", "[0.15,0.35,0.55,0.75]"],
+    "io_root_margins": ["200px", "0px 0px -10% 0px", "-30% 0px -55% 0px"],
+    "triggers": ["in-view", "hover", "scroll-progress", "load", "continuous"],
+    "techniques": [
+      "count-up-stat",
+      "in-view-fade-reveal",
+      "scroll-linked-recolor",
+      "keyframe-ticker-marquee",
+      "hover-micro-state",
+      "autoplay-demo-loop"
+    ],
+    "scroll_effects": [
+      { "name": "count-up stat odometer", "property": "text", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "in-view fade reveal", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "scroll-into-view recolor", "property": "color/background", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "keyframe ticker strip (scroll-left/right/up)", "property": "transform", "trigger": "continuous", "safety": "production-safe" },
+      { "name": "capability-strip parallax drift", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "autoplay terminal/mini-app demo", "property": "video+keyframes", "trigger": "load/in-view", "safety": "spectacle-only" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "video"],
+    "reduced_motion": "respected",
+    "evidence": "16 @keyframes (reveal, fill-progress, scroll-left/right/up, spin/spin-slow, pulse, loading-spinner-in, mini-app-typing-bounce, mini-app-message-enter, warp-lite-story-reveal/composer-reveal/shimmer); 8 CSS animation rules; 7 IntersectionObservers / 83 targets; 4 scroll + 10 mousemove listeners; ~1603 rAF calls per pass (autoplay demo + count-ups, NOT a canvas — probe shows 0 canvas); 4 prefers-reduced-motion blocks; no GSAP/Lenis/Framer globals (hand-rolled). Interactive probe: 0 carousels, 0 tabs, 0 canvas, 0 marquee-elements (tickers are CSS transform loops, not <marquee>), 6 draggable, 14 disclosure, 1 video. Scroll-effect kinds: 9 text color-shift, 4 background-shift, 4 opacity, 2 fade-in, 1 transform/parallax. 12 hover effects (nav bg wash to ~5% ink)."
+  },
+  "notes": "Trusts the screenshot over the noisy raw profile. COLOR: this is a WARM-NEUTRAL system, not a chromatic one — raw rgb(10,9,8) ink and rgb(95,93,89) muted are warm-shifted near-black/gray on a warm off-white #fcfcfc; #f8f5ee cream and #f6f1ff pale-lavender are the only background tints. Lavender (#c7aeff) and terracotta (#d97757, the Claude-orange dot) appear ONLY as sparse small accents/illustration fills — there is no saturated brand accent on type or primary controls; controls are ink-on-white/white-on-ink. TYPE: three explicit roles — theFuture display sans for headlines/quotes (expressive), Inter for body, Azeret Mono for ALL functional chrome (nav, buttons, eyebrows, stat labels). Display sizes normalized from raw 50.4/64.8/72/96px (the 64.8/50.4 are mid-page responsive odometers). RADIUS: raw 3.3e7px is a clamped pill (→9999px); the dominant 2–3px gives the boxy, terminal-square control feel — normalized to {2,3,6,full}. SHADOW: shadows are nearly absent on the warm canvas; the few present are soft elevation on floating product cards plus 1px inset hairlines as borders. Dropped one-off lab()/oklab() values and the dark in-app screenshot palette (rgb 20,20,20 / 28,26,38) which belong to embedded product UI, not the marketing surface."
+}

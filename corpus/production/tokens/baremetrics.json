@@ -1,0 +1,56 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f7f7fc",
+    "fg": "#33334f",
+    "muted": "#767ead",
+    "accent": "#6078ff",
+    "roles": {
+      "surface-alt": "#f9f9fb",
+      "text-secondary": "#7171a6",
+      "text-faint": "#b8b8d9",
+      "hairline": "rgba(0,0,0,0.07)",
+      "cat-blue": "#6078ff",
+      "cat-purple": "#724ce9",
+      "cat-teal": "#36bedf",
+      "cat-yellow": "#ffc148",
+      "cat-green": "#12c457",
+      "cat-pink": "#e84c85",
+      "cat-orange": "#ff8d43",
+      "announce-bar": "#ff3b30"
+    }
+  },
+  "type": {
+    "families": ["Inter", "-apple-system, system-ui, sans-serif"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.25rem", "1.375rem", "2.5rem", "3.5rem"],
+    "weights": [400, 700, 800],
+    "leading": [1.1, 1.18, 1.45, 1.5],
+    "tracking": {
+      "display-56": "-0.064em",
+      "display-40": "-0.021em",
+      "sub-20": "-0.014em",
+      "body-16": "-0.014em"
+    }
+  },
+  "space": { "base": "8px", "scale": ["5px", "8px", "10px", "15px", "20px", "30px", "40px", "80px", "100px", "150px"] },
+  "radius": ["8px", "16px"],
+  "shadow": [
+    "rgba(51,51,79,0.06) 0px 10px 40px 10px",
+    "rgba(0,0,0,0.1) 0px 1px 8px 0px",
+    "rgba(0,0,0,0.12) 0px 8px 30px 0px"
+  ],
+  "motion": {
+    "durations": ["125ms", "150ms", "200ms", "500ms"],
+    "easings": ["linear", "ease-out", "ease-in-out"],
+    "triggers": ["load", "scroll-progress", "hover"],
+    "techniques": ["slot-machine-word-rotator", "pinned-header", "lottie-product-demo", "card-hover-lift"],
+    "scroll_effects": [
+      { "name": "pinned-header", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "slot-machine-word-rotator", "property": "transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "word-recolor", "property": "color", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["CSS transitions", "dotLottie web component", "AOS (loaded, no reveals observed)", "IntersectionObserver"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Colors read from raw CSS (rgb) and rounded to hex; ink #33334f is the true near-black. No CSS custom-property design tokens exist on the site (tokens.count 0) — values are hardcoded HubSpot module CSS, normalized here. No gradients, no dark theme (supportsDark false) so color.dark omitted. Type scale collapsed from the observed 12/14/16/18/20/22/40/56 set; a stray 30/36px exist in localized modules and were dropped. Hero H1 is Inter 800 56px/-3.6px tracking. Announce-bar red is approximate from the screenshot. AOS is present but the frame sequence showed no entrance reveals; high rafCalls come from the Lottie player."
+}

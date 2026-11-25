@@ -1,0 +1,74 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f8f8f8",
+    "fg": "#1c1b1b",
+    "muted": "#6a6a6a",
+    "accent": "#1c1b1b",
+    "roles": {
+      "ink": "#1c1b1b",
+      "ink-secondary": "#6a6a6a",
+      "border": "#dddddd",
+      "border-footer": "#e9e9e9",
+      "surface-inverse": "#1c1b1b",
+      "fg-on-inverse": "#ffffff",
+      "muted-on-inverse": "rgba(255,255,255,0.5)",
+      "border-on-inverse": "rgba(255,255,255,0.25)",
+      "scrim": "rgba(0,0,0,0.5)",
+      "sale": "#f94c43",
+      "error": "#c8232c"
+    }
+  },
+  "type": {
+    "families": ["Basic Commercial", "Arial", "sans-serif"],
+    "scale": ["0.625rem", "0.75rem", "0.8125rem", "0.875rem", "1rem", "1.0625rem", "1.5rem"],
+    "weights": [400, 700],
+    "leading": [1.0, 1.5, 1.65],
+    "tracking": ["0em", "0.01em", "0.29em"]
+  },
+  "space": {
+    "base": "5px",
+    "scale": ["5px", "10px", "20px", "30px", "40px", "60px", "75px", "110px", "150px"]
+  },
+  "radius": ["2px", "20px"],
+  "shadow": [
+    "0 26px 80px rgba(0,0,0,0.2)",
+    "0 0 18px rgba(0,0,0,0.2)",
+    "0 2px 10px -3px #999999"
+  ],
+  "motion": {
+    "durations": ["200ms", "300ms", "450ms", "500ms", "800ms"],
+    "easings": [
+      "ease-in-out",
+      "ease",
+      "cubic-bezier(0.645, 0.045, 0.355, 1)",
+      "cubic-bezier(0.785, 0.135, 0.15, 0.86)",
+      "cubic-bezier(0.215, 0.61, 0.355, 1)"
+    ],
+    "triggers": ["hover", "in-view", "load", "tap"],
+    "techniques": [
+      "transparent-header-flip",
+      "hover-retract-underline",
+      "hover-arrow-nudge",
+      "drawer-slide-scrim",
+      "opacity-crossfade"
+    ],
+    "scroll_effects": [
+      {
+        "name": "transparent-header-flip",
+        "property": "background",
+        "trigger": "in-view",
+        "safety": "production-safe"
+      }
+    ],
+    "stack": [
+      "IntersectionObserver",
+      "CSS transitions",
+      "CSS @keyframes",
+      "Shopify (Impulse-family theme)",
+      "Rellax (bundled, unused on this page)"
+    ],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Normalized from raw/therow.{json,html,css} + desktop/mobile screenshots + 11 scroll frames.\n\nTYPE: px sizes converted at 16px root. The real ladder is 13px body / 14px default / 16px inputs / 24px max; 10-12px are legal + label sizes. Fractional sizes in the raw profile (13.008px, 12.992px, 14.4px, 11.05px) are rem-rounding artifacts from third-party widgets and were dropped. No h1 exists on the page; `fluid_type: false` and body stays 13px at both 1440px and 390px, so there is no responsive type axis to record. `1.0625rem` (17px) is the wordmark only, at ~0.29em tracking (5px) uppercase — that tracking value is a display device, not a body token. Weight 700 appears 35 times and is entirely third-party chrome; treat this as a single-weight system.\n\nCOLOR: no accent exists — the photograph is the accent, so `accent` is set to ink rather than invented. Ink is a warm near-black (#1c1b1b), never #000. `sale`/`error` are the only chromatic values and are strictly semantic. A stray link blue (#3860be) and a green (#50ae88) appear only inside embedded third-party widgets and were excluded. `surface` #f8f8f8 is a low-frequency (4 nodes) input/hover ground, included because it is the system's only non-white surface. `color.dark` is OMITTED: craft.theme.supportsDark is false and the profile's `theme.dark` block is a white-on-white echo of the light theme, not a real dark palette.\n\nSPACE: base is 5px. The raw profile's 5.25px / 8.75px / 10.5px are rem-derived halves of that unit; rounded to 5/9/10 for reuse. 60/75px are product-grid gutters; 110px is the footer band.\n\nRADIUS/SHADOW: radius 2px reads as square (1px, 2.5px, 3px collapsed into it); 20px/17px/50px are pill-shaped chips and buttons in embedded widgets. Every shadow in the sheet belongs to a drawer or modal — no content surface is elevated, and there are ZERO gradients on the page. Elevation is a modality signal here, not decoration.\n\nMOTION: `scroll_effects` is deliberately near-empty. The raw profile reports 8 scroll effects, all `kind: pin` — these are the position:fixed drawer/overlay elements being misread as pinned layers, not scroll choreography. The 11-frame sequence shows NO content-plane movement: nothing reveals, scales, parallaxes, or recolors; the page simply scrolls under a sticky header. `Rellax` is detected in the bundle but no `data-rellax`/`.rellax` element exists in the DOM, so no parallax is claimed. The one real in-view effect is the header's transparent→solid flip, evidenced by the single IntersectionObserver (threshold [0,0.1,0.5,0.9,1], rootMargin '0px 0px -90% 0px') plus the `--header-is-transparent` / `--enable-header-negative-margin` 0-or-1 calc flags; the frames don't scroll far enough to capture the flip itself.\n\nOf the 19 @keyframes, only three are the theme's own (aniShow/aniHide = opacity 0<->1; animateMenuOpen = fade + 1.5rem rise); the rest are third-party spinners, skeletons, and the cookie banner. `cubic-bezier(0.645,0.045,0.355,1)` is the theme's exposed `--drawer-transition-timing`. The 800ms duration and the other two beziers appear only in embedded widgets.\n\nREDUCED MOTION: recorded as `not-respected`, overriding the probe's `respectsReducedMotion: true`. That flag is a false positive — the single `@media (prefers-reduced-motion: reduce)` rule in the whole 5331-line bundle belongs to a third-party geolocation modal. The theme's own 450-500ms drawers, fades, and menu rise are ungated.\n\nA11Y: focus flag omitted rather than guessed — the theme defines no :focus-visible rule of its own (the only two in the bundle are third-party), while the probe reports focus_visible: true. 171 of 410 interactive elements are under 44px. `alt-coverage-high` is technically true (img_alt_ratio 1.0 across 6 images) but the hero <img> carries alt=\"\" under an empty <a>, leaving the page's primary action unlabeled."
+}

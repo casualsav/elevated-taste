@@ -1,0 +1,64 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f9fafb",
+    "fg": "#030712",
+    "muted": "#6a7282",
+    "accent": "#e60076",
+    "roles": {
+      "border": "#e5e7eb",
+      "hairline": "rgba(3,7,18,0.05)",
+      "link": "#00a6f4",
+      "code-surface": "#030712",
+      "code-surface-2": "#1e2939",
+      "code-flash": "rgba(0,166,244,0.10)",
+      "accent-fg": "#ffffff",
+      "hover-tint-light": "rgba(0,0,0,0.025)",
+      "hover-tint-dark": "rgba(255,255,255,0.025)"
+    },
+    "dark": {
+      "bg": "#030712",
+      "surface": "rgba(255,255,255,0.05)",
+      "surface-2": "rgba(255,255,255,0.10)",
+      "fg": "#ffffff",
+      "muted": "#99a1af",
+      "accent": "#e60076",
+      "border": "rgba(255,255,255,0.15)"
+    }
+  },
+  "type": {
+    "families": ["Inter", "IBM Plex Mono"],
+    "scale": ["0.75rem", "0.8125rem", "0.875rem", "1rem", "1.0625rem", "1.125rem", "1.25rem", "1.5rem", "1.875rem", "2.25rem", "2.5rem", "6rem"],
+    "weights": [400, 500, 600, 700],
+    "leading": [1.0, 1.25, 1.5, 1.625],
+    "tracking": ["-0.025em", "0em", "0.05em"],
+    "features": ["cv02", "cv03", "cv04", "cv11"]
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["4px", "7px", "8px", "12px", "16px", "24px", "32px", "48px", "64px"]
+  },
+  "radius": ["4px", "6px", "8px", "12px", "16px", "32px", "9999px"],
+  "shadow": ["0 1px 2px rgba(0,0,0,0.05)", "0 4px 4px rgba(0,0,0,0.15)"],
+  "motion": {
+    "durations": ["150ms", "300ms", "350ms", "1000ms", "2000ms"],
+    "easings": ["cubic-bezier(0.4, 0, 0.2, 1)", "cubic-bezier(0, 0, 0.2, 1)", "ease"],
+    "triggers": ["hover", "in-view", "drag", "scroll-progress"],
+    "techniques": [
+      "drag-resize-container-preview",
+      "in-view-code-flash",
+      "sticky-panel-titlebar",
+      "scroll-scrubbed-demo-transform",
+      "hover-background-tint"
+    ],
+    "scroll_effects": [
+      { "name": "sticky-panel-titlebar", "property": "clip", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "demo-ghost-fade", "property": "opacity", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "demo-object-scale", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "in-view-code-flash", "property": "background", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "position: sticky/fixed", "container queries", "backdrop-filter"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Palette normalized from the site's own Tailwind v4 default scale (gray-950/500/200, pink-600, sky-500); computed styles report lab() because the stylesheet re-declares every color inside @supports (color: lab(0% 0 0)) — the flat hex fallback is what's recorded here. Spacing base is genuinely 4px (--spacing: .25rem), not 8px; the listed scale is observed usage, not the framework's full ramp. The `9999px` radius appears in computed styles as 3.35544e+07px (rounded-full clamp) — normalized. Dark axis filled from craft.theme.dark: the site re-themes via a .dark/.light/.system class on <html> (localStorage-driven, defaulting to .system which mirrors prefers-color-scheme), and its dark surfaces are alpha-white washes over a gray-950 ground rather than opaque panels — recorded as such. `code-flash` color inferred from the bespoke @keyframes flash-code (a ~10% alpha cyan wash fading to transparent over 2s, forwards). No entrance/reveal choreography exists (entranceReveals: 0); the four scroll_effects above are the only motion outside demo internals, and zero `prefers-reduced-motion` rules exist in the 8808-line stylesheet."
+}

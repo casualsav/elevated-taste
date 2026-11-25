@@ -1,0 +1,73 @@
+---
+slug: supabase
+url: https://supabase.com
+source: editorial-pick
+corpus: production
+surface: site
+captured: 2026-06-22
+award_type: Curated
+score: null
+tags: [saas, developer-tools, database, b2b, open-source, light]
+when_to_use: [landing, product-marketing, hero, feature-section, interactive-showcase, navigation]
+directions: [minimalist, soft]
+layout: [center-stack, bento]
+a11y: [reduced-motion-respected, focus-visible, alt-coverage-high, tap-targets-risky]
+provenance:
+  gallery_url: null
+  robots_ok: true
+  license_note: "private reference; not redistributed"
+patterns: [two-tone-display-hero, tabbed-product-showcase, announcement-ticker-marquee, parallax-drift, sticky-pin-scrollytelling]
+patterns_to_build: [hero-load-fade]   # simple load-time opacity 0→1 on the hero block; no file yet — too small/common to warrant one, noted for completeness
+tokens_snapshot: ../tokens/supabase.json
+screenshots: ../screenshots/supabase/
+---
+
+## What works
+- **Hierarchy is built from scale, not weight.** The hero jumps ~4.5× from 16px body to a 72px display headline while staying in essentially one weight band (400/500 only). A single geometric sans carries the whole page; size and color do the ranking, so the type system has almost nothing to tune and never looks "loud." Transfers to any content-dense product site that wants calm authority without a weight zoo.
+- **One saturated accent against a near-monochrome field.** The page is white → off-white → near-black grayscale, and a single green (`#3fcf8e`) is rationed to exactly the things that should be clicked or noticed: the primary CTA, inline code keywords, the second line of the headline, success states. Because the accent is a *light* hue, its button uses dark text — high contrast without white-on-green muddiness. Scarcity is what makes the accent read as "brand," not decoration; transfers to any palette where you want one color to mean "go."
+- **Two-tone display headline encodes the value prop.** Splitting the hero into a neutral line ("Build in a weekend") and an accent line ("Scale to millions") makes the positioning legible in one glance — contrast carries the meaning, not a second sentence. Reusable wherever a headline has a setup/payoff or before/after structure.
+- **Bento feature grid with mixed cell sizes prevents the "row of equal cards" look.** Features sit in a grid where some cells span wider and pair copy with a monochrome line illustration or a live code snippet; varied cell size creates rhythm and lets the most important capability take more room. Transfers to any feature/overview section that would otherwise be a monotonous 3-up.
+- **Low-contrast grayscale logo strip.** Trust logos are desaturated to a light gray so they register as social proof without competing with the CTA directly above them — the eye still lands on the green button first. Transfers to any "trusted by" band.
+- **Tabbed product showcase lets one screenshot do the work of five.** A row of tabs (Table Editor / SQL Editor / RLS Policies …) swaps a single framed product screenshot in place, compressing a broad surface area into one calm viewport instead of stacking five sections. Transfers to any multi-feature product with a strong UI.
+- **Restraint as a system.** No gradients, no drop shadows on the hero, no second typeface for display — depth comes only from a hairline border (`#dfdfdf`) and a barely-off-white surface. The discipline is the aesthetic; transfers to any developer/B2B brand that wants to read as precise and trustworthy.
+
+## Design-system read
+- **Type:** One geometric sans (Circular; system fallbacks) across the whole page, with a mono (Source Code Pro) reserved for code. Scale runs 12 → 14 → 16 (body) → 18 → 24 → 36 (section heads) → 72 (display), roughly a 1.25–1.5 ratio at the small end widening to a dramatic display jump. Only two weights ship (400, 500). Hierarchy = **scale + color**, never weight. Tracking is essentially **default and constant**, not a tighten-with-size system: the captured sample shows the 24px section head at only `-0.16px` (≈ -0.0067em) and the 72px display measuring **`normal`** — so unlike Attio, big type here is *not* optically tightened; the geometric sans is left at its natural spacing.
+- **Color:** Grayscale spine — bg `#ffffff`, surface `#fcfcfc`, border `#dfdfdf`, fg `#171717`, with a muted ramp `#525252` / `#707070` / `#b2b2b2` for secondary and tertiary text. Single accent green `#3fcf8e` (plus a slightly deeper `#00bb68` for inline links) used only for CTA, code highlight, headline payoff, and success. Accent-fg is dark, not white, because the accent is light.
+- **Spacing rhythm:** 8px base. Common steps 8 / 16 / 24 / 32; section padding is large (96px, occasionally 128px vertical) so whitespace, not rules or shadows, separates sections. Card inner padding clusters at 24px.
+- **Layout system:** Centered hero on a max content width; below it a responsive bento/feature grid. Captured grids resolve to **12 columns** (with 6+7 and single-column sub-grids inside cells); on mobile the 12-col field collapses to **2 columns** (sub-grids to 5/6), and the 7-link nav reduces to **1** (hamburger). 1440px desktop viewport → 390px mobile; h1 downscales 72px → 36px while body stays 16px. Alignment is mostly centered in marketing bands, left-aligned inside cards.
+- **Components (captured states):**
+  - **Buttons / CTAs:** Primary (green `#3fcf8e` fill, dark text) on hover *deepens* the green and darkens its border to `#097c4f` (no lift, no shadow). Secondary/ghost ("Request a demo", "Sign in") hover from surface `#fdfdfd` → `#ededed` with the border stepping `#d4d4d4` → `#8f8f8f`. Focus-visible draws a **double ring** (inner white 4px + outer gray ~`#707070` 6px via box-shadow) — a clear, non-color-dependent affordance.
+  - **Nav items:** Top-level buttons (Product / Developers / Solutions) are near-black `#171717` and recolor to the deep accent `#00bb68` on hover; focus adds a faint gray outline/ring. The GitHub stars pill goes transparent → `#ededed` bg with text darkening `#525252` → `#171717`.
+  - **Cards:** Hairline-bordered (`#dfdfdf`) on near-white; no captured hover elevation — they stay flat, depth is the border alone (matches the no-shadow system).
+  - **Inputs:** No distinct hover/disabled deltas captured; the footer email field is a plain hairline box. Disabled states were not present in the capture.
+- **Motion / easing intent:** Captured params confirm tiny, uniform micro-transitions — durations cluster at **150 / 200 / 300ms** on hover/focus/state, paired with `cubic-bezier(0.4,0,0.2,1)` (Material standard) and `cubic-bezier(0,0,0.2,1)` (a decelerate-in for the hero fade), with `ease` / `ease-out` as fallbacks. The only other durations are the deliberate **30s–90s** loops driving the infinite marquee tickers. A single ~300ms stagger value appears; staggered entrance is otherwise off. Motion communicates responsiveness, not spectacle — and reduced-motion is respected. Full choreography in **Interaction & motion** below.
+- **Density:** High information density (many features, code, stats) kept legible by generous section padding, a strict 8px rhythm, and a tight muted-gray text ramp that lets secondary copy recede.
+- **Hierarchy:** Dominant ordering device is **scale**, reinforced by a single accent color for the one thing that matters per region.
+- **Restraint:** No gradients, no hero shadows, no decorative color, no second display face. Depth is one hairline border and one off-white surface.
+
+## Interaction & motion
+
+Supabase's page is **largely static by design** — and the motion capture confirms it. The only `@keyframes` present are four *utility* animations from third-party libs (`swipe-out` from Swiper, `sonner-fade-in` / `sonner-fade-out` / `sonner-spin` from the Sonner toast library) — **zero bespoke hero/scroll keyframes.** There is no GSAP/Lenis/Framer, no canvas (`canvas: 0`), no cursor-follower (`cursor: []`). The probe counts that look busy (3 IntersectionObservers over 394 targets at `rootMargin: 200px` / `threshold: 0`, 41 rAF, 58 mousemove listeners) read as **lazy-image loading + Swiper drag bookkeeping**, not reveal choreography. Reduced-motion is **respected** (1 `prefers-reduced-motion` block). The honest read: a few production-safe, functional motions, nothing for spectacle. Stack: native `position: sticky` · CSS transitions · `IntersectionObserver` (lazy-load) · Swiper (carousels/marquees).
+
+- **Persistent sticky nav** — *Trigger:* scroll-progress. *Mechanism:* the top nav bar (`Product / Developers / Solutions / Pricing / Docs`) holds at `position: sticky; top: 0` while the whole page scrolls beneath it — visible unchanged across frames s00→s09. *Reads as:* the chrome is always one reach away; the page feels like an app, not a poster. *Transfers to:* any long marketing/docs page where wayfinding shouldn't scroll off. *Safety:* **production-safe** (native sticky, no JS, no reflow). → `sticky-pin-scrollytelling` (simplest "pinned nav" form).
+- **Infinite marquee tickers** — *Trigger:* load (autonomous loop). *Mechanism:* horizontally bleeding rows of customer-logo / testimonial cards translate continuously; the capture counts **15 marquees** plus 3 Swiper carousels, and the params carry the tell-tale long durations (**30s / 35s / 40s / 50s / 90s**) that drive these loops. Visible in frame s03 — the Maergo / Shotgun / Chatbase / 1Password / Mozilla story cards run off both edges. *Reads as:* ambient "lots of proof, always moving" without demanding a click. *Transfers to:* logo walls, testimonial strips, "trusted by" bands. *Safety:* **production-safe** *if gated* — must pause on hover/focus and under reduced-motion, and content stays in the DOM for SR/no-JS. → `announcement-ticker-marquee`.
+- **Subtle scroll parallax on story cards** — *Trigger:* scroll-progress. *Mechanism:* a few elements (the customer-stories `div.gap-4` track, the Maergo story card, the `@nerdburn` testimonial card) carry a `transform` that drifts with scroll progress — a gentle differential, not a staged depth scene. (Distinct from `div.gap-4`'s `transform 1.00→1.00` entry, which is `from==to` noise and dropped.) *Reads as:* the testimonial/story band feels slightly alive as it passes. *Transfers to:* any card row you want to lift off a flat page by a hair. *Safety:* **production-safe** at this amplitude (compositor-only transform; keep the offset small and reduced-motion-gated). → `parallax-drift`.
+- **Hero load fade-in** — *Trigger:* load. *Mechanism:* the hero block (`104.7K … Start your project`) transitions `opacity 0→1` at ~150ms on first paint; nothing rises or staggers (the stray 300ms stagger value isn't expressed as a grouped entrance here). *Reads as:* a clean settle-in rather than a static pop. *Transfers to:* above-the-fold hero copy/CTA. *Safety:* **production-safe** (single opacity tween, ship the resting state in the DOM). No pattern file — too small/common; flagged in `patterns_to_build`.
+- **Tabbed product showcase** — *Trigger:* click/tap. *Mechanism:* a tab row (Table Editor / SQL Editor / RLS Policies …) swaps a single framed product screenshot in place — `tabs: 4` in the capture; frame s06 shows the Table-Editor panel inside an OS-shell window frame with the RLS checklist. *Reads as:* broad surface area compressed into one calm viewport. *Transfers to:* any multi-feature product with a strong UI. *Safety:* **production-safe** (image swap behind real tab semantics; preload active panel, lazy-load the rest). → `tabbed-product-showcase` (this exemplar is its source).
+- **Hover micro-states + disclosure** — *Trigger:* hover / click. *Mechanism:* **10 hover effects** captured — nav text recolors to accent green, ghost buttons shift bg/border, primary CTA deepens — all over the house 150ms `cubic-bezier(0.4,0,0.2,1)`; plus **7 disclosure** (accordion/expand) toggles. *Reads as:* responsive, precise, "rendered with intent." *Transfers to:* all interactive chrome and FAQ/spec sections. *Safety:* **production-safe** (color/bg/border transitions; keep disclosures keyboard-operable). → see Components above.
+
+## Production-safety note
+- Two-tone display hero — **production-safe**. Pure type + color; zero perf or a11y cost as long as the accent line keeps sufficient contrast on white (the Supabase green passes at large display sizes; verify for smaller text).
+- Single light accent with dark button text — **production-safe** and an a11y win: dark-on-light-green clears contrast that white-on-green would fail.
+- Tabbed product showcase — **production-safe**. Swap images behind real tab semantics (`role="tab"`/`aria-selected`, arrow-key support); preload the active panel's screenshot and lazy-load the rest to avoid a heavy first paint.
+- Bento mixed-size grid — **production-safe**; ensure DOM order matches visual order so spanning cells don't break the reading sequence for screen readers.
+- Marquee / carousel rows — **production-safe only if gated**: pause on hover/focus and disable under `prefers-reduced-motion`; the looping logo/testimonial strips are autonomous motion that can distract or cause discomfort otherwise.
+- **A11y read (captured, honest):** strong on two axes — **`img_alt_ratio` is 1.0** (every one of 186 images carries alt text) and **focus-visible is present** (rings on links/buttons/nav, including a clear double-ring on links). **Reduced-motion is respected** (1 PRM block). The real defect is **tap-target size: ~100 of 235 interactive elements (~43%) fall under the 44px target** — almost certainly the dense footer link columns and tight nav; on touch, pad those hit areas. Also retest the green accent on white for any *small* accent text (it passes at display size; the deeper `#00bb68` is the safer choice below ~18px).
+
+## Extracted patterns
+- two-tone-display-hero — centered, single-weight display headline split into a neutral line and an accent line; reuse for setup/payoff value props.
+- tabbed-product-showcase — tab row that swaps one framed product screenshot in place; reuse to compress a multi-feature product into one viewport. (motion)
+- announcement-ticker-marquee — autonomous horizontal loop of logo/testimonial cards (Swiper-driven here, 15 marquees); reuse for "trusted by" / social-proof bands. Gate with hover-pause + reduced-motion. (motion)
+- parallax-drift — subtle scroll-progress `transform` on story/testimonial cards to lift them off a flat page by a hair; reuse on card rows. Keep the offset small + reduced-motion-gated. (motion)
+- sticky-pin-scrollytelling — used here in its simplest form: a `position: sticky` nav that persists across the whole scroll; reuse for any always-available chrome. (motion)

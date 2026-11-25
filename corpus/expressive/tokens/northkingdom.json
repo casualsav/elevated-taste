@@ -1,0 +1,64 @@
+{
+  "color": {
+    "bg": "#050311",
+    "surface": "#0f1d2f",
+    "fg": "#ffffff",
+    "muted": "rgba(255,255,255,0.6)",
+    "accent": "#1e3a5f",
+    "roles": {
+      "void": "#050311",
+      "glow": "#1e3a5f",
+      "fg": "#ffffff",
+      "fg-muted": "rgba(255,255,255,0.6)",
+      "fg-subtle": "rgba(255,255,255,0.25)",
+      "tertiary-steel": "#4a5464",
+      "scrim": "rgba(5,3,17,0.5)"
+    }
+  },
+  "type": {
+    "families": ["FK Grotesk Neue", "FK Display", "Arial", "sans-serif"],
+    "scale": ["0.8125rem", "1.125rem", "1.5rem", "7.1875rem"],
+    "weights": [400],
+    "leading": [0.95, 1.15, 1.5]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["8px", "20px", "40px", "80px", "434px"]
+  },
+  "radius": ["4px", "8px", "26px", "100px", "9999px"],
+  "shadow": ["0 1px 2px rgba(0,0,0,0.15)"],
+  "motion": {
+    "durations": ["100ms", "200ms", "250ms", "300ms", "350ms", "400ms", "600ms", "1000ms"],
+    "easings": [
+      "cubic-bezier(0.215,0.61,0.355,1)",
+      "cubic-bezier(0.25,0.46,0.45,0.94)",
+      "cubic-bezier(0.2,0,0,1)",
+      "cubic-bezier(0,0,0.6,1)",
+      "ease",
+      "ease-in-out"
+    ],
+    "signature": "cubic-bezier(0.215,0.61,0.355,1) @600ms",
+    "stagger_ms": [39, 78, 108, 117, 147],
+    "triggers": ["scroll-progress", "in-view", "load"],
+    "techniques": [
+      "sticky-pin-scrollytelling",
+      "image-marquee-scroll-drift",
+      "in-view-fade-rise",
+      "parallax-drift",
+      "scroll-reveal-panel"
+    ],
+    "scroll_effects": [
+      { "name": "pinned-chrome", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "image-marquee-scroll-drift", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "in-view-fade-rise", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "marquee-row-parallax", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "sticky-footer-reveal", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "keyframes": ["fade-up", "image-fade-up", "fade", "featured-case-fade-up", "ImageMarquee_scroll", "Media_load-shimmer-dark-theme", "Media_load-shimmer-light-theme"],
+    "io": { "observers": 14, "targets": 43, "thresholds": [0, 0.25, 0.5], "root_margin": "200px" },
+    "probe": { "raf": 594, "scroll_listeners": 7, "mousemove_listeners": 27, "canvas": 1, "video": 8, "marquee_nodes": 95, "keyframe_count": 10, "css_anim_rules": 7 },
+    "stack": ["IntersectionObserver", "CSS @keyframes", "position:sticky/fixed pins", "<canvas>/<video> (lazy)"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Trusts screenshot over raw profile. COLOR: ground sampled to #050311 (warm indigo-black, raw rgb(5,3,17)), not navy; raw color list is dominated by white border/text noise. 'surface'/'accent' are NOT solid UI fills — they encode the blue RIM-GLOW rendered into the hero background (center sampled ~#0f1d2f, corners flat black); there is no real surface or accent fill in the system, so map these to a radial/conic gradient, not a block. TYPE: raw px de-zoomed to rem at 16px base — display 115px->~7.19rem (line-height 109px/115px~=0.95, tracking -5.75px/115~=-0.05em); body 24.35px->~1.5rem (line-height 1.15, tracking -0.01em); nav/labels 13px->0.8125rem. Single weight 400 everywhere (no bold observed). SPACE: 434px is the showreel section's block padding (one-off, kept to show the generous vertical rhythm); 8/20/40/80 are the real chrome/gutter rhythm, base 8px. RADIUS 26px/100px = pill nav/buttons; 8px is the workhorse. MOTION: signature ease cubic-bezier(0.215,0.61,0.355,1) @600ms (easeOutCubic) dominates 42 elements; shorter 100-400ms band for small states + ~1000ms outlier; staggered entrance 39-147ms. Hand-rolled (libraries:[], 0 script hits) and modest hot path (594 rAF vs teak ~5191) — closer to Attio than teak despite being an agency/spectacle site. Real signature is a sticky image-marquee (keyframes ImageMarquee_scroll, 95 marquee nodes) + pinned chrome (5 pin effects) + in-view fade-ups (keyframes fade-up/image-fade-up/featured-case-fade-up over 14 IO / 43 targets) + one subtle marquee-row parallax + a sticky footer reveal. reduced_motion NOT respected (prmRules:0) — top liability. FRAMES DID NOT CAPTURE MOTION: all 11 scroll stills are byte-identical (hero overlay holds position:fixed so the viewport never repaints across stops) — motion here is grounded in probe counts + @keyframes names + DOM classes, not watched frames. Dropped the lone background-shift rgb(32,32,32)->rgb(38,38,38) as a media-load shimmer (near from==to loader noise), not a scroll recolor. 27 mousemove listeners produced no captured cursor/hover effect (likely video-scrub handlers) — no cursor-follow claimed. Single shadow is faint and used sparingly (7 nodes); image scrim gradient linear-gradient(rgba(0,0,0,0)->rgba(0,0,0,0.75)). A11y: focus_visible true, img_alt_ratio 1.0; defects = reduced_motion false + 12/26 sub-44px tap targets."
+}

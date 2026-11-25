@@ -1,0 +1,92 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f3ffe3",
+    "surface-2": "#e2e2e2",
+    "fg": "#000000",
+    "muted": "#697485",
+    "subtle": "rgba(0,0,0,0.65)",
+    "border": "rgba(0,0,0,0.08)",
+    "border-strong": "#000000",
+    "accent": "#4d49fc",
+    "roles": {
+      "action": "#000000",
+      "action-fg": "#ffffff",
+      "focus": "#000000",
+      "announce-bg": "#24cb71",
+      "announce-fg": "#000000",
+      "fg-on-dark": "#ffffff",
+      "muted-on-dark": "rgba(255,255,255,0.6)",
+      "tint-cyan": "#33dfdf",
+      "tint-lime": "#e4ff97",
+      "tint-lime-pale": "#f3ffe3",
+      "tint-green": "#24cb71",
+      "tint-sky": "#00b6ff",
+      "tint-indigo": "#4d49fc",
+      "tint-lavender": "#c4baff",
+      "tint-orange": "#ff7237",
+      "tint-gold": "#b98e01",
+      "select-handle": "#24cb71"
+    }
+  },
+  "type": {
+    "families": ["figmaSans", "figmaMono"],
+    "scale": ["0.75rem", "1rem", "1.125rem", "1.5rem", "3.5rem", "4.5rem"],
+    "weights": [320, 330, 340, 400, 480, 520],
+    "leading": [1.0, 1.1, 1.35, 1.4, 1.45],
+    "tracking": {
+      "display-72": "-1.44px",
+      "display-56": "-0.84px",
+      "subhead-24": "-0.24px",
+      "body-18": "-0.09px",
+      "body-16": "-0.12px",
+      "label-caps": "0.48px"
+    }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["6px", "8px", "12px", "16px", "24px", "32px", "40px", "60px", "120px"]
+  },
+  "radius": ["2px", "4px", "8px", "16px", "50px", "50%"],
+  "shadow": [
+    "rgba(0,0,0,0.08) 0px 1px 0px 0px",
+    "rgb(0,0,0) 0px 0px 0px 1px inset",
+    "rgb(255,255,255) 0px 0px 0px 1px inset",
+    "rgba(0,0,0,0.1) 0px 10px 15px -3px, rgba(0,0,0,0.05) 0px 4px 6px -2px",
+    "rgba(0,0,0,0.1) 0px 24px 70px 0px"
+  ],
+  "gradient": [
+    "repeating-conic-gradient(#33dfdf 0deg, #33dfdf 18deg, transparent 18deg, transparent 30deg)",
+    "repeating-conic-gradient(#b98e01 0deg, #b98e01 18deg, transparent 18deg, transparent 30deg)"
+  ],
+  "motion": {
+    "durations": ["100ms", "160ms", "200ms", "250ms", "350ms", "800ms", "2000ms"],
+    "easings": [
+      "ease-out",
+      "ease-in-out",
+      "cubic-bezier(0.34, 1.56, 0.64, 1)",
+      "cubic-bezier(0.8, 0, 0.2, 1)"
+    ],
+    "triggers": ["scroll-progress", "in-view", "hover", "load", "mousemove", "drag"],
+    "techniques": [
+      "in-view-fade",
+      "scroll-scale",
+      "sticky-pin-chrome",
+      "parallax-drift",
+      "cursor-reveal-canvas",
+      "ambient-loop"
+    ],
+    "scroll_effects": [
+      { "name": "in-view fade reveal", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "scroll-scale beat (0.7 to 1)", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "sticky nav pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "sticky announcement bar pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "parallax layer drift", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "cursor-reveal canvas", "property": "canvas", "trigger": "mousemove", "safety": "spectacle-only" }
+    ],
+    "stack": ["IntersectionObserver", "CSS transitions", "canvas + requestAnimationFrame"],
+    "reduced_motion": "respected",
+    "evidence": "18 IntersectionObservers / 208 targets (threshold 0, rootMargin 150-200px); 13 scroll + 22 mousemove listeners; 328 rAF/pass; 2 canvas, 70 draggable, 9 disclosure, 9 tabs, 2 carousels; only 4 @keyframes (obfuscated names animation-6j0toc/jpvf7s/zsk7zs/yh21v4 -> intent read from frames) but 119 transition rules + 15 prefers-reduced-motion rules; no GSAP/Lenis/Framer (hand-rolled). House micro-transition 0.16s ease-out (57x); spring cubic-bezier(0.34,1.56,0.64,1) on entrances; ambient 0.8s/2s ease-in-out loops. Scroll deltas from .motion.scroll_effects kind strings (scale 0.8->0.7, 1->0.8, 0.8->1, 0.7->0.8); entrance = opacity 0->1 @300ms, staggeredEntrance:false (fade, no rise)."
+  },
+  "notes": "Custom variable figmaSans (figmaMono for labels). Distinctive INVERTED weight strategy vs Attio: base ~330 (light, 622 nodes), 400 next, 700 used once -- hierarchy from scale (4x body->display) in a single light family, not weight. Two body sizes both common: 18px (635) and 16px (559). Display pair 56/72px; mobile h1 44px. Tracking tightens with size (-1.44px@72 ~ -2%) and goes POSITIVE for small caps/labels (+0.48-0.6px). fg captured as black; muted slate #697485 = rgb(105,116,133) (4.73:1 on white, passes). Color is LOUD but rationed by LOCATION: chrome is strictly black/white/slate, all chroma (cyan/lime/indigo/orange/gold/green/sky/lavender) lives in content thumbnails, decorative primitive shapes, and per-logo quote glyphs -- the inverse of starving the palette, same discipline. Primary CTA is near-black fill, not a brand hue. The one saturated band is the persistent green (#24cb71) Config announcement bar, which correctly uses BLACK text (9.86:1). surface tokens are nominal (lime-pale panel + light-gray) since most captured surfaces were white or tinted content panels. Elevation: hairline 0 1px + 1px inset rings (black/white) as primary structure; exactly ONE deep shadow (0 24px 70px) reserved for the floating hero demo card. Two repeating-conic-gradient sunbursts (cyan, gold) are the only gradients. A11Y: focus-visible 2px black outline (real), img_alt_ratio 1.0, reduced_motion respected -- BUT 100/215 interactive elements are sub-44px tap targets (defect). dark_mode: supportsDark:true flagged but captured dark values were transparent/black garbage (rgba(0,0,0,0)) -- treat as detected-but-UNVERIFIED, likely a capture artifact. No form inputs captured (input state = empty). Motion fields evidence-backed (see motion.evidence); obfuscated @keyframes names carry no intent so techniques are named from frames, not keyframe names."
+}

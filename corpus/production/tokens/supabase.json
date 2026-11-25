@@ -1,0 +1,57 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#fcfcfc",
+    "fg": "#171717",
+    "muted": "#525252",
+    "accent": "#3fcf8e",
+    "roles": {
+      "surface-2": "#f5f5f5",
+      "border": "#dfdfdf",
+      "border-strong": "#c7c7c7",
+      "subtle": "#707070",
+      "faint": "#b2b2b2",
+      "accent-fg": "#171717",
+      "accent-strong": "#00bb68",
+      "success": "#3fcf8e"
+    }
+  },
+  "type": {
+    "families": ["Circular, 'Helvetica Neue', Helvetica, Arial, sans-serif", "'Source Code Pro', Menlo, monospace"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.5rem", "2.25rem", "4.5rem"],
+    "weights": [400, 500],
+    "leading": [1.0, 1.2, 1.5]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.5rem", "1rem", "1.5rem", "2rem", "6rem", "8rem"]
+  },
+  "radius": ["6px", "8px", "12px", "16px", "9999px"],
+  "shadow": ["none", "0 1px 2px rgba(23,23,23,0.06)"],
+  "motion": {
+    "durations": ["150ms", "200ms", "300ms"],
+    "loop_durations": ["30s", "35s", "40s", "50s", "90s"],
+    "easings": ["cubic-bezier(0.4, 0, 0.2, 1)", "cubic-bezier(0, 0, 0.2, 1)", "ease", "ease-out"],
+    "stagger": "300ms",
+    "triggers": ["scroll-progress", "load", "hover", "click"],
+    "techniques": [
+      "sticky-pin-nav",
+      "announcement-ticker-marquee",
+      "parallax-drift",
+      "hero-load-fade",
+      "tabbed-product-showcase",
+      "hover-micro-state",
+      "disclosure"
+    ],
+    "scroll_effects": [
+      { "name": "persistent sticky nav", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "story-card parallax drift", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "infinite marquee tickers (logo/testimonial rows)", "property": "transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "hero load fade-in", "property": "opacity", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["position: sticky", "CSS transitions", "IntersectionObserver (lazy-load)", "Swiper (carousel/marquee)"],
+    "reduced_motion": "respected",
+    "evidence": "Largely static. Only 4 @keyframes, all third-party utilities (Swiper swipe-out; Sonner toast fade-in/fade-out/spin) — NO bespoke hero/scroll keyframes. No GSAP/Lenis/Framer; canvas 0; cursor-followers 0. Probes: 3 IntersectionObservers / 394 targets at rootMargin 200px + threshold 0 (lazy-image loading, not reveals), 41 rAF, 58 mousemove (Swiper drag), 3 scroll listeners, 1 prefers-reduced-motion block (respected). Interactive: 3 carousels, 15 marquees, 4 tabs, 7 disclosure, 1 video, 0 draggable, 0 canvas. scroll_effects after dropping from==to noise: 1 sticky pin (nav) + 3 transform/parallax (story/testimonial cards); hero opacity 0→1 at 150ms is the one real entrance. Long durations 30s–90s drive the marquee loops. Frames corroborate: s00 hero, s03 customer-story cards bleeding off both edges (marquee/carousel), s06 tabbed Table-Editor in an OS-shell frame, nav persistent s00→s09."
+  },
+  "notes": "Normalized from a light-theme profile. Raw fg/muted/border came as rgb() — converted to hex and named into a 5-step gray ramp (fg #171717 → muted #525252 → subtle #707070 → faint #b2b2b2 → border #dfdfdf). Single accent green #3fcf8e is the brand 'go' color (rationed to CTA/code/headline/success); #00bb68 is the slightly deeper inline-link green kept as accent-strong. accent-fg is intentionally DARK (#171717) not white, because the accent is a light hue — confirmed by the green primary button rendering near-black text in the hero screenshot. The radius value 3.35544e+07px in the raw profile is the browser's clamp artifact for a full pill → normalized to 9999px. Profile reported essentially one weight (400 dominant, 500 occasional); hero display headline (72px) and section heads (36px) confirm hierarchy is scale-driven, not weight-driven. Shadows are effectively absent on hero/sections — depth is a single hairline border; kept only a faint sm shadow that some cards use. Section vertical padding observed at 96px/128px, hence the large top of the space scale."
+}

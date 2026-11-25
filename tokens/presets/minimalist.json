@@ -1,0 +1,38 @@
+{
+  "$description": "Direction preset: minimalist. PARTIAL override of tokens.json — warm-neutral restraint, near-flat shadows, crisp small radii, tight display tracking. Only keys that differ from the house base.",
+  "color": {
+    "bg":        { "$value": "#fbfbfa", "$type": "color" },
+    "surface":   { "$value": "#f7f6f3", "$type": "color" },
+    "surface-2": { "$value": "#efede8", "$type": "color" },
+    "fg":        { "$value": "#1a1916", "$type": "color" },
+    "muted":     { "$value": "#6b6760", "$type": "color" },
+    "subtle":    { "$value": "#9b958b", "$type": "color" },
+    "border":    { "$value": "#e7e4dd", "$type": "color" },
+    "accent":    { "$value": "#1a1916", "$type": "color" },
+    "accent-fg": { "$value": "#fbfbfa", "$type": "color" },
+    "focus":     { "$value": "#1a1916", "$type": "color" }
+  },
+  "font": {
+    "sans": { "$value": "'Geist Sans', 'SF Pro Display', 'Helvetica Neue', Inter, system-ui, sans-serif", "$type": "fontFamily" },
+    "serif": { "$value": "'Newsreader', 'Instrument Serif', 'Playfair Display', Georgia, serif", "$type": "fontFamily" },
+    "mono": { "$value": "'Geist Mono', 'SF Mono', 'JetBrains Mono', ui-monospace, monospace", "$type": "fontFamily" }
+  },
+  "tracking": {
+    "tight":  { "$value": "-0.03em", "$type": "dimension" },
+    "wide":   { "$value": "0.05em",  "$type": "dimension" }
+  },
+  "leading": {
+    "relaxed": { "$value": "1.6", "$type": "number" }
+  },
+  "radius": {
+    "sm":   { "$value": "4px",  "$type": "dimension" },
+    "md":   { "$value": "6px",  "$type": "dimension" },
+    "lg":   { "$value": "8px",  "$type": "dimension" },
+    "xl":   { "$value": "12px", "$type": "dimension" }
+  },
+  "shadow": {
+    "sm": { "$value": "0 0 0 rgba(0,0,0,0)", "$type": "shadow" },
+    "md": { "$value": "0 2px 8px rgba(0,0,0,0.04)", "$type": "shadow" },
+    "lg": { "$value": "0 4px 16px rgba(0,0,0,0.05)", "$type": "shadow" }
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "color": {
+    "bg": "#fafafa",
+    "surface": "#fafafa",
+    "fg": "#0d0c0c",
+    "muted": "#666666",
+    "accent": "#f51b1b",
+    "roles": {
+      "bg-inverse": "#0d0c0c",
+      "fg-inverse": "#fafafa",
+      "label-muted": "#343434",
+      "accent-red": "#f51b1b"
+    }
+  },
+  "type": {
+    "families": ["RedCollar (display)", "TT Commons (text)", "sans-serif"],
+    "scale": ["1rem", "1.125rem", "1.25rem", "1.75rem", "3.75rem", "4rem", "8.125rem"],
+    "weights": [400, 500],
+    "leading": [0.9, 1.2, 1.6],
+    "tracking": {
+      "display-130": "-0.05em",
+      "display-64": "-0.03em",
+      "body-16": "-0.03em",
+      "label-20": "-0.02em"
+    },
+    "notes": "Single near-regular weight family; hierarchy is pure scale contrast (~8x body→display). Negative tracking increases with size."
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["13px", "16px", "20px", "32px", "56px", "64px", "84px", "100px", "140px", "184px"]
+  },
+  "radius": ["2px", "50%", "72px", "80px"],
+  "shadow": ["none"],
+  "container": { "max": "1164px", "narrow": "950px" },
+  "motion": {
+    "durations": ["100ms", "200ms", "300ms", "400ms", "600ms", "1000ms", "2000ms"],
+    "easings": [
+      "cubic-bezier(0.165, 0.84, 0.44, 1)",
+      "cubic-bezier(0.25, 0.1, 0.25, 1)",
+      "cubic-bezier(0.71, 0, 0.65, 0.34)",
+      "cubic-bezier(0.185, 0.94, 0.26, 1.17)",
+      "ease"
+    ],
+    "primary": "1s cubic-bezier(0.165, 0.84, 0.44, 1)",
+    "triggers": ["scroll-progress", "in-view", "load", "hover", "drag"],
+    "techniques": [
+      "scroll-polarity-color-crossfade",
+      "pinned-stage-scrollytelling",
+      "section-parallax",
+      "load-splash",
+      "custom-drag-cursor"
+    ],
+    "scroll_effects": [
+      { "name": "polarity-color-crossfade", "property": "color", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "pinned-stage", "property": "transform", "trigger": "scroll-progress", "safety": "spectacle-only" },
+      { "name": "section-parallax", "property": "transform", "trigger": "scroll-progress", "safety": "spectacle-only" },
+      { "name": "hero-fade-in", "property": "opacity", "trigger": "load", "safety": "production-safe" }
+    ],
+    "keyframes": ["splash", "marquee", "borderColors", "video-pulse", "pulse-animate"],
+    "stack": ["CSS @keyframes", "CSS transitions", "requestAnimationFrame scroll loop", "custom cursor (mousemove)", "no IntersectionObserver"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Normalized from a noisy profile. Display sizes rounded (the raw 130px lowercase project names dominate; hero/footer set near that, raw h1 probe read 64px). Two-pole monochrome: light and dark sections share the same two values inverted. Dropped the awards-number 'color-shift' entries as from==to noise (frames show them static). No gradients/shadows in the source. reduced-motion not handled in source — patterns add the fallback."
+}

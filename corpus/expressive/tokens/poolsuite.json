@@ -1,0 +1,99 @@
+{
+  "color": {
+    "bg": "#f6d5d5",
+    "surface": "#f9f0e9",
+    "fg": "#000000",
+    "muted": "#c8c1ba",
+    "accent": "#afe2e5",
+    "roles": {
+      "desktop": "#f6d5d5",
+      "panel": "#f9f0e9",
+      "panel-lighter": "#fcf8f4",
+      "panel-darker": "#c8c1ba",
+      "well": "#ffffff",
+      "ink": "#000000",
+      "outline": "#000000",
+      "bevel-highlight": "#ffffff",
+      "button": "#f6d5d5",
+      "button-shadow": "#7b6b6b",
+      "button-focus": "#ddc1c0",
+      "button-secondary": "#afe2e5",
+      "button-secondary-shadow": "#58736f",
+      "button-secondary-focus": "#9ecec7",
+      "tertiary": "#fcf4c5",
+      "selection-bg": "#fcf4c5",
+      "status-live": "#ef4444",
+      "window-shadow": "rgba(0,0,0,0.30)"
+    }
+  },
+  "type": {
+    "families": [
+      "Pixolde (bitmap display / wordmark, 400+700)",
+      "ChiKareGo2 (bitmap UI labels, 10px)",
+      "Everyday (bitmap body/UI, 16px)",
+      "Unkown16PixelSer (bitmap body, 500)",
+      "Ishmeria (bitmap display flourish)",
+      "Pixelated Times New Roman (period serif prop)",
+      "Perfect DOS VGA 437 (terminal / BSOD prop)"
+    ],
+    "roles": {
+      "display": "Pixolde",
+      "label": "ChiKareGo2",
+      "body": "Everyday",
+      "mono": "Perfect DOS VGA 437"
+    },
+    "scale": ["0.5rem", "0.625rem", "1rem", "2rem"],
+    "weights": [400, 700],
+    "leading": [1.0, 1.5],
+    "tracking": { "label": "-1px", "body": "-1px" },
+    "notes_type": "A lattice, not a ratio: bitmap faces render clean only at native ppem, so sizes are 8/10/16/32px exactly and line-heights are whole pixels (10/15/16/24px). fluid_type: false."
+  },
+  "space": {
+    "base": "2px",
+    "scale": ["1px", "2px", "4px", "5px", "6px", "8px", "10px", "17px"]
+  },
+  "radius": ["2px", "3px", "4px", "6px", "9999px"],
+  "shadow": [
+    "0 0 0 1px #000000",
+    "1px 1px 0 0 #ffffff inset, -1px -1px 0 0 #7b6b6b inset",
+    "-1px -1px 0 0 #ffffff inset, 1px 1px 0 0 #7b6b6b inset",
+    "0 1px 0 0 #000000",
+    "0 1px 0 0 #000000, 0 1px 0 0 #ffffff inset",
+    "2px 2px 0 0 rgba(0,0,0,0.2)",
+    "5px 5px 0 rgba(0,0,0,0.2)",
+    "0 50px 80px -50px rgba(0,0,0,0.30)"
+  ],
+  "texture": {
+    "dither_tile": "4x4 base64 PNG stamped at background-size: 2px 2px (inputs, overlays, scrollbar track) — not a CSS gradient",
+    "image_rendering": "pixelated (global, on *)"
+  },
+  "container": { "max_width": ["456px", "436px", "250px"], "stage_min_height": "771px", "gap": ["4px", "6px", "8px", "10px"] },
+  "breakpoints": ["640px", "768px", "1024px", "1280px", "1536px"],
+  "cursors": {
+    "default": "pointer-1.svg (hotspot 4 0)",
+    "click": "click.svg (5 0)",
+    "grab": "grab.svg (5 0) — on the window drag handle",
+    "text": "insert.svg",
+    "loading": "pointer-loading.svg (0 4)",
+    "resize": "resize.svg — on the corner grip"
+  },
+  "motion": {
+    "durations": ["200ms", "300ms", "1000ms"],
+    "easings": ["ease", "cubic-bezier(0.4, 0, 0.2, 1)", "cubic-bezier(0.23, 0.09, 0.08, 1.13)"],
+    "triggers": ["drag", "hover", "load", "active"],
+    "techniques": [
+      "drag-resize-window-chrome",
+      "bevel-inversion-press",
+      "focus-by-fill",
+      "stepped-alpha-dissolve",
+      "visibility-blink-status",
+      "affordance-mapped-cursors"
+    ],
+    "scroll_effects": [],
+    "keyframes": ["flashing-dots", "dimBackground"],
+    "vendor_keyframes": ["ping", "vSelectSpinner", "os-size-observer-appear-animation", "w3m-shake", "w3m-iframe-fade-out", "w3m-iframe-zoom-in", "w3m-iframe-zoom-in-mobile"],
+    "stack": ["vanilla pointer events (mousemove ×22)", "requestAnimationFrame (×162)", "CSS @keyframes", "Vue SPA", "no animation library"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Normalized from raw/poolsuite.{json,css,html}, corroborated against desktop.png, mobile.png and frames s00-s10. The page does not scroll: s00-s10 are pixel-identical except the media filename in the player status strip, so motion.scroll_effects is empty — the three effects the probe diffed (span.absolute opacity/scale, w3m-modal pin) belong to Tailwind's `ping` utility and a hidden third-party wallet modal (fixed, opacity 0, pointer-events none), not to the design. Colors taken from the LIVE :root override on <html> (--backgroundOverwrite #F6D5D5 / --button #F6D5D5 / --secondary-button #AFE2E5), which the runtime sets per session; the stylesheet's static :root defaults differ slightly (#f7d5d5 / #afe5dd) — screenshots decide. borderColor came back as rgb(229,231,235) ×1276, which is Tailwind's unused default border color on elements with border-width 0; every visible rule in the screenshots is 1px #000, so the probe value was dropped. Radii collapsed from 1-6px to the 2/3/4/6 band actually in use. The 'dark' theme block in craft.theme is present but supportsDark is false — it is the cream light theme re-sampled, so no color.dark is emitted. Type sizes reported as px (8/10/16/32) and expressed in rem here; bitmap faces must not be scaled off these values."
+}

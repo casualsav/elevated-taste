@@ -1,0 +1,53 @@
+{
+  "color": {
+    "bg": "#0A3065",
+    "surface": "#EAECEE",
+    "fg": "#FAFCFF",
+    "muted": "#CFD4D9",
+    "accent": "#E6813B",
+    "roles": {
+      "ink-on-light": "#0A3065",
+      "headline-on-dark": "#E6813B",
+      "secondary": "#90A7C7",
+      "grid-line": "#496792",
+      "light-surface": "#EAECEE"
+    }
+  },
+  "type": {
+    "families": ["\"MT Everyday Sans\"", "Arial", "sans-serif"],
+    "scale": ["1.08rem", "1.36rem", "1.5rem", "2.22rem", "2.64rem", "3.42rem", "6.7rem"],
+    "weights": [400, 500, 700],
+    "leading": [1.0, 1.5],
+    "tracking": { "display": "-3px", "h2": "-1.1px", "body": "0" },
+    "fluid": true
+  },
+  "space": {
+    "base": "21px",
+    "scale": ["5px", "8px", "10px", "21px", "42px"]
+  },
+  "radius": ["0", "4px", "8px"],
+  "shadow": [
+    "inset 0 -1px 0 0 #496792",
+    "inset 0 0 0 1px #EAECEE"
+  ],
+  "grid": {
+    "columns_desktop": 6,
+    "columns_mobile": 2,
+    "container_max": ["1120px", "880px"],
+    "gutter": "21px"
+  },
+  "motion": {
+    "durations": ["300ms", "500ms"],
+    "easings": ["cubic-bezier(0.165, 0.84, 0.44, 1)"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": ["sticky-nav-content-swap", "hover-color-inversion", "wordmark-fade"],
+    "scroll_effects": [
+      { "name": "wordmark-fade", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "nav-pin", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "tile-hover-invert", "property": "background", "trigger": "hover", "safety": "production-safe" }
+    ],
+    "stack": ["Webflow IX2", "GSAP", "Swiper", "CSS @keyframes"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Raw px values normalized to rem against a ~16px root and rounded to a coherent scale (raw 17.26/107.45px etc. are fluid-clamp midpoints, not fixed steps). Colors from rgb() probe converted to hex; the site enforces only navy+orange plus two neutrals, so one-off blended hover hues (e.g. #194480) were dropped as transient states. radius is effectively 0 site-wide; the 4/8px entries are tiny icon chips only. The bundled marquee/spin/tabs keyframes are library boilerplate not exercised on the homepage and are omitted from techniques. reduced_motion: prmRules=0 in probe — add a fallback on reuse."
+}

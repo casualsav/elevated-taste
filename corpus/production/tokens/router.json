@@ -1,0 +1,63 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f3f0ea",
+    "panel": "#0d0e0d",
+    "panel-ink": "#0c0a08",
+    "fg": "#1a1919",
+    "muted": "#6d6a65",
+    "subtle": "#86837e",
+    "faint": "#a39d99",
+    "border": "#d7d4ce",
+    "accent": "#e4f222",
+    "roles": {
+      "ink": "#1a1919",
+      "rule": "#d2cecb",
+      "parchment-band": "#f3f0ea",
+      "product-panel": "#0d0e0d",
+      "solar-accent": "#e4f222",
+      "data-cached": "#7b8fd6",
+      "data-new": "#e4f222",
+      "data-output": "#8b6f9e",
+      "data-blaze": "#d06b3f",
+      "status-ok": "#a9c3a2",
+      "status-miss": "#e0aebc"
+    }
+  },
+  "type": {
+    "families": ["Lausanne", "IBM Plex Mono"],
+    "scale": ["0.625rem", "0.75rem", "0.875rem", "1rem", "1.5rem", "1.75rem", "3rem", "4rem"],
+    "weights": [300, 350, 400, 700],
+    "leading": [1.0, 1.5],
+    "tracking": { "display": "-0.01em", "mono-caps": "0.045em", "body": "0" },
+    "features": ["ss01", "tabular-nums"],
+    "notes": "Lausanne sans carries display + body in light weights (300/350/400); IBM Plex Mono is reserved for data, eyebrows, status chips and all numerals (tabular). H1 64px/64 desktop → 40px mobile, tracking ~-0.64px (-0.01em)."
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["4px", "6px", "8px", "12px", "16px", "20px", "32px", "48px", "64px", "80px", "128px"],
+    "notes": "Dominant gaps 6/8px (tight data rows); section rhythm on 32/48/64/80/128. Container 1312px inside a 1440px full-bleed ruled frame."
+  },
+  "radius": ["5px", "6px", "10px", "54px", "9999px"],
+  "shadow": [
+    "0 18px 44px rgba(29,27,25,0.18)",
+    "0 18px 54px rgba(31,28,25,0.32)",
+    "0 14px 84px rgba(0,0,0,0.35)"
+  ],
+  "motion": {
+    "durations": ["100ms", "120ms", "150ms", "200ms", "300ms", "320ms", "900ms", "6000ms", "14000ms", "120000ms"],
+    "easings": ["cubic-bezier(0.4, 0, 0.2, 1)", "cubic-bezier(0, 0, 0.2, 1)", "cubic-bezier(0.16, 1, 0.3, 1)", "ease"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": ["ambient-wordmark-light-sweep", "infinite-marquee-ticker", "in-view-panel-rise-cascade", "scroll-progress-parallax", "toast-slide-in", "dashed-route-draw"],
+    "scroll_effects": [
+      { "name": "hero-wordmark-light-sweep", "property": "transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "announcement-ticker", "property": "transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "product-panel-rise-cascade", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "credit-wordmark-parallax", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "dashed-route-draw", "property": "clip", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "CSS container/scroll queries", "requestAnimationFrame"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Warm-neutral 'financial instrument' palette: paper-white bg, parchment band, warm-gray ramp, near-black product panels, ONE acid-yellow accent reserved for the closing CTA. No dark re-theme (supportsDark:false; the probe's dark block is a false read — omitted). Data-viz hues (cached/new/output/blaze, status chips) sampled from the demo panels and benchmark scatter; treat as a scoped chart palette, not page accents. Radii: everything pills to 9999px except chips (5–6px) and a few 54px lozenges."
+}

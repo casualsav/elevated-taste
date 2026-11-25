@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Design Taste — token style guide</title>
+  <link rel="stylesheet" href="/tokens/tokens.css" />
+  <style>
+    body { margin: 0; background: var(--color-bg); color: var(--color-fg);
+      font-family: var(--font-sans); line-height: var(--leading-normal); }
+    .wrap { max-width: var(--container-xl); margin: 0 auto; padding: var(--space-7) var(--space-5); }
+    header h1 { font-size: var(--text-3xl); letter-spacing: var(--tracking-tight); margin: 0 0 var(--space-2); }
+    header p { color: var(--color-muted); margin: 0 0 var(--space-7); max-width: var(--container-content); }
+    h2 { font-size: var(--text-lg); margin: var(--space-7) 0 var(--space-4); padding-bottom: var(--space-2);
+      border-bottom: 1px solid var(--color-border); }
+    .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: var(--space-3); }
+    .sw { border: 1px solid var(--color-border); border-radius: var(--radius-md); overflow: hidden; font-size: var(--text-xs); }
+    .sw .chip { height: 64px; }
+    .sw .label { padding: var(--space-2); }
+    .sw .label b { display: block; font-weight: var(--weight-semibold); }
+    .sw .label span { color: var(--color-muted); }
+    .scale-row { display: flex; align-items: baseline; gap: var(--space-4); padding: var(--space-2) 0; border-bottom: 1px dashed var(--color-border); }
+    .scale-row code { color: var(--color-muted); font-family: var(--font-mono); font-size: var(--text-xs); min-width: 96px; }
+    .spacebar { background: var(--color-accent); height: 14px; border-radius: var(--radius-sm); }
+    .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: var(--space-4); }
+    .card { padding: var(--space-4); background: var(--color-surface); border: 1px solid var(--color-border);
+      font-size: var(--text-xs); color: var(--color-muted); }
+    .note { margin-top: var(--space-8); padding: var(--space-4); background: var(--color-surface);
+      border: 1px solid var(--color-border); border-radius: var(--radius-md); color: var(--color-muted); font-size: var(--text-sm); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Token style guide</h1>
+      <p>Live view of <code>tokens/tokens.css</code> (built from <code>tokens.json</code>). This is the portable source of truth; pattern reference implementations land here in later checkpoints.</p>
+    </header>
+
+    <h2>Color</h2>
+    <div class="swatches" id="colors"></div>
+
+    <h2>Type scale</h2>
+    <div id="type"></div>
+
+    <h2>Space scale</h2>
+    <div id="space"></div>
+
+    <h2>Radius</h2>
+    <div class="cards" id="radius"></div>
+
+    <h2>Shadow</h2>
+    <div class="cards" id="shadow"></div>
+
+    <div class="note">
+      Two axes drive the system: <b>corpus</b> (production vs expressive — usability vs spectacle) and
+      <b>direction</b> (minimalist / brutalist / soft / editorial — aesthetic flavor). Direction presets in
+      <code>tokens/presets/</code> override this base. See <code>docs/ARCHITECTURE.md</code>.
+    </div>
+  </div>
+
+  <script>
+    const css = getComputedStyle(document.documentElement);
+    const v = (n) => css.getPropertyValue(n).trim();
+
+    const colors = ['bg','surface','surface-2','fg','muted','subtle','border','accent','accent-fg','success','warning','danger'];
+    document.getElementById('colors').innerHTML = colors.map((c) => {
+      const val = v('--color-' + c);
+      return `<div class="sw"><div class="chip" style="background:${val}"></div><div class="label"><b>--color-${c}</b><span>${val}</span></div></div>`;
+    }).join('');
+
+    const sizes = ['xs','sm','base','md','lg','xl','2xl','3xl','4xl','5xl','display'];
+    document.getElementById('type').innerHTML = sizes.map((s) => {
+      const val = v('--text-' + s);
+      return `<div class="scale-row"><code>--text-${s}</code><div style="font-size:${val};letter-spacing:var(--tracking-tight)">Scale contrast Ag</div><code>${val}</code></div>`;
+    }).join('');
+
+    const spaces = ['1','2','3','4','5','6','7','8','9','10'];
+    document.getElementById('space').innerHTML = spaces.map((s) => {
+      const val = v('--space-' + s);
+      return `<div class="scale-row"><code>--space-${s}</code><div class="spacebar" style="width:${val}"></div><code>${val}</code></div>`;
+    }).join('');
+
+    const radii = ['sm','md','lg','xl','full'];
+    document.getElementById('radius').innerHTML = radii.map((r) => {
+      const val = v('--radius-' + r);
+      return `<div class="card" style="border-radius:${val};background:var(--color-surface-2)">--radius-${r}<br>${val}</div>`;
+    }).join('');
+
+    const shadows = ['sm','md','lg'];
+    document.getElementById('shadow').innerHTML = shadows.map((s) => {
+      const val = v('--shadow-' + s);
+      return `<div class="card" style="box-shadow:${val};background:var(--color-bg);border-color:transparent">--shadow-${s}</div>`;
+    }).join('');
+  </script>
+</body>
+</html>

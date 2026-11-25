@@ -1,0 +1,43 @@
+name: post-merge-derivations
+# After anything lands on main that touches the corpus, regenerate the DERIVED
+# artifacts (sources.json provenance log, corpus/index.json retrieval index) and
+# commit them back. Evolve PRs deliberately carry only the source-of-truth files
+# (exemplar/tokens/patterns); everything derived is rebuilt here so per-site PRs
+# never conflict with each other.
+# Terminates by construction: its own commit produces no further diff.
+
+on:
+  push:
+    branches: [main]
+    paths: ['corpus/**/exemplars/**', 'corpus/**/patterns/**', 'corpus/**/tokens/**', 'tokens/**']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  derive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Regenerate derived artifacts
+        run: |
+          node tooling/reconcile-sources.mjs
+          node tokens/build.mjs
+          node tooling/build-index.mjs
+      - name: Validate before committing
+        run: npm run validate
+      - name: Commit if changed
+        run: |
+          git config user.name "taste-evolve[bot]"
+          git config user.email "taste-evolve@users.noreply.github.com"
+          git add corpus/*/sources.json corpus/index.json corpus/index.summary.json tokens/tokens.css
+          git diff --cached --quiet && { echo "derived artifacts already fresh"; exit 0; }
+          git commit -m "chore: regenerate derived artifacts (sources, index, tokens.css)"
+          git push

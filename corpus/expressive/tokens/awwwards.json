@@ -1,0 +1,46 @@
+{
+  "color": {
+    "bg": "#F5F4F1",
+    "surface": "#EFEFEF",
+    "fg": "#141212",
+    "muted": "rgba(20,18,18,0.40)",
+    "accent": "rgba(20,18,18,0.94)",
+    "roles": {
+      "ink-strong": "rgba(20,18,18,0.94)",
+      "ink-default": "rgba(20,18,18,0.40)",
+      "hairline": "rgba(20,18,18,0.18)",
+      "border": "rgba(20,18,18,0.40)",
+      "scrim": "rgba(20,18,18,0.42)"
+    }
+  },
+  "type": {
+    "families": ["articulat-cf, sans-serif", "\"Ceraph Roman\", Verdana, serif"],
+    "scale": ["0.85rem", "0.9rem", "1rem", "2rem"],
+    "weights": [400, 500],
+    "leading": [1.0, 1.3, 1.45],
+    "tracking": ["-1.28px", "-0.41px"],
+    "roles": {
+      "ui-label": "articulat-cf",
+      "signature": "Ceraph Roman italic"
+    }
+  },
+  "space": { "base": "8px", "scale": ["12px", "16px", "32px", "128px"] },
+  "radius": ["999px"],
+  "shadow": ["rgba(20,18,18,0.18) 0px 0px 0px 0.4px"],
+  "motion": {
+    "durations": ["180ms", "200ms", "240ms", "320ms"],
+    "easings": ["ease"],
+    "triggers": ["load", "hover", "scroll-progress"],
+    "techniques": ["fixed-pin-stage", "cursor-parallax-drift", "staggered-load-fade", "opacity-state-nav", "raf-continuous-drift"],
+    "scroll_effects": [
+      { "name": "header-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "canvas-stage-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "footer-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "card-cursor-parallax", "property": "transform", "trigger": "hover", "safety": "spectacle-only" },
+      { "name": "nav-load-fade", "property": "opacity", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["Webflow IX2", "requestAnimationFrame", "CSS @keyframes (spin)", "mousemove parallax"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Light warm-monochrome fashion portfolio (meech213.com). Frames s00–s10 are identical: the page does NOT scroll — the three 'pin' scroll-effects are just position:fixed chrome (header/canvas/footer). All real motion is rAF + cursor-parallax (2 mousemove listeners, ~1007 rAF calls) plus a Webflow IX2 staggered load fade. No brand accent color exists; 'accent' role maps to strong ink — saturation comes only from the photography, so accent left neutral. Raw reports a 1/3-col grid but the screenshot shows free absolute placement with ±rotation — trusted the screenshot. Type scale normalized from px (13.6/14.4/16/32) to rem; only a ~2× range, hierarchy is opacity+position not size. Mobile.png too large to read; mobile tokens inferred (body ~13.6px, same monochrome system)."
+}

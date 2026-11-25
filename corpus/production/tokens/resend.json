@@ -1,0 +1,83 @@
+{
+  "color": {
+    "bg": "#000000",
+    "surface": "#0b0e14",
+    "surface-2": "#16181c",
+    "fg": "#f0f0f0",
+    "muted": "#a1a4a5",
+    "subtle": "#6c6c6c",
+    "border": "rgba(240,240,240,0.08)",
+    "accent": "#9281f7",
+    "accent-fg": "#ffffff",
+    "roles": {
+      "violet": "#9281f7",
+      "violet-glow": "#8300ff",
+      "success": "#44ffa4",
+      "success-tint": "rgba(34,255,153,0.12)",
+      "danger": "#ff6465",
+      "danger-tint": "rgba(255,23,63,0.18)",
+      "warning": "#fa8200",
+      "info": "#0077ff",
+      "code-string": "#44ffa4",
+      "code-keyword": "#9281f7",
+      "border-faint": "rgba(214,235,253,0.19)",
+      "border-hairline": "rgba(217,237,254,0.145)"
+    }
+  },
+  "type": {
+    "families": [
+      "Inter, ui-sans-serif, system-ui, sans-serif",
+      "'ABC Favorit', ui-sans-serif, system-ui, sans-serif",
+      "'Domaine', Georgia, 'Times New Roman', serif",
+      "'Commit Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+    ],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.25rem", "1.5rem", "3.5rem", "4.8rem", "6rem"],
+    "weights": [400, 500, 600],
+    "leading": [1.0, 1.2, 1.4, 1.5],
+    "tracking": ["-0.05em display", "-0.017em large-sans", "0 body"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["2px", "4px", "6px", "8px", "12px", "16px", "24px", "32px", "48px", "64px", "96px"]
+  },
+  "radius": ["4px", "6px", "8px", "10px", "12px", "16px", "24px", "9999px"],
+  "shadow": [
+    "0 1px 2px rgba(0,0,0,0.4)",
+    "0 0 0 1px rgba(240,240,240,0.08)",
+    "0 24px 64px rgba(0,0,0,0.6)"
+  ],
+  "motion": {
+    "durations": ["150ms", "200ms", "300ms", "500ms", "600ms", "1000ms", "1500ms", "180000ms"],
+    "easings": [
+      "cubic-bezier(0.4, 0, 0.2, 1)",
+      "cubic-bezier(0, 0, 0.2, 1)",
+      "cubic-bezier(0.4, 0, 1, 1)",
+      "cubic-bezier(0.36, 0.66, 0.6, 1)"
+    ],
+    "triggers": ["load", "in-view", "scroll-progress", "hover"],
+    "techniques": [
+      "load-entrance-reveal",
+      "in-view-fade-rise",
+      "sticky-pin-scrollytelling",
+      "pointer-reactive-3d-object",
+      "shimmer-glow-accent",
+      "marquee"
+    ],
+    "scroll_effects": [
+      { "name": "load entrance reveal", "property": "opacity+transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "in-view fade-rise reveal", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "sticky-pinned product editor", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "scroll-linked orb-glow fade", "property": "opacity", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "pointer-reactive 3D brand object", "property": "transform (webgl/canvas)", "trigger": "load+hover", "safety": "spectacle-only" },
+      { "name": "shimmer / gradient-border accent", "property": "background/gradient", "trigger": "load", "safety": "production-safe" },
+      { "name": "testimonial marquee", "property": "transform", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "WebGL/canvas + requestAnimationFrame"],
+    "reduced_motion": "respected",
+    "io": { "thresholds": ["0"], "root_margins": ["200px"] },
+    "stagger": "none-captured",
+    "evidence": "40 @keyframes (hero-text-slide-up-fade, hero-scale-in, webgl-scale-in-fade, header-slide-down-fade, ai-shimmer-text, ai-selection-pulse, shine, disco, pulse, spin, rotate, scroll-x, column-border-flash, caret-blink, ProseMirror-cursor-blink, open/close-*-fade…); 7 IntersectionObservers / 66 targets @ threshold 0, rootMargin 200px; 14 scroll + 16 mousemove listeners; ~551 rAF calls per scroll pass; 1 canvas + 5 video; 2 sticky pins; 9 in-view opacity fade-ins corroborated by frames; 1 prefers-reduced-motion rule (respected); no GSAP/Lenis/Framer globals (hand-rolled). The 3D cube/orb (WebGL + rAF + mousemove) is the only spectacle-only element; everything else is production-safe and one-shot. NOTE: 56px display tracking is -2.8px (~-0.05em) but the 96px serif only -0.96px (~-0.01em) — tracking varies by size, not one constant em.",
+    "patterns_to_build": ["pointer-reactive-3d-hero-object", "shimmer-gradient-border-badge"]
+  },
+  "notes": "Trust-the-screenshot normalizations. (1) The raw profile's top color rgb(240,240,240) (count 1025) is the FOREGROUND off-white, not the bg — it dominates by node count, not area. Pixel-sampling the canvas returns rgb(0,0,0)/rgb(1,1,1): the true bg is near-pure black. Card 'surfaces' are barely-lifted near-black (~#0b0e14) or fully transparent with only a hairline border; surface roles inferred since the profile registered almost no opaque card fills. (2) Accent is violet — raw rgb(146,129,247)=#9281f7 (the 'tonight' word, code keywords); a more saturated #8300ff appears only as soft orb/glow lighting (sampled rgb(131,0,255)), kept as 'violet-glow'. (3) A green rgba(68,255,164)/rgba(34,255,153) is the semantic success/'Delivered' + code-string color (#44ffa4); red rgba(255,23,63) is danger/'Bounced'. These are tints used for status, not core brand. (4) Type: three display+body faces — Inter (body/most headings), ABC Favorit (a few large sans headings; the profile's 'aBCFavorit'), and a Domaine-class SERIF used on signature headlines ('Everything in your control', 'Email reimagined. Available today.', and the mobile hero). Mono is Commit Mono for code. Domaine is inferred from glyph shapes since the profile under-counts it (4 nodes). (5) Display tracking is unusually tight: raw letterSpacing -2.8px at 56px = ~-0.05em on the big sans display; kept as a distinct token. (6) borderRadius 3.35e7px is the JS overflow encoding of border-radius:50%/9999px (full pill) — normalized to 9999px; 16px is the dominant card radius. (7) px scale converted to rem at 16px root; one-off sizes (76.8px etc.) dropped; 56px=3.5rem, 96px=6rem display jumps kept."
+}

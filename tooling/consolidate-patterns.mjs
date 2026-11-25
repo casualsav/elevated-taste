@@ -1,0 +1,136 @@
+#!/usr/bin/env node
+/**
+ * consolidate-patterns.mjs — flag near-duplicate patterns for human merge review.
+ *
+ * The corpus grows ~4 sites/week and each brings 1-2 patterns; without pruning, retrieval
+ * degrades as families of near-identical recipes accumulate (in-view-fade-rise /
+ * scroll-reveal-in-view / in-view-scale-rise are one family already). This tool scores
+ * pattern pairs on cheap structural signals and writes a PROPOSAL (proposals/, never
+ * auto-applied) listing candidates worth merging.
+ *
+ * Similarity signals (weighted):
+ *   - name token overlap (Jaccard over slug words)           x3
+ *   - shared tags (Jaccard)                                  x2
+ *   - same trigger (motion patterns)                         +0.5
+ *   - summary word overlap (Jaccard over long words)         x2
+ * Pairs scoring >= threshold (default 0.35, same corpus only) are reported — calibrated so
+ * the known duplicate families (in-view reveals, feature-card grids, scrollytelling pins)
+ * surface without drowning review in false positives.
+ *
+ *   node tooling/consolidate-patterns.mjs                 # print candidates
+ *   node tooling/consolidate-patterns.mjs --propose       # also write proposals/<date>-pattern-consolidation.md
+ *   node tooling/consolidate-patterns.mjs --threshold 0.5
+ */
+import { readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const args = process.argv.slice(2);
+const PROPOSE = args.includes('--propose');
+const tIdx = args.indexOf('--threshold');
+const THRESHOLD = tIdx !== -1 ? parseFloat(args[tIdx + 1]) : 0.35;
+
+const STOP = new Set(['the', 'and', 'with', 'for', 'that', 'this', 'into', 'from', 'over', 'each', 'their', 'when', 'while', 'then', 'them', 'its', 'are', 'was', 'has', 'have', 'not', 'but', 'can', 'all', 'one', 'two', 'per', 'via', 'used', 'uses', 'use']);
+
+function fm(md) {
+  const m = md.match(/^---\n([\s\S]*?)\n---/);
+  if (!m) return {};
+  const obj = {};
+  for (const line of m[1].split('\n')) {
+    const ci = line.indexOf(':');
+    if (ci === -1 || /^\s/.test(line)) continue;
+    const key = line.slice(0, ci).trim();
+    const val = line.slice(ci + 1).trim();
+    obj[key] = /^\[.*\]$/.test(val)
+      ? val.slice(1, -1).split(',').map((s) => s.trim().replace(/^["']|["']$/g, '')).filter(Boolean)
+      : val.replace(/^["']|["']$/g, '');
+  }
+  return obj;
+}
+
+function summaryWords(md) {
+  const m = md.match(/^## What it is\s*\n+([\s\S]*?)(?=\n## |$)/m);
+  if (!m) return new Set();
+  return new Set(
+    m[1].toLowerCase().replace(/[`*_()\[\]#.,;:!?"']/g, ' ').split(/\s+/)
+      .filter((w) => w.length >= 4 && !STOP.has(w))
+  );
+}
+
+const jaccard = (a, b) => {
+  if (!a.size || !b.size) return 0;
+  let inter = 0;
+  for (const x of a) if (b.has(x)) inter++;
+  return inter / (a.size + b.size - inter);
+};
+
+const patterns = [];
+for (const corpus of ['production', 'expressive']) {
+  const dir = join(ROOT, 'corpus', corpus, 'patterns');
+  for (const f of readdirSync(dir).filter((x) => x.endsWith('.md'))) {
+    const md = readFileSync(join(dir, f), 'utf8');
+    const meta = fm(md);
+    const slug = meta.pattern || f.replace(/\.md$/, '');
+    patterns.push({
+      slug, corpus,
+      from: meta.from || null,
+      trigger: meta.trigger || null,
+      nameTokens: new Set(slug.split('-').filter((w) => w.length >= 3 && !STOP.has(w))),
+      tags: new Set(meta.tags || []),
+      words: summaryWords(md),
+    });
+  }
+}
+
+const pairs = [];
+for (let i = 0; i < patterns.length; i++) {
+  for (let j = i + 1; j < patterns.length; j++) {
+    const a = patterns[i], b = patterns[j];
+    if (a.corpus !== b.corpus) continue; // corpora are never blended
+    const name = jaccard(a.nameTokens, b.nameTokens);
+    const tags = jaccard(a.tags, b.tags);
+    const words = jaccard(a.words, b.words);
+    const trig = a.trigger && a.trigger === b.trigger ? 0.5 : 0;
+    const score = (name * 3 + tags * 2 + words * 2 + trig) / 7.5;
+    if (score >= THRESHOLD) pairs.push({ a, b, score, name, tags, words, trig });
+  }
+}
+pairs.sort((x, y) => y.score - x.score);
+
+if (!pairs.length) {
+  console.log(`no pattern pairs at or above similarity ${THRESHOLD} — nothing to consolidate.`);
+  process.exit(0);
+}
+
+console.log(`${pairs.length} candidate pair(s) at threshold ${THRESHOLD}:`);
+for (const p of pairs) {
+  console.log(`  ${p.score.toFixed(2)}  ${p.a.corpus}: ${p.a.slug}  ~  ${p.b.slug}` +
+    `  (name ${p.name.toFixed(2)} tags ${p.tags.toFixed(2)} text ${p.words.toFixed(2)}${p.trig ? ' same-trigger' : ''})`);
+}
+
+if (PROPOSE) {
+  const date = new Date().toISOString().slice(0, 10);
+  const out = join(ROOT, 'proposals', `${date}-pattern-consolidation.md`);
+  const lines = [
+    `# Pattern consolidation candidates — ${date}`,
+    '',
+    `Generated by \`tooling/consolidate-patterns.mjs\` (threshold ${THRESHOLD}). For each pair,`,
+    'a human decides: merge into one recipe (keep the better implementation, fold distinct',
+    'variants into documented knobs, update every exemplar that cites the loser), keep both',
+    '(genuinely different mechanisms), or raise the threshold if these are false positives.',
+    '**Never auto-applied.**',
+    '',
+  ];
+  for (const p of pairs) {
+    lines.push(`## ${p.a.slug} ~ ${p.b.slug} (${p.a.corpus}, score ${p.score.toFixed(2)})`);
+    lines.push(`- files: \`corpus/${p.a.corpus}/patterns/${p.a.slug}.md\` · \`corpus/${p.b.corpus}/patterns/${p.b.slug}.md\``);
+    lines.push(`- from: ${p.a.from} · ${p.b.from}${p.trig ? ` — same trigger (${p.a.trigger})` : ''}`);
+    lines.push(`- signals: name ${p.name.toFixed(2)}, tags ${p.tags.toFixed(2)}, summary text ${p.words.toFixed(2)}`);
+    lines.push('- decision: (merge into ___ / keep both because ___)');
+    lines.push('');
+  }
+  mkdirSync(join(ROOT, 'proposals'), { recursive: true });
+  writeFileSync(out, lines.join('\n'));
+  console.log(`\nproposal written: proposals/${date}-pattern-consolidation.md`);
+}

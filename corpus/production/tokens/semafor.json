@@ -1,0 +1,64 @@
+{
+  "color": {
+    "bg": "#f8f5d7",
+    "surface": "#fcfae4",
+    "fg": "#1f1d1a",
+    "muted": "#4b4a47",
+    "accent": "#af1f1b",
+    "roles": {
+      "paper": "#f8f5d7",
+      "paper-tint": "#fcfae4",
+      "paper-shade": "#ece9d2",
+      "ink": "#1f1d1a",
+      "ink-soft": "#4b4a47",
+      "rule": "#4b4a47",
+      "rule-soft": "#c3c1ae",
+      "rule-faint": "#9c9a92",
+      "live": "#af1f1b",
+      "link": "#3a6d78",
+      "section-navy": "#1f2b6d",
+      "section-rust": "#bc4d2c",
+      "highlight": "#ffff00",
+      "surface-inverse": "#1f1d1a",
+      "fg-on-dark": "#fcfae4",
+      "scrim": "rgba(0,0,0,0.5)"
+    }
+  },
+  "type": {
+    "families": ["FeatureFlatHeadline (flat serif; sub 'Times New Roman', Times, serif)", "FeatureFlatCondensed (labels)", "Helvetica, Arial, sans-serif (metadata)"],
+    "scale": ["0.625rem", "0.75rem", "0.8125rem", "0.9375rem", "1rem", "1.25rem", "1.5rem", "1.9375rem", "2.625rem"],
+    "weights": [180, 300, 370, 400, 495],
+    "leading": [1.2, 1.5],
+    "tracking": {
+      "display": "0em",
+      "heading": "0.01em",
+      "body": "0em",
+      "eyebrow": "0.01em"
+    }
+  },
+  "space": {
+    "base": "5px",
+    "scale": ["4px", "5px", "10px", "12px", "18px", "20px", "30px", "50px"]
+  },
+  "radius": ["2px", "5px", "50%"],
+  "shadow": [],
+  "motion": {
+    "durations": ["175ms", "300ms", "60000ms"],
+    "easings": ["ease-in-out", "ease"],
+    "triggers": ["load", "hover", "tap"],
+    "techniques": [
+      "phase-offset-perpetual-rotation",
+      "fixed-modal-over-locked-document",
+      "slide-over-drawer-with-scrim",
+      "intersection-observer-as-prefetch",
+      "color-only-hover-transition"
+    ],
+    "scroll_effects": [
+      { "name": "newsletter-gate-pin", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "nav-drawer-scrim", "property": "opacity", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["CSS @keyframes (1 authored: 60s rotation; 9 vendor)", "CSS transitions (4 rules)", "IntersectionObserver (367 observers / 373 targets, rootMargin 2250px — prefetch + impressions, not animation)", "no animation library detected"],
+    "reduced_motion": "unknown"
+  },
+  "notes": "Grounded in raw/semafor.json (computed-style frequencies, craft, architecture) + the 11-frame sequence + desktop/mobile screenshots. raw/semafor.html (843k tokens) and raw/semafor.css (129k tokens) are single-line minified bundles that exceeded the reader's limit and could not be inspected directly; every value below is therefore a computed or sampled value, not a source declaration. The site authors exactly ONE CSS custom property (`--scroll-behavior: smooth`) — it has no token layer, so all names here are assigned roles, not the site's. Colors are exact rgb() computed values converted to hex. `scroll_effects`: the probe's `rotate 49.2°` on the clock hand is DROPPED as a scroll effect — the 11 frames are pixel-identical apart from the hands, proving the document never scrolled (a load-time newsletter modal locks it); the rotation is a 60s infinite loop sampled at two times. The three probe `pin (fixed)` entries are the modal/drawer, reclassified as in-view opacity, not scroll-progress. Type scale normalized to rem from computed px (10/12/13/15/16/20/24/31/42); 13.3333px and 14.5px are browser em-fallback artifacts and were dropped, as were the 9px and 8px micro-labels below the legible floor. Weights 600/700 (13 elements) are synthetic bolding of the Helvetica fallback, not axis instances — dropped from the ramp. Spacing base recorded as 5px (not 8px): the padding/gap ladder is 4/5/10/12/18/20/30/50, with 12px inline padding the one off-grid step. `shadow` is empty because `craft.elevation.shadows` is empty — the page has none. `color.dark` OMITTED: `craft.theme.supportsDark` is false; the `craft.theme.dark` payload is a degenerate re-read of the light palette (bg #f8f5d7, accent transparent) and was not used. `reduced_motion: unknown` — the probe flags `respectsReducedMotion: true` off a single @media rule among 48 stylesheets, which belongs to the Termly consent widget; the site's own clock loop is unguarded."
+}

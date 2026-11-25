@@ -1,0 +1,56 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f4f4f4",
+    "fg": "#333333",
+    "muted": "#888888",
+    "accent": "#000000",
+    "roles": {
+      "surface-2": "#e8e8e8",
+      "hairline": "#979797",
+      "border-strong": "#000000",
+      "border-muted": "#888888",
+      "placeholder": "#888888",
+      "disabled": "#b6b6b6",
+      "accent-fg": "#ffffff",
+      "danger": "#ff2b00"
+    }
+  },
+  "type": {
+    "families": [
+      "Favorit SSENSE Inter (grotesque — headlines, UI labels, uppercase)",
+      "JHA Times Now (serif, semilight — deks, kickers, dates)"
+    ],
+    "scale": ["0.6875rem", "0.8125rem", "0.9375rem", "1.125rem", "1.25rem", "1.78125rem", "3.325rem", "4.15625rem", "6.25rem"],
+    "weights": [100, 400],
+    "leading": [0.94, 1.19, 1.3, 1.36],
+    "tracking": {
+      "display": "-0.0375em",
+      "heading": "-0.044em",
+      "body": "-0.0025em",
+      "caps": "0.008em"
+    },
+    "case": "uppercase for all headlines and UI labels; sentence case for serif prose"
+  },
+  "space": {
+    "base": "10px",
+    "scale": ["10px", "20px", "30px", "40px", "50px", "80px", "120px"],
+    "gutter_steps": { "base": "10px", "768": "20px", "1024": "30px", "1440": "40px" },
+    "page_margin_steps": { "base": "20px", "1024": "80px", "1440": "120px" }
+  },
+  "radius": ["0", "10px"],
+  "shadow": [],
+  "breakpoints": [568, 768, 1024, 1440],
+  "motion": {
+    "durations": ["200ms", "350ms", "500ms"],
+    "easings": ["ease"],
+    "triggers": ["load", "hover", "in-view"],
+    "techniques": ["opaque-pinned-header", "aspect-reserved-lazy-image", "underline-on-hover"],
+    "scroll_effects": [
+      { "name": "opaque-pinned-header", "property": "position", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["CSS transitions", "lazysizes (IntersectionObserver-based lazy images)", "CSS @keyframes (loading indicators only)"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Deliberately static site: the 4 @keyframes are loaders (s-loader-blink, s-loader-dash, blink, sk-scaleout); the 9 scroll / 8 mousemove listeners and 83 rAF calls in the probe belong to third-party analytics (TikTok, Pinterest, Datadog, GTM), not to page choreography — the 11-frame scroll sequence corroborates zero page motion. No prefers-reduced-motion rules exist, but the exposure is loaders only. 200ms added to durations from the drawer/overlay transitions in CSS; the probe only saw 350ms/500ms in computed styles. Type scale normalized from px (11 / 13 / 15 / 18 / 20 / 28.5 / 53.2 / 66.5 / 100) and reconstructed from the rem values in the editorial module CSS; it steps at 768/1024/1440 rather than flowing (no clamp()). Tracking converted from the site's per-size px values (-0.05px@20px … -3.75px@100px) into the em-relative constant that actually governs it. No shadows exist: the only boxShadow in the profile is a 1px inset ring used as a border. Page bg white and text #333 confirmed against the screenshots; the probe's theme.dark block is a false positive (supportsDark: false) so no dark axis is recorded. Font family names are provenance only — pair any light grotesque with any semilight serif to reproduce the effect."
+}

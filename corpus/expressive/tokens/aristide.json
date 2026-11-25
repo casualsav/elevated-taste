@@ -1,0 +1,43 @@
+{
+  "color": {
+    "bg": "#1e1e1e",
+    "surface": "#2a2a2a",
+    "fg": "#bac4b8",
+    "muted": "rgba(186,196,184,0.55)",
+    "accent": "#bac4b8",
+    "roles": {
+      "ink": "#1e1e1e",
+      "sage": "#bac4b8",
+      "image-greyscale": "thumbnails are desaturated B&W; their natural tone is the only imagery 'color'",
+      "project-hover-chroma": "per-case accent hues (pink #ff71cb, gold #cc9933, green #53bb89, …) belong to individual project views/WebGL, NOT the chrome"
+    }
+  },
+  "type": {
+    "families": ["\"Compressed Display Sans\" (condensed grotesque, custom), sans-serif", "\"Monospace HUD\" (tabular), ui-monospace, monospace"],
+    "scale": ["0.625rem", "0.75rem", "3.125rem", "16.1rem"],
+    "weights": [400],
+    "leading": [0.75, 1.0, 1.17]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.75rem", "1.875rem", "3rem", "4.2rem"]
+  },
+  "radius": ["0px"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["500ms"],
+    "easings": ["ease", "cubic-bezier(0.25, 0.46, 0.45, 0.94)"],
+    "triggers": ["drag", "hover", "scroll-progress"],
+    "techniques": ["inertial-drag-strip", "webgl-thumbnail-hover-reveal", "sticky-pin-scrollytelling", "index-counter-readout", "gentle-ui-hover"],
+    "scroll_effects": [
+      { "name": "inertial-drag-strip", "property": "transform", "trigger": "drag", "safety": "spectacle-only" },
+      { "name": "webgl-thumbnail-hover-reveal", "property": "canvas-shader", "trigger": "hover", "safety": "spectacle-only" },
+      { "name": "project-viewer-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "index-counter-readout", "property": "text", "trigger": "drag", "safety": "production-safe" },
+      { "name": "ui-hover", "property": "opacity", "trigger": "hover", "safety": "production-safe" }
+    ],
+    "stack": ["WebGL/<canvas> + requestAnimationFrame (hand-rolled, no library globals detected)", "pointer (mousemove) input", "CSS transition (UI hover only)", "position: fixed (project-viewer pin)"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Screenshot is ground truth; raw profile is noisy. THE SIGNATURE COLOR is a desaturated sage-grey #bac4b8 (raw rgb(186,196,184), the #1 color, 224 uses) used for ALL chrome text on a near-black #1e1e1e ground (raw rgb(30,30,30)) — this is NOT a white-on-black page, and naming fg as sage (not #fff) is the whole point. The raw color list's pink/gold/green/purple/red entries are per-project case accents / WebGL output, not part of the system, so they are dropped from roles. ONE weight only (raw fontWeight 400, 2057 uses) — no bold anywhere; emphasis is scale + value, never weight. Two families: a heavy CONDENSED display grotesque (raw alias 'jws', 1436 uses) for the wordmark, and a tabular monospace (raw alias 'TNY', 621 uses) for the tick-readout + micro-labels; both named neutrally because the raw aliases are obfuscated webfont names. Display scale is genuinely extreme: raw shows 337.5px (~16.1rem, the giant wordmark, 572 uses) and 257.5px (~9rem) with heavy negative tracking (raw letterSpacing -8.1px ≈ -0.05em on display); kept as a hero-only token, not a magic number. Micro UI sits at 10–12px (raw 0.625–0.75rem) with positive tracking 0.2px on labels. Tightest leading is the display lock-up (raw 253px line on 337px text ≈ 0.75). Radius 0 and shadow none everywhere — depth comes from edge-bleed layering of the slat gallery and a faint edge mask, never elevation. Motion: the only authored CSS transitions are raw 500ms with easings 'ease' + 'cubic-bezier(0.25,0.46,0.45,0.94)' (easeOutQuad) for hover/UI; the heavy drag-scroll inertia + WebGL hovers on thumbnails are JS/GL and INVISIBLE to computed styles — captured only as 2 <canvas> nodes + a persistent rAF loop (604 calls/pass) + 1 mousemove listener. This is NOT a scroll-choreography site: 0 @keyframes, 0 CSS animation rules, no IntersectionObserver, no scroll listeners, and just 1 scroll effect (a position→fixed pin on the project-viewer main). The 4 scroll frames are pixel-identical (fixed single-screen stage; motion is drag/hover, which scroll-stepping can't show), so the motion block is grounded in probe counts + the pinned-main DOM, not frames; the recorded 'entrance' spans (1.00→1.00 index digits) are dropped as from==to noise. prefers-reduced-motion is NOT respected (prmRules:0) — the headline a11y defect, since the GL strip is the only path to the work. The 'inertial-drag-strip' and 'webgl-thumbnail-hover-reveal' techniques have no exact corpus recipe (patterns_to_build); related existing patterns are webgl-thumbnail-sphere, inset-canvas-stage, edge-bleed-portrait-strip, tick-scrubber-indicator, sticky-pin-scrollytelling. Space base ~8px but operative gaps are the 30px (3.75-ish) chrome inset (raw paddingInline 30px, 262 uses) and large vertical voids around the centered strip."
+}

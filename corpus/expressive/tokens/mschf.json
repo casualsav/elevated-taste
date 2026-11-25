@@ -1,0 +1,61 @@
+{
+  "color": {
+    "bg": "#000000",
+    "surface": "#000000",
+    "fg": "#84898e",
+    "muted": "#84898e",
+    "accent": "#ffc700",
+    "roles": {
+      "fg-hover": "#ffffff",
+      "rail-archive": "rgba(168,145,65,0.3)",
+      "rail-subscribe": "#40aaff",
+      "rail-unreleased": "#f00007",
+      "text-unreleased": "#f00007",
+      "link": "#ffc700",
+      "cta-fill": "#ffc700",
+      "veil": "#000000",
+      "focus-outline": "#101010"
+    }
+  },
+  "type": {
+    "families": ["MSCHFSansMono", "ui-monospace, monospace"],
+    "scale": ["1.625rem", "4.0625rem"],
+    "weights": [400],
+    "leading": [0.86, 0.97]
+  },
+  "space": {
+    "base": "10px",
+    "scale": ["3px", "6px", "10px", "14px", "26px"]
+  },
+  "radius": ["0"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["50000ms"],
+    "easings": ["steps(n)", "linear", "ease"],
+    "triggers": ["load", "hover"],
+    "techniques": [
+      "char-cell-marquee",
+      "dither-veil-hover-reveal",
+      "hover-recolor-append-glyph",
+      "cursor-tethered-label",
+      "fixed-corner-chrome"
+    ],
+    "scroll_effects": [
+      {
+        "name": "fixed-corner-chrome",
+        "property": "transform",
+        "trigger": "scroll-progress",
+        "safety": "production-safe"
+      }
+    ],
+    "stack": [
+      "CSS @keyframes (1 rule)",
+      "CSS custom properties (--overflow-amount, --animation-duration)",
+      "steps() timing function",
+      "CSS :hover + ::after content",
+      "Nuxt/Vue (provenance only)"
+    ],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Sizes are normalized from viewport units to their px value at the 1440px capture width, then expressed in rem: body 4.513888vw = 65px = 4.0625rem; index gutter 1.805555vw = 26px = 1.625rem. The site itself hard-codes vw everywhere and has no rem/px type scale at all — reuse via clamp() with a rem middle term, not raw vw. Leading is a RATIO of line-height to font-size and is deliberately sub-1 (56/65 = 0.86 desktop; mobile 7.4667vw/7.7333vw = 0.97). Only two type sizes exist in the entire stylesheet. Spacing is likewise vw-derived (0.208333/0.416666/0.694444/0.972222/1.776666vw) and rounded here to their 1440px px values; there is no 8px grid. color.dark is OMITTED: the raw profile reports theme.supportsDark=true, but the page has exactly one theme (black ground, no toggle, no prefers-color-scheme rules) — that flag is an artifact of the ground already being #000. surface and bg are the same value because the site has no surfaces, cards, or fills at all — the only non-black backgrounds are the yellow CTA square and the cursor chip. muted equals fg for the same reason: there is no secondary text color, only a hover color. motion.durations lists the single observed value (50s) — real per-row durations are computed as overflow_chars x step_ms; the raw profile's easings 'ease' and 'steps(50)' confirm the step count equals the character overflow. Both entries the profiler filed under motion.scroll_effects were rejected as effects: one is the position:fixed header (a pin) and the other is a marquee transform misread as parallax — only the pin is recorded above. rafCalls=0, IntersectionObservers=0, libraries=[], keyframeCount=1 — this page does not animate on scroll. prmRules=0 against a 50s infinite animation, hence reduced_motion: not-respected. focus-outline is recorded as an anti-token: #101010 on #000000 is 1.1:1 and effectively invisible."
+}

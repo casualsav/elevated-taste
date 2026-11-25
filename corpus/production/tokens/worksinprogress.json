@@ -1,0 +1,59 @@
+{
+  "color": {
+    "bg": "#FFF7F4",
+    "surface": "#FFFFFF",
+    "fg": "#141414",
+    "muted": "#D6D6D6",
+    "accent": "#F4D06F",
+    "roles": {
+      "ink": "#121212",
+      "hairline": "#141414",
+      "rule-muted": "#D6D6D6",
+      "button-bg": "#141414",
+      "button-fg": "#FFFFFF",
+      "band-indigo": "#363B8F",
+      "band-red": "#E20A39",
+      "band-yellow": "#F4D06F",
+      "band-mint": "#CEE0DC",
+      "band-pink": "#F8E6EA",
+      "band-lavender": "#D8D9F1",
+      "band-green": "#073429",
+      "on-band-light": "#FFFFFF"
+    }
+  },
+  "type": {
+    "families": ["Editor (serif)", "GT America Mono"],
+    "roles": {
+      "display": "Editor (serif)",
+      "body": "Editor (serif)",
+      "ui-meta": "GT America Mono"
+    },
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.25rem", "1.5rem", "1.75rem", "3rem"],
+    "weights": [400, 700],
+    "leading": [1.25, 1.3, 1.5],
+    "h1": { "desktop": "3rem", "mobile": "1.5rem", "leading": 1.3 }
+  },
+  "space": {
+    "base": "5px",
+    "scale": ["5px", "10px", "15px", "20px", "30px", "50px"]
+  },
+  "radius": ["0", "6px", "12px", "60px"],
+  "shadow": ["none"],
+  "layout": {
+    "container_max": "1472px",
+    "grid": "2-col card grid (wide spotlight + stacked secondary); single column on mobile"
+  },
+  "motion": {
+    "durations": ["150ms", "500ms"],
+    "easings": ["ease-in-out", "ease"],
+    "triggers": ["scroll-progress", "in-view", "hover"],
+    "techniques": ["sticky-context-subnav", "lazy-image-fade-in", "hover-underline", "disclosure-menu"],
+    "scroll_effects": [
+      { "name": "sticky-context-subnav", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "lazy-image-fade-in", "property": "opacity", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["CSS position:sticky", "CSS transitions"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Two-family system (serif Editor + GT America Mono) does the hierarchy work; size scale is shallow (~3x). UI is monochrome on warm cream (#FFF7F4, not #FFF); the saturated palette appears ONLY as full-bleed section grounds/caption bands, normalized here as band-* roles. Hairline borders (#141414) replace shadows/fills — shadow set to none despite one stray 1px in the raw profile. Radius mostly 0 (squared/print look); 6/12/60 are incidental controls. Loading shimmer/pulse keyframes and a Stripe checkout pulse are vendor, excluded from techniques. Base unit inferred as 5px from dominant 5/15/30 paddings."
+}

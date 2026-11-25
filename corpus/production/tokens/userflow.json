@@ -1,0 +1,63 @@
+{
+  "color": {
+    "bg": "#fffdf8",
+    "surface": "#ffffff",
+    "surface-2": "#faf5f0",
+    "fg": "#141414",
+    "fg-heading": "#121941",
+    "muted": "#52577a",
+    "border": "#141414",
+    "border-neutral": "#d6d6d6",
+    "accent": "#2a4eef",
+    "accent-strong": "#1032cf",
+    "roles": {
+      "ink": "#141414",
+      "heading-navy": "#121941",
+      "body-slate": "#52577a",
+      "link-hover": "#1032cf",
+      "orange": "#fe784e",
+      "tint-green": "#d5fec0",
+      "tint-green-bg": "#e4fcd7",
+      "tint-blue": "#d1e5ff",
+      "tint-lavender": "#d7d4ff",
+      "tint-cream": "#f4ebe1",
+      "tint-border-green": "#b4ea99",
+      "tint-border-blue": "#b9d7ff",
+      "tint-border-violet": "#c3beff"
+    }
+  },
+  "type": {
+    "families": ["Figtree", "-apple-system", "sans-serif"],
+    "scale": ["0.75rem", "0.875rem", "0.9375rem", "1rem", "1.125rem", "1.25rem", "1.5rem", "1.75rem", "2.25rem", "2.75rem", "3.5rem", "4rem", "4.5rem"],
+    "weights": [400, 500, 600, 700],
+    "leading": [1.0, 1.2, 1.35, 1.5],
+    "tracking": { "display": "-0.02em", "heading": "-0.01em", "body": "0.006em" }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "8px", "12px", "16px", "24px", "32px", "40px", "56px", "64px", "104px", "124px"]
+  },
+  "radius": ["8px", "12px", "16px", "24px", "32px", "60px", "9999px"],
+  "shadow": [
+    "none",
+    "0 4px 16px rgba(0,0,0,0.15)",
+    "0 10px 30px rgba(0,0,0,0.10)"
+  ],
+  "motion": {
+    "durations": ["200ms", "300ms", "400ms", "1500ms"],
+    "easings": ["ease", "ease-in-out", "cubic-bezier(0.25,0.1,0.25,1)"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": ["sticky-stack-recede", "duplicated-track-marquee", "cursor-parallax-constellation", "in-view-scale-dim", "disclosure-icon-rotate", "sticky-nav-blur-curtain"],
+    "scroll_effects": [
+      { "name": "sticky-stack-recede", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "covered-card-dim", "property": "filter", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "trusted-logo-marquee", "property": "transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "logo-cursor-parallax", "property": "transform", "trigger": "hover", "safety": "spectacle-only" },
+      { "name": "faq-icon-rotate-180", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "nav-backdrop-blur-fade", "property": "background", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["GSAP ScrollTrigger", "GSAP SplitText", "Webflow IX2", "IntersectionObserver", "CSS @keyframes"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Single-family type system (Figtree 300-900); the raw 22.5px/7.5px/15px/45px paddings are rem values on a scaled root and are normalized here to an 8px base. Two ink colors are intentional: warm near-black #141414 for body/borders, cool navy #121941 for large headings. Elevation is carried by 1px near-black outlines, NOT shadows (borderColor rgb(20,20,20) appears 1044x; only two real box-shadows exist) — flat 'sticker' cards. Pastel tints (mint/blue/lavender/cream) are semantic: each audience section owns one hue, with a matched darker border. supportsDark=false — no dark palette emitted. Cursor-parallax logo field tagged spectacle-only (mousemove-driven rAF, 12 listeners)."
+}

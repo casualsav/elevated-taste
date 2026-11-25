@@ -1,0 +1,41 @@
+{
+  "$description": "Direction preset: brutalist (Swiss industrial print substrate). PARTIAL override of tokens.json — zero radius, grotesque/mono stacks, no shadows, tight negative tracking, hazard-red accent. Only keys that differ from the house base.",
+  "color": {
+    "bg":        { "$value": "#f4f4f0", "$type": "color" },
+    "surface":   { "$value": "#eae8e3", "$type": "color" },
+    "surface-2": { "$value": "#e0ded7", "$type": "color" },
+    "fg":        { "$value": "#050505", "$type": "color" },
+    "muted":     { "$value": "#3a3a38", "$type": "color" },
+    "subtle":    { "$value": "#6a6a66", "$type": "color" },
+    "border":    { "$value": "#050505", "$type": "color" },
+    "accent":    { "$value": "#e61919", "$type": "color" },
+    "accent-fg": { "$value": "#f4f4f0", "$type": "color" },
+    "focus":     { "$value": "#e61919", "$type": "color" }
+  },
+  "font": {
+    "sans": { "$value": "'Archivo', 'Helvetica Neue', Inter, sans-serif", "$type": "fontFamily" },
+    "display": { "$value": "'Archivo Black', 'Archivo', sans-serif", "$type": "fontFamily" },
+    "mono": { "$value": "'JetBrains Mono', 'IBM Plex Mono', 'Space Mono', ui-monospace, monospace", "$type": "fontFamily" }
+  },
+  "leading": {
+    "tight":   { "$value": "0.85", "$type": "number" },
+    "snug":    { "$value": "0.95", "$type": "number" }
+  },
+  "tracking": {
+    "tight":  { "$value": "-0.05em", "$type": "dimension" },
+    "normal": { "$value": "0em",     "$type": "dimension" },
+    "wide":   { "$value": "0.1em",   "$type": "dimension" }
+  },
+  "radius": {
+    "sm":   { "$value": "0px", "$type": "dimension" },
+    "md":   { "$value": "0px", "$type": "dimension" },
+    "lg":   { "$value": "0px", "$type": "dimension" },
+    "xl":   { "$value": "0px", "$type": "dimension" },
+    "full": { "$value": "0px", "$type": "dimension" }
+  },
+  "shadow": {
+    "sm": { "$value": "none", "$type": "shadow" },
+    "md": { "$value": "none", "$type": "shadow" },
+    "lg": { "$value": "none", "$type": "shadow" }
+  }
+}

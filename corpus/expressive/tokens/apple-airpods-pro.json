@@ -1,0 +1,59 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f5f5f7",
+    "surface-2": "#e8e8ed",
+    "fg": "#1d1d1f",
+    "muted": "#6e6e73",
+    "subtle": "#86868b",
+    "accent": "#0071e3",
+    "roles": {
+      "fg-secondary": "#333336",
+      "link": "#0066cc",
+      "focus-ring": "#0071e3",
+      "success": "#00c866",
+      "on-dark-fg": "#f5f5f7",
+      "signature-gradient": "linear-gradient(60deg, #0894ff 0%, #c959dd 40%, #ff2e54 67%, #ff9003 100%)",
+      "bg-tint-gradient": "linear-gradient(#ffffff, #f5f5f7)"
+    }
+  },
+  "type": {
+    "families": ["SF Pro Display", "SF Pro Text"],
+    "scale": ["0.75rem", "1.0625rem", "1.1875rem", "1.3125rem", "1.5rem", "1.75rem", "2.75rem", "3.5rem", "4rem", "6rem"],
+    "weights": [400, 600],
+    "leading": [1.0, 1.05, 1.15, 1.47],
+    "tracking_by_size": {
+      "96px": "-0.015em",
+      "64px": "-0.009em",
+      "56px": "-0.005em",
+      "28px": "0.007em",
+      "24px": "0.009em",
+      "21px": "0.011em",
+      "17px": "-0.022em",
+      "12px": "-0.01em"
+    }
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["18px", "20px", "28px", "34px", "40px", "76px", "80px", "160px"]
+  },
+  "radius": ["10px", "18px", "28px", "36px", "980px", "50%"],
+  "shadow": ["rgba(0,0,0,0.11) 0 0 0.5px 0 inset"],
+  "motion": {
+    "durations": ["100ms", "160ms", "180ms", "200ms", "220ms", "240ms", "320ms"],
+    "easings": ["cubic-bezier(0.4, 0, 0.6, 1)", "ease", "cubic-bezier(0.28, 0.11, 0.32, 1)", "steps(1)"],
+    "stagger_delays": ["80ms", "160ms", "200ms", "220ms", "240ms", "260ms"],
+    "triggers": ["scroll-progress", "in-view", "load", "drag"],
+    "techniques": ["sticky-pin-subnav", "in-view-text-color-fill", "staggered-fade-rise", "horizontal-carousel", "ribbon-color-cycle", "inline-media-spin"],
+    "scroll_effects": [
+      { "name": "sticky-pin-subnav", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "in-view-text-color-fill", "property": "color", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "staggered-fade-rise", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "ribbon-color-cycle", "property": "background", "trigger": "load", "safety": "production-safe" },
+      { "name": "inline-media-spin", "property": "transform", "trigger": "in-view", "safety": "spectacle-only" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "requestAnimationFrame", "scroll-snap"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Light-only theme — craft.theme.supportsDark is false, so no color.dark block (dark passages are full-bleed black photography, not a re-theme). Tracking normalized from px→em against each font-size (SF's native body tracking is ~-0.022em). Scale rounded from raw px (17/19/21/24/28/44/56/64/96) to rem. Radius 980/999px = pill; 28/36px = image tiles; 50% = circular controls. Only one shadow token exists on the whole page — elevation is carried by imagery + bg tint, not shadow. Signature 60deg gradient is decorative (sound arcs) only; accent #0071e3 is reserved for interactive chrome."
+}

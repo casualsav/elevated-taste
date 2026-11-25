@@ -1,0 +1,47 @@
+{
+  "$description": "Direction preset: soft. PARTIAL override of tokens.json — larger radii, soft diffused shadows, gentler warm colors, rounded display stack, springy motion. Only keys that differ from the house base.",
+  "color": {
+    "bg":        { "$value": "#fdfbf7", "$type": "color" },
+    "surface":   { "$value": "#f6f3ee", "$type": "color" },
+    "surface-2": { "$value": "#efeae2", "$type": "color" },
+    "fg":        { "$value": "#26231f", "$type": "color" },
+    "muted":     { "$value": "#6e6a64", "$type": "color" },
+    "subtle":    { "$value": "#9d978e", "$type": "color" },
+    "border":    { "$value": "#ece7df", "$type": "color" },
+    "accent":    { "$value": "#5b8def", "$type": "color" },
+    "accent-fg": { "$value": "#ffffff", "$type": "color" },
+    "success":   { "$value": "#3fae72", "$type": "color" },
+    "warning":   { "$value": "#d99441", "$type": "color" },
+    "danger":    { "$value": "#e26a6a", "$type": "color" },
+    "focus":     { "$value": "#5b8def", "$type": "color" }
+  },
+  "font": {
+    "sans": { "$value": "'Plus Jakarta Sans', 'Geist Sans', system-ui, sans-serif", "$type": "fontFamily" },
+    "display": { "$value": "'Bricolage Grotesque', 'Plus Jakarta Sans', 'SF Pro Rounded', system-ui, sans-serif", "$type": "fontFamily" },
+    "mono": { "$value": "'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace", "$type": "fontFamily" }
+  },
+  "leading": {
+    "tight":   { "$value": "1.15", "$type": "number" },
+    "relaxed": { "$value": "1.75", "$type": "number" }
+  },
+  "radius": {
+    "sm":   { "$value": "8px",  "$type": "dimension" },
+    "md":   { "$value": "14px", "$type": "dimension" },
+    "lg":   { "$value": "20px", "$type": "dimension" },
+    "xl":   { "$value": "28px", "$type": "dimension" },
+    "full": { "$value": "9999px", "$type": "dimension" }
+  },
+  "shadow": {
+    "sm": { "$value": "0 2px 8px rgba(38,35,31,0.05)", "$type": "shadow" },
+    "md": { "$value": "0 10px 30px rgba(38,35,31,0.08)", "$type": "shadow" },
+    "lg": { "$value": "0 24px 60px rgba(38,35,31,0.12)", "$type": "shadow" }
+  },
+  "duration": {
+    "base": { "$value": "300ms", "$type": "duration" },
+    "slow": { "$value": "700ms", "$type": "duration" }
+  },
+  "ease": {
+    "standard": { "$value": "cubic-bezier(0.32, 0.72, 0, 1)", "$type": "cubicBezier" },
+    "entrance": { "$value": "cubic-bezier(0.16, 1, 0.3, 1)", "$type": "cubicBezier" }
+  }
+}

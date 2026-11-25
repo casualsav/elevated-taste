@@ -1,0 +1,63 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f9f9f9",
+    "surface-2": "#f0f0f0",
+    "fg": "#202020",
+    "muted": "#646464",
+    "subtle": "#8d8d8d",
+    "border": "#e0e0e0",
+    "accent": "#005eee",
+    "accent-fg": "#ffffff",
+    "roles": {
+      "link": "#0055d9",
+      "eyebrow": "#0055d9",
+      "dark-section-bg": "#111111",
+      "on-dark-fg": "#eeeeee",
+      "on-dark-muted": "#8d8d8d"
+    }
+  },
+  "type": {
+    "families": ["\"PS Times\", Georgia, serif", "Inter, system-ui, sans-serif"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "2.25rem", "3.5rem"],
+    "weights": [400, 500, 600],
+    "leading": [1.0, 1.1, 1.5]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.25rem", "0.5rem", "0.75rem", "1rem", "1.5rem", "2rem", "4rem", "6rem"]
+  },
+  "radius": ["4px", "8px", "10px", "14px", "9999px"],
+  "shadow": ["none", "0 1px 2px rgba(11,13,18,0.06)"],
+  "motion": {
+    "durations": ["50ms", "150ms", "200ms", "350ms", "400ms", "1300ms"],
+    "easings": [
+      "cubic-bezier(0.4, 0, 0.2, 1)",
+      "cubic-bezier(0, 0, 0.2, 1)",
+      "cubic-bezier(0.19, 1, 0.22, 1)",
+      "ease"
+    ],
+    "stagger": ["60ms", "120ms", "180ms", "240ms", "850ms", "1200ms"],
+    "triggers": ["load", "scroll-progress", "in-view", "hover", "drag"],
+    "techniques": [
+      "word-cascade-headline-entrance",
+      "card-stack-scale-dim",
+      "in-view-fade-drift",
+      "two-tone-headline-static",
+      "hover-micro-state",
+      "swipe-dismiss-card-deck",
+      "disclosure-accordion"
+    ],
+    "scroll_effects": [
+      { "name": "hero word-cascade entrance", "property": "transform+opacity", "trigger": "load", "safety": "production-safe" },
+      { "name": "card-stack scale-and-dim", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "product-card fade-in reveal", "property": "opacity", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "product-card drift", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "two-tone serif headline", "property": "color", "trigger": "none", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "requestAnimationFrame"],
+    "reduced_motion": "respected",
+    "evidence": "15 @keyframes (stagger-in, reveal, enter/exit, swipe-out-left/right/up/down, step-check-pop, step-spinner-hide, marquee, spin, sonner-fade-in/out/spin); 3 IntersectionObservers / 4 targets (rootMargin 200px, threshold 0); 2 scroll + 9 mousemove listeners; 925 rAF calls per pass (hero word cascade + spinner loop, not WebGL); 1 <canvas> (incidental); 15 draggable, 4 disclosure, 0 carousels/tabs/video, 0 cursor-followers; 1 prefers-reduced-motion block (respected); no GSAP/Lenis/Framer globals (hand-rolled). Frames s00→s09 corroborate: hero word entrance, card-stack recede, in-view product-card fade, dark security section, FAQ accordions. Dropped from==to noise from scroll_effects. marquee/spin/canvas present in CSS but not observed firing in the read frames (likely logo ticker + loader) — left out of techniques."
+  },
+  "notes": "Raw profile reports colors in lab()/oklab() with a≈0,b≈0 — i.e. a strictly achromatic grayscale system; converted to hex and named by role. Single chromatic accent is blue #005eee (button fill) / #0055d9 (links+eyebrows). Display headings are serif (\"PS Times\") even though Inter dominates node counts (555 vs 32) because serif is reserved for a few large headlines — screenshot confirms serif display, so families list serif first by ROLE not frequency. Card radius standard is 10px (most common, 47x); the 3.3e7px one-off is a pill/full radius (mapped to 9999px). Cards use hairline borders, not shadows — shadow scale kept minimal. Section vertical rhythm normalized to 64/96px (paddingBlock); intra-component steps to the 4/8 grid. Dropped near-duplicate line-heights (20.8/19.5/13.3px) as antialiasing artifacts of 16/14/12px bases. MOTION/CRAFT (added 2026-06-24 from raw/round-ai.json + frames s00/s03/s06/s09): motion block expanded with real captured params — conservative, hand-rolled, reduced-motion-respected; see motion.evidence. Craft: tracking is normal (no size-keyed ramp; tracking_by_size empty, H1 tracking:normal). Grid computed as 12/3/1 cols at 1440px (4-up rows resolve to 3-col spans) collapsing to 1 on mobile (390px); H1 56px→48px mobile, body 16px both. A11y: focus_visible true, img_alt_ratio 1 (9/9), reduced_motion true — but 16/24 interactive elements are sub-44px tap targets (mobile defect) and supportsDark is false (the 'dark' value is the inverted security section, not a real scheme)."
+}

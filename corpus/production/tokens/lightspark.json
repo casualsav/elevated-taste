@@ -1,0 +1,72 @@
+{
+  "color": {
+    "bg": "#f8f8f7",
+    "surface": "#ffffff",
+    "surface-alt": "#f0f0ee",
+    "fg": "#020202",
+    "fg-alt": "#1a1a1a",
+    "muted": "#7c7c7c",
+    "muted-strong": "#656565",
+    "hairline": "rgba(38,38,35,0.1)",
+    "accent": "#0000ee",
+    "roles": {
+      "focus-ring": "#1827fa",
+      "footer-bg": "#1a1a1a",
+      "footer-bg-deep": "#111111",
+      "glow-blue": "#0052ff",
+      "glow-cyan": "#00a2c7",
+      "glow-violet": "#820ad1",
+      "cta-primary-bg": "#1a1a1a",
+      "cta-primary-fg": "#f8f8f7",
+      "cta-secondary-bg": "#f0f0ee"
+    }
+  },
+  "type": {
+    "families": ["Suisse Intl", "Suisse Intl Mono"],
+    "scale": ["0.99rem", "1.3rem", "1.44rem", "1.8rem", "2.0rem", "3.24rem", "clamp(3.6rem, 2.88rem + 1.5vw, 4.8rem)"],
+    "weights": [400, 450],
+    "leading": [1.15, 1.3, 1.5],
+    "tracking": { "body": "-0.01em", "heading": "-0.02em", "display": "-0.04em" },
+    "features": ["salt", "zero", "case"]
+  },
+  "space": {
+    "base": "8px",
+    "root": "10px",
+    "scale": ["0.6rem", "1.2rem", "2.1rem", "2.4rem", "4.8rem", "6.3rem", "clamp(5.6rem, 4.16rem + 3vw, 8rem)"]
+  },
+  "radius": ["0.4rem", "2.4rem", "999px"],
+  "shadow": ["rgba(0,0,0,0.06) -12px 0 32px 0"],
+  "grid": { "page_width": "122rem", "content_max": "1098px", "reading_max": "522px", "columns": 12, "dot_grid": "16px" },
+  "breakpoints": ["376px", "480px", "720px", "768px", "960px", "1023px", "1200px"],
+  "backdrop_blur_ramp": ["4px", "8px", "16px", "32px", "64px"],
+  "motion": {
+    "durations": ["150ms", "200ms", "250ms", "280ms", "300ms", "400ms", "450ms", "600ms", "650ms"],
+    "easings": [
+      "cubic-bezier(0.175, 0.885, 0.32, 1.1)",
+      "cubic-bezier(0.455, 0.03, 0.515, 0.955)",
+      "cubic-bezier(0.22, 1, 0.36, 1)",
+      "ease"
+    ],
+    "triggers": ["load", "scroll-progress", "in-view", "hover", "drag"],
+    "techniques": [
+      "ambient-idle-drift",
+      "draggable-card-field",
+      "cursor-spotlight-mask",
+      "hover-scale-mask-swap",
+      "in-view-fade-rise",
+      "progressive-edge-blur",
+      "section-aware-nav-contrast",
+      "edge-blurred-marquee"
+    ],
+    "scroll_effects": [
+      { "name": "ambient-card-drift", "property": "transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "cursor-spotlight-dotgrid", "property": "clip", "trigger": "hover", "safety": "spectacle-only" },
+      { "name": "in-view-fade-rise", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "progressive-edge-blur-curtain", "property": "background", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "section-aware-nav-contrast", "property": "color", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "requestAnimationFrame", "backdrop-filter", "mask-image + mask-composite"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Root font-size ~10px (1rem=10px), so rem values map 1.3rem=13px etc. Monochrome shell: the 797-count rgb(0,0,238) link-blue is mostly Osano consent + footer links, not the resting UI — treated as a single accent/focus hue. All real color is per-card glow (blue/cyan/violet/red/green auras), not system tokens; glow hues listed under color.roles as samples, not a palette to theme from. The 891px/999px radius is the pill/tag cap; product cards read ~2.4rem. No dark theme (supportsDark:false) — the dark footer is a section, not a re-theme, so color.dark is omitted. Durations/easings from the craft motion block; body 14.4px desktop / 14px mobile, h1 43px desktop / 36px mobile."
+}

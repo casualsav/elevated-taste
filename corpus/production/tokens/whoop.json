@@ -1,0 +1,79 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f3f5f9",
+    "fg": "#000000",
+    "muted": "#666666",
+    "accent": "#4a53ff",
+    "roles": {
+      "accent-fg": "#ffffff",
+      "bg-dark": "#000000",
+      "surface-dark": "#191919",
+      "fg-on-dark": "#ffffff",
+      "muted-on-dark": "#939393",
+      "muted-2": "#696969",
+      "subtle": "#808080",
+      "border": "#e5e5e5",
+      "border-card": "#cccccc",
+      "border-on-dark": "#555555",
+      "signal-mint": "#00f19f",
+      "signal-mint-tint": "rgba(0,241,159,0.15)",
+      "disabled-bg": "#e5e5e5",
+      "media-scrim": "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.6))"
+    }
+  },
+  "type": {
+    "families": ["proxima-nova", "Arial, Helvetica, sans-serif"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.25rem", "1.5rem", "2rem", "3.125rem", "6.25rem", "7.5rem"],
+    "weights": [400, 500, 600, 700],
+    "leading": [0.8, 1.2, 1.3, 1.5],
+    "tracking": {
+      "display": "-0.03em",
+      "heading": "-0.0375em",
+      "body": "-0.03em",
+      "eyebrow": "0.1em"
+    }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["8px", "10px", "12px", "16px", "20px", "24px", "30px", "40px", "50px", "100px"]
+  },
+  "radius": ["2px", "8px", "12px", "16px", "20px", "24px", "30px", "9999px", "50%"],
+  "shadow": [
+    "0 4px 15px rgba(199,199,199,0.25)",
+    "0 4px 20px rgba(222,222,222,0.2)",
+    "0 0 20px rgba(199,199,199,0.25)",
+    "0 4px 20px rgba(0,0,0,0.2)"
+  ],
+  "motion": {
+    "durations": ["150ms", "200ms", "250ms", "300ms", "500ms", "600ms", "800ms"],
+    "easings": ["ease", "ease-in-out", "cubic-bezier(0.4, 0, 0.2, 1)"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": [
+      "inview-theme-adaptive-sticky-cta",
+      "custom-property-scroll-progress-parallax",
+      "sticky-hero-pin-with-progress-scrim",
+      "in-view-fade-in",
+      "slide-up-fade-in-persistent-cta",
+      "accordion-height-disclosure",
+      "inset-outline-card-hover"
+    ],
+    "scroll_effects": [
+      { "name": "hero-headline-drift", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "hero-scrim-darken", "property": "opacity", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "hero-sticky-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "sticky-cta-theme-invert", "property": "background", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "sticky-cta-slide-in-out", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "section-fade-in", "property": "opacity", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": [
+      "IntersectionObserver (6 observers, 118 targets; rootMargins 200px and -80% 0% -10% 0%; thresholds 0/0.5/0.7)",
+      "hand-rolled scroll listeners (25) + requestAnimationFrame (260 calls) writing --scroll-progress",
+      "CSS @keyframes (120 rules, ~60 of them duplicate per-module fade-in)",
+      "CSS transitions (60 rules)",
+      "no animation library detected; no animation-timeline / view() / scroll()"
+    ],
+    "reduced_motion": "respected"
+  },
+  "notes": "Colors are exact: taken from the site's own CSS custom properties and module-theme classes (--color-accent: 74 83 255 → #4a53ff; --module-background: #fff | #f3f5f9 | #000). Type scale normalized to rem from a fluid clamp() system — the site has no discrete steps, so these are the anchor values (12/14/16/20/24/32px UI; 50px mobile display; 100px section head; 120px desktop h1). Raw 13.6px/14.4px/12.99px/23.95px are browser-computed em fallbacks and were dropped. leading 0.8 is real, not a typo: the 120px h1 uses a 96px line-height. Tracking crosses zero by size — negative at display and body (-0.03em), positive on uppercase 12-14px labels (+0.1em ≈ raw 1.4px/14px). Radius: the 300px and 9999px pills both map to the pill tier; 3px/6px/9.35px one-offs dropped. Shadows are all near-transparent greys; the rgb(199,197,199) inset pair is a single decorative one-off and was dropped. craft.theme.supportsDark is false and its payload is degenerate (bg #fff, accent transparent) — the black sections are content grounds set per-section via --module-background, not a dark theme, so color.dark is omitted rather than invented; use the bg-dark / surface-dark / fg-on-dark roles instead. motion.scroll_effects entries for 'Join Now' color/background reported from==to in the raw probe (sampled mid-transition or same-ground stops) — the frames DO show the pill inverting white↔blue across sections, and the CSS rule [data-inview-theme=\"dark\"] .cta > a { background:#fff; color:#000 } confirms it, so the effect is kept. Reduced motion is respected by inversion: base rules name the animation with no duration; duration+easing are added only inside @media (prefers-reduced-motion: no-preference). The JS-driven hero parallax is NOT covered by that gate."
+}

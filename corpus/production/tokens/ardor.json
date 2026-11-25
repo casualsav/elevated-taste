@@ -1,0 +1,48 @@
+{
+  "color": {
+    "bg": "#f2f3f1",
+    "surface": "rgba(255,255,255,0.75)",
+    "fg": "#000000",
+    "muted": "rgba(0,0,0,0.62)",
+    "accent": "#4d0099",
+    "roles": {
+      "faint": "rgba(0,0,0,0.52)",
+      "on-ink": "#ffffff",
+      "surface-ink": "rgba(0,0,0,0.6)",
+      "warning": "#d97706",
+      "bloom-peach": "#f0d5be",
+      "bloom-pink": "#e8bedb",
+      "bloom-lavender": "#c3bef2"
+    }
+  },
+  "type": {
+    "families": ["Doto (display, dot-matrix, var 100-900)", "Roboto Flex (body/UI, var 100-1000)", "ui-monospace"],
+    "scale": ["0.625rem", "0.8125rem", "1.1875rem", "2rem", "2.25rem", "3rem"],
+    "scale_px_note": "caption 10 · body/label 13 · subheading 19 · heading/title 32; desktop rendered ~1.25x via zoom; mobile bumps body→16, subheading→22, heading/title→36",
+    "weights": [400, 500, 600, 900],
+    "leading": [1.0, 1.2, 1.25, 1.375]
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["4px", "6px", "10px", "20px", "24px", "40px", "52px", "180px"],
+    "roles": { "gutter": "6px", "page-gutter": "20px", "grid": "52px", "section": "180px" }
+  },
+  "radius": ["4px", "20px", "19px", "9999px"],
+  "shadow": ["none"],
+  "container": { "copy": "378px", "media": "506px", "content": "762px" },
+  "blur": { "surface": "10px", "scrim": "12px" },
+  "motion": {
+    "durations": ["150ms", "200ms", "280ms", "300ms", "400ms", "500ms", "560ms", "1600ms", "3400ms", "6000ms"],
+    "easings": ["cubic-bezier(0.4,0,0.2,1)", "cubic-bezier(0,0,0.2,1)", "ease-in-out", "linear"],
+    "triggers": ["in-view", "load", "scroll-progress", "hover"],
+    "techniques": ["in-view-blur-reveal", "cycling-placeholder-crossfade", "skeleton-to-content-resolve", "conic-gradient-ring-spin", "static-backdrop-parallax", "logo-marquee", "svg-cable-flow"],
+    "scroll_effects": [
+      { "name": "in-view-blur-reveal", "property": "opacity+filter", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "static-backdrop-parallax", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "logo-marquee", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "CSS @property (animated angle)", "CSS scroll/view masks", "requestAnimationFrame"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Palette is functionally monochrome ink-on-off-white; the only chroma is a low-sat pastel bloom (peach/pink/lavender) used in the fixed backdrop and the spinning composer ring. Accent #4d0099 is reserved for links/semantics, rarely visible. Elevation shadows are effectively zero — depth is layering + translucent glass plates. Type px values are compact because the desktop body is scaled by a global zoom:1.25 (--ui-scale); normalized the scale to px intent. Radii collapsed to 4/20/pill/full. Every one of the 14 animation rules has a prefers-reduced-motion fallback."
+}

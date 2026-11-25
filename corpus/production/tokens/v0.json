@@ -1,0 +1,57 @@
+{
+  "color": {
+    "bg": "#fafafa",
+    "surface": "#ffffff",
+    "fg": "#1f1f1f",
+    "muted": "#757575",
+    "border": "#e6e6e6",
+    "accent": "#1f1f1f",
+    "roles": {
+      "fg-strong": "#1f1f1f",
+      "fg-muted": "#757575",
+      "fg-tertiary": "#8a8a8a",
+      "border-hairline": "#e6e6e6",
+      "border-strong": "#ededed",
+      "hover-fill": "#f5f5f5",
+      "cta-bg": "#1f1f1f",
+      "cta-fg": "#ffffff",
+      "dark-bg": "#000000",
+      "dark-fg": "#f0f0f0"
+    }
+  },
+  "type": {
+    "families": ["Geist Sans", "ui-sans-serif", "system-ui", "sans-serif"],
+    "scale": ["0.8125rem", "0.875rem", "1rem", "1.25rem", "1.5rem", "2rem", "3rem"],
+    "weights": [400, 500, 600],
+    "leading": [1.25, 1.5],
+    "tracking": { "display-3rem": "-0.06em", "2rem": "-0.04em", "1.5rem": "-0.04em", "1.25rem": "-0.02em", "body": "0" },
+    "features": ["tabular-nums", "liga 0"]
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["2px", "4px", "6px", "8px", "12px", "16px", "24px", "32px", "64px", "96px"]
+  },
+  "radius": ["4px", "6px", "8px", "12px", "16px", "9999px"],
+  "shadow": [
+    "0 1px 1px rgba(0,0,0,0.02), 0 4px 8px -4px rgba(0,0,0,0.04), 0 16px 24px -8px rgba(0,0,0,0.06)"
+  ],
+  "motion": {
+    "durations": ["150ms", "200ms", "300ms", "600ms", "24000ms"],
+    "easings": [
+      "cubic-bezier(0.4, 0, 0.2, 1)",
+      "cubic-bezier(0, 0, 0.2, 1)",
+      "cubic-bezier(0.31, 0.1, 0.08, 0.96)",
+      "cubic-bezier(0.34, 1.56, 0.64, 1)"
+    ],
+    "triggers": ["in-view", "hover", "load"],
+    "techniques": ["in-view-autoplay-media", "hover-fill", "accordion-disclosure", "shimmer-skeleton", "logo-marquee"],
+    "scroll_effects": [
+      { "name": "in-view-autoplay-media", "property": "play-state", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "hover-fill", "property": "background|color", "trigger": "hover", "safety": "production-safe" },
+      { "name": "logo-marquee", "property": "transform", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "HTML video (in-view play/pause)"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Grayscale-only palette; no brand accent (the black button is just ink). oklch values converted to approximate sRGB hex: bg oklch(.985)=#fafafa, fg oklch(.205)=#1f1f1f, muted oklch(.51)=#757575, border oklch(.937)=#e6e6e6, hover-fill oklch(.961)=#f5f5f5. Type scale is compact/product-grade (14px dominant), one family (Geist Sans). Borders (~2100 instances) are the structural system; exactly one box-shadow on the page (the composer). Scroll pin/parallax from the raw motion block were dropped — the captured frames are identical and do not corroborate them; the real motion is in-view-gated card media + standard micro-interactions."
+}

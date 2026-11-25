@@ -1,0 +1,88 @@
+{
+  "color": {
+    "bg": "#0d0c14",
+    "surface": "#13111c",
+    "surface-2": "#1b2132",
+    "fg": "#f7f7f8",
+    "muted": "#a1a0ab",
+    "subtle": "#878593",
+    "accent": "#a667e4",
+    "roles": {
+      "bg-deep": "#0d0c14",
+      "panel": "#13111c",
+      "panel-cool": "#1b2132",
+      "panel-warm-tint": "#1f132a",
+      "panel-testimonial": "#1f2b2e",
+      "border": "#33323e",
+      "border-hairline": "rgba(255,255,255,0.10)",
+      "fg": "#f7f7f8",
+      "fg-65": "rgba(247,247,248,0.65)",
+      "muted": "#a1a0ab",
+      "subtle": "#878593",
+      "faint": "#54525f",
+      "accent-purple": "#a667e4",
+      "accent-purple-strong": "#a05fcf",
+      "btn-purple": "#553f83",
+      "promo-tint": "#1f132a",
+      "icon-green": "#609f89",
+      "icon-orange": "#c67839",
+      "icon-pink": "#f9a8d4",
+      "footer-light-panel": "#f7f7f8"
+    }
+  },
+  "type": {
+    "families": [
+      "\"IBM Plex Serif\", Georgia, Cambria, serif",
+      "Inter, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+      "ui-monospace, SFMono-Regular, \"SF Mono\", Consolas, Menlo, monospace"
+    ],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.25rem", "1.5rem", "2rem", "2.25rem", "3.375rem"],
+    "weights": [400, 500, 600, 700],
+    "leading": [1.0, 1.2, 1.3, 1.5, 1.6],
+    "tracking_by_size": { "54px": "-1.96px", "40px": "-0.6px", "36px": "-0.72px", "18px": "-0.09px", "16px": "-0.1px" },
+    "fluid": true,
+    "families_note": "IBM Plex Serif (display) + Inter / Inter Tight (UI) + mono (system tags); Inter Tight seen on some display nodes"
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "6px", "8px", "12px", "16px", "24px", "32px", "48px", "64px", "80px", "96px", "128px"]
+  },
+  "radius": ["4px", "6px", "8px", "12px", "16px", "28px", "9999px"],
+  "shadow": [
+    "inset 0 0 0 1px rgba(255,255,255,0.10)",
+    "inset 0 0 0 1.5px rgba(255,255,255,0.20)"
+  ],
+  "motion": {
+    "durations": ["50ms", "150ms", "250ms", "700ms", "1000ms", "120000ms"],
+    "easings": [
+      "cubic-bezier(0.4, 0, 0.2, 1)",
+      "cubic-bezier(0.4, 0, 1, 1)",
+      "cubic-bezier(0.215, 0.61, 0.355, 1)",
+      "cubic-bezier(0.19, 1, 0.22, 1)",
+      "ease",
+      "ease-in-out"
+    ],
+    "stagger": "1100ms",
+    "triggers": ["load", "continuous", "hover", "scroll-progress", "click"],
+    "techniques": [
+      "train-scroll-drift",
+      "testimonial-tweet-marquee",
+      "scroll-progress-parallax",
+      "ambient-float-glow-loop",
+      "hover-recolor",
+      "disclosure-menu"
+    ],
+    "scroll_effects": [
+      { "name": "train-car horizontal drift", "property": "transform", "trigger": "continuous", "safety": "spectacle-only" },
+      { "name": "testimonial tweet marquee", "property": "transform", "trigger": "continuous", "safety": "production-safe" },
+      { "name": "single-card parallax drift", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "ambient float / glow / pulse loops", "property": "transform+opacity", "trigger": "continuous", "safety": "spectacle-only" },
+      { "name": "hover recolor / button fill / CTA glow bloom", "property": "color/background/box-shadow", "trigger": "hover", "safety": "production-safe" },
+      { "name": "disclosure megamenu slide", "property": "transform+opacity", "trigger": "click", "safety": "production-safe" }
+    ],
+    "stack": ["CSS @keyframes", "mousemove handler (marquee pause/drag)"],
+    "reduced_motion": "not-respected",
+    "evidence": "39 @keyframes (train-scroll-forwards/-backwards, pulse-station, tweets, marquee-scroll, float/float-delayed, balloon-float/-morph, rotate-blob, ai-glow-rotate/ai-border-spin, shimmer, pulse/ping, collapsible-slide-down/-up, accordion-slide-*, enterFromRight/Left, exitToRight/Left, modal-from-*…); 43 animation rules; probes: 0 IntersectionObserver / 0 targets, 0 scroll listeners, 1 mousemove, 0 rAF; 1 scroll-progress parallax effect (a testimonial card transform); 0 entrance reveals; 4 disclosure widgets; 0 prefers-reduced-motion blocks (NOT gated); no GSAP/Lenis/Framer. Frames corroborate: static feature blocks s00->s06 (only per-section tint changes), train-band sweep at s09, horizontal tweet marquee at s08. patterns_to_build: train-scroll-drift (looping translateX brand object; distinct from layer parallax-drift)."
+  },
+  "notes": "Normalized from a dark, illustration-led marketing page; trusts the screenshots over the raw profile. The raw 'color' top entry rgb(247,247,248) is FOREGROUND text (#f7f7f8), not bg — the true page bg is a very dark plum-black #0d0c14 with #13111c section panels (raw under-samples large painterly hero/footer images, so it skews toward text colors). Surfaces are NOT a single neutral: cool blue-grey panels (#1b2132) for product/feature canvases, a warm plum tint (#1f132a) for the promo bar, and a desaturated teal-green (#1f2b2e) for the testimonial band — each section gets a faintly tinted dark surface. Accent purple #a667e4 is used sparingly for inline links, focus glow, and the primary button fill which is a deeper #553f83; border purple #a05fcf appears on focus. Icon accents are a fixed semantic-ish trio (green/orange/pink) used decoratively per feature row, not as status colors. Borders are a near-invisible #33323e hairline (raw's most-frequent border, count 1220) plus white-alpha hairlines on glass chips. Type is a deliberate serif+sans pairing: IBM Plex Serif for all display/section headlines, Inter for body/labels/UI, mono for tiny system labels. Display top size ~54px (raw 54px once; line-height 60.48/65px); body 16px/26px. Radius clusters at 8px (cards) and 9999px (pills); 28px is the large hero-card radius on mobile. Shadows are inset hairline rings only — no drop shadows on this dark canvas. Collapsed one-off px line-heights (28.8, 22.75, 60.48) into a leading ramp."
+}

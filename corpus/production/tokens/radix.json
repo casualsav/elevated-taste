@@ -1,0 +1,72 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#fcfcfd",
+    "fg": "#1c2024",
+    "muted": "#00071499",
+    "subtle": "#60646c",
+    "border": "#0008301f",
+    "accent": "#008573",
+    "roles": {
+      "action": "#3e63dd",
+      "action-fg": "#ffffff",
+      "action-hover": "#3358d4",
+      "link": "#3a5bc7",
+      "focus": "#8da4ef",
+      "tint-teal-bg": "#00c3960d",
+      "tint-teal-fill": "#00c39633",
+      "accent-violet": "#6550b9",
+      "accent-crimson": "#cb1d63",
+      "accent-red": "#c40006d3",
+      "fg-inverse": "#eeeeee",
+      "demo-gradient": "linear-gradient(to right top, #3e63dd, #e18bff)"
+    }
+  },
+  "type": {
+    "families": ["untitledSans", "adobeTextPro", "soehneMono"],
+    "scale": ["0.75rem", "0.8125rem", "0.875rem", "1rem", "1.25rem", "1.5rem", "2.1875rem", "4.125rem", "4.875rem"],
+    "weights": [400, 500, 700],
+    "leading": [1.0, 1.07, 1.25, 1.4, 1.5],
+    "tracking": { "display-66": "-3.3px", "display-78": "-3.9px", "title-20": "-0.2px", "title-24": "-0.15px", "body": "0.03px" }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["2px", "4px", "6px", "8px", "12px", "16px", "24px", "32px", "64px"]
+  },
+  "radius": ["3px", "4px", "6px", "8px", "12px", "999px", "9999px", "100%"],
+  "shadow": [
+    "rgba(0,0,0,0.1) 0px 1px 3px 0px, rgba(0,0,0,0.05) 0px 2px 4px -1px, rgba(0,0,0,0.05) 0px 0px 0px 1px",
+    "rgba(0,0,0,0.1) 0px 0px 1px 1px, rgba(0,0,0,0.05) 0px 1px 1px 0px, rgba(0,0,0,0.05) 0px 2px 4px -1px",
+    "oklab(0.83 -0.0006 -0.018 / 0.29) 0px 0px 0px 1px inset, rgba(0,0,0,0.05) 0px 8px 40px 0px",
+    "rgba(0,52,220,0.447) 0px 0px 0px 1px inset",
+    "rgba(0,6,46,0.196) 0px 0px 0px 1px inset",
+    "rgba(121,113,233,0.667) 0px 1px 20px -5px"
+  ],
+  "motion": {
+    "durations": ["140ms", "180ms"],
+    "easings": [
+      "cubic-bezier(0.45, 0.05, 0.55, 0.95)",
+      "ease",
+      "ease-in-out",
+      "ease-out"
+    ],
+    "triggers": ["hover", "open-close", "load", "in-view"],
+    "techniques": [
+      "disclosure-slide-height",
+      "overlay-fade-slide-enter-exit",
+      "toast-scale-in-out",
+      "skeleton-shimmer-pulse",
+      "progress-indeterminate-shine",
+      "magic-curtain-clip-reveal",
+      "hover-recolor"
+    ],
+    "scroll_effects": [
+      { "name": "sticky nav header", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "sticky 'Live examples' rail label", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["CSS @keyframes", "IntersectionObserver", "Radix Themes primitives"],
+    "reduced_motion": "respected",
+    "evidence": "35 @keyframes / 34 anim rules / 58 transition rules, ALL component enter-exit pairs — no scroll-progress transforms. Names: rt-fade-in/out, rt-slide-from/to-{top,bottom,left,right} (overlay enter/exit), rt-skeleton-pulse, rt-progress-indicator-indeterminate-grow/shine, rt-spinner-leaf-fade, primitives-hero-accordion slideDown/slideUp, copy-toast scaleIn/scaleOut, magic-curtain fade/clip/clip-reverse/scale-in-out, accessibility-section keypress/speaker-wave-1..3. Probes: 1 IntersectionObserver / 11 targets (rootMargin 200px — lazy mount, NOT reveal), 3 scroll listeners, 8 mousemove listeners, 1 rAF, 0 canvas, 0 cursorFollowers. interactive: 11 disclosure, 0 carousel/tabs/video/marquee. 8 prefers-reduced-motion rules. 11 frames captured but ALL IDENTICAL (capture did not scroll) — no observed scroll choreography. Durations 140/180ms; primary easing cubic-bezier(0.45,0.05,0.55,0.95) (sinusoidal ease-in-out)."
+  },
+  "notes": "Reference site for the Radix UI component library (Themes + Primitives + Colors + Icons). Light, near-monochrome system in untitledSans with adobeTextPro serif and soehneMono mono accents. Normalized: base weight 400 (758 nodes) with 700 for display/emphasis (83) and 500 sparse (37) — this is a 400-base page, the inverse of Attio's 500-base. fg rgb(28,32,36)=#1c2024 (Radix gray-12); muted text is rgba(0,7,20,0.624) and borders rgba(0,8,48,~0.12-0.27) — Radix's alpha-on-white scale, kept as 8-digit hex to preserve the translucency. Accent is split across a Radix-palette set: blue-violet #3e63dd (primary button 'Invite'), teal #008573 (text/links in demos), violet #6550b9, crimson #cb1d63, red #c40006d3 — these are the colorful product-demo chips, not one brand accent; treat #3e63dd as the action color. Type scale two-cluster: UI 12/13.3/14/16/20/24 + display 35/66/78px; display tracking is aggressively tight (66px -3.3px = -5%, 78px -3.9px = -5%). H1 downscales 66px->38.5px on mobile (Radix card-size demo grids did NOT collapse in capture — gridCols stayed 3/2 at 390px, likely a capture artifact of the fixed-width demo board). Shadows are hairline-led (1px inset rings + soft ambient), classic Radix card elevation. EVIDENCE NOTE: captured 2026-06-23 with the motion pipeline; all 11 scroll frames are byte-identical (the hero never scrolled in capture) so below-fold layout is unknown and motion is read from the @keyframes fingerprint + interaction probes, which describe the LIBRARY's component micro-interactions rather than page scrollytelling. Static values are normalized from the frequency-ranked profile + the hero frame; motion fields are evidence-backed but component-level (see motion.evidence)."
+}

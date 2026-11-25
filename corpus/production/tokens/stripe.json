@@ -1,0 +1,73 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f8fafd",
+    "surface-2": "#e5edf5",
+    "fg": "#061b31",
+    "muted": "#50617a",
+    "subtle": "#64748d",
+    "accent": "#533afd",
+    "accent-fg": "#ffffff",
+    "roles": {
+      "ink": "#061b31",
+      "slate": "#50617a",
+      "slate-2": "#64748d",
+      "accent": "#533afd",
+      "accent-soft": "#7f7dfc",
+      "accent-soft-2": "#7389ff",
+      "link-legacy": "#0000ee",
+      "surface-faint": "#f8fafd",
+      "surface-blue": "#e5edf5",
+      "dark-bg": "#0c1128",
+      "dark-fg": "#ffffff",
+      "brand-orange": "#ff6118"
+    }
+  },
+  "type": {
+    "families": ["sohne-var", "\"SF Pro Display\"", "sans-serif"],
+    "scale": ["0.875rem", "1rem", "1.375rem", "1.625rem", "2rem", "3rem", "3.5rem"],
+    "weights": [300, 400],
+    "leading": [1.1, 1.25, 1.4, 1.5],
+    "tracking": ["-0.01em", "-0.02em", "-0.025em"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.5rem", "1rem", "1.5rem", "2rem", "4rem", "5rem", "6rem"]
+  },
+  "radius": ["4px", "6px", "8px", "50%"],
+  "shadow": [
+    "0 16px 32px rgba(50,50,93,0.12)",
+    "0 30px 60px -50px rgba(0,0,0,0.1), 0 30px 60px -10px rgba(50,50,93,0.25)"
+  ],
+  "motion": {
+    "durations": ["150ms", "240ms", "250ms", "300ms", "400ms", "800ms", "1000ms", "1200ms"],
+    "easings": [
+      "cubic-bezier(0.25, 1, 0.5, 1)",
+      "cubic-bezier(0.165, 0.84, 0.44, 1)",
+      "cubic-bezier(0.45, 0.05, 0.55, 0.95)",
+      "cubic-bezier(0.3, 0, 0.2, 1)",
+      "cubic-bezier(0.65, 0, 0.35, 1)",
+      "ease"
+    ],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": [
+      "parallax-drift",
+      "in-view-fade-rise",
+      "scroll-scale-dim",
+      "count-up-stat",
+      "logo-marquee",
+      "hover-micro-state"
+    ],
+    "scroll_effects": [
+      { "name": "layered parallax product graphic", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "in-view fade-rise reveal", "property": "opacity+transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "scroll-out scale-dim ($999 figure / connection-ring)", "property": "transform+opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "count-up stat figures", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "auto-scrolling logo marquee", "property": "transform", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "requestAnimationFrame", "CSS gradients + transform"],
+    "reduced_motion": "not-respected",
+    "evidence": "74 IntersectionObservers / 74 targets (threshold ~0-0.01, rootMargin 500-1000px pre-arm); 18 scroll + 23 mousemove listeners; 2095 rAF calls per scroll pass; 6 canvas, 2 marquees, 78 draggable, 17 disclosure. 0 @keyframes / 0 CSS-animation rules / 0 libraries detected (stylesheets CORS-blocked → engine is JS-driven rAF, not declarative CSS). 0 prefers-reduced-motion rules → reduced motion NOT respected. Recurring brand gradient appears as DISTINCT per-section STATIC color fields (hero ribbon s00, card swatches s05, full-bleed top band s06, navy aurora s07) — NOT one ribbon repositioned by scroll; scroll_effects contain zero background/gradient/scroll-progress entries, so gradient motion is unproven. Scroll_effects from frame-diffing: 7 transform/parallax (billing-plan-graphic layers + 3 Order-Summary cards), scale 1→0 (connection-ring), $999 figure opacity 1→0 + scale 1→0.4; 2 from==to entries dropped as noise. Static token values normalized from a noisy profile; motion fields evidence-backed (frames + probes), durations/easings are the captured craftParams set."
+  },
+  "notes": "Normalized from a noisy raw profile (1867 of ~2200 nodes were 16px body; sub-pixel sizes like 14.5px/15.5px/22.4px rounded to the nearest step). Single family Söhne (sohne-var); only weights 300+400 observed — no bold, confirmed by screenshot where headline weight reads light/regular. Accent unified to one violet #533afd (raw rgb(83,58,253)); a few native links use legacy #0000ee. Neutrals deliberately blue-slate, not gray (ink #061b31, slate #50617a/#64748d). Type scale reduced from 14 raw font-sizes to a 7-step ramp matching what the screenshots show (body 16, labels 14, section head ~26-32, hero ~48-56). Radii collapsed to 4/6px (the 1px entries are hairline borders, not corner radius). Shadows kept only the two real floating-element shadows; most cards are flat. Spacing mapped to a 4/8px base; the section-defining jumps are 32→64→96px. Brand orange appears only inside gradients, not as a UI color."
+}

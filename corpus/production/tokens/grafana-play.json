@@ -1,0 +1,53 @@
+{
+  "color": {
+    "bg": "#111217",
+    "surface": "#181b1f",
+    "surface-2": "#22252b",
+    "fg": "#ccccdc",
+    "muted": "rgba(204,204,220,0.65)",
+    "subtle": "rgba(204,204,220,0.3)",
+    "border": "rgba(204,204,220,0.12)",
+    "hairline": "rgba(204,204,220,0.08)",
+    "accent": "#6e9fff",
+    "roles": {
+      "link": "#6e9fff",
+      "focus-ring": "#3d71d9",
+      "brand": "#f9a825",
+      "hero-gradient": "linear-gradient(90deg, #3577be 0%, #c62a52 100%)",
+      "chart-cyan": "#38bdf8"
+    },
+    "dark": {
+      "bg": "#111217",
+      "surface": "#181b1f",
+      "fg": "#ccccdc",
+      "muted": "rgba(204,204,220,0.65)",
+      "accent": "#6e9fff"
+    }
+  },
+  "type": {
+    "families": ["Inter", "Roboto Mono"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.75rem"],
+    "weights": [400, 500, 700],
+    "leading": [1.14, 1.57]
+  },
+  "space": { "base": "8px", "scale": ["4px", "7px", "8px", "12px", "16px", "24px"] },
+  "radius": ["4px", "6px", "8px", "10px"],
+  "shadow": [
+    "0 1px 2px rgba(1,4,9,0.75)",
+    "0 2px 5px rgba(0,0,0,0.2)",
+    "0 4px 12px rgba(0,0,0,0.3)"
+  ],
+  "motion": {
+    "durations": ["100ms", "200ms", "250ms", "300ms"],
+    "easings": ["cubic-bezier(0.4, 0, 0.2, 1)", "ease"],
+    "triggers": ["hover", "in-view", "scroll-progress"],
+    "techniques": ["fixed-shell-scrolling-canvas", "two-ring-focus", "opacity-lift-hover", "in-view-panel-render"],
+    "scroll_effects": [
+      { "name": "fixed-rail-header-sticky-controls", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "in-view-panel-render", "property": "opacity", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS transitions", "Emotion @keyframes (spinners only)"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Grafana uses Emotion (no CSS custom properties exposed — architecture.tokens.count=0), so tokens are inferred from computed styles + concatenated CSS. Colors are a single desaturated slate ramp; the one foreground #ccccdc is expressed at 1/0.65/0.3 alpha for the three text tiers (recorded as fg/muted/subtle). Type scale is compressed (~2x range, 14px body → 28px H1); '1.75rem' is that 28px H1. Roboto Mono is used for numeric/value readouts. Radius: 6px dominates chrome, 10px on media/blog cards. The 28 keyframes are Emotion-hashed spinner/slider animations, not scroll choreography — excluded from techniques."
+}

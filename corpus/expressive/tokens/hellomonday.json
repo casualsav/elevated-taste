@@ -1,0 +1,65 @@
+{
+  "$exemplar": "hellomonday",
+  "$corpus": "expressive",
+  "$note": "Normalized from screenshots (ground truth) + raw/hellomonday.json. Raw profile is desktop-only and noisy: a single 22px size dominates (596 nodes) because the grotesque is the workhorse face; display sizes (60/80/90px) and the Clarendon serif are under-sampled but clearly visible in the captures. Hex values rounded to coherent roles; non-greyscale colors come only from project thumbnails, not the chrome.",
+  "color": {
+    "bg":      "#ffffff",
+    "surface": "#f8f6f5",
+    "surface-2": "#191919",
+    "fg":      "#2c2d2e",
+    "muted":   "#c6c5c5",
+    "subtle":  "#cacaca",
+    "accent":  "#2c2d2e",
+    "roles": {
+      "ink":          "#2c2d2e",
+      "near-black":   "#191919",
+      "dark-block-bg":"#191919",
+      "dark-block-fg":"#ffffff",
+      "warm-paper":   "#f8f6f5",
+      "rule":         "#c6c5c5",
+      "rule-faint":   "rgba(0,0,0,0.3)",
+      "thumb-pink":   "#db7093",
+      "thumb-aqua":   "#afeeee"
+    }
+  },
+  "type": {
+    "families": [
+      "nb_internationalpro, Georgia, 'Times New Roman', serif",
+      "ClarendonBTWXX-Light, Georgia, serif"
+    ],
+    "roles": {
+      "grotesque-ui":  "nb_internationalpro",
+      "serif-accent":  "ClarendonBTWXX-Light"
+    },
+    "scale": ["0.8125rem", "0.875rem", "1.375rem", "1.1875rem", "3.75rem", "5rem", "5.625rem"],
+    "weights": [300, 400],
+    "leading": [1.05, 1.1, 1.25, 1.5],
+    "tracking": ["0.3px"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["9px", "20px", "40px", "49px", "63px", "70px", "660px"],
+    "note": "660px is the giant top-pad inside the dark CTA block (text sits low); 40-70px is the inter-column / gutter rhythm."
+  },
+  "radius": ["0px", "50%"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["1000ms"],
+    "easings": ["ease"],
+    "triggers": ["load", "scroll-progress", "in-view", "mousemove"],
+    "techniques": ["cycling-word-headline", "parallax-drift", "webgl-corner-sphere", "scroll-reveal-in-view", "cursor-follow"],
+    "scroll_effects": [
+      { "name": "cycling-hero-word",      "property": "opacity",   "trigger": "load",           "safety": "production-safe" },
+      { "name": "hero-type-parallax",     "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "hero-image-parallax",    "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "fixed-corner-sphere",    "property": "transform", "trigger": "load",            "safety": "spectacle-only" },
+      { "name": "grid-plate-reveal",      "property": "opacity",   "trigger": "in-view",         "safety": "production-safe" },
+      { "name": "cursor-follower",        "property": "transform", "trigger": "mousemove",       "safety": "spectacle-only" }
+    ],
+    "stack": ["GSAP (TweenMax)", "IntersectionObserver", "canvas/WebGL", "CSS transitions"],
+    "reduced_motion": "not-respected",
+    "patterns_to_build": ["fixed-corner-webgl-sphere — a near-black WebGL sphere bleeding off a viewport edge, position:fixed through scroll, doubling as the nav anchor; decorative brand-object variant distinct from the draggable hero `webgl-thumbnail-sphere`. Spectacle-only; must ship a reduced-motion + no-WebGL fallback (the page is fully functional without it)."],
+    "note": "Raw exposes one 1s `ease` transition (the rotating hero word / hover fades) and is otherwise GSAP/TweenMax JS transforms (~2521 rAF/scroll pass). The 3 @keyframes in the sheet are video.js loader chrome (vjs-spinner-*), NOT design motion. Scroll effects reduce to 2 transform/parallax + 2 pin(fixed) after dropping the opacity 1.00->1.00 no-op; the corner WebGL sphere is fixed/bleed-off-right (visible every frame s00-s10 with the hamburger riding it). IntersectionObserver: 37 targets, all threshold:[0,1] / rootMargin:200px (preload). prefers-reduced-motion NOT respected (prmRules:0)."
+  },
+  "notes": "Greyscale chrome: white bg, warm-paper footer, near-black inset CTA, two ink greys (#2c2d2e text, #c6c5c5 rules/muted). Zero corner radius everywhere except 50% (circular sphere + dots). No shadows — separation is whitespace and hairlines only. Two-axis type system: grotesque for labels/UI/lead-ins, Clarendon-Light serif for names/titles/voice (inverse of the usual serif-body/sans-display split)."
+}

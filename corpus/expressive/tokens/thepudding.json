@@ -1,0 +1,71 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f7f7f7",
+    "fg": "#262626",
+    "muted": "#6d6d6d",
+    "accent": "#3ae660",
+    "roles": {
+      "hairline": "#d6d6d6",
+      "ink": "#262626",
+      "focus-ring": "#3ae660",
+      "dark-bg": "#191919",
+      "dark-fg": "#efefef",
+      "swatch-orange": "#e68f33",
+      "swatch-green": "#63c34b",
+      "swatch-cream": "#f0e4a8",
+      "swatch-blue": "#4c82b8",
+      "swatch-magenta": "#b51670",
+      "swatch-purple": "#bba0ef",
+      "swatch-teal": "#41b8be",
+      "swatch-pink": "#f0d0d3",
+      "swatch-cyan": "#33b9de",
+      "swatch-lime": "#c2d932",
+      "swatch-yellow": "#fde300"
+    }
+  },
+  "type": {
+    "families": [
+      "\"Gooper SemiCondensed\", \"Iowan Old Style\", Times, serif",
+      "\"Atlas Grotesk\", -apple-system, Helvetica, Arial, sans-serif",
+      "\"Atlas Typewriter\", Menlo, Consolas, Monaco, monospace"
+    ],
+    "roles": {
+      "display": "Gooper SemiCondensed (serif)",
+      "body": "Atlas Grotesk (sans)",
+      "meta": "Atlas Typewriter (mono)"
+    },
+    "scale": ["0.8rem", "0.875rem", "1rem", "1.5rem", "2rem"],
+    "weights": [400, 500, 700, 900],
+    "leading": [1.0, 1.1, 1.4],
+    "tracking": { "display-2rem": "-0.8px", "meta-caps": "1px" },
+    "features": ["kern", "tnum", "onum 0", "liga 0"],
+    "fluid_type": true
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "8px", "12px", "16px", "24px", "32px", "48px", "64px"]
+  },
+  "radius": ["2px", "3px", "6px", "28px"],
+  "shadow": ["rgba(0,0,0,0.3) 0 2px 1px 0", "rgba(0,0,0,0.1) 0 2px 1px 0"],
+  "layout": {
+    "container_max": "1280px",
+    "columns": 3,
+    "gaps": ["16px", "32px", "48px"],
+    "mobile_columns": 1
+  },
+  "motion": {
+    "durations": ["100ms", "200ms", "250ms"],
+    "easings": ["ease"],
+    "triggers": ["scroll-progress", "hover"],
+    "techniques": ["sticky-pin-nav", "fade-to-white-overflow-mask", "hover-color-transition"],
+    "scroll_effects": [
+      { "name": "pinned-secondary-nav", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "fade-to-white-load-more", "property": "background", "trigger": "static", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS transitions", "CSS linear-gradient"],
+    "reduced_motion": "respected"
+  },
+  "gradients": ["linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 30%, #fff 50%)"],
+  "notes": "Swatch colors are sampled from per-story thumbnails (the raw backgroundColor list), not chrome — recorded as roles so the corpus can reference the 'content-is-the-palette' idea; do not treat them as a theme accent set. Accent #3ae660 is the focus ring only. Sizes normalized from px (16/14/12.8/24/32) to rem; raw lineHeights (22.4/19.6/32px) reduced to ratios. Homepage is near-static: 0 keyframes/libraries/entrance reveals; only a position pin + CSS gradient mask + hover transitions are real. Dark theme present (bg #191919 / fg #efefef)."
+}

@@ -1,0 +1,66 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f7f7f8",
+    "fg": "#131316",
+    "muted": "#5e5f6a",
+    "accent": "#6c47ff",
+    "roles": {
+      "bg-dark": "#131316",
+      "surface-dark": "#212126",
+      "surface-dark-2": "#2f3037",
+      "fg-on-dark": "#f7f7f9",
+      "muted-on-dark": "#9394a1",
+      "subtle": "#747686",
+      "border": "#d9d9de",
+      "border-on-dark": "rgba(255,255,255,0.06)",
+      "accent-fg": "#ffffff",
+      "danger": "#ef4444"
+    }
+  },
+  "type": {
+    "families": ["Suisse Int'l, ui-sans-serif, system-ui, sans-serif", "Soehne Mono, ui-monospace, SFMono-Regular, Menlo, monospace"],
+    "scale": ["0.75rem", "0.8125rem", "1rem", "1.0625rem", "2rem", "4rem"],
+    "weights": [400, 500, 600],
+    "leading": [1.1, 1.5]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.25rem", "0.5rem", "0.75rem", "1rem", "1.25rem", "1.5rem", "2rem", "2.5rem", "4rem", "8rem"]
+  },
+  "radius": ["4px", "6px", "8px", "10px", "16px", "9999px"],
+  "shadow": [
+    "0 0 0 0.5px #d9d9de, 0 1px 2px rgba(0,0,0,0.06), 0 0 2px rgba(0,0,0,0.08)",
+    "0 6px 12px rgba(19,19,22,0.6), inset 0 1px 0 rgba(255,255,255,0.03)",
+    "inset 0 1px 0 rgba(255,255,255,0.1), 0 1px 2px rgba(0,0,0,0.25)"
+  ],
+  "motion": {
+    "durations": ["150ms", "200ms", "300ms", "450ms", "500ms", "1000ms", "12000ms"],
+    "easings": [
+      "cubic-bezier(0.4, 0, 0.2, 1)",
+      "cubic-bezier(0, 0, 0.2, 1)",
+      "cubic-bezier(0.33, 1, 0.68, 1)",
+      "cubic-bezier(0.4, 0.36, 0, 1)",
+      "ease"
+    ],
+    "stagger": ["150ms", "300ms"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": [
+      "sticky-nav-condense",
+      "in-view-blur-clear-reveal",
+      "entrance-fade-rise-stagger",
+      "infinite-marquee",
+      "hover-micro-state"
+    ],
+    "scroll_effects": [
+      { "name": "sticky-nav condense + recolor", "property": "background", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "nav link lockstep recolor", "property": "color", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "in-view blur-clear testimonial", "property": "filter", "trigger": "in-view", "safety": "spectacle-only" },
+      { "name": "entrance fade-rise stagger", "property": "opacity+transform", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes (sparse)", "requestAnimationFrame"],
+    "reduced_motion": "not-respected",
+    "evidence": "MOSTLY STATIC: the signature alternating-band + notched clip-path seams are static, not animated. No libraries (0 globals/script hits). 5 @keyframes only (fade-in, letter-reveal, blink, spin, pulse), 0 CSS anim/transition RULES — motion is hand-rolled per element. Probes: 28 IntersectionObservers / 79 targets, 28 scroll + 19 mousemove listeners, ~375 rAF/scroll pass. After dropping from==to noise, 13 surviving scroll deltas are ALL on the sticky nav (bg rgba(248,248,248,.9)->rgba(227,227,228,.9); links #131316->#28282a) keyed by IO rootMargin -64px; +1 in-view filter blur(4px)->blur(0) on a testimonial (visible mid-blur in frame s03). entranceReveals=4, staggeredEntrance=true (stagger 150/300ms). interactive.marquee=12 (the 12000ms loop = logo wall s00 + testimonial row s09); disclosure=11. NO carousels/tabs/canvas/video/cursor-followers. reduced_motion=false (0 prefers-reduced-motion blocks across 5 stylesheets read) -> DEFECT. Frames trusted over the raw profile; no parallax/scroll-scrub survives the evidence despite the rAF/mousemove budget (those feed the nav math + marquees)."
+  },
+  "notes": "Normalized from a noisy raw profile dominated by 16px/400/24px-lineheight (the body default). Screenshot is ground truth and shows a deliberately ALTERNATING light/dark page: light bg=#f7f7f8 with #ffffff cards; dark bands bg=#131316 with #212126 cells. Raw 'borderRadius 3.35e7px' = pill (9999px) sentinel; collapsed. Brand accent #6c47ff (raw rgb(108,71,255)) verified by pixel sampling (anti-aliases to #8864ff on dark) and used with extreme restraint — only eyebrow labels + one CTA. Display headline ~64px (raw fontSize 64 count 1, lineHeight 72) but most 'large' text is a modest ~32px; effective type range is narrow (~2× body for section heads, ~4× for the hero only). Mono (Soehne Mono) reserved for inline code tokens like <SignIn/>. Dark-section hairline dividers are near-invisible (raw oklab(...0.05/0.06) borders) — represented as border-on-dark. Two font families inferred; raw lists 'geistNumbers, suisse' (Suisse Int'l + a tabular-numeral face). Semantic palette beyond danger (#ef4444, used on a field error) is not exposed on the marketing page. CRAFT+MOTION AUGMENT (2026-06-24, motion pipeline): tracking scales with size (-1.6px@64 / -0.48px@32 / -0.17px@17 / -0.14px@14 ~= -2.5%->-1%), not one constant em. Grid track counts 1/2/3/12 (12 = base grid; bands resolve to 2-up/3-up), container ~1200px, cell gaps 16/24px outer & 8/12px inner; mobile (390px) collapses 3-up to one col (grid 1/2/12). Component states from craft.states: ghost 'Sign in' hover = bg 0->1.6% + border 0->10.6%; inline mono component buttons DIM ink->#5e5f6e on hover (inverse), eyebrow chips DARKEN #747686->#131316; embedded product cards carry the only real shadow (0 0 0 1px rgba(0,0,0,.06),0 5px 15px rgba(0,0,0,.08),0 15px 35px -5px rgba(47,48,55,.2)); dark cells inset 0 1px 0 rgba(255,255,255,.05). A few WHISPER gradients exist despite 'no gradients' prose (radial plinth glow, rgba(240,235,255,.5) violet panel wash, 4-10% white inset edge-lights) — read as lighting. A11y: img_alt_ratio=1 (102 imgs, all alt'd), focus_visible=true with a band-adaptive 2px outline + skip-link; DEFECTS: reduced_motion=false (no PRM blocks), 61/90 interactive elements are <44px tap targets (verify on mobile). Motion block fully expanded; see motion.evidence."
+}

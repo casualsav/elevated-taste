@@ -1,0 +1,45 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f4f5f7",
+    "surface-2": "#f5f5f7",
+    "fg": "#101214",
+    "muted": "#cecece",
+    "accent": "#0000ee",
+    "roles": {
+      "ink-secondary": "rgba(0,0,0,0.5)",
+      "dark-tile": "#141414",
+      "dark-tile-2": "#000000",
+      "fg-on-dark": "#ffffff",
+      "accent-blue": "#0000ee",
+      "accent-lime": "#9dff5e",
+      "glass-light": "rgba(235,235,235,0.8)",
+      "glass-dark": "rgba(0,0,0,0.2)"
+    }
+  },
+  "type": {
+    "families": ["GT Standard L", "SF Pro Display", "Passenger Sans"],
+    "scale": ["0.75rem", "0.9375rem", "1rem", "1.5rem", "2rem", "2.625rem", "3rem", "6.25rem"],
+    "weights": [400, 500],
+    "leading": [1.0, 1.2, 1.5],
+    "tracking": ["-0.03em", "-0.02em", "0"]
+  },
+  "space": { "base": "4px", "scale": ["6px", "8px", "10px", "12px", "16px", "20px", "32px", "70px", "80px", "120px", "180px"] },
+  "radius": ["4px", "8px", "12px", "9999px"],
+  "shadow": ["0 4px 10px rgba(0,0,0,0.05)", "inset 0 1px 72px rgba(255,255,255,0.85)"],
+  "motion": {
+    "durations": ["600ms"],
+    "easings": ["cubic-bezier(0.4, 0, 0.2, 1)", "ease"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": ["scroll-scrub-word-brighten", "in-view-fade-rise", "in-view-color-shift", "scroll-progress-scale-parallax"],
+    "scroll_effects": [
+      { "name": "word-brighten-read-along", "property": "opacity", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "card-fade-rise", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "accent-badge-color-shift", "property": "color", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "wordmark-scale-parallax", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["Framer", "IntersectionObserver (dense scrub threshold arrays)", "requestAnimationFrame"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Light theme only (supportsDark false). Blue #0000ee shows ~280× in the raw computed-style census because it is the default link color applied to many inline anchors; visually it reads as a single quarantined accent (the floating badge + links) — treated as 'accent', not the dominant color. Body is genuinely ~12px (0.75rem) in the source — kept as-is because it is the exemplar's signature, with a WCAG caveat in the entry. Container maxima ~1800/1070/800px normalized away from the token scale; type scale rounded from px (12/15/24/32/42/48/100). No house custom properties exposed (Framer inlines styles); tokens inferred from computed-style frequencies + screenshots."
+}

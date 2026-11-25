@@ -1,0 +1,89 @@
+{
+  "color": {
+    "bg": "#0c021c",
+    "surface": "#280f62",
+    "surface-light": "#f6f6f6",
+    "fg": "#ffffff",
+    "fg-dark": "#0c021c",
+    "muted": "#363636",
+    "subtle": "#666666",
+    "accent": "#5318eb",
+    "roles": {
+      "brand": "#5318eb",
+      "brand-hover": "#5211eb",
+      "action": "#c4ee87",
+      "action-fg": "#0c021c",
+      "action-hover": "#c6aafa",
+      "bg-light": "#ffffff",
+      "wash": "#ebe3fe",
+      "wash-strong": "#c6a5ff",
+      "fg-inverse": "#0c021c",
+      "disabled-bg": "#5318eb",
+      "disabled-opacity": "0.4",
+      "nav-hover-bg": "rgba(11, 3, 24, 0.024)",
+      "focus-outline": "#101010",
+      "link-default-ua": "#0000ee"
+    }
+  },
+  "type": {
+    "families": ["Eina 03", "Mark Pro Bold", "Space Mono"],
+    "scale": ["0.75rem", "1rem", "1.25rem", "1.75rem", "2rem", "3rem", "4rem", "5.75rem", "11.25rem"],
+    "weights": [400, 700],
+    "leading": [0.8, 1.2, 1.6],
+    "tracking": {
+      "display-180": "-7.2px",
+      "display-92": "-0.2px",
+      "display-64": "-2.56px",
+      "display-48": "-1.92px",
+      "display-32": "-1.28px",
+      "body-20": "-0.4px",
+      "body-16": "-0.32px",
+      "eyebrow-caps": "tracked-out (small caps, Space Mono)"
+    },
+    "features": ["tabular-nums"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "8px", "10px", "16px", "20px", "24px", "32px", "40px", "52px", "64px", "80px", "104px", "120px"]
+  },
+  "radius": ["8px", "12px", "20px", "24px", "30px", "40px", "70px", "9999px"],
+  "shadow": [
+    "rgba(198, 165, 255, 0.35) 0px 20px 60px -20px"
+  ],
+  "gradient": [
+    "radial-gradient(rgba(198, 165, 255, 0.35) 0%, rgba(0, 0, 0, 0) 70%)"
+  ],
+  "motion": {
+    "durations": ["150ms", "200ms", "300ms", "400ms", "500ms"],
+    "easings": [
+      "cubic-bezier(0.4, 0, 0.2, 1)",
+      "cubic-bezier(0.22, 1, 0.36, 1)",
+      "cubic-bezier(0.34, 1.56, 0.64, 1)",
+      "ease-out"
+    ],
+    "triggers": ["scroll-progress", "in-view", "hover", "load", "mousemove"],
+    "techniques": [
+      "oversized-display-reveal",
+      "parallax-drift",
+      "scroll-blur-word-reveal",
+      "card-stack-scale-dim",
+      "sticky-pin-scrollytelling",
+      "nav-background-shift",
+      "announcement-ticker-marquee",
+      "cursor-follow"
+    ],
+    "scroll_effects": [
+      { "name": "oversized display fade-rise + parallax", "property": "opacity+transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "parallax layer drift", "property": "transform", "trigger": "scroll-progress", "safety": "spectacle-only" },
+      { "name": "scroll-blur word-by-word reveal", "property": "opacity+filter", "trigger": "in-view", "safety": "spectacle-only" },
+      { "name": "card-stack scale + brightness dim", "property": "transform+filter", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "pinned announcement / section", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "nav background transparent to deep violet", "property": "background", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "testimonial / template marquee", "property": "transform", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["Framer", "IntersectionObserver", "requestAnimationFrame"],
+    "reduced_motion": "not-respected",
+    "evidence": "Framer-built; 0 @keyframes (all motion JS-driven). 88 IntersectionObservers / 88 targets, many with dense scrub arrays [0,0.01,…,0.99]; 2467 rAF calls per scroll pass; 10 scroll + 6 mousemove listeners; 5 cursor-followers; 21 marquees; 83 draggable; 1 pinned (fixed) el; 1 nav background-shift (rgba(0,0,0,0)→rgb(40,15,98)); 18 transform/parallax, 11 fade-in, 9 opacity, 6 filter(blur/brightness), 2 scale(0.88↔0.94) effects. respectsReducedMotion=false, 0 PRM rules, focus_visible=false. Corroborated against frames s00/s03/s05/s06/s08/s09 (corpus/production/screenshots/pitch-com/frames/)."
+  },
+  "notes": "Single-hue value system normalized from raw tallies, trusting the frames over the profile. Violet #5318eb is brand/action; deep band #280f62 and near-black indigo #0c021c are darker values of the same hue (raw rgb(12,2,28)/rgb(40,15,98)/rgb(83,24,235)); washes #ebe3fe/#c6a5ff. The ONE non-violet design color is the lime CTA #c4ee87 (rgb(196,238,135)), hover→lilac #c6aafa (rgb(198,170,250)). The blue rgb(0,0,238)/#0000ee with 114 hits is the UA default link/border color on unstyled anchors — treated as capture noise, recorded under roles.link-default-ua, NOT a real palette color. Type: families normalized to Eina 03 (display/UI) + Mark Pro Bold (heavy display) + Space Mono (eyebrow/mono); the 'sans-serif' tally (1017) and weight 400 (1215) are Framer placeholder/fallback noise — real display is bold. Two-tier scale with an intentional void: body 12/16/20 + display 28/32/48/64/92/180 (px → rem); the dominant 12px body and 180px H1 are both confirmed in craft.layout. Tracking is a per-size negative token (−0.32px@16 → −7.2px@180): ~−0.02em across body/mid-display, tightening to −0.04em only at the 180px hero, with the 92px step (−0.2px ≈ −0.002em) a deliberate near-zero outlier. Radius 20px is dominant; large radii throughout. Single tinted shadow + matching radial glow (craft.elevation). Motion fields evidence-backed (see motion.evidence); reduced-motion NOT respected and focus-visible NOT styled are flagged as a11y defects to fix on any rebuild."
+}

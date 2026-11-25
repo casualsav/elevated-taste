@@ -1,0 +1,77 @@
+{
+  "color": {
+    "bg": "#150f23",
+    "surface": "#1f1633",
+    "fg": "#ffffff",
+    "muted": "#d4d4d4",
+    "accent": "#ff45b2",
+    "roles": {
+      "surface-2": "#3c1878",
+      "subtle": "#9298a8",
+      "faint": "#6a737d",
+      "border": "rgba(255,255,255,0.12)",
+      "accent-fg": "#150f23",
+      "accent-violet": "#7553ff",
+      "data-coral": "#f97583",
+      "data-sky": "#9ecbff",
+      "data-blue": "#79b8ff",
+      "data-lavender": "#b392f0",
+      "data-lime": "#c2ef4e",
+      "data-green": "#85e89d"
+    }
+  },
+  "type": {
+    "families": [
+      "Rubik, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+      "'Dammit Sans', 'Rubik', sans-serif",
+      "Monaco, Menlo, 'Ubuntu Mono', monospace",
+      "'IBM Plex Mono', Consolas, Menlo, monospace"
+    ],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.25rem", "1.5rem", "1.875rem", "3.75rem", "5.5rem"],
+    "weights": [400, 500, 700],
+    "leading": [1.1, 1.25, 1.5]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.25rem", "0.5rem", "0.75rem", "1rem", "1.5rem", "2rem", "2.75rem", "4rem"]
+  },
+  "radius": ["4px", "8px", "10px", "12px", "18px", "9999px"],
+  "shadow": [
+    "none",
+    "0 0 8px 6px #150f23",
+    "0 2px 8px rgba(0,0,0,0.08)"
+  ],
+  "motion": {
+    "durations": ["150ms", "200ms", "300ms", "750ms", "800ms", "2000ms", "60000ms"],
+    "easings": [
+      "cubic-bezier(0.4, 0, 0.2, 1)",
+      "cubic-bezier(0, 0, 0.2, 1)",
+      "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+      "ease-out",
+      "ease-in-out",
+      "ease"
+    ],
+    "stagger": "400ms",
+    "triggers": ["scroll-progress", "in-view", "load"],
+    "techniques": [
+      "sticky-pin-scrollytelling",
+      "fixed-mode-toggle",
+      "logo-belt-marquee-rock",
+      "mascot-float-parallax",
+      "in-view-fade-rise",
+      "snippet-expand-collapse"
+    ],
+    "scroll_effects": [
+      { "name": "sticky header", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "fixed 'Marketing Mode' toggle", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "logo-belt parallax + rock (-1.4 deg)", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "mascot float / parallax drift", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "in-view product-mock fade-in", "property": "opacity+transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "code-snippet expand / collapse", "property": "transform/clip (height in source)", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "CSS transitions"],
+    "reduced_motion": "respected",
+    "evidence": "10 @keyframes (fade-in, float, logo-rock, scroll-x, expandSnippet/shrinkSnippet, swingDown, pushUp, _spin_, _thumbRotation_); 9 animation rules + 41 transition rules; 2 IntersectionObservers / 2 targets @ threshold 0.25; 4 scroll + 9 mousemove listeners; ~1031 rAF per pass (continuous belt/float loops, NOT scrubbing); 1 canvas; 19 disclosure widgets; 0 hover / 0 cursor-followers / 0 tabs/carousels; 3 prefers-reduced-motion blocks; no GSAP/Lenis/Framer (hand-rolled). Frames corroborate sticky nav + fixed toggle holding position s00->s09 and the logo belt + mascot drift at s01. Dropped: 'breaks,' entrance (from==to) and grecaptcha-badge fixed-pin (vendor)."
+  },
+  "notes": "Normalized from a DARK monochromatic-purple profile. Two near-black indigos run the page: outermost bg #150f23 (raw rgb(21,15,35), the dominant backgroundColor) and section/panel surface #1f1633 (raw rgb(31,22,51)) — confirmed by sampling hero + footer regions in the screenshot. surface-2 #3c1878 is the one SATURATED royal-purple feature panel (newsletter block; raw rgb(66,32,130)≈#422082, sampled at #3c1878). PRIMARY accent is magenta-pink #ff45b2 (raw rgb(253,68,176)) used for the two-tone headline emphasis word, section subheads, footer column labels and the outline-CTA border; accent-fg is the dark bg, not white, because solid buttons render white with dark text in the hero. accent-violet #7553ff (raw rgb(117,83,255)) is the electric button/highlight fill. The six 'data-*' hues (coral/sky/blue/lavender/lime/green — all from the color frequency list) appear only INSIDE product-UI mocks and the mascot art; they are a charting/illustration palette, NOT general UI accents, so they are namespaced separately to keep them rationed. fg is pure #fff; body grays normalize to muted #d4d4d4 (raw rgb(212,212,212)) → subtle #9298a8 → faint #6a737d (raw rgb(106,115,125)). Borders on dark are white at ~12% (raw rgb(225,228,232) hairlines reading as low-opacity white on the dark field). Type: Rubik is the workhorse geometric sans (16px body dominant, count 2750); 'Dammit Sans' (count 17) is a CUSTOM chunky slab display used ONLY for the closing 'Fix It' CTA block (headline AND its body copy) — a deliberate voice-shift, not a body face. Monaco + IBM Plex Mono carry all code. Display sizes observed at 60px and 88px → top of scale 3.75rem/5.5rem; line-height on display is ~1.1 (60px/66px). radius 3.35544e+07px in the raw profile is the browser's full-pill clamp artifact → normalized to 9999px; 10.6px → 10px. The signature shadow '0 0 8px 6px #150f23' (count 82) is not elevation — it is a same-color glow/vignette feathering product mocks into the dark bg; kept verbatim. Spacing rhythm is an 8px base; large section padding observed at 44px/64px blocks."
+}

@@ -1,0 +1,66 @@
+{
+  "color": {
+    "bg": "#0e101a",
+    "surface": "#131419",
+    "fg": "#ffffff",
+    "muted": "#4f5b5f",
+    "accent": "#ff4940",
+    "roles": {
+      "ink-2": "#131419",
+      "ghost": "rgba(160,168,220,0.75)",
+      "ghost-faint": "rgba(187,194,229,0.3)",
+      "nebula-tint": "#646d9e",
+      "link": "#ff4940",
+      "case-blue": "#1b2f9e",
+      "case-crimson": "#7a0f12",
+      "case-teal": "#1f4a48",
+      "eyebrow-gold": "#d79a21",
+      "eyebrow-teal": "#5fc4aa",
+      "eyebrow-pink": "#ff4940"
+    }
+  },
+  "type": {
+    "families": ["\"GT Sectra Display\", Georgia, serif", "Heebo, Helvetica, Arial, sans-serif"],
+    "scale": ["0.6875rem", "0.875rem", "1.25rem", "2.5rem", "3.125rem", "5rem", "7.5rem"],
+    "weights": [200, 300, 400, 500, 700],
+    "leading": [1.0, 1.2, 1.5]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.25rem", "0.5rem", "0.75rem", "1rem", "1.5rem", "2rem", "3rem", "6rem", "12rem", "25rem"]
+  },
+  "radius": ["3px", "26px"],
+  "shadow": ["0 1px 2px rgba(0,0,0,0.15)"],
+  "motion": {
+    "durations": ["200ms", "300ms", "400ms", "600ms", "700ms", "750ms", "800ms", "1200ms"],
+    "easings": [
+      "cubic-bezier(0.245, 0.495, 0, 0.99)",
+      "cubic-bezier(0.165, 0.84, 0.44, 1)",
+      "cubic-bezier(0.215, 0.61, 0.355, 1)",
+      "cubic-bezier(0.25, 0.46, 0.45, 0.94)"
+    ],
+    "stagger_ms": [100, 175, 200, 300, 400, 500],
+    "triggers": ["scroll-progress", "in-view"],
+    "io": { "thresholds": ["[0,0.15,1]"], "root_margins": ["0px", "300px"] },
+    "techniques": [
+      "pinned-canvas-scroll-scrub",
+      "sticky-pin-scrollytelling",
+      "ghost-index-hover-list",
+      "in-view-fade-rise",
+      "parallax-drift",
+      "lazy-media-crossfade"
+    ],
+    "scroll_effects": [
+      { "name": "pinned-webgl-wolf-stage", "property": "transform", "trigger": "scroll-progress", "safety": "spectacle-only" },
+      { "name": "headline-swap-over-pinned-stage", "property": "opacity", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "ghost-index-hover-reveal", "property": "color", "trigger": "hover", "safety": "spectacle-only" },
+      { "name": "project-row-fade-rise", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "debris-headline-parallax", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "lazy-media-crossfade", "property": "opacity", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "counts": { "pins": 9, "parallax": 3, "io": 2, "io_targets": 16, "scroll_listeners": 3, "mousemove_listeners": 5, "raf": 465, "canvas": 1, "keyframes": 14 },
+    "stack": ["GSAP (TweenMax)", "IntersectionObserver", "WebGL <canvas>", "Plyr (showreel)"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Trusted screenshot over raw profile. Raw lists rgb(255,255,255) as dominant 'color' (498 borders + text on a dark page) — the true canvas is near-black ink (~#0e101a/#131419 sampled from hero/footer), so bg/fg were inverted to reflect the rendered page. 'muted' set to the rgb(79,91,95) body grey; large dormant index type is the lavender-alpha 'ghost' role, kept separate because it is a deliberate near-invisible state, not normal body. Accent normalized to coral #ff4940 (raw rgb(255,73,64)); the saturated case colors (blue/crimson/teal) and per-project eyebrow accents (gold/teal/pink) are content-supplied, parked under roles, not promoted to system accents. Type scale rounded from px (~11/14/20/40/50/80/120) to rem and de-duped; the giant index is the 5rem/200-weight entry. Radius reduced to the real 3px chip + 26px pill (50%/100px were one-offs). Durations/easings taken from the most frequent transitions (1.2s + .6s + .8s cinematic curves). Shadows negligible — single faint 1px present, no real elevation system. Motion block expanded from raw .motion.params/.fingerprint: durations/easings/staggers/IO configs are real captured values; counts are probe numbers (9 pins, 3 parallax, 465 rAF, 1 canvas, 14 keyframes — 11 site-hash + 3 plyr-*). reduced_motion 'not-respected' (prmRules:0). ghost-index-hover-reveal trigger marked 'hover' from the pattern + frames, NOT a captured hover delta — the probe logged 0 hover/cursor effects (it sampled scroll stops, not pointer); hover/cursor motion on this site is real but un-instrumented. pinned-canvas-scroll-scrub and lazy-media-crossfade have no pattern file yet (patterns_to_build)."
+}

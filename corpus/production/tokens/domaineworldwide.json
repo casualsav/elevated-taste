@@ -1,0 +1,62 @@
+{
+  "color": {
+    "bg": "#EDEDED",
+    "surface": "#FFFFFF",
+    "fg": "#000000",
+    "muted": "#686C6D",
+    "accent": "#2749FF",
+    "roles": {
+      "ground-inverse": "#000000",
+      "fg-on-dark": "#FFFFFF",
+      "ink": "#1C1C1C",
+      "darker": "#484A4C",
+      "neutral": "#A5A7A8",
+      "border": "#DBDBDB",
+      "lighter": "#EDEDED",
+      "focus-ring": "rgb(60,0,255)",
+      "success": "#00FF7B",
+      "orange": "#FF5831",
+      "glass-dark": "color-mix(in srgb, #000000 50%, transparent)",
+      "glass-light": "color-mix(in srgb, #ffffff 50%, transparent)"
+    }
+  },
+  "type": {
+    "families": ["Suisse Intl", "Suisse Intl Mono"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.5rem", "2.5rem", "3rem", "5rem", "15vw"],
+    "weights": [200, 400, 500],
+    "leading": [0.9, 1.0, 1.1, 1.35],
+    "tracking": { "body": "0", "display-48": "-0.04em", "display-80": "-0.04em", "label-24": "-0.01em" }
+  },
+  "space": {
+    "base": "5px",
+    "scale": ["5px", "10px", "15px", "20px", "30px", "40px", "60px", "80px", "120px"],
+    "fluid_formula": "max(<floor>px, calc((<n> / 1440) * 100vw))",
+    "page_margin": "clamp(20px, 2vw, 60px)",
+    "grid_gap": "20px"
+  },
+  "radius": ["0px", "3px", "6px", "12px", "100vw"],
+  "shadow": [],
+  "layout": {
+    "content_max_width": "1440px",
+    "grid_templates": ["1fr 2fr", ".5fr 1.5fr 2.5fr", ".25fr 1.5fr 2.75fr"],
+    "breakpoints": ["640px", "768px", "1024px"]
+  },
+  "motion": {
+    "durations": ["300ms", "800ms", "1200ms", "40000ms"],
+    "easings": ["cubic-bezier(0.22, 1, 0.36, 1)", "linear"],
+    "triggers": ["in-view", "scroll-progress", "hover", "load"],
+    "techniques": ["in-view-fade-rise", "contrast-aware-nav-invert", "sticky-label-gradient-fade", "infinite-logo-ticker", "hover-pill"],
+    "scroll_effects": [
+      { "name": "fade-rise-reveal", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "nav-color-invert", "property": "color", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "sticky-section-label", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "logo-ticker", "property": "transform", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stagger_ms": 150,
+    "io_threshold": 0.3,
+    "io_root_margin": "0% 0% -10% 0%",
+    "stack": ["IntersectionObserver", "CSS @keyframes", "CSS position:sticky", "requestAnimationFrame"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Normalized from a 1440 design width. Font sizes rounded to the real px scale (12/14/16/18/24/40/48/80 + a 15vw footer giant) and expressed in rem; tracking only goes negative at display sizes. Space ladder is the site's --space-* tokens (each a max(floor, vw) fluid value) reduced to floor px. color.dark OMITTED: the craft probe reported supportsDark=true but the sampled dark values are degenerate (bg transparent, fg #000) — the site does not re-theme; its #000 sections are surface choices on a light page, not a dark mode. No elevation shadows on the page (one drop-shadow on a floating dialog excluded). Marquee duration is computed (logo-count * 4s ≈ 40s)."
+}

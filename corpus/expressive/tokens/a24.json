@@ -1,0 +1,75 @@
+{
+  "color": {
+    "bg": "#FFFFFF",
+    "surface": "#EEEEEE",
+    "fg": "#000000",
+    "muted": "#888888",
+    "accent": "#000000",
+    "roles": {
+      "image-plate": "#EEEEEE",
+      "dim": "#C2C2C2",
+      "surface-inverse": "#000000",
+      "fg-on-dark": "#FFFFFF",
+      "muted-on-dark": "#C2C2C2",
+      "hairline-on-dark": "#555555",
+      "focus-ring": "#101010",
+      "danger-tint": "#F95936",
+      "success-tint": "#B0E9AC"
+    }
+  },
+  "type": {
+    "families": ["\"NB International Web\"", "\"NB International Mono Web\"", "\"Helvetica Neue\"", "Helvetica", "Arial", "sans-serif"],
+    "scale": ["0.8125rem", "0.9375rem", "1.3125rem", "2.375rem", "3.875rem", "4.625rem"],
+    "weights": [400, 500, 700],
+    "leading": [0.92, 1.0, 1.07, 1.67],
+    "tracking": { "display": "-0.04em", "body": "-0.005em", "caps": "0.005em", "mono-meta": "-0.065em" },
+    "fluid": false
+  },
+  "space": {
+    "base": "6px",
+    "scale": ["6px", "12px", "18px", "24px", "30px", "42px", "54px", "196px"]
+  },
+  "radius": ["0", "3px", "46px"],
+  "shadow": [
+    "rgba(0,0,0,0.024) 2.1px 0 2.2px, rgba(0,0,0,0.035) 5.1px 0 5.3px, rgba(0,0,0,0.043) 9.5px 0 9.9px",
+    "rgba(0,0,0,0.02) 2.8px 2.8px 2.2px, rgba(0,0,0,0.027) 6.7px 6.7px 5.3px, rgba(0,0,0,0.035) 12.5px 12.5px 9.9px"
+  ],
+  "grid": {
+    "columns_desktop": 0,
+    "columns_mobile": 0,
+    "container_max": ["100%", "80%", "530px", "730px"],
+    "gutter": "12px"
+  },
+  "motion": {
+    "durations": ["120ms", "150ms", "200ms", "250ms", "500ms", "600ms"],
+    "easings": [
+      "linear",
+      "ease-in-out",
+      "ease-in",
+      "ease-out",
+      "cubic-bezier(0, 1, 0.25, 1)",
+      "cubic-bezier(0, 1, 0.6, 1)"
+    ],
+    "triggers": ["load", "scroll-progress", "in-view", "hover"],
+    "techniques": [
+      "rack-focus-image-load",
+      "transparent-header-solidify",
+      "chrome-color-invert",
+      "featured-title-active-marker",
+      "sliding-arrow-link",
+      "offcanvas-container-push"
+    ],
+    "scroll_effects": [
+      { "name": "rack-focus-image-load", "property": "filter", "trigger": "in-view", "safety": "spectacle-only" },
+      { "name": "image-decode-fade", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "transparent-header-solidify", "property": "background", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "chrome-color-invert", "property": "color", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "featured-title-active-marker", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "sliding-arrow-link", "property": "transform", "trigger": "hover", "safety": "production-safe" },
+      { "name": "offcanvas-container-push", "property": "transform", "trigger": "hover", "safety": "production-safe" }
+    ],
+    "stack": ["CSS transitions", "class toggles", "IntersectionObserver", "scroll listeners"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Sizes are breakpoint-swapped px, not fluid — scale converted to rem at a 16px root (13/15/21/38/62/74px); the 38px step is the <1300px display size, 74px the >=1300px one, so treat them as one display register rather than two ranks. leading given as ratios (0.92 display, 1.67 body = 25/15px). No `color.dark` block: the probe's craft.theme.dark reports bg rgba(0,0,0,0) / accent rgba(0,0,0,0) — artefacts of forcing the scheme, not a real dark theme; meta.color_scheme is `normal` and the site never re-themes. Black surfaces (footer, newsletter modal, off-canvas menu) are inverse *surfaces* on a light page, captured in roles. `accent` is #000000 because the site has no chromatic accent — #F95936 and #B0E9AC exist only as form error/success tints and must not be read as brand hues. grid.columns_* are 0 on purpose: the layout uses zero CSS Grid; a flex `.grid` utility with a -6px/+6px negative-margin gutter (12px effective) composes 60/40, 40/60 and 50/50 rows. Shadows are the layered low-alpha falloff under product cut-outs on the #EEE plate, trimmed from the raw probe strings; layout surfaces carry none. Site-authored @keyframes: zero (the two counted are `spin` and the OneTrust cookie SDK's fade) — every effect is a CSS transition on a JS-toggled class. reduced_motion: prmRules=0 — add a fallback on reuse."
+}

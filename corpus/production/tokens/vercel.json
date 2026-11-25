@@ -1,0 +1,70 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#fafafa",
+    "surface-2": "#ebebeb",
+    "fg": "#171717",
+    "muted": "#4d4d4d",
+    "subtle": "#666666",
+    "border": "#ebebeb",
+    "accent": "#0070f3",
+    "accent-fg": "#ffffff",
+    "roles": {
+      "ink-pure": "#000000",
+      "label-mono": "#666666",
+      "subtle-2": "#8f8f8f",
+      "border-strong": "#171717",
+      "button-bg": "#171717",
+      "button-fg": "#ffffff",
+      "link": "#0070f3"
+    }
+  },
+  "type": {
+    "families": [
+      "Geist, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif",
+      "'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace"
+    ],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.25rem", "1.375rem", "2.5rem", "4rem", "6.875rem"],
+    "weights": [400, 500, 600],
+    "leading": [1.0, 1.1, 1.5],
+    "tracking": ["-0.05em display", "-0.02em heading", "0 body", "0.04em mono-label"]
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["2px", "3px", "4px", "6px", "12px", "20px", "24px", "40px", "96px", "256px"]
+  },
+  "radius": ["2px", "4px", "6px", "8px", "32px", "9999px"],
+  "shadow": [
+    "0 0 0 1px rgba(0,0,0,0.08)",
+    "rgba(0,0,0,0.08) 0 0 0 1px, rgba(0,0,0,0.04) 0 2px 2px 0, rgb(250,250,250) 0 0 0 1px"
+  ],
+  "motion": {
+    "durations": ["100ms", "150ms", "200ms", "300ms", "400ms", "500ms", "700ms", "1000ms"],
+    "easings": [
+      "cubic-bezier(0.4, 0, 0.2, 1)",
+      "cubic-bezier(0, 0, 0.2, 1)",
+      "cubic-bezier(0.32, 0.72, 0, 1)",
+      "cubic-bezier(0.23, 1, 0.32, 1)",
+      "ease",
+      "ease-out"
+    ],
+    "stagger_ms": [],
+    "triggers": ["hover", "scroll-progress", "in-view", "load"],
+    "techniques": [
+      "header-background-shift",
+      "sticky-pin-scrollytelling",
+      "logo-marquee",
+      "hover-recolor"
+    ],
+    "scroll_effects": [
+      { "name": "header background-shift", "property": "background", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "sticky-pinned section scrollytelling", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "logo / customer marquee", "property": "transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "nav / CTA hover micro-state", "property": "color/background", "trigger": "hover", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver (instrumentation)", "CSS @keyframes", "CSS transitions"],
+    "reduced_motion": "respected",
+    "evidence": "11 scroll frames show NO entrance reveals (entranceReveals:0, staggeredEntrance:false, zero stagger delays) — sections are present as they scroll in, nothing fades/rises. 235 IntersectionObservers / 3766 targets are Next.js link-prefetch/lazy-mount instrumentation (no opacity/transform deltas in frames), NOT animation triggers. 41 scroll + 15 mousemove listeners, 358 rAF, 78 @keyframes (most belong to embedded product demos / cmdk / tooltips / nav-menu — soft-fade-in, logo-carousel, marquee, navigation-menu-...scaleIn/enterFromRight, customer-carousel-...scroll, v0-cursor-reveal, turbohero-...spin), 44 animation rules, 19 prefers-reduced-motion blocks (respected), no GSAP/Lenis/Framer (hand-rolled). Genuine page-level motion = header bg crossfade (rgba(0,0,0,0)→rgb(250,250,250) on a sticky header), native sticky-pin scrollytelling on the Agents/Apps/Platforms sections, an ambient logo marquee, and hover recolor on nav (#4d4d4d→#171717) / the ghost CTA (#fff→#f2f2f2). Captured durations 100/150/200/300/400/500/700/1000ms (100/150 dominate); easings Material-standard + ease-out + two longer eased curves."
+  },
+  "notes": "Normalization / trust-the-screenshot decisions: (1) Raw color rgb(23,23,23)=#171717 dominates by count (632) and IS the foreground ink, confirmed against the screenshot (black-on-white page); the canvas bg is white (#ffffff). Greys laddered from raw: 4d4d4d muted, 666/7d7d7d subtle, 8f8f8f subtle-2. (2) Accent: raw shows BOTH rgb(0,114,245)=#0072f5 and rgb(0,112,243)=#0070f3 once each — these are the same Vercel link-blue with AA rounding; normalized to the canonical #0070f3. (3) Single registered fontFamily is 'Geist' (806 nodes); Geist Mono is not separately tagged by the profile but is visibly used for all uppercase letter-spaced labels/eyebrows/spec-lists (confirmed in screenshot) — added as the second family. (4) Display size 110px and tracking -5.5px are real (hero/section headings), kept and converted to rem; -2px/-0.66px tracking map to heading/large sizes. (5) Dropped the garbage radius 3.35544e+07px (= browser's 'pill' max, normalized to 9999px) and kept the real 2/4/6/8/32px steps; 6px is the dominant control radius (count 50). (6) Base spacing is ~4px here (not 8px) — raw padding/gap cluster on 2/3/4/6/12px; large section voids 40/96/256px kept verbatim. (7) Shadow: the one registered boxShadow is the floating-card recipe (hairline ring + faint drop + surface ring); kept verbatim plus a simplified 1px-ring token. (8) Motion easing is Material standard cubic-bezier(0.4,0,0.2,1) for hovers + ease-out (0,0,0.2,1) for reveals; durations 100/150ms dominate. (9) oklab(0.98.../0.5) background is a translucent near-white overlay artifact, dropped. Values aligned to /tokens/tokens.json role names (bg/surface/fg/muted/border/accent). EVIDENCE NOTE: motion block re-derived 2026-06-24 from the motion+craft pipeline — corroborated against the 11 readable per-scroll frames (corpus/production/screenshots/vercel-com/frames/), the frequency-ranked computed-style profile, and raw/vercel-com.json `.motion`/`.craft`. Static values are normalized (not exact); motion fields are evidence-backed (see motion.evidence). KEY FINDING: this is a near-static page — its motion thesis is restraint (no entrance reveals, no parallax/scrub/rotate/count-up/cursor-follow); only header recolor + sticky-pin scrollytelling + logo marquee + hover micro-states are real. Tracking varies continuously by size (12px +0.6px → 64px -3.84px → 110px -5.5px), not one constant em. A11y defect: 122/173 interactive elements below 44px tap-target (dense menus + footer); focus-visible + 100% img-alt + reduced-motion all present."
+}

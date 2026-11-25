@@ -1,0 +1,53 @@
+{
+  "color": {
+    "bg": "#0d0e13",
+    "surface": "#e4ccbb",
+    "fg": "#ffffff",
+    "muted": "rgba(255,255,255,0.6)",
+    "accent": "#0d0e13",
+    "roles": {
+      "ink": "#0d0e13",
+      "ink-muted": "rgba(13,14,19,0.6)",
+      "paper": "#e4e0db",
+      "paper-warm": "#e0ccbb",
+      "image-overlay": "the hero photograph itself — no flat accent color"
+    }
+  },
+  "type": {
+    "families": ["Lausanne, system-ui, sans-serif", "\"Times New Roman\", Times, serif"],
+    "scale": ["0.875rem", "1rem", "1.5rem", "9rem", "15.6rem"],
+    "weights": [300, 400, 500],
+    "leading": [1.1, 1.27, 1.5]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["1rem", "1.375rem", "2rem", "3rem", "12.5rem"]
+  },
+  "radius": ["9999px"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["500ms"],
+    "easings": ["ease"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": [
+      "cursor-follow",
+      "smooth-scroll-inertia",
+      "pinned-chrome",
+      "in-view-media-reveal",
+      "headline-photo-parallax",
+      "looping-reel-video"
+    ],
+    "scroll_effects": [
+      {"name": "custom cursor follower", "property": "transform", "trigger": "hover", "safety": "spectacle-only"},
+      {"name": "smooth-scroll inertia (rAF-virtualized)", "property": "transform/scroll", "trigger": "scroll-progress", "safety": "spectacle-only"},
+      {"name": "pinned chrome (nav + intro)", "property": "position", "trigger": "scroll-progress", "safety": "production-safe"},
+      {"name": "in-view media reveal", "property": "opacity+transform", "trigger": "in-view", "safety": "production-safe"},
+      {"name": "headline↔photo parallax (inferred, not frame-confirmed)", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe-if-subtle"},
+      {"name": "looping reel video", "property": "video", "trigger": "load/in-view", "safety": "spectacle-leaning"}
+    ],
+    "stack": ["requestAnimationFrame inertia engine (hand-rolled / bundle-opaque)", "IntersectionObserver", "HTML <video>", "CSS transition"],
+    "reduced_motion": "NOT respected (respectsReducedMotion: false; 0 prefers-reduced-motion blocks) — defect",
+    "evidence": "0 @keyframes / 0 CSS animation rules — authored motion is NOT keyframes but a rAF inertia engine: 1746 rAF callbacks, 1 mousemove + 1 cursor follower, 0 scroll listeners, 1 IntersectionObserver / 21 targets, 4 position:fixed pins (menu, nav, intro line), 8 <video>, 0 canvas, 15 transition rules, no GSAP/Locomotive/Lenis global detected. Scroll frames s00–s10 are byte-identical (one MD5) so NO frame-delta choreography was observed; parallax beat is inferred from the rAF engine + brand intent, not seen. Only tuned param: 500ms/ease (hover/UI)."
+  },
+  "notes": "Normalized from screenshot first; raw profile corroborates. TWO families is the whole story: a light geometric sans (raw 'Lausanne-300', dominant, 141 uses) for display + UI, and 'Times New Roman' (109 uses) reserved for ITALIC counterpoint — the wordmark's 'ape' and the hero intro copy. Generic 'Times New Roman' in the profile is almost certainly a webfont alias or fallback for a licensed serif; named neutrally. Display scale is genuinely extreme: raw shows 250px (~15.6rem) and 144px (~9rem) headline sizes with heavy negative tracking (raw letterSpacing -11.5px and -5px ≈ -0.05em on display) — kept as real tokens, not magic numbers, but they are hero-only. Body sits at 16px/14px. weights collapse to 300/400/500 (no bold anywhere). NO chromatic accent exists: the page's color is the cinematic blue-hour photograph; UI is ink #0d0e13 (raw rgb(13,14,19), the #1 color) on white, with a warm-paper surface #e0ccbb (raw rgb(224,204,187)) used on lower light sections. 'accent' therefore aliases ink — emphasis is scale/photo, not hue. Single radius is the 100% circle (raw borderRadius 100%, 9 uses) used for round play/reel buttons; pill 9999px listed as its normalized form. Shadow none — depth comes from the photograph and full-bleed layering, never elevation. Motion: raw shows only '0.5s ease' (5 uses) for hover/UI; the heavy scroll-driven parallax + image reveals are JS/WebGL and absent from computed styles, so the standard cubic-bezier is inferred for the authored easing."
+}

@@ -1,0 +1,52 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f5f5f5",
+    "fg": "#151515",
+    "muted": "#696969",
+    "accent": "#cba14f",
+    "roles": {
+      "fg-strong": "#121212",
+      "muted-2": "#737373",
+      "border": "#e3e3e3",
+      "tile-bg": "#000000",
+      "accent-dark": "#8a6d35",
+      "accent-light": "#d2ac5a",
+      "on-dark": "#ffffff",
+      "hero-field": "imagery-driven per-flavor saturated gradients (magenta/purple, iced-tea green, orange) — NOT tokens",
+      "incidental-blue": "#2563eb"
+    }
+  },
+  "type": {
+    "families": ["Acumin Pro (body sans)", "acumin-pro-condensed (display, all-caps)", "blackletter wordmark (brand asset only)"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.25rem", "1.5rem", "2rem", "2.5rem", "2.75rem", "3.5rem", "3.75rem"],
+    "weights": [400, 700],
+    "leading": [1.0, 1.1, 1.5],
+    "tracking": { "caps-label": "1px", "display-44px": "-0.44px", "display-40px": "-0.4px" }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["6px", "8px", "10px", "12px", "16px", "20px", "24px", "32px", "40px", "64px", "150px"]
+  },
+  "radius": ["0px", "2px", "5px", "50%"],
+  "shadow": [
+    "none",
+    "rgba(0,0,0,0.1) 0 1px 3px 0, rgba(0,0,0,0.1) 0 1px 2px -1px",
+    "rgba(0,0,0,0.15) 0 4px 12px 0"
+  ],
+  "motion": {
+    "durations": ["200ms", "250ms", "350ms", "400ms", "500ms"],
+    "easings": ["ease", "cubic-bezier(0.4, 0, 0.2, 1)", "ease-in-out", "cubic-bezier(0, 0, 0.2, 1)", "ease-out"],
+    "triggers": ["load", "in-view", "drag"],
+    "techniques": ["autoplay-hero-carousel", "in-view-fade", "mild-in-view-parallax", "on-load-modal-overlay"],
+    "scroll_effects": [
+      { "name": "hero-carousel", "property": "transform", "trigger": "load+timer/drag", "safety": "spectacle-only" },
+      { "name": "section-fade-in", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "section-parallax", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "email-capture-modal", "property": "position(fixed)", "trigger": "load", "safety": "spectacle-only" }
+    ],
+    "stack": ["Swiper", "IntersectionObserver (mostly lazy-load/analytics)", "CSS @keyframes", "Klaviyo modal"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Normalized from raw + screenshots/frames. Hero color fields are per-flavor product imagery, not design tokens — represented descriptively, not as hex. The frequent #2563eb / Tailwind-grey values are incidental third-party widget chrome (utility classes), not brand color — demoted to incidental. Page is structurally near-flat: shadows collapsed to none + two subtle elevations; radius is squared (5px max). Most of the 26 IntersectionObservers / 106 targets serve lazy-loading and analytics; only 1 fade and 1 parallax were corroborated as motion. prefers-reduced-motion has 0 rules (defect)."
+}

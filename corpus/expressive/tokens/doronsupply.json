@@ -1,0 +1,56 @@
+{
+  "color": {
+    "bg": "#0a0a0c",
+    "surface": "#35363e",
+    "fg": "#e6e8f0",
+    "muted": "#b3b9c9",
+    "accent": "#5b66de",
+    "roles": {
+      "bg-tint": "#12121a",
+      "surface-2": "#b3b9c9",
+      "panel-line": "#5b6472",
+      "accent-fg": "#0a0a0c",
+      "accent-glow": "rgba(110,104,222,0.40)",
+      "scrim": "rgba(0,0,0,0.60)",
+      "save-badge": "#c1c7f7"
+    }
+  },
+  "type": {
+    "families": ["\"Space Mono\", monospace", "serif-display (ModelStandard / blackletter-adjacent)", "Inter, sans-serif"],
+    "scale": ["0.6875rem", "0.75rem", "0.8125rem", "1rem", "2.5rem", "3.125rem", "4.1875rem"],
+    "weights": [400, 500, 700],
+    "leading": [1.0, 1.1, 1.2, 1.6]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["2px", "4px", "8px", "12px", "16px", "24px", "48px", "80px", "120px"]
+  },
+  "radius": ["3px", "6px", "8px", "13px"],
+  "shadow": [
+    "0 0 50px rgba(255,255,255,0.05)",
+    "0 0 20px rgba(255,255,255,0.05)",
+    "0 -12px 20px rgba(102,103,120,0.19) inset",
+    "0 1px 10px 4px rgba(255,255,255,0)"
+  ],
+  "motion": {
+    "durations": ["100ms", "240ms", "4500ms"],
+    "easings": ["cubic-bezier(0.2, 0.8, 0.2, 1)", "ease", "ease-in-out"],
+    "stagger_delays_ms": [400, 800, 1200, 1600],
+    "triggers": ["scroll-progress", "hover", "drag", "load"],
+    "techniques": ["sticky-pin-scrollytelling", "hover-lift", "idle-folder-tab-wiggle", "perspective-folder-tab-carousel", "announcement-ticker-marquee"],
+    "scroll_effects": [
+      { "name": "pinned-utility-nav", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "hover-lift-index-links", "property": "transform", "trigger": "hover", "safety": "production-safe" },
+      { "name": "glow-bloom-secondary-button", "property": "background+box-shadow", "trigger": "hover", "safety": "production-safe" },
+      { "name": "idle-folder-tab-wiggle", "property": "transform", "trigger": "load", "safety": "spectacle-only" },
+      { "name": "perspective-folder-tab-carousel", "property": "transform", "trigger": "drag", "safety": "spectacle-only" },
+      { "name": "marquee-ticker", "property": "transform", "trigger": "load", "safety": "production-safe" }
+    ],
+    "keyframes": ["folderIdleWiggle_0", "folderIdleWiggle_1", "folderIdleWiggle_2", "folderIdleWiggle_3", "folderIdleWiggle_4", "ds-i8nxrp-spin"],
+    "interactive": { "marquee": 8, "draggable": 10, "video": 2, "canvas": 0, "carousels": 0, "tabs": 0 },
+    "probe": { "io": 3, "io_targets": 3, "io_threshold": 0, "io_root_margin": "100px", "scroll_listeners": 6, "mousemove_listeners": 5, "raf": 988, "scroll_effects": 1, "entrance_reveals": 0, "cursor_followers": 0 },
+    "stack": ["Framer (script_main.D5qk1UWr.mjs)"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Trusted screenshot over raw. Raw's dominant color rgb(0,0,238) (count 472) is browser-default unstyled-link blue from many anchors, NOT the visual accent — dropped. The real accent is the periwinkle/indigo button + glow (rgb(91,102,222)/rgba(110,104,222,0.40)); normalized to #5b66de. Real bg is near-black (#0a0a0c) with a subtle indigo bottom-gradient on the hero; raw shows it indirectly via dark scrims. rgb(53,54,62) is the recurring dark panel/card surface. rgb(179,185,201) periwinkle-grey is the muted folder-tab/secondary-surface tone. Body type is ~12px Space Mono throughout (raw fontSize 12px count 1786 + Space Mono count 185 corroborate); the display headline ('Design Smarter, Not Harder') is a heavy serif/blackletter-adjacent face at ~50-67px (raw 50px/67px + letterSpacing -2px to -4px) that the noisy 'sans-serif' fallback masks. Radius collapsed from a noisy 3-13px spread to the few that read on screen. Shadows are faint white glows around glassy panels, not drop shadows. Motion: trusted frames + probe counts over the noisy raw — despite a Framer runtime (988 rAF/scroll) the captured scroll choreography is just 1 pinned nav (0 entrance reveals, 0 cursor-followers, 0 canvas); the 11 frames are distinct (no scroll-hijack) so the read is reliable. Real motion = hover micro-lifts (translateY -6..-7px), 8 marquees, a 4.5s idle folder-tab wiggle (keyframes folderIdleWiggle_0..4 + ds-i8nxrp-spin), and a draggable perspective folder-tab carousel. prefers-reduced-motion is NOT respected (prmRules:0). 4500ms duration is the ambient wiggle loop; the 400/800/1200/1600 ladder reads as a one-shot load stagger. idle-folder-tab-wiggle + perspective-folder-tab-carousel are genuinely-new (patterns_to_build) — not faked into existing patterns; perspective-curved-ticker is a vertical text crawl, a different mechanism."
+}

@@ -1,0 +1,76 @@
+{
+  "color": {
+    "bg": "#f0f2ef",
+    "surface": "#ffffff",
+    "surface-2": "#f8faf7",
+    "fg": "#2a0f14",
+    "muted": "#766e70",
+    "subtle": "#544145",
+    "border": "#e3e1de",
+    "accent": "#fae261",
+    "accent-fg": "#2a0f14",
+    "roles": {
+      "highlight-yellow": "#fae261",
+      "highlight-yellow-soft": "#fdf1b0",
+      "sticker-coral": "#ffab8d",
+      "sticker-pink": "#ffdcef",
+      "sticker-pink-ink": "#ff4eaf",
+      "sticker-plum": "#4b003a",
+      "confetti": "#fae261",
+      "chip-bg": "#ffffff",
+      "footer-fg": "#2a0f14"
+    }
+  },
+  "type": {
+    "families": [
+      "'ABC Solar Display', Georgia, serif-display, sans-serif",
+      "'Haffer', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
+      "'Haffer Mono', ui-monospace, SFMono-Regular, Menlo, monospace"
+    ],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.0625rem", "1.3125rem", "1.625rem", "3.125rem", "3.5rem", "4.0625rem"],
+    "weights": [400, 500],
+    "leading": [1.05, 1.4, 1.5],
+    "tracking": ["-0.02em display", "0 body", "0.035em mono-eyebrow"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "6px", "8px", "12px", "16px", "24px", "32px", "40px"]
+  },
+  "radius": ["6px", "18px", "20px", "9999px"],
+  "shadow": [
+    "0 1px 2px rgba(42,15,20,0.06)",
+    "0 4px 16px rgba(42,15,20,0.08)"
+  ],
+  "motion": {
+    "durations": ["120ms", "200ms"],
+    "easings": ["ease", "cubic-bezier(0.2,0,0,1)"],
+    "triggers": ["scroll-progress", "in-view", "hover"],
+    "techniques": [
+      "parallax-drift",
+      "scroll-scale",
+      "scroll-progress-rotate",
+      "scroll-linked-recolor",
+      "sticky-pin-scrollytelling",
+      "cursor-follow",
+      "hover-recolor"
+    ],
+    "scroll_effects": [
+      { "name": "layered parallax drift (floating product UI)", "property": "transform", "trigger": "scroll-progress", "safety": "spectacle", "count": 14 },
+      { "name": "scroll-linked scale / zoom of panels", "property": "transform", "trigger": "scroll-progress", "safety": "spectacle", "count": 12, "ranges": ["0.999->1.117", "1.002->0.759", "0.997->0.883", "1.006->1.13"] },
+      { "name": "scroll-progress rotation of confetti", "property": "transform", "trigger": "scroll-progress", "safety": "spectacle", "count": 8, "angles_deg": [-85.3, 37.1, 40.6, -66.8, 89.5, -180] },
+      { "name": "in-view background-shift on category chips", "property": "background", "trigger": "in-view", "safety": "production-safe", "count": 13, "from_to": [["rgb(255,229,220)", "rgb(253,241,176)"], ["rgb(240,242,239)", "rgb(215,248,230)"], ["rgb(229,249,255)", "rgb(240,242,239)"]] },
+      { "name": "sticky-pinned nav bar", "property": "position", "trigger": "scroll-progress", "safety": "production-safe", "count": 1 }
+    ],
+    "stack": ["Framer (script_main.*.mjs)", "IntersectionObserver", "JS-driven transforms (no @keyframes)"],
+    "reduced_motion": "NOT respected",
+    "params": {
+      "durations_ms": [],
+      "easings": ["ease"],
+      "stagger_delays_ms": [],
+      "io_thresholds": ["[0,0.01,...,0.99] (dense scrub array)", "0.25"],
+      "io_root_margins": ["0px 0px 0px 0px", "200px"]
+    },
+    "evidence": "Framer-driven. 48 scroll effects (1 pin, 8 rotate, 14 transform/parallax, 12 scale, 13 background-shift); 254 IntersectionObservers / 254 targets; ~5191 rAF calls per scroll pass; 5 cursor-followers + 9 mousemove listeners; 4 video, 1 canvas, 49 draggable nodes; 0 @keyframes / 0 CSS animation rules (transforms driven in JS via dense IO threshold array + a 0.25/rootMargin:200px reveal observer); captured easing is bare 'ease', no explicit durations exposed. prefers-reduced-motion NOT respected (prmRules:0, a11y.reduced_motion:false) — the chief production liability. Hover: 'Book a demo' #fae261->black, 'Learn more' grey->black."
+  },
+  "notes": "Trust-the-screenshot corrections. (1) The raw profile's single most frequent color rgb(0,0,238) (count 147, identical in color+borderColor) is the unstyled UA-default link/border blue — a capture artifact; NO blue appears anywhere in the screenshots, so it is dropped, not treated as accent. (2) fontFamily count 1440 'sans-serif' is the unresolved generic fallback (web-font load race), not a real face; the actual faces are the registered ones: 'ABC Solar Display' for the big rounded headings, 'Haffer' for body, 'Haffer Mono' for eyebrow labels/badges/sticker words. ABC Solar reads as a soft humanist display (slightly serif-flared), so a Georgia-class fallback is listed before sans. (3) True background is the warm off-white rgb(240,242,239)=#f0f2ef (also the most common backgroundColor, count 41); cards are pure white. Foreground ink is rgb(42,15,20)=#2a0f14 — a near-black warm plum, NOT pure #000 — confirmed by the warm tint on headings. (4) Body grey rgb(118,110,112)=#766e70; a darker warm grey rgb(84,65,69)=#544145 is used for secondary/strong text. (5) Yellow rgb(250,226,97)=#fae261 is the one functional accent (primary pill CTA + highlighter underline behind 'irresistible'); coral/pink/plum/mint appear ONLY as highlighter blocks behind the mono words integrate/build/execute and as confetti — kept as 'sticker' roles, not core palette. (6) Radius normalized: pills are full (raw 132/500/816px = pill on varying widths); cards ~18-20px; small chips ~6px. Sub-pixel raws (7.35px, 4.59px, 23.69px etc.) are layout-computed fractions, rounded to the 4px-ish intent. (7) Weights are only 400/500 in the profile — a deliberately near-single-weight system; hierarchy is scale-driven. (8) px scale converted to rem at 16px root; display sizes 50/56/65px kept as the headline ramp."
+}

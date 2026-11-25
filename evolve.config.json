@@ -1,0 +1,18 @@
+{
+  "$description": "Source of truth for the Phase 3 self-evolving loop. Edited by hand or by the CP5 control bot; read by tooling/evolve.mjs (the weekly Actions run reads the copy on main). Each site that passes the gate lands on main in the same run; one that fails opens a PR labelled hold for you.",
+  "paused": false,
+  "cadence": "weekly",
+  "candidates_per_run": 4,
+  "corpora": ["production", "expressive"],
+  "galleries": ["godly", "landbook", "awwwards"],
+  "directions_bias": [],
+  "min_score": null,
+  "capture_settle_ms": 7000,
+  "distill_timeout_min": 25,
+  "category_targets": {
+    "dashboard": 4, "data-table": 3, "forms": 3, "settings": 2, "onboarding": 2,
+    "auth": 2, "empty-state": 2, "checkout": 2, "pricing": 4, "docs": 3
+  },
+  "report": { "telegram": true },
+  "last_run": null
+}

@@ -1,0 +1,49 @@
+{
+  "color": {
+    "bg": "#fefdfc",
+    "surface": "#fefdfc",
+    "fg": "#1a1a1a",
+    "muted": "#1a1a1a",
+    "accent": null,
+    "roles": {
+      "paper": "#fefdfc",
+      "tile-placeholder": "#eceae6",
+      "active-marker": "#1a1a1a"
+    }
+  },
+  "type": {
+    "families": ["jjannon (display serif)", "publico-text-mono (mono)"],
+    "scale": ["0.875rem", "1rem", "2.625rem", "3.5rem"],
+    "weights": [400, 600],
+    "leading": [1.12, 1.16, 1.4],
+    "tracking": ["0", "0.01em"]
+  },
+  "space": {
+    "base": "12px",
+    "scale": ["12px", "0.75rem", "2.5rem", "5.5rem"]
+  },
+  "radius": ["0"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["200ms", "320ms"],
+    "easings": ["cubic-bezier(0.2, 0, 0, 1)", "ease"],
+    "triggers": ["scroll-progress", "in-view", "hover"],
+    "techniques": [
+      "raf-momentum-smooth-scroll",
+      "dimmed-tile-hover-reveal",
+      "sticky-pin-scrollytelling",
+      "scroll-reveal-in-view",
+      "cursor-follow"
+    ],
+    "scroll_effects": [
+      { "name": "raf-momentum-smooth-scroll", "property": "transform", "trigger": "scroll-progress", "safety": "spectacle-only" },
+      { "name": "pinned-chrome-and-interstitial", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "lazy-load-io-reveal", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "dimmed-tile-hover-reveal", "property": "opacity", "trigger": "hover", "safety": "production-safe" },
+      { "name": "cursor-follow", "property": "transform", "trigger": "hover", "safety": "spectacle-only" }
+    ],
+    "stack": ["hand-rolled rAF smooth-scroll (Lenis-class)", "IntersectionObserver", "CSS transitions"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Screenshot is ground truth. PALETTE: bg is warm near-white paper rgb(254,253,252)=#fefdfc (raw confirms it as the single dominant bg/fg/border color — note the raw lists #fefdfc as foreground too, which is just inverted text inside dark tiles, not a page-level fg). Page text/chrome is near-black; normalized fg/muted to one ink #1a1a1a because chrome is monochrome and there is no second grey tier. accent=null ON PURPOSE: the system carries NO accent hue — every saturated color on the page belongs to the artwork inside thumbnails (Mahomes red, acid-yellow, etc.), not to the design system; treating tile imagery as an accent would be a category error. radius=0 / shadow=none confirmed visually (borderless, flat, edge-to-edge tiles; raw carries no radius/shadow data). TYPE: two families only. Display headline is jjannon-regular (a Jannon/Garamond old-style serif), raw 42px & 56px -> normalized 2.625rem/3.5rem. Chrome/labels are publico-text-mono (raw 14px body -> 0.875rem; raw also lists Times New Roman 16px/304x as the highest count, but that is the unstyled UA fallback on un-fonted nodes, NOT a real role -- screenshot shows no Times anywhere, so it was dropped). weights: mono regular 400 + one semibold 600 (raw publico-text-mono-semibold). leading from raw: mono 15.68/14=1.12 and 1.16; serif 48.72/42=1.16, plus a normal ~1.4 for any wrapped body. tracking: mono ~0.14px/14px=0.01em, serif near 0. SPACE: the entire grid runs on a single tight 12px gutter (raw gap=12 x6, paddingBlock/Inline=12) -- this uniform tight gutter is the layout's whole rhythm; larger steps (2.5rem section pad, 5.5rem=raw 88px band padding) are for the interstitial whitespace band. MOTION (re-distilled with motion+craft probe): the 4 captured frames (s00/s03/s06/s09) are PIXEL-IDENTICAL -- the frame sequence did NOT record motion. That is the tell: Studio Freight authored Lenis and the page rides a continuous hand-rolled rAF momentum smooth-scroll (raf:1993/pass, libraries:[], scriptHits:[], keyframeCount:0, animRules:3, transRules:19 -> JS transform-driven, not GSAP/Framer/keyframes). So motion is grounded in PROBE COUNTS + hover deltas + IO configs + DOM, not frames. Real techniques: (1) rAF momentum smooth-scroll [SPECTACLE -- hijacks platform scroll, no reduced-motion gate]; (2) dimmed-tile hover-reveal [12x a.a-div opacity 0->1 / 0.066->1 / 0.266->1; production-safe BUT tiles starting at opacity:0 are invisible/unreachable on touch+keyboard -> ship ~0.6->1 resting state]; (3) 3x position:fixed pin on header/footer/the 'Moving Missions Forward' main [production-safe sticky-pin]; (4) 27 IntersectionObservers/64 targets all threshold:0 rootMargin:0px 0px 100px 0px = lazy-load reveal, entranceReveals:0 (no stagger) [production-safe]; (5) 1 cursor-follower matrix(1.02) [spectacle, pointer-only]. Durations not exposed (rAF per-frame); easing bare 'ease' + inferred house cubic-bezier(0.2,0,0,1) at 200/320ms for the discrete transitions -- safe to port. A11y DEFECTS: prefers-reduced-motion NOT respected (prmRules:0, reduced_motion:false); focus_visible:false (no focus ring captured); small_tap_targets:7/41. POSITIVE: img_alt_ratio:1 (all 26 images have alt). CRAFT: states.focus:[] / states.disabled:[] -> button/input states NOT captured (no real button or input on this index -- not 'minimal by choice'); elevation.shadows:[] + gradients:[] confirm flat; dark_mode:null (no dark theme); grid.columns [3,12,2,7] desktop / [2,6,3] mobile -> 12-col master mosaic, ~2 cols mobile, same 12px gutter; tracking_by_size mono 14px->0.14px (+0.01em) and serif 56px->+1% (+0.014em) = gently POSITIVE tracking on both, inverting the usual bigger=tighter rule. patterns_to_build: raf-momentum-smooth-scroll + plain cursor-follow (no corpus recipes exist; not faked into patterns)."
+}

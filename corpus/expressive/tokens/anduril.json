@@ -1,0 +1,47 @@
+{
+  "color": {
+    "bg": "#010101",
+    "surface": "#8e9291",
+    "fg": "#ffffff",
+    "muted": "#6c6e6b",
+    "accent": "#dff140",
+    "roles": {
+      "ground-dark": "#010101",
+      "ground-grey": "#8e9291",
+      "ground-olive": "#505544",
+      "ground-light": "#f1f0ea",
+      "fg-on-dark": "#ffffff",
+      "fg-on-light": "#010101",
+      "accent-energy": "#dff140",
+      "accent-glow": "#dff140",
+      "link": "#0000ee",
+      "scrim": "rgba(1,1,1,0.5)"
+    }
+  },
+  "type": {
+    "families": ["HelveticaNowDisplay", "Helvetica", "Arial", "Elios", "sans-serif"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.5rem", "2rem", "2.5rem", "4rem"],
+    "weights": [400, 500, 700],
+    "leading": [1.05, 1.15, 1.3],
+    "tracking": { "caps-12px": "+0.48px", "18px": "-0.176px", "24px": "-0.24px", "40px": "-0.8px" }
+  },
+  "space": { "base": "8px", "scale": ["4px", "8px", "16px", "20px", "24px", "32px", "48px", "64px", "96px", "160px"] },
+  "radius": ["2px", "100px"],
+  "shadow": ["0 0 10px #dff140, 0 0 5px #dff140"],
+  "motion": {
+    "durations": ["125ms", "200ms", "250ms", "300ms", "350ms", "500ms", "1000ms"],
+    "easings": ["cubic-bezier(0.19, 1, 0.22, 1)", "cubic-bezier(0.215, 0.61, 0.355, 1)", "ease-out", "ease"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": ["lenis-smooth-scroll", "inview-fade-rise", "sticky-canvas-pin", "parallax-transform", "animated-link-underline"],
+    "scroll_effects": [
+      { "name": "nav-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "hero-canvas-pin", "property": "position", "trigger": "scroll-progress", "safety": "spectacle-only" },
+      { "name": "wordmark-parallax", "property": "transform", "trigger": "in-view", "safety": "spectacle-only" },
+      { "name": "media-inview-reveal", "property": "transform,opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "link-underline", "property": "transform", "trigger": "hover", "safety": "production-safe" }
+    ],
+    "stack": ["Lenis", "IntersectionObserver", "CSS @keyframes", "requestAnimationFrame", "canvas/WebGL", "video"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Normalized from a noisy capture. Color: greyscale-on-#010101 with chapter grounds (#8e9291 grey, #505544 olive, #f1f0ea off-white); two rationed accents — chartreuse #dff140 (edge/glow/'active') and electric blue #0000ee (links; possibly an unstyled-default smell, kept as link role). Type scale rounded from observed 12/14/16/18/24/32/40/64px; the large Times New Roman count in the raw profile is treated as fallback / unstyled CMS DOM (the capture also caught unrendered template tokens like @[title]) and excluded from families' visible roles — visible type is HelveticaNowDisplay with Elios as a sparing display face. Signature is the tracking: +0.48px on 12px caps, going negative as size grows. Single shadow is the chartreuse glow; everything else is flat. 2px radius is global; 100px is the pill on a couple of controls. Motion: Lenis inertial scroll + IntersectionObserver in-view reveals (inView keyframe, 88 IO targets, rootMargin 250px) + animated link underline (linkbutton-underline-in/-replay) + a pinned hero canvas/video with wordmark parallax. prefers-reduced-motion is NOT respected."
+}

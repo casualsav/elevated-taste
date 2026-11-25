@@ -1,0 +1,15 @@
+[Unit]
+Description=Web Design Taste - Telegram control/approval bot (long-poll, non-agentic)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+# Adjust if the repo lives elsewhere. Runs as your user so `gh` uses your auth + `claude` your subscription.
+WorkingDirectory=/projects/taste
+ExecStart=/projects/taste/tooling/bot.sh
+EnvironmentFile=-%h/.config/taste/evolve.env
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=default.target

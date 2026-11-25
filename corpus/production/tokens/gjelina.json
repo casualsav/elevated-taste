@@ -1,0 +1,55 @@
+{
+  "color": {
+    "bg": "#f9e4c2",
+    "surface": "#f9e4c2",
+    "fg": "#000000",
+    "muted": "#b44226",
+    "accent": "#b44226",
+    "roles": {
+      "accent-fg": "#f9e4c2",
+      "rule": "#b44226",
+      "hairline-on-accent": "rgba(249,228,194,0.5)",
+      "accent-hover-border": "rgba(196,67,39,0.5)",
+      "fg-on-photo": "#ffffff",
+      "danger": "#d5413d",
+      "focus-ring": "#9f3c23"
+    }
+  },
+  "type": {
+    "families": ["Anton", "Solway"],
+    "scale": ["0.75rem", "0.875rem", "0.9rem", "1rem", "1.2rem", "1.5rem", "2rem", "2.75rem", "3.5rem"],
+    "weights": [400, 700],
+    "leading": [1.1, 1.5],
+    "tracking": {
+      "display": "0em",
+      "heading": "0em",
+      "body": "0em",
+      "caps-ui": "1px",
+      "caps-small": "0.5px"
+    }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "8px", "16px", "30px", "32px", "40px", "48px", "80px"]
+  },
+  "radius": ["0", "2px", "50%"],
+  "shadow": [],
+  "motion": {
+    "durations": ["200ms", "500ms", "1000ms", "1500ms", "2000ms"],
+    "easings": ["ease-in-out", "ease", "cubic-bezier(0.77, 0, 0.175, 1)"],
+    "triggers": ["in-view", "load", "hover"],
+    "techniques": [
+      "in-view-section-fade",
+      "caption-free-hero-crossfade",
+      "ground-ink-hover-inversion",
+      "max-height-disclosure"
+    ],
+    "scroll_effects": [
+      { "name": "section-opacity-reveal", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "hero-slide-crossfade", "property": "opacity", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver (1, threshold 0.2)", "CSS transitions", "slick carousel", "BentoBox (getbento) theme"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "The site authors no design tokens of its own — the only five custom properties on the page belong to Font Awesome. Colors below are exact rgb values from the computed-style census (cream rgb(249,228,194) = #f9e4c2, brick rgb(180,66,38) = #b44226, ink #000), corroborated against the screenshots. `muted` is not a real tier: the page has no grey text, so brick doubles as the de-emphasized/link color — recorded as such rather than inventing a grey. `focus-ring` is sampled from the focus-state probe, which reports the outline color drifting between #9f3c23 and #ab3f25 across elements (anti-aliased sampling of one color); treat as approximate. Type scale normalized to rem from the px census (12/14/14.4/16/19.2/24/32/44/56); the 11.01px / 12.8px / 37.33px entries are third-party accessibility-overlay chrome, dropped. Leading collapsed from 14 raw values to the two ratios the site actually uses (1.1 headings / 1.5 text) — every other raw lineHeight resolves to one of them. `shadow: []` is deliberate: the single reported box-shadow (grey 0 0 5px) belongs to the injected overlay widget, not the design. Radius likewise: 2px on two elements, 50% on the carousel dots, 0 everywhere else including all buttons. `craft.theme.supportsDark` is false and the `theme.dark` payload just re-reports the light palette, so `color.dark` is omitted. Motion durations come from the transition census, not from keyframes — the page defines zero @keyframes and loads zero animation libraries. `raw/gjelina.css` is a single ~50k-token minified line that could not be sliced with the tools available in this session, so token values are grounded in the computed-style profile + screenshots + scroll frames rather than in source declarations; the frames confirm the pinned header, the underlined headings, and the borderless sections independently."
+}

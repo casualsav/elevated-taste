@@ -1,0 +1,73 @@
+{
+  "color": {
+    "bg": "#ffc833",
+    "surface": "#ffffff",
+    "fg": "#312f28",
+    "muted": "#7a8085",
+    "accent": "#6c00ff",
+    "roles": {
+      "ink": "#312f28",
+      "ink-inverted": "#ffffff",
+      "interactive": "#6c00ff",
+      "link": "#6c00ff",
+      "brand-accent": "#ffc833",
+      "card-border": "#312f28",
+      "muted-on-dark": "#b1afa8",
+      "band-gray": "#7a8085",
+      "band-yellow": "#ffc833",
+      "band-black": "#000000",
+      "band-white": "#efefef",
+      "band-aqua": "#21c6a9",
+      "band-purple": "#6c00ff",
+      "band-charcoal": "#212223",
+      "negative": "#ef5023",
+      "positive": "#60be83"
+    },
+    "dark": {
+      "bg": "#000000",
+      "surface": "#212223",
+      "fg": "#ffffff",
+      "muted": "#b1afa8",
+      "accent": "#ffc833"
+    }
+  },
+  "type": {
+    "families": ["Roobert, Helvetica, sans-serif"],
+    "scale": ["1.1rem", "1.85rem", "2.14rem", "2.4rem", "2.85rem", "3.42rem", "5.13rem", "6.84rem"],
+    "weights": [400, 700, 800],
+    "leading": [1.0, 1.3]
+  },
+  "space": {
+    "base": "1rem (= 10px at the capped desktop root)",
+    "scale": ["0.5rem", "1rem", "2rem", "3rem", "5rem", "6rem"]
+  },
+  "radius": ["0px", "0.5em", "1em", "3em", "50%"],
+  "shadow": [
+    "none",
+    "0 1px 3px rgba(0,0,0,0.3)",
+    "inset 0 0.05em 0.05em rgba(255,255,255,0.6), inset 0 -0.05em 0.08em rgba(0,0,0,0.5), inset 0 -0.01em 0.5em rgba(255,255,255,0.3), 0 0.05em 0.1em rgba(0,0,0,0.4)"
+  ],
+  "motion": {
+    "durations": ["150ms", "200ms", "250ms", "300ms", "3500ms", "4500ms", "5000ms"],
+    "easings": ["ease-in-out", "ease"],
+    "stagger": "none for entrances; ambient blobs de-synchronise via per-element delay (0/120/180/200/300/310/660ms) + duration (3.5/4.5/5s)",
+    "triggers": ["in-view", "hover", "drag", "load"],
+    "techniques": [
+      "section-palette-handoff",
+      "blob-cluster-idle-wobble",
+      "3d-card-flip",
+      "skeuomorphic-press",
+      "draggable-webgl-render"
+    ],
+    "scroll_effects": [
+      { "name": "section-palette-handoff", "property": "background|color", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "pinned-header", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "blob-cluster-idle-wobble", "property": "transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "3d-card-flip", "property": "transform", "trigger": "hover", "safety": "production-safe" },
+      { "name": "draggable-webgl-render", "property": "canvas", "trigger": "drag", "safety": "spectacle-only" }
+    ],
+    "stack": ["IntersectionObserver", "CSS custom-property remap", "CSS @keyframes (blobble)", "CSS transitions", "Three.js (2 canvases)", "native position:fixed"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Trusted the real stylesheet + frames over the raw profile on three points. (1) The profile reports keyframeCount:0 and respectsReducedMotion:false — both artifacts of 5 blocked cross-origin sheets; the fetched CSS contains exactly one @keyframes (`blobble`) and THREE prefers-reduced-motion blocks (navbar transition, card skew/flip via `no-preference`, catalog marquee) plus a `body.reduce-motion` class for the site's own toggle. reduced_motion is therefore 'respected' but PARTIAL: the infinite blobble loop is not gated. (2) The profile's 16 `scroll_effects` on `.cloudbit` (scale 1.03→1.05 etc.) are the blobble loop sampled at different phases across scroll stops, NOT scroll-progress transforms — there is no scroll-linked JS for them. (3) `transparent_height_pct: 48` is a false positive: sections are transparent because their parent `div.colorsection` paints the band. No fixed backdrop, no blend modes, no backdrop-filter anywhere (has_static_backdrop:false, has_blend_overlay:false, blend_glass empty).\nColors normalized from the site's sRGB fallbacks; every pigment also ships a `@supports (color: color(display-p3 …))` wide-gamut variant (display-p3 is why the raw profile reports all colors in that space). `bg` is set to the brand yellow because it is the page's signature ground, but the page has NO single bg — it is eight full-bleed bands, listed under roles.band-*. `color.dark` is real: an authored `@media (prefers-color-scheme: dark)` block re-points the SAME semantic roles (page-bg→black, text→white, accent→purple, link/bright→brand-yellow) — note the accent/link SWAP relative to light. The desktop-dark screenshot is not the frontpage's own dark render (the frontpage's bands are opaque and unaffected); the dark palette applies to the site's app/store chrome.\nType scale in rem assumes the capped desktop root of 10px (html: 2.4px → 0.909vw from 240px → 10px fixed above 1100px). Body is an unusually large 2.85rem/28.5px; the h2 is only 2.4× body — hierarchy is carried by weight (400→800) and the color band, not by scale. The one letterSpacing value (-0.165px ≈ -0.006em) is on the wordmark only. Radius kept in `em` because the whole page is em/rem-relative; `0px` is the game-card grid, `50%` the cloud blobs. Shadow scale is effectively `none` — the third entry is the single elaborated CTA and is a signature, not a scale step."
+}

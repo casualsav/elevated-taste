@@ -1,0 +1,78 @@
+{
+  "color": {
+    "bg": "#08090a",
+    "surface": "#0f1011",
+    "surface-2": "#16181c",
+    "fg": "#f7f8f8",
+    "muted": "#8a8f98",
+    "subtle": "#62666d",
+    "border": "rgba(255,255,255,0.08)",
+    "accent": "#8fa6ff",
+    "accent-fg": "#08090a",
+    "roles": {
+      "data-blue": "#8fa6ff",
+      "data-pink": "#f79ce0",
+      "data-amber": "#f7bf8b",
+      "data-teal": "#83dcdc",
+      "spotlight-chartreuse": "#e4f222",
+      "spotlight-blue-wash": "#d3e6ff",
+      "success": "#27a644",
+      "danger": "#f34e52",
+      "diff-add-bg": "rgba(39,166,68,0.07)",
+      "diff-del-bg": "rgba(243,78,82,0.10)",
+      "border-strong": "#23252a"
+    }
+  },
+  "type": {
+    "families": [
+      "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
+      "'Berkeley Mono', ui-monospace, 'SF Mono', Menlo, monospace"
+    ],
+    "scale": ["0.625rem", "0.75rem", "0.8125rem", "0.875rem", "1rem", "1.5rem", "3rem", "4rem"],
+    "weights": [400, 510, 590],
+    "leading": [1.0, 1.2, 1.5],
+    "tracking": ["-0.022em display", "-0.011em body", "0 mono"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["2px", "4px", "8px", "12px", "16px", "24px", "32px", "48px", "96px"]
+  },
+  "radius": ["2px", "4px", "6px", "8px", "12px", "9999px"],
+  "shadow": [
+    "0 1.2px 0 rgba(0,0,0,0.03)",
+    "0 2px 4px rgba(0,0,0,0.4)",
+    "inset 0 0 0 1px #23252a",
+    "0 4px 32px rgba(8,9,10,0.6)"
+  ],
+  "motion": {
+    "durations": ["100ms", "160ms", "200ms", "400ms"],
+    "easings": [
+      "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+      "cubic-bezier(0.165, 0.84, 0.44, 1)",
+      "ease",
+      "ease-out"
+    ],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "io": { "thresholds": [0.3, 0.5], "rootMargin": "250px", "stagger_ms": [100, 200, 300, 400] },
+    "techniques": [
+      "sticky-pin-scrollytelling",
+      "in-view-fade-rise",
+      "scroll-linked-recolor",
+      "ambient-dot-grid-loop",
+      "hover-recolor",
+      "announcement-ticker-marquee"
+    ],
+    "scroll_effects": [
+      { "name": "sticky-pinned header + skip-link", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "in-view fade-rise reveal", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "in-view control arming (fade + background-shift to periwinkle)", "property": "opacity+background", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "ambient animated dot-grid backdrop", "property": "transform+opacity", "trigger": "load", "safety": "spectacle-only" },
+      { "name": "hover recolor / faint-fill", "property": "color+background", "trigger": "hover", "safety": "production-safe" },
+      { "name": "logo-wall / status marquee", "property": "transform", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "position:fixed (no JS lib)"],
+    "reduced_motion": "respected",
+    "evidence": "82 @keyframes but ~58 are grid-dot-R-C-{upDown,pong,agent} (one ambient dot-grid system, not 82 effects); 182 CSS animation rules; 3 IntersectionObservers / 74 targets (thresholds 0.3/0.5, rootMargin 250px); 139 rAF per scroll pass; 9 scroll + 12 mousemove listeners; 17 marquee, 7 disclosure, 0 canvas, 0 video, 0 tabs; 0 detected libraries (hand-rolled); 1 prefers-reduced-motion block (respected). Captured scroll_effects: header+skip-link position:fixed pin; sendButtonGroup opacity 0.20->1.00 + background rgba(0,0,0,0)->rgb(94,106,210). Frames-corroborated: hero/feature blocks are static at rest (composed in s00); two-tone headlines and spotlight cards are baked, not animated. Entrance: a single hero-span transform at 1200ms (~0->0.02, negligible). craftParams durations 160/100/400/200ms; easings ease / cubic-bezier(0.25,0.46,0.45,0.94) / ease-out / cubic-bezier(0.165,0.84,0.44,1); stagger 100/200/300/400ms (not observed firing)."
+  },
+  "notes": "Trust-the-screenshot corrections: (1) Raw profile's top color rgb(247,248,248) at count 2696 is the FOREGROUND text/border, not the background — it dominates by element count, not by area. Pixel-sampling the canvas gives rgb(8,9,10)=#08090a, the true dark bg; surfaces are near-black rgb(15,16,17)/rgb(8,9,10). Roles relabeled accordingly. (2) The single registered fontFamily is Berkeley Mono (used for code/labels, 311 nodes); the body/display face is the system sans (Inter-class) that the profile didn't tag — confirmed by the geometric, tightly-tracked headline shapes. (3) Weights are the real Inter optical values 400/510/590 (not 500/600/700) — kept verbatim since they are intentional. (4) Two saturated brand colors (chartreuse #e4f222, blue wash #d3e6ff) appear ONCE each, only on testimonial cards; kept as 'spotlight' roles, not core accent. The functional accent is the muted periwinkle #8fa6ff. (5) Dropped one-off radii (400px, 1px, 22px) and the rgba(0,255,5,..)/rgba(255,0,0,..) values which are dev/debug highlight artifacts, not design colors. (6) 13.3333px rounded to 13px; px scale converted to rem at 16px root. (7) MOTION re-captured 2026-06-24 with the motion+craft pipeline; corroborated against frames s00-s10 (corpus/production/screenshots/linear-app/frames/), the computed-style profile, and raw/linear-app.json `.motion`/`.craft`. The 82-keyframe count is inflated by a per-dot grid system (~58 grid-dot-* rules) — collapsed to one `ambient-dot-grid-loop` technique. Page is largely static at rest; only the dot-grid loop + marquees move continuously, the rest is in-view reveal / sticky / hover. Reduced-motion respected; ships resting state. Type scale widened to the captured set (10/12/13/14/16/20/24 UI + 32/48/64/72 display) and tracking documented as size-proportional (-0.022em display -> ~-0.011em UI), not a constant. (8) CRAFT a11y: img_alt_ratio 1.0, focus-visible present (1px #5e69d1 ring, double-ring skip-link); DEFECTS — 146/170 interactive elements are <44px tap targets, and the captured disabled state is visually indistinct (opacity 1, faint bg, cursor:pointer). Grid columns 1/2/3/4 desktop -> 1/2/5 mobile (present in .craft.grid, not frame-estimated); nav 7 links -> 3 + likely hamburger; h1 64px -> 38px mobile."
+}

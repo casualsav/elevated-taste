@@ -1,0 +1,78 @@
+---
+slug: therow
+url: https://www.therow.com
+source: editorial-pick
+corpus: expressive
+surface: site
+captured: 2026-07-10
+award_type: null
+score: null
+tags: [fashion, luxury, ecommerce, retail, monochrome, light, photography, shopify]
+when_to_use: [hero, brand-experience, ecommerce, navigation, landing]
+directions: [minimalist, editorial]
+layout: [full-bleed]
+a11y: [reduced-motion-ignored, alt-coverage-high, tap-targets-risky]
+provenance:
+  gallery_url: null
+  robots_ok: true
+  license_note: "private reference; not redistributed"
+patterns: [image-first-hero-under-transparent-header, retracting-underline-link]
+tokens_snapshot: ../tokens/therow.json
+screenshots: ../screenshots/therow/
+---
+
+## What works
+
+- **The type scale is deliberately suppressed so the photograph can carry hierarchy.** The homepage has *zero* `h1` elements and a total type range of 13px → 24px (~1.85×); 999 nodes at 13px, 867 at 14px. Nothing on the page competes with the image for first read. **Mechanism:** hierarchy is produced by *position and area* — a full-viewport image against 13px chrome pinned to the edges — instead of the usual scale contrast. **Transfers to:** any image-led surface (portfolio, catalog, lookbook, case-study index) where a display headline would be redundant with the picture. **Cost:** only works when the image is genuinely worth the viewport; a weak photo leaves the page empty rather than calm.
+
+- **One family, one weight — tracking is the only display device.** 2137 of 2190 nodes are weight 400 (700 appears 35 times, all in third-party widgets). The wordmark is the single typographic gesture: 17px uppercase at 5px tracking (~0.29em). **Mechanism:** when weight and size are held constant, letter-spacing becomes the sole axis of emphasis, and widely-tracked caps read as *ceremony* rather than *loudness*. **Transfers to:** brand marks, section eyebrows, small caps labels — anywhere you want emphasis without adding a second weight to the font budget.
+
+- **Elevation is a modality signal, not decoration.** Zero gradients on the entire page. Border-radius tops out at 2px (26 uses) — visually square. Every shadow in the sheet (`0 26px 80px rgba(0,0,0,.2)`, `0 0 18px rgba(0,0,0,.2)`) sits on a drawer or modal; no content surface is ever raised. **Mechanism:** reserving the z-axis exclusively for *interruption* means a shadow always answers "something has been placed over the page," never "this card is special." **Transfers to:** any system where card-soup has crept in — demote content elevation to a hairline (`#dddddd`) and spend shadow only on overlays.
+
+- **Boolean custom properties as `calc()` multipliers, instead of a class matrix.** The theme carries flags like `--header-is-transparent: 1` and `--enable-header-negative-margin: 1`, then consumes them arithmetically: the first section is pulled up by `calc(var(--enable-header-negative-margin, 0) * -1 * var(--header-height, 0px))`, and content margins by `calc(var(--header-height) * var(--header-is-transparent, 0))`. **Mechanism:** a 0/1 variable lets one rule express both states, so "overlay header" and "normal header" are the same CSS with a different scalar — no `.header--transparent .hero + .section` cascade to maintain. **Transfers to:** any themeable structural switch (density modes, compact nav, RTL offsets). See `patterns/image-first-hero-under-transparent-header.md`.
+
+- **The hero is sized by `aspect-ratio`, not viewport units.** `aspect-ratio: 9/16` on mobile flips to `16/9` above 1024px, filled by an art-directed `<picture>` with per-breakpoint `srcset`, `loading="eager"`, `fetchpriority="high"`, and intrinsic `width`/`height`. **Mechanism:** ratio-sized heroes don't jitter when mobile browser chrome collapses (the classic `100vh` bug) and reserve exact space before the image decodes, so LCP arrives without layout shift. Swapping the *ratio* per breakpoint — rather than cropping one image with `object-fit` — means the composition is re-framed for portrait, not merely clipped. **Transfers to:** every full-bleed hero. This is strictly better than `height: 100vh` and should be the default.
+
+- **Hover subtracts instead of adds.** Links carry their 1px underline *at rest* (a `::before` at `scaleX(1)`, `transform-origin: left`); hovering retracts it to `scaleX(0)` over 200ms. **Mechanism:** inverting the familiar draw-in underline flips the register — a rest state that is already complete, with interaction *removing* ornament, reads as editorial/luxury, where "adding on hover" reads as product/app. Because it animates only `transform` on a pseudo-element, the effect never touches layout. **Transfers to:** nav and index links in editorial, fashion, and gallery work. See `patterns/retracting-underline-link.md`. **Cost:** never let a body-copy link depend on the underline alone as its affordance; keep a focus outline that is independent of the hover state.
+
+- **Restraint: the content plane never moves.** Across all 11 scroll frames, nothing reveals, pins, parallaxes, scales, or recolors. There is no scrollytelling, no cursor follower (0 detected), no carousel, no video, no canvas, and no scroll-linked transform anywhere on the content plane. The page's entire expressive budget is spent on one photograph and the space around it.
+
+## Design-system read
+
+- **Type:** One family (`Basic Commercial`, a neo-grotesque in the Akzidenz/Helvetica line, self-hosted woff2 in 400/700 roman + italic), Arial as the metric fallback. Sizes cluster at 13px (body), 14px (default), 16px (inputs), 12/11/10px (legal, labels), 24px max. `fluid_type: false` — no clamp, no viewport-scaled type. Body size is **13px on both desktop and mobile** — the type does not respond at all. Hierarchy is created by **position and area**, with tracking as the only emphasis axis.
+- **Color:** A three-value grayscale, no accent. Ground `#ffffff`; ink `#1c1b1b` (a warm near-black, never `#000` — pure black on white is the tell of an undesigned page); secondary text `#6a6a6a` (a true mid-gray at ~4.8:1, still AA for body); hairline `#dddddd`, footer rule `#e9e9e9`. Chrome inverts to `#1c1b1b` grounds with `rgba(255,255,255,0.25)` borders and `rgba(255,255,255,0.5)` secondary text — one ink, alpha-modulated, rather than a second palette. The only chromatic values in the system are **semantic and rare**: sale price `#f94c43`, error `#c8232c`. **The accent color is the photograph.**
+- **Spacing rhythm:** Base unit 5px, expressed mostly as halves (`5.25px` gaps, `8.75px`/`10.5px` paddings — the fractional values are `rem`-derived, round them to 5/9/10 in reuse). The real scale is `5 · 10 · 20 · 30 · 60 · 75 · 110 · 150px`, with 60/75px reserved for product-grid gutters and 110px for footer bands. Whitespace does all the separating: there is not a single divider on the content plane, only in the footer.
+- **Layout system:** Flex-dominant (588 flex vs 17 grid nodes). Containers are `100%` (29 uses) — the page is edge-to-edge; the only constrained widths (`394px`, `575px`, `630px`) belong to drawers and the newsletter form, i.e. *reading* contexts. Desktop footer is a 4-column link grid; on mobile the same links become a 29-item disclosure accordion (chevron rows) rather than a squashed grid. Nav exposes 95 links on desktop via pre-rendered mega-dropdowns, collapsing to a hamburger at mobile (3 visible links). Theme emits ~20 breakpoints; the load-bearing ones are ~768px and ~1008/1024px.
+- **Layering / page architecture:** **A single flat scroll.** `has_static_backdrop: false`, `has_blend_overlay: false`; `mix_blend_mode`, `background_blend_mode`, and `backdrop_filter` censuses are all *empty*. The 28 `fixed` layers are not a depth composition — they are a **drawer system** (menu, cart, size guide, universal drawer from right/bottom, copyright sheet), all parked at `opacity: 0` until summoned, sliding in over a full-viewport `PageOverlay` scrim (`rgba(0,0,0,.5)`). The one `sticky` layer is the header, transparent over the hero (`bg alpha: 0`, 7% viewport coverage). So: content is flat; the z-axis exists solely to interrupt it. **Do not copy the z-index discipline** — 13 elements share `z-index: 2147483647` (max int), the classic symptom of an unowned stacking scale.
+- **Motion / easing intent:** 102 transition rules, 12 animation rules, and the dominant timing is `0.2s ease-in-out` (253 uses) — hover feedback, nothing more. Drawers are the only real choreography: 450–500ms on `cubic-bezier(0.645,0.045,0.355,1)` (ease-in-out-cubic, exposed as `--drawer-transition-timing`) — slow enough to read as *a panel arriving*, symmetric so it retracts identically. The theme's own `@keyframes` are three trivial ones (`aniShow`/`aniHide` = opacity 0↔1; `animateMenuOpen` = fade + 1.5rem rise on a disclosure). Motion here communicates *state*, never spectacle.
+- **Density:** Very low on the content plane (one image, ~10 nav words), very high in chrome (410 interactive elements, 95 nav links, 29 disclosures). The mega-menu holds the entire catalog so the homepage doesn't have to. This is the trade: **an empty homepage is only affordable if navigation is exhaustive.**
+- **Hierarchy:** Position and area first, tracking second, color never. The single dominant ordering device is *what fills the viewport*.
+- **Restraint:** No display type. No h1. No gradients. No rounded corners. No accent color. No scroll animation. No hero copy, no CTA button, no value proposition — the hero image is one unlabeled link to the new-arrivals collection. No dark mode (`supportsDark: false`). Restraint is the entire design.
+
+## Interaction & motion
+
+The site is **near-motionless by design**, and the raw profile overstates it: the 8 reported `scroll_effects` are all `kind: pin`, i.e. the `position: fixed` drawers being detected as pinned — the frame sequence (s00→s09) shows **no** content-plane movement, only the page scrolling normally under a sticky header. `Rellax` is present in the bundle but **no `data-rellax` attribute or `.rellax` element exists in the DOM** — do not read parallax into this page. (A legacy `background-attachment: fixed` hero variant exists in the theme, gated to `hover:hover`, unused here.)
+
+- **Transparent-header → solid flip** — *Trigger:* in-view. *Mechanism:* the header is `position: sticky` with a transparent background, and the first section is pulled up under it by a negative margin equal to `--header-height`; a single `IntersectionObserver` (threshold `[0,.1,.5,.9,1]`, `rootMargin: 0px 0px -90% 0px` — a top-of-viewport sentinel) watches the hero and toggles the header's opacity flag as it leaves. *Reads as:* the chrome dissolving into the image, then re-materializing as a surface. *Transfers to:* any overlay nav above a full-bleed hero. *Safety:* **production-safe**, with one caveat — the flip must drive **paint only** (background/border), never the layout margin, or the header will reflow and the page will jump. Pattern: `patterns/image-first-hero-under-transparent-header.md`. (The frames don't scroll far enough to capture the flip itself; the IO config and the `--header-is-transparent` flag are the evidence.)
+- **Retracting underline on hover** — *Trigger:* hover (gated behind `@media (hover: hover)`, so touch never fires it). *Mechanism:* a 1px `::before` rule at `scaleX(1)` with `transform-origin: left center` animates to `scaleX(0)` over `0.2s ease-in-out`; compositor-only, no reflow. *Reads as:* the ornament stepping aside for the pointer — quiet, confident. *Transfers to:* editorial nav, index lists, footer links. *Safety:* **production-safe**. Pattern: `patterns/retracting-underline-link.md`.
+- **Directional arrow nudge** — *Trigger:* hover. *Mechanism:* dropdown list items translate a child SVG by 4px on the inline axis while the label shifts to the lighter ink. *Reads as:* a physical hint of where the link goes. *Transfers to:* mega-menu rows, "view all" links. *Safety:* **production-safe** (transform + color only).
+- **Drawer slide + scrim** — *Trigger:* tap/click. *Mechanism:* panels translate in from right (cart, size guide, ~42–44% viewport width) or bottom (12%/70% height) over a full-viewport `rgba(0,0,0,.5)` overlay, at 450–500ms on `cubic-bezier(0.645,0.045,0.355,1)`. *Reads as:* a modality change with weight — the slow, symmetric curve makes the panel feel like an object rather than a popup. *Transfers to:* cart, filters, size guides, any non-destructive side surface. *Safety:* **production-safe**, but the transform must be on the panel and the fade on the scrim, never `width`/`right`.
+- **Opacity crossfade** — *Trigger:* load / state change. *Mechanism:* the theme's only own keyframes (`aniShow`/`aniHide`) are a bare `opacity: 0↔1`; a single disclosure uses `animateMenuOpen` (fade + `translateY(-1.5rem)` → `0`). *Reads as:* content appearing without announcing itself. *Safety:* **production-safe**.
+
+**Reduced motion is NOT respected**, contrary to the probe's `respectsReducedMotion: true`. That flag is a false positive: the *only* `@media (prefers-reduced-motion: reduce)` rule in the 5331-line bundle belongs to a third-party geolocation modal. The theme's own drawers (500ms), fades, and the `animateMenuOpen` rise are ungated. The stakes are low here because the content plane is static — but any reuse of the drawer choreography must add the query.
+
+## Production-safety note
+
+Everything above is **production-safe**; there is no spectacle technique on this page. The interesting risk surface is the opposite of the usual expressive one — it is *what the restraint costs*:
+
+- **Transparent header over photography is a contrast gamble.** Dark ink chrome (`#1c1b1b`) sits directly on the hero with no scrim. It works only because art direction guarantees a pale image. Reuse demands either an enforced art-direction contract (light top band) or a subtle top scrim / adaptive ink — otherwise the nav disappears on the first dark photo. The pattern ships a scrim hook.
+- **Tap targets:** 171 of 410 interactive elements are below the 44px minimum — the 13px footer/nav links and the 95-link mega-menu are the offenders. `tap-targets-risky`. Raise the hit area with padding (not font-size) if you borrow this chrome.
+- **The hero image is an unlabeled link.** An empty `<a>` covers a `<picture>` whose `<img>` has `alt=""`, so the page's single primary action has no accessible name. `img_alt_ratio` reads 1.0 only because an empty alt counts as present — hence `alt-coverage-high` is technically true and practically misleading. The pattern fixes this with visually-hidden link text.
+- **No `prefers-reduced-motion` handling** in the theme's own CSS (see above).
+- **Focus styling is indeterminate:** the theme defines no `:focus-visible` rule of its own (the only two in the bundle are third-party), so the flag is omitted rather than guessed. Do not assume the UA default survives your reset.
+- **`z-index: 2147483647`** on 13 drawer elements. Symptom, not technique. Own a 5-step stacking scale instead.
+
+## Extracted patterns
+
+- `image-first-hero-under-transparent-header` — a ratio-sized, art-directed full-bleed hero pulled under a sticky transparent header by a 0/1 `calc()` flag, with the header's solid state driven by a scroll-driven CSS `@property` flip (IntersectionObserver fallback). Reuse for any image-led landing or brand-experience page.
+- `retracting-underline-link` — an underline that is present at rest and wipes away on hover via `scaleX` on a pseudo-element. Reuse for editorial/fashion nav and index links where hover should subtract, not add.

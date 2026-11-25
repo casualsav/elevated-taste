@@ -1,0 +1,68 @@
+{
+  "color": {
+    "bg": "#faf9fb",
+    "surface": "#eeecee",
+    "fg": "#2a222b",
+    "muted": "#837a85",
+    "accent": "#9454ab",
+    "roles": {
+      "ground-dark": "#2a222b",
+      "fg-on-dark": "#faf9fb",
+      "muted-on-dark": "#d4d1d5",
+      "eyebrow": "#a25fba",
+      "link-highlight": "#9454ab",
+      "glow-bloom": "#753a88",
+      "glow-shadow": "#b66dd5",
+      "glow-shadow-soft": "#ddb7f0",
+      "tag-bg-active": "#2a222b",
+      "card-tint-lavender": "#c6b8fe",
+      "card-tint-yellow": "#fcf0ca",
+      "card-tint-turquoise": "#c0e4de"
+    }
+  },
+  "type": {
+    "families": ["Tobias (serif, display/H2)", "Twklausanne (grotesque, body/UI)", "Arial (fallback)"],
+    "scale": ["0.875rem", "1rem", "1.5rem", "1.875rem", "2.25rem", "3rem", "4rem", "5rem"],
+    "weights": [350, 400, 500, 600],
+    "leading": [1.0, 1.1, 1.15, 1.3, 1.5],
+    "tracking": ["-2px @64/80px", "-1px @display", "-0.24px @24px", "0 @body"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["0.125rem", "0.25rem", "0.5rem", "0.75rem", "1.25rem", "1.5rem", "2rem", "2.5rem", "3rem", "4rem", "5rem", "7.5rem"]
+  },
+  "radius": ["4px", "12px", "16px", "24px", "1000rem"],
+  "shadow": [
+    "rgb(182,109,213) 0 0 15px 0",
+    "rgb(221,183,240) 0 0 15px 0",
+    "rgba(162,95,186,0.3) 0 0 25px 0",
+    "inset 0 0 0 2px #fff, inset 0 0 0 4px #101014"
+  ],
+  "gradient": [
+    "radial-gradient(circle farthest-side at 100% 0, #753a88, rgba(117,58,136,0) 33%)",
+    "radial-gradient(circle farthest-side at 0 100%, #753a88, rgba(117,58,136,0) 33%)",
+    "linear-gradient(110deg, #e47cff, #fffeff 50%, #e47cff)"
+  ],
+  "motion": {
+    "durations": ["200ms", "250ms", "300ms", "350ms", "400ms", "800ms", "20s", "90s"],
+    "easings": ["ease-out", "cubic-bezier(0.165,0.84,0.44,1)", "cubic-bezier(0.33,1,0.68,1)", "ease-in-out"],
+    "triggers": ["load", "in-view", "scroll-progress", "hover", "drag"],
+    "techniques": ["dual-direction-marquee", "corner-radial-bloom", "in-view-fade-rise", "scroll-progress-parallax", "swiper-carousel", "hero-wave-loop"],
+    "scroll_effects": [
+      { "name": "integrations-track-parallax", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "header-logo-parallax", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "logo-marquee", "property": "transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "glow-shadow-card-reveal", "property": "opacity+transform", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["GSAP", "GSAP ScrollTrigger", "GSAP SplitText", "GSAP MotionPathPlugin", "Swiper", "Webflow IX2", "IntersectionObserver", "CSS @keyframes"],
+    "reduced_motion": "respected"
+  },
+  "layout": {
+    "grid_columns": 12,
+    "gutter": "32px",
+    "container_max": ["80rem", "96rem"],
+    "content_width": "85%",
+    "flex_dominant": true
+  },
+  "notes": "Native alternating light/dark bands, NOT a dark-mode toggle (craft.theme.supportsDark=false) — color.dark omitted deliberately. Palette leans off-neutral toward purple: ground #2a222b (aubergine), light #faf9fb (lavender-white). 244 site custom props collapsed to roles; full primitive ramps (25-1000) normalized away. Serif=Tobias for display/H2, grotesque=Twklausanne (weights 350/400/500/600) for everything else; weight held ~400 so hierarchy rides scale + family switch. Radius 24px is the dominant card corner. Depth is intra-section (corner radial blooms + colored glow-shadows), no fixed backdrop/blend layer. Long 20s/90s loops should pause off-screen and under reduced-motion."
+}

@@ -1,0 +1,84 @@
+{
+  "color": {
+    "bg": "#3d521e",
+    "surface": "#34451c",
+    "fg": "#eeeeee",
+    "muted": "rgba(255,255,255,0.8)",
+    "accent": "#dc8c46",
+    "roles": {
+      "accent-hover": "#aa5e1b",
+      "accent-fg": "#ffffff",
+      "band-light": "#445b23",
+      "band-dark": "#36471c",
+      "band-darker": "#34451c",
+      "band-darkest": "#2d3f13",
+      "band-tan": "#ecebe5",
+      "ink": "#212f0c",
+      "ink-veil": "rgba(33,47,12,0.9)",
+      "fg-strong": "#ffffff",
+      "hairline-on-dark": "rgba(255,255,255,0.15)",
+      "hover-fill": "rgba(255,255,255,0.2)",
+      "scenery-green": "#7b9c48",
+      "spark-lime": "#edf1a3",
+      "chart-yellow": "#e6d409",
+      "chart-blue": "#256197",
+      "chart-red": "#c93535"
+    }
+  },
+  "type": {
+    "families": ["GT Alpina Standard", "Atlas Grotesk", "Arial, Helvetica, sans-serif"],
+    "scale": ["0.75rem", "1rem", "1.125rem", "1.25rem", "1.5rem", "2.25rem", "3.15rem", "3.6rem", "5.4rem", "6.3rem"],
+    "fluid_scale": ["2.5vw", "3vw", "3.5vw", "4vw", "5vw", "6vw", "7vw"],
+    "weights": [300, 400, 500, 700],
+    "leading": [0.88, 0.9, 1.0, 1.2, 1.5],
+    "tracking": {
+      "display": "-0.029em",
+      "heading": "-0.034em",
+      "subhead": "-0.017em",
+      "body": "0em",
+      "eyebrow": "0.033em",
+      "label-caps": "0.086em"
+    }
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["4px", "8px", "12px", "16px", "20px", "32px", "64px", "72px", "180px"]
+  },
+  "radius": ["0px", "4px", "6px", "8px"],
+  "shadow": ["0 2px 5px rgba(0,0,0,0.2)"],
+  "motion": {
+    "durations": ["75ms", "125ms", "200ms", "300ms"],
+    "easings": ["ease"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": [
+      "duplicated-group-infinite-ticker",
+      "section-local-scenery-parallax",
+      "scripted-page-ground-recolor",
+      "fixed-map-backdrop",
+      "alpha-only-hover-fill",
+      "composited-annotation-layers"
+    ],
+    "scroll_effects": [
+      { "name": "coordinate-ticker-loop", "property": "transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "ticker-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "nav-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "continent-scenery-parallax", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "hero-shape-drift", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "page-ground-recolor", "property": "background", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "fixed-map-backdrop", "property": "opacity", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "map-annotation-layer-drift", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "more-articles-fade-rise", "property": "opacity", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": [
+      "GSAP + ScrollTrigger",
+      "Webflow IX2",
+      "scroll listeners (6)",
+      "IntersectionObserver (1, 3 targets)",
+      "requestAnimationFrame (3440 calls)",
+      "CSS transitions (37 rules)",
+      "CSS @keyframes (1: `spin`, vendor lightbox spinner only)"
+    ],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Colors are exact: taken from the site's own :root custom properties (--dark-olive-green #3d521e, --peru #dc8c46, --peru-2 #aa5e1b, --white-smoke #eee, --212f0c, --translucent-white #ffffff1a, --felt-green-20 #7b9c48, --lime-green #edf1a3) plus the literal rgb() section fills in its stylesheet (rgb(54,71,28), rgb(52,69,28), rgb(45,63,19), rgb(68,91,35), rgb(236,235,229)). The page ground #3d521e is set inline on <body>. `craft.theme.supportsDark` reports true, but the payload is degenerate (accent rgba(0,0,0,0), fg #333 sampled from an iframe) — the site has no dark re-theme, it is already a dark page, so `color.dark` is omitted rather than invented. Type: the site declares display sizes in vw with no clamp() (7/6/5/4/3.5/2.5vw); `scale` lists the rem equivalents at a 1440px viewport, `fluid_scale` keeps the source units. Tracking is likewise declared in vw (-0.2vw at 7vw etc.) and has been normalized to em ratios. The raw profile's dominant `Arial 14px / line-height 20px` (676–743 occurrences) is iframe noise from embedded Vimeo/HubSpot players, not the site's body text — dropped. Likewise the raw color #333333 (501) and the lone box-shadow belong to those iframes' chrome; the shadow is kept because Webflow's lightbox uses it, but the page proper is shadowless. Radius 0px is the real button/section value (Webflow's `.w-button` base); 4/6/8px appear only on media thumbnails. Only one easing keyword (`ease`) exists site-wide; no custom cubic-bezier. The hero and two feature sections showed Vimeo 'Player error' voids during capture — those flat green rectangles in desktop.png are failed embeds, not design. `@keyframes spin` drives nothing on this page; the ticker is JS-driven translate3d."
+}

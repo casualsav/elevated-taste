@@ -1,0 +1,44 @@
+{
+  "color": {
+    "bg": "#0F0E12",
+    "surface": "#F6F8F7",
+    "fg": "#0F0E12",
+    "fg_on_dark": "#F5F5F5",
+    "muted": "#B2B2B2",
+    "accent": "#0071BB",
+    "roles": {
+      "stage": "#0F0E12",
+      "row": "#F6F8F7",
+      "white": "#FFFFFF",
+      "hairline": "#E5E5E5",
+      "hairline_dark": "#272727",
+      "link": "#0071BB",
+      "art_orange": "#FF6600"
+    }
+  },
+  "type": {
+    "families": ["te-20 (grotesque)", "te-40 (condensed display)", "Unicode", "sans-serif"],
+    "scale": ["0.5rem", "0.8rem", "1rem", "1.47rem", "1.65rem", "2.5rem", "3.3rem", "poster"],
+    "weights": [100, 200, 300, 400],
+    "leading": [1.1, 1.5],
+    "tracking": ["0", "1.2px"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["8px", "12px", "16px", "24px", "32px", "48px", "64px"]
+  },
+  "radius": ["0", "9999px"],
+  "shadow": [],
+  "motion": {
+    "durations": ["200ms"],
+    "easings": ["ease", "ease-in"],
+    "triggers": ["hover", "load", "scroll-progress"],
+    "techniques": ["glyph-bulge-hover", "marquee-scroll", "sticky-pin", "load-fade"],
+    "scroll_effects": [
+      { "name": "sticky-cart-pin", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["CSS @keyframes", "video.js (product-video loader)"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Normalized from a noisy probe. Type sizes rounded from sub-pixel values (23.51→1.47rem body, 13.22→0.8rem label, 39.67→2.5rem, 52.90→3.3rem); the hero condensed display ('te-40') runs far larger than any captured size (poster scale, likely SVG/oversized lockup) — recorded as 'poster'. Grid gap normalized 11.75→12px; block padding 33/66→32/64px. Weights skew light (300 dominant, 100 common); the heavy hero is the contrast. Orange (~#FF6600) appears only inside imagery/SVG (EP tag, illustration, product knobs), not as a computed UI token — kept under roles.art_orange as art-direction, not a system color. No shadows, no gradients in computed styles. Radius is sharp by default (0) with full pills (52.90px → 9999px) for buttons/country selector only. Motion is minimal and reduced-motion-aware; no IntersectionObserver, GSAP, or Lenis."
+}

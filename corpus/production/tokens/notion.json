@@ -1,0 +1,88 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f6f5f4",
+    "surface-2": "#f7f7f5",
+    "fg": "#0d0d0d",
+    "muted": "#615d59",
+    "subtle": "#a39e98",
+    "border": "#eae8e5",
+    "border-strong": "#a39e98",
+    "accent": "#2537b1",
+    "roles": {
+      "action": "#0d0d0d",
+      "action-fg": "#ffffff",
+      "fg-soft": "rgba(0,0,0,0.898)",
+      "fg-faint": "rgba(0,0,0,0.54)",
+      "link": "#2537b1",
+      "link-bright": "#097fe8",
+      "focus": "#0075de",
+      "surface-inverse": "#02093a",
+      "fg-inverse": "#f6f5f4",
+      "nav-fg-on-hero": "#f6f5f4",
+      "demo-teal": "#2a9d99",
+      "demo-blue": "#62aef0",
+      "tint-warm-bg": "#fcf8f5",
+      "tint-peach-bg": "#fef3f1",
+      "tint-cream-bg": "#fff5ed"
+    }
+  },
+  "type": {
+    "families": ["NotionInter", "system-ui", "ui-serif"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.25rem", "1.5rem", "2.5rem", "3rem", "3.375rem", "4rem"],
+    "weights": [400, 450, 500, 700],
+    "leading": [1.0, 1.11, 1.25, 1.43, 1.5],
+    "tracking": {
+      "display-64": "-2.125px",
+      "display-54": "-1.875px",
+      "head-26": "-0.625px",
+      "head-22": "-0.25px",
+      "body": "0em",
+      "ui-small": "0.125px"
+    }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "6px", "8px", "12px", "16px", "24px", "32px", "64px", "80px", "120px"]
+  },
+  "radius": ["4px", "6px", "8px", "12px", "20px", "9999px"],
+  "shadow": [
+    "0 0.175px 1.04px rgba(0,0,0,0.01), 0 0.8px 2.93px rgba(0,0,0,0.02), 0 2.03px 5px rgba(0,0,0,0.027)",
+    "0 1px 3px rgba(0,0,0,0.01), 0 3px 7px rgba(0,0,0,0.02), 0 7px 15px rgba(0,0,0,0.02)",
+    "0 0.7px 1.46px rgba(0,0,0,0.016), 0 3px 9px rgba(0,0,0,0.03)",
+    "0 8px 12px rgba(66,35,3,0.03), 0 2px 6px rgba(66,35,3,0.03)"
+  ],
+  "motion": {
+    "durations": ["75ms", "100ms", "150ms", "200ms", "300ms", "600ms", "1000ms"],
+    "easings": [
+      "cubic-bezier(0.42, 0, 1, 1)",
+      "cubic-bezier(0.45, 0, 0.55, 1)",
+      "cubic-bezier(0.645, 0.045, 0.355, 1)",
+      "steps(7)",
+      "ease",
+      "ease-in-out"
+    ],
+    "triggers": ["scroll-progress", "in-view", "load", "hover", "tab"],
+    "techniques": [
+      "scroll-linked-recolor",
+      "scroll-progress-rotate",
+      "sticky-pin-scrollytelling",
+      "announcement-ticker-marquee",
+      "tabbed-product-showcase",
+      "hero-flicker-on",
+      "hover-micro-state"
+    ],
+    "scroll_effects": [
+      { "name": "nav hero-exit recolor + sticky bg-fill", "property": "color+background", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "agent badge / conveyor-gear rotate jitter", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "logo-wall reveal sticky bar", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "stats row parallax drift", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "active-tab text recolor", "property": "color", "trigger": "tab", "safety": "production-safe" },
+      { "name": "hero agent flicker-on", "property": "opacity", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "CSS transitions", "requestAnimationFrame"],
+    "reduced_motion": "respected",
+    "evidence": "39 @keyframes (globalNavigation_navBgScrolled/logoFillHeroExit/navTokensHeroExit, homepageLogoWall_revealStickyBar, Agent_agentScroll/agentMarkScroll/notifCountScroll, Illustrations_rotate/rotateEnter, HomepageHeroAgents_flicker-on/flicker/fade-in, Marquee_marqueeFrames, fadeIn/scaleIn/popIn); 35 IntersectionObservers / 699 targets; 572 rAF calls per scroll pass; 5 scroll + 10 mousemove listeners; 0 canvas, 0 cursor-followers, 0 generic entrance reveals; interactive: 10 tabs, 6 disclosure, 24 marquee, 1 carousel, 4 video; 14 prefers-reduced-motion rules; no GSAP/Lenis/Framer globals (hand-rolled). scroll_effects diff showed 11 nav links recoloring (one hero-exit mechanism), 17 small-angle rotates on agent badges/gears (±34.7° conveyor gears), 1 background-shift to white, 1 stats-row parallax, 2 pins."
+  },
+  "notes": "Warm-neutral light system on pure white. Base text weight is REGULAR 400 (1181 nodes) with 500 for emphasis and variable-font 450/550/650 intermediates; 700 is rare (40) and reserved for the largest display/quote sizes — the inverse of Attio's 500 floor. fg normalized from the two dominant tokens rgba(0,0,0,0.898) (soft black, 405) and rgba(0,0,0,0.95) (95% black, 281); both rendered as ~#0d0d0d. muted=rgb(97,93,89)/#615d59 and rgb(163,158,152)/#a39e98 are WARM grays (the oklch hue ~80-106 = warm/yellow axis), not the cool grays of most SaaS — this warmth is a signature. Surfaces are warm off-whites rgb(246,245,244)/rgb(247,247,245). Accent is indigo rgb(37,55,177)/#2537b1 for links; focus ring is rgb(0,117,222)/#0075de (a distinct, brighter blue). The page itself is near-monochrome warm; saturated color (teal #2a9d99, blue, peach/cream tint cards rgb(252,248,245)/rgb(254,243,241)) lives only inside embedded product captures and the navy #02093a closing CTA panel. Two-cluster type scale: UI 12/14/16/20/24 + display 40/48/54/64; h1 64px has lh 64px (1.0) and tracking -2.125px. Serif appears only in oversized pull-quotes ('Your AI everything app.', 'do all your work. Notion is that single place.') mixed among the sans body. Space base 8px; section rhythm 64/80/120px. Radius: 8 default, 12 + 20 for the large rounded product cards/bento. EVIDENCE: re-captured 2026-06-24 with the motion pipeline. Static values corroborated against per-scroll frames (frames/s00-s10) and the frequency-ranked computed-style profile; motion fields evidence-backed (see motion.evidence). theme.supportsDark=false (the 'dark' probe returned the same white bg). a11y: img_alt_ratio 1.0 (all 70 imgs alt'd), focus_visible true, reduced_motion true; DEFECT: 87 of 163 interactive elements are below the 44px tap-target floor."
+}

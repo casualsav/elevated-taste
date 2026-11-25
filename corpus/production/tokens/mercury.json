@@ -1,0 +1,56 @@
+{
+  "color": {
+    "bg": "#171721",
+    "surface": "#1e1e2a",
+    "surface-2": "#272735",
+    "fg": "#ededf3",
+    "muted": "#c3c3cc",
+    "accent": "#5266eb",
+    "roles": {
+      "ground-dark": "#171721",
+      "ground-light": "#ffffff",
+      "ground-light-2": "#f4f5f9",
+      "fg-on-light": "#272735",
+      "muted-on-light": "#70707d",
+      "accent-iris": "#5266eb",
+      "accent-soft": "rgba(156,180,232,0.2)",
+      "chip-blue": "#cdddff",
+      "pink": "#fc92b4",
+      "hairline": "rgba(175,178,206,0.36)",
+      "hairline-strong": "#70707d",
+      "scrim": "linear-gradient(rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0) 100%)"
+    }
+  },
+  "type": {
+    "families": ["arcadia, sans-serif", "arcadiaDisplay, sans-serif"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.3125rem", "1.5rem", "1.75rem", "2rem", "2.625rem", "3.0625rem", "4.0625rem"],
+    "weights": [360, 400, 420, 480],
+    "leading": [1.1, 1.5],
+    "tracking": ["0.07px", "0.24px", "0.42px", "0.48px"],
+    "notes": "Custom variable family (arcadia + arcadiaDisplay cut). Hierarchy comes from SCALE + the display cut, not weight — the whole page lives in a 360–480 band, never true bold. Slightly POSITIVE tracking (0.07–0.48px) on small/label text reads as engineered calm; display stays at normal tracking. Body 16px/24px (1.5); H1 ~49px/54px (1.1) desktop, 28px mobile."
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "8px", "12px", "16px", "24px", "32px", "40px", "72px", "112px", "128px"]
+  },
+  "radius": ["4px", "8px", "12px", "16px", "32px", "40px", "9999px"],
+  "shadow": ["none"],
+  "motion": {
+    "durations": ["150ms", "200ms", "300ms", "500ms"],
+    "easings": ["cubic-bezier(0,0,0.2,1)", "cubic-bezier(0.4,0,0.2,1)"],
+    "triggers": ["scroll-progress", "in-view", "hover", "load"],
+    "techniques": ["multi-band-nav-retheme", "in-view-fade-rise", "logo-marquee", "testimonial-carousel", "autoplay-media-tile"],
+    "scroll_effects": [
+      { "name": "nav-retheme", "property": "background", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "sticky-nav", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "in-view-fade-rise", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "logo-marquee", "property": "transform", "trigger": "load", "safety": "production-safe" }
+    ],
+    "stagger_delays_ms": [150],
+    "io_thresholds": [0, 0.2, 0.5],
+    "io_root_margins": ["0px 0px -35% 0px", "200px"],
+    "stack": ["IntersectionObserver", "CSS transitions"],
+    "reduced_motion": "not-respected"
+  },
+  "notes": "Dual-theme page: alternating dark (#171721) and light (#fff / #f4f5f9) full-bleed bands; tokens carry both grounds plus per-ground fg/muted roles. SHADOW IS DELIBERATELY NONE — depth comes from ground inversion + hairline borders + radius, not drop shadows (raw shadows array was all-zero). Accent iris #5266eb is the only saturated color (primary CTA); ghost CTAs use accent-soft tint. Pink/chip-blue are rare grace notes. Reveal rootMargin '0px 0px -35%' fires reveals 35% into the viewport. respectsReducedMotion=false in the raw probe — a real a11y gap; reference patterns add the fallback the site omits."
+}

@@ -1,0 +1,61 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#fbfbfb",
+    "fg": "#171717",
+    "muted": "#737373",
+    "accent": "#f9b31e",
+    "roles": {
+      "fg-strong": "#171717",
+      "fg-body": "#333333",
+      "muted-2": "#a3a3a3",
+      "hairline": "#ebebeb",
+      "border-hover": "#d4d4d4",
+      "cta-primary": "#333333",
+      "cta-primary-hover": "#424242",
+      "accent-hover": "#f3940d",
+      "link": "#2f72e2",
+      "success": "#22c55e",
+      "surface-inverse": "#252528"
+    }
+  },
+  "type": {
+    "families": ["Inter", "blMelody (display, headings only)"],
+    "scale": ["0.6875rem", "0.875rem", "1rem", "1.125rem", "1.25rem", "1.375rem", "2rem", "2.5rem", "3.25rem", "4.25rem"],
+    "weights": [400, 450, 500, 600, 700],
+    "leading": [1.0, 1.375, 1.5, 1.625],
+    "tracking": ["-0.16px on headings", "normal on body"]
+  },
+  "space": {
+    "base": "4px",
+    "scale": ["4px", "8px", "12px", "16px", "20px", "24px", "32px", "48px", "64px", "80px", "100px", "128px"]
+  },
+  "radius": ["5px", "6px", "8px", "10px", "12px", "16px", "9999px"],
+  "shadow": [
+    "0 1px 3px 0 #3f464b1a",
+    "0 3.29px 6.58px 0 #222a350d, 0 0 0 .82px #222a3514, 0 .82px 4.11px -3.29px #131316b3",
+    "0 12px 32px -6px #0000001f, 0 0 0 1px #6f6b6b1a, 0 1px 3px 0 #3f464b1a",
+    "0 4px 32px 0 rgba(0,0,0,0.1)"
+  ],
+  "layout": {
+    "container_max": "1240px",
+    "measure_max": "625px",
+    "breakpoints": ["767px", "1023px", "1279px"],
+    "primitive": "flex + gap (grid barely used)"
+  },
+  "motion": {
+    "durations": ["150ms", "300ms", "400ms", "~70000ms (marquee)"],
+    "easings": ["cubic-bezier(0.4, 0, 0.2, 1)", "ease", "linear (marquee)"],
+    "triggers": ["load", "hover", "in-view", "scroll-progress"],
+    "techniques": ["floating-blur-pill-nav", "in-view-fade-reveal", "tilt-in-card-reveal", "dual-direction-marquee", "shine-border-travel", "hover-fill-nav", "button-darken-lift"],
+    "scroll_effects": [
+      { "name": "dual-direction-logo-marquee", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "tilt-in-card-reveal", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "in-view-fade", "property": "opacity", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "pill-nav-pin", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver (rootMargin 200px, threshold 0)", "CSS @keyframes", "CSS transitions"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Normalized from a Tailwind v4 build (raw tokens are the framework's default oklch ramps; the brand ramp is brand-gray-25..900 + brand-tangerine-100..500). Type scale collapses breakpoint swaps (h1 40/52/68, h2 32/40) — no clamp() fluid type. craft.theme.supportsDark=true but the probed dark palette is noise (bg transparent, fg #000); the site is a LIGHT design with isolated dark sections (footer CTA #252528 / near-black), so color.dark is intentionally omitted. Radius 3.35e7px in the raw dump = pill/full (9999). Shadows are the site's soft multi-stop shadow-marketing-* tokens; only the frequency-ranked single '0 4px 32px' survived the profile."
+}

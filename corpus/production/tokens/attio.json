@@ -1,0 +1,71 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#f6f7f8",
+    "surface-2": "#eeeff1",
+    "fg": "#18191c",
+    "muted": "#5c5e63",
+    "subtle": "#75777c",
+    "border": "#e6e9ee",
+    "border-strong": "#d4dae0",
+    "accent": "#2f6df6",
+    "roles": {
+      "action": "#18191c",
+      "action-fg": "#ffffff",
+      "link": "#2f6df6",
+      "focus": "#2f6df6",
+      "surface-inverse": "#181a1f",
+      "fg-inverse": "#f3f4f6",
+      "tint-blue-bg": "#e5eeff",
+      "tint-blue-border": "#d6e5ff",
+      "tint-green-bg": "#ddf9e4",
+      "tint-green-border": "#c7f4d3"
+    }
+  },
+  "type": {
+    "families": ["Inter", "Inter Display"],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.25rem", "2rem", "2.5rem", "3.5rem", "4rem"],
+    "weights": [500, 600],
+    "leading": [1.07, 1.19, 1.375, 1.5],
+    "tracking": { "display": "-0.015em", "body": "-0.01em", "eyebrow-caps": "0.06em" }
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "6px", "8px", "12px", "16px", "24px", "100px", "120px"]
+  },
+  "radius": ["6px", "8px", "10px", "12px", "9999px"],
+  "shadow": [
+    "0 1px 2px rgba(0,0,0,0.01), 0 2px 4px -1px rgba(0,0,0,0.02), 0 4px 8px -2px rgba(0,0,0,0.03)",
+    "0 0 0 4px rgba(164,173,186,0.08), 0 6px 20px -2px rgba(28,40,64,0.08), 0 2px 6px rgba(28,40,64,0.06)"
+  ],
+  "motion": {
+    "durations": ["150ms", "300ms", "400ms"],
+    "easings": [
+      "cubic-bezier(0.2, 0, 0, 1)",
+      "cubic-bezier(0, 0, 0, 1)",
+      "cubic-bezier(0.32, 0, 0.67, 0)",
+      "cubic-bezier(0.65, 0, 0.35, 1)"
+    ],
+    "triggers": ["scroll-progress", "in-view", "hover", "load", "click"],
+    "techniques": [
+      "in-view-fade-rise",
+      "scroll-linked-recolor",
+      "scroll-progress-rotate",
+      "sticky-pin-scrollytelling",
+      "animated-connector-diagram",
+      "tabbed-product-showcase",
+      "hover-micro-state"
+    ],
+    "scroll_effects": [
+      { "name": "in-view fade-rise reveal", "property": "opacity+transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "scroll-into-view recolor", "property": "color/background", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "reporting / gradient spin", "property": "transform", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "sticky-pinned headline", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "animated connector diagram", "property": "canvas", "trigger": "in-view", "safety": "spectacle-only" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "canvas + requestAnimationFrame"],
+    "reduced_motion": "respected",
+    "evidence": "47 @keyframes (rotate-reporting, connection/running/completed, ai-hero-box-gradient-spin, pricing-cards-grid-line-appear, pulse, spin, navigation-enter-from-right…); 10 IntersectionObservers / 128 targets; ~500 rAF calls per scroll pass; 5 canvas; 3 prefers-reduced-motion blocks; no GSAP/Lenis/Framer globals (hand-rolled)."
+  },
+  "notes": "Light, near-monochrome Inter system. Normalized: base weight is 500 (regular 400 is essentially absent — 4896 nodes at 500 vs 0 meaningful at 400), 600 for emphasis, 700 dropped (3 nodes). fg/border/surface raw values are LAB near-neutrals with a faint blue cast — converted to hex: fg lab(10.7)≈#18191c, border lab(86.1)≈#d4dae0 (a lighter #e6e9ee hairline also present). Two-cluster scale: UI 12/14/16/20 + display 32/40/56/64; in-between sizes dropped as one-offs. Soft blue/green tints reconstructed from the CRM record-chip bg/border pairs (rgb(229,238,255)/rgb(214,229,255) and rgb(221,249,228)/rgb(199,244,211)). The primary action color is near-black fg, NOT a saturated accent; the web-blue #2f6df6 is for links/focus and is the solid form of the blue record tint. Section padding 100/120px taken from paddingBlock outliers. EVIDENCE NOTE: re-captured 2026-06-23 with the motion pipeline. Corroborated against readable per-scroll viewport frames (corpus/production/screenshots/attio/frames/), the frequency-ranked computed-style profile, and the new raw/attio.json `motion` block (effects + @keyframes names + interaction probes). Static values normalized, not exact; motion fields are evidence-backed (see motion.evidence)."
+}

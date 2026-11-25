@@ -1,0 +1,85 @@
+{
+  "color": {
+    "bg": "#ffffff",
+    "surface": "#fafafa",
+    "surface-2": "#f1f0ee",
+    "fg": "#08090a",
+    "muted": "#485450",
+    "subtle": "#969e9b",
+    "border": "#f1f0ee",
+    "accent": "#199b5e",
+    "accent-fg": "#ffffff",
+    "roles": {
+      "ink-2": "#121715",
+      "muted-strong": "#485450",
+      "muted-soft": "#717d79",
+      "accent-tint": "rgba(31,167,122,0.08)",
+      "metric-fg": "#199b5e",
+      "metric-bg": "rgba(31,167,122,0.08)",
+      "cta-bg": "#08090a",
+      "cta-fg": "#ffffff",
+      "border-hairline": "rgba(0,0,0,0.05)",
+      "gradient-line-lime": "#6fed71",
+      "gradient-line-soft": "#b2f88d",
+      "story-clay": "#ef6333",
+      "story-periwinkle": "#99b7ff",
+      "story-forest": "#003320"
+    }
+  },
+  "type": {
+    "families": [
+      "Inter, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif",
+      "'Paper Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace",
+      "'Arizona Flare', Georgia, serif"
+    ],
+    "scale": ["0.75rem", "0.875rem", "1rem", "1.125rem", "1.5rem", "2.1875rem", "2.25rem", "2.75rem", "3.125rem"],
+    "weights": [400, 500],
+    "leading": [1.0, 1.1, 1.5],
+    "tracking": ["-0.025em display", "0 body", "0.015em mono-label"]
+  },
+  "space": {
+    "base": "8px",
+    "scale": ["4px", "8px", "12px", "16px", "24px", "32px", "40px", "48px", "80px", "104px"]
+  },
+  "radius": ["2px", "4px", "6px", "12px", "24px", "9999px"],
+  "shadow": [
+    "0 1px 2px rgba(8,9,10,0.04)",
+    "0 4px 16px rgba(8,9,10,0.06)"
+  ],
+  "motion": {
+    "durations": ["100ms", "150ms", "200ms", "280ms", "300ms", "500ms", "1050ms", "40000ms"],
+    "easings": [
+      "ease",
+      "cubic-bezier(0.4,0,0.2,1)",
+      "cubic-bezier(0,0,0.2,1)",
+      "cubic-bezier(0,0,0,1)",
+      "cubic-bezier(0.23,1,0.32,1)",
+      "cubic-bezier(0.34,1.56,0.64,1)"
+    ],
+    "stagger": "55ms (steps 55/110/165/220)",
+    "triggers": ["scroll-progress", "in-view", "hover", "load", "drag/tap"],
+    "techniques": [
+      "ambient-gradient-line-field",
+      "scroll-scale",
+      "count-up-stat",
+      "sticky-pin",
+      "live-status-ping",
+      "carousel",
+      "hover-recolor"
+    ],
+    "scroll_effects": [
+      { "name": "ambient topo-line gradient field", "property": "canvas", "trigger": "load", "safety": "spectacle-only" },
+      { "name": "in-view scale-pop (chips/tags)", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "live count-up / odometer stat rows", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "sticky top-nav", "property": "position", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "live status ping pulse", "property": "opacity+transform", "trigger": "load", "safety": "production-safe" },
+      { "name": "full-bleed story-card carousel", "property": "transform", "trigger": "drag/tap", "safety": "production-safe" },
+      { "name": "hover recolor (chrome)", "property": "background", "trigger": "hover", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "canvas + requestAnimationFrame"],
+    "reduced_motion": "respected",
+    "patterns_to_build": ["ambient-gradient-line-field"],
+    "evidence": "16 @keyframes (scaleIn/scaleOut, digit-in, stats-scroll, signal-ping/signal-flicker, enterFromRight/exitToLeft/navContentIn, loader-spin, spin); 24 IntersectionObservers / 115 targets; 3 scroll + 15 mousemove listeners; ~710 rAF/scroll pass; 15 canvas; 4 carousels + 4 disclosures; 3 prefers-reduced-motion blocks; no GSAP/Lenis/Framer globals (hand-rolled). entranceReveals:0 / staggeredEntrance:false — NO page-load fade-rise; the in-view beat is a scale-pop (frames s00->s09: content settled, chips/tags scale in as cards enter). Dropped from==to noise: span.pointer-events-none opacity 1.00->1.00. Durations 150/200/100/500/300/280/1050/40000ms and stagger 55/110/165/220ms taken from craftParams; the 40000ms loop = the ambient topo-line field, 1050ms = the count-up tier."
+  },
+  "notes": "NORMALIZED from a noisy profile; screenshot is ground truth. (1) BIG capture artifact: the single most frequent value in BOTH color (852) and borderColor (852) is the IDENTICAL lab(51.3415 -41.5657 15.3527) = #188b5f, an emerald green. 852 identical hits in both fields = an inherited/UA-default-style capture artifact (same class as teak's phantom blue), NOT 852 green text+border elements. Cross-checked against the screenshot: green IS the brand accent (logo mark, links, 'All systems normal' dot, metric chips, colophon hairlines), and a direct pixel scan of solid mid-green regions returns #199b5e (n=6809) — so emerald #199b5e is kept as the one true accent, value taken from pixels not the inflated count. (2) Foreground ink is lab(2.42579 -0.165 -0.470) = #08090a (near-black, faintly cool), confirmed by sampling the darkest hero glyphs (#08090a); a slightly lighter ink #121715 (rgb 18,23,21) is the secondary heading/border tone. Background is true #ffffff (pixel mean R=G=B=255) — NOT warm; the raw rgb(250,248,245)/(254,253,251) warm-whites are minor footer/section tints, normalized to a near-white surface #fafafa. (3) Muted text ramp from raw rgb values: #485450 (secondary/strong), #717d79 and #969e9b (captions/disabled). (4) Faint mint metric-chip/section tint is the accent at 8% alpha: rgba(31,167,122,0.08) (raw count 11) — kept as a role, not promoted to a solid surface. (5) Borders are near-invisible: light #f1f0ee plus rgba(0,0,0,0.04-0.06); normalized to one hairline. (6) Fonts: Inter (sans, all headings+body), Paper Mono (the second face, count 827 — carries metric chips, eyebrow labels, badges, nav-adjacent micro-labels), Arizona Flare (serif, count 2 — negligible decorative accent, listed last). (7) Weights are ONLY 400/500 — a deliberate near-single-weight system; hierarchy is scale-driven, never bold. (8) Type px scale 12/14/16/18/24/35-36/44/50 -> rem at 16px root; the 35/36 and 44/50 pairs are responsive duplicates collapsed to one ramp. Display tracking inferred from raw -0.72px/-0.88px on the large sizes (~-0.025em). (9) Radius: raw 3.35e7px = full pill, normalized to 9999px; cards 12-24px; chips/inputs 4-6px; 2px on the smallest inline tags. (10) Motion: two systems coexist — fast UI hovers 100-300ms on cubic-bezier(0.4,0,0.2,1)/(0,0,0.2,1), and a slow 700ms cubic-bezier(0.22,1,0.36,1) (easeOutQuint-ish) reserved for scroll-reveal / the animated hero gradient lines. (11) Story-card brand colors (clay #ef6333, periwinkle #99b7ff, forest #003320) are per-customer full-bleed fills, kept as roles not core palette. Sub-pixel and one-off raw values dropped."
+}

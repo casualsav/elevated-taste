@@ -1,0 +1,59 @@
+{
+  "color": {
+    "bg": "#0a0a0a",
+    "surface": "#121212",
+    "surface-2": "#181818",
+    "fg": "#ededed",
+    "muted": "#8f8f8f",
+    "subtle": "#7a7a7a",
+    "faint": "#5a5a5a",
+    "accent": "#f2f2f2",
+    "roles": {
+      "cta-primary": "#f2f2f2",
+      "cta-primary-hover": "#ffffff",
+      "brand-agent": "#d97757",
+      "white": "#ffffff",
+      "hairline": "rgba(255,255,255,0.075)",
+      "hairline-2": "rgba(255,255,255,0.12)",
+      "hairline-3": "rgba(255,255,255,0.2)",
+      "ghost-bg": "rgba(255,255,255,0.04)",
+      "card-sheen": "linear-gradient(180deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0) 56%)",
+      "success-dot": "#7fbf8c"
+    }
+  },
+  "type": {
+    "families": ["Geist (variable 100-900)", "Geist Mono"],
+    "scale": ["12.5px", "13px", "14px", "15px", "16px", "17px", "19px", "clamp(26px,3.2vw,36px)", "clamp(36px,5.4vw,60px)", "clamp(40px,6.2vw,72px)", "clamp(60px,10.4vw,124px)"],
+    "weights": [400, 500, 600],
+    "leading": [0.98, 1.04, 1.1, 1.5, 1.6, 1.65],
+    "tracking": { "display": "-0.058em@124", "h2": "-0.045em@60", "h3": "-0.035em@36", "body": "-0.005em@16", "mono-caps": "0.02em@13" },
+    "h1": { "desktop": "124px/122px", "mobile": "60px" },
+    "notes": "display headings use linear-gradient(#fff->#9d9d9d) text-clip; font-feature-settings 'ss01' 0; tabular-nums on meta"
+  },
+  "space": { "base": "8px", "scale": ["6px", "8px", "12px", "18px", "20px", "22px", "24px", "32px", "56px", "72px", "144px", "176px"] },
+  "radius": ["4px", "6px", "8px", "12px", "16px", "20px", "999px"],
+  "shadow": [
+    "0 40px 100px -30px rgba(0,0,0,0.8)",
+    "inset 0 1px 0 rgba(255,255,255,0.05), 0 1px 2px rgba(0,0,0,0.5), 0 12px 32px rgba(0,0,0,0.35)",
+    "rgba(255,255,255,0.09) 0 0 0 1px, rgba(0,0,0,0.8) 0 40px 100px -20px, rgba(0,0,0,0.6) 0 80px 160px -40px",
+    "inset 0 0 0 1px rgba(255,255,255,0.12)"
+  ],
+  "container": { "wrap": "1200px", "prose": "760px", "narrow": "640px", "gutter": "24px" },
+  "motion": {
+    "durations": ["200ms", "250ms", "400ms", "500ms", "550ms", "800ms", "900ms", "1100ms", "1300ms"],
+    "easings": ["cubic-bezier(0.16,1,0.3,1)", "ease", "ease-in-out"],
+    "triggers": ["load", "in-view", "scroll-progress", "hover"],
+    "techniques": ["layered-progressive-blur-nav", "in-view-scene-class-toggle", "load-rise-stagger", "expanding-utility-pill", "auto-advancing-tabs-scrub", "ambient-product-loops", "container-unit-mockup"],
+    "scroll_effects": [
+      { "name": "nav-blur-curtain-fade", "property": "opacity", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "expanding-watch-pill", "property": "clip", "trigger": "scroll-progress", "safety": "production-safe" },
+      { "name": "in-view-fade-rise", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "correction-strike-sweep", "property": "background", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "checkmark-pop", "property": "transform", "trigger": "in-view", "safety": "production-safe" },
+      { "name": "annotation-draw-stage", "property": "clip", "trigger": "in-view", "safety": "production-safe" }
+    ],
+    "stack": ["IntersectionObserver", "CSS @keyframes", "CSS transitions + --d stagger", "container queries (cqw)", "inline SVG", "<details> disclosure", "<dialog> video"],
+    "reduced_motion": "respected"
+  },
+  "notes": "Dark-native site (color-scheme:dark, no light re-theme) — the dark palette IS the primary palette, so color.dark is omitted despite craft.theme.supportsDark:true. Palette normalized from rgb() computed styles + the site's own :root tokens (--bg/--surface/--text*/--line*/--claude) to hex/rgba. Sole hue #d97757 ('--claude', Anthropic coral) reserved for agent/terminal surfaces. Primary CTA is a near-white pill (#f2f2f2), treated as the functional accent. px scale trimmed from the noisy frequency dump to the coherent clamp() set found in CSS. 176px is the dominant section rhythm; 144px between sub-blocks."
+}
