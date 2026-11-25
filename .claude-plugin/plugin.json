@@ -1,8 +1,14 @@
 {
   "name": "web-design-taste",
+  "displayName": "Web Design Taste",
   "description": "Retrieval-augmented web-design taste: distilled corpus of real exemplars, principles, and normalized tokens — consulted before creating or redesigning UI, not for mechanical UI fixes",
-  "version": "1.2.3",
+  "version": "1.3.0",
   "author": { "name": "casualsav" },
+  "homepage": "https://github.com/casualsav/elevated-taste",
   "repository": "https://github.com/casualsav/elevated-taste",
-  "skills": "./.claude/skills/"
+  "keywords": ["design", "ui", "taste", "design-system", "tokens", "lint"],
+  "skills": "./.claude/skills/",
+  "commands": ["./.claude/commands/compose.md"],
+  "agents": ["./.claude/agents/design-critic.md"],
+  "hooks": "./.claude/plugin-hooks.json"
 }

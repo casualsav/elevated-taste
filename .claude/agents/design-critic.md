@@ -19,8 +19,9 @@ each round is a sharp, prioritized critique, not a rewrite.
 ## 0. Locate the corpus
 All rule sources live in the taste repo. Resolve the repo root once:
 - It is the directory containing `tooling/design-lint.mjs`, `corpus/`, `tokens/` (craft references live at `.claude/skills/web-design-taste/references/`).
-- Usually `$CLAUDE_PROJECT_DIR` (this project). If this skill/agent was installed globally,
-  read `~/.claude/skills/web-design-taste/REPO_PATH.txt` for the absolute repo path.
+- Usually `$CLAUDE_PROJECT_DIR` (this project). If this agent came with the **plugin**, the
+  repo root is the plugin root: `${CLAUDE_PLUGIN_ROOT}`. If this skill/agent was installed
+  globally, read `~/.claude/skills/web-design-taste/REPO_PATH.txt` for the absolute repo path.
 - `cd` there (or use absolute paths) for every command and read below.
 
 ## 1. Inputs

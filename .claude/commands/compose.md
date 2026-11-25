@@ -38,8 +38,9 @@ follow the skill workflow directly — there's no coverage gap either way.
      [--corpus production|expressive|both] [--direction <direction>] \
      [--when <surface,terms>] [--tags <tags>] [--top 6]
    ```
-   Inside the taste repo use `npm run query -- --brief "…"`; an installed skill copy resolves
-   the repo via `REPO_PATH.txt` or an explicit `--repo <taste-repo-path>`. Add `--json` for
+   Inside the taste repo use `npm run query -- --brief "…"`; the plugin uses
+   `${CLAUDE_PLUGIN_ROOT}` as `<taste-repo>`; an installed skill copy resolves the repo via
+   `REPO_PATH.txt` or an explicit `--repo <taste-repo-path>`. Add `--json` for
    machine parsing, `--patterns` to list only patterns.
 
    - From the ranked **exemplars** (each block shows score, matched fields, palette, motion, its

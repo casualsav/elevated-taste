@@ -74,7 +74,16 @@ harvest ─▶ dedupe ─▶ resolve ─▶ capture ─▶ distill (claude -p) �
 
 ## Using it in other projects (cross-project install)
 
-One command — everything travels (Skill + craft references, the three guardrail hooks, `/compose` + `/reflect`, built `tokens.css`), while the corpus stays in this clone behind a `REPO_PATH.txt` pointer:
+**As a Claude Code plugin (easiest).** In any Claude Code session:
+
+```
+/plugin marketplace add casualsav/elevated-taste
+/plugin install web-design-taste@elevated-taste
+```
+
+That brings the skill, the three guardrail hooks, `/compose` and the `design-critic` agent, with the corpus inside the plugin, so there is no clone to keep. `/plugin marketplace update elevated-taste` pulls the latest corpus. The Stop-gate's screenshots need Chromium (`npx playwright install chromium`); without it the gate says so and still runs the lint. If a project already wires these hooks from a clone (below), the plugin's copies stand aside so nothing runs twice.
+
+**From a clone.** One command — everything travels (Skill + craft references, the three guardrail hooks, `/compose` + `/reflect`, built `tokens.css`), while the corpus stays in this clone behind a `REPO_PATH.txt` pointer:
 
 ```bash
 node tooling/install.mjs --project /path/to/your-app   # vendor into one project
