@@ -391,6 +391,7 @@
       "slug": "acorns",
       "corpus": "production",
       "url": "https://www.acorns.com",
+      "surface": "site",
       "tags": [
         "fintech",
         "consumer",
@@ -494,6 +495,7 @@
       "slug": "aesop",
       "corpus": "production",
       "url": "https://www.aesop.com",
+      "surface": "site",
       "tags": [
         "ecommerce",
         "dtc",
@@ -586,6 +588,7 @@
       "slug": "airtable",
       "corpus": "production",
       "url": "https://www.airtable.com",
+      "surface": "site",
       "tags": [
         "saas",
         "b2b",
@@ -682,6 +685,7 @@
       "slug": "aloud",
       "corpus": "production",
       "url": "https://www.aloud.sh",
+      "surface": "site",
       "tags": [
         "ai",
         "dev-tools",
@@ -782,6 +786,7 @@
       "slug": "appcues",
       "corpus": "production",
       "url": "https://www.appcues.com",
+      "surface": "site",
       "tags": [
         "saas",
         "b2b",
@@ -860,6 +865,7 @@
       "slug": "apple",
       "corpus": "production",
       "url": "https://www.apple.com",
+      "surface": "site",
       "tags": [
         "consumer",
         "hardware",
@@ -957,6 +963,7 @@
       "slug": "arc",
       "corpus": "production",
       "url": "https://arc.net",
+      "surface": "site",
       "tags": [
         "consumer",
         "software",
@@ -1055,6 +1062,7 @@
       "slug": "ardor",
       "corpus": "production",
       "url": "https://ardor.cloud",
+      "surface": "site",
       "tags": [
         "ai",
         "saas",
@@ -1160,6 +1168,7 @@
       "slug": "arena",
       "corpus": "production",
       "url": "https://www.are.na",
+      "surface": "site",
       "tags": [
         "saas",
         "knowledge-tool",
@@ -1253,6 +1262,7 @@
       "slug": "attio",
       "corpus": "production",
       "url": "https://attio.com",
+      "surface": "site",
       "tags": [
         "saas",
         "crm",
@@ -1348,6 +1358,7 @@
       "slug": "baremetrics",
       "corpus": "production",
       "url": "https://baremetrics.com",
+      "surface": "site",
       "tags": [
         "saas",
         "analytics",
@@ -1437,6 +1448,7 @@
       "slug": "cal",
       "corpus": "production",
       "url": "https://cal.com",
+      "surface": "site",
       "tags": [
         "saas",
         "scheduling",
@@ -1523,6 +1535,7 @@
       "slug": "cashapp",
       "corpus": "production",
       "url": "https://cash.app",
+      "surface": "site",
       "tags": [
         "fintech",
         "consumer",
@@ -1612,6 +1625,7 @@
       "slug": "charitywater",
       "corpus": "production",
       "url": "https://www.charitywater.org",
+      "surface": "site",
       "tags": [
         "nonprofit",
         "charity",
@@ -1708,6 +1722,7 @@
       "slug": "clarionhealth",
       "corpus": "production",
       "url": "https://www.clarionhealth.com",
+      "surface": "site",
       "tags": [
         "healthcare",
         "saas",
@@ -1802,6 +1817,7 @@
       "slug": "clerk",
       "corpus": "production",
       "url": "https://clerk.com",
+      "surface": "site",
       "tags": [
         "developer",
         "auth",
@@ -1903,6 +1919,7 @@
       "slug": "colmez",
       "corpus": "production",
       "url": "https://www.colmez.com",
+      "surface": "site",
       "tags": [
         "b2b",
         "saas",
@@ -1997,6 +2014,7 @@
       "slug": "cooley",
       "corpus": "production",
       "url": "https://www.cooley.com",
+      "surface": "site",
       "tags": [
         "legal",
         "law-firm",
@@ -2096,6 +2114,7 @@
       "slug": "copilot",
       "corpus": "production",
       "url": "https://www.copilot.money",
+      "surface": "site",
       "tags": [
         "fintech",
         "personal-finance",
@@ -2182,6 +2201,7 @@
       "slug": "cursor",
       "corpus": "production",
       "url": "https://cursor.com",
+      "surface": "site",
       "tags": [
         "ai",
         "developer-tool",
@@ -2269,6 +2289,7 @@
       "slug": "decimals",
       "corpus": "production",
       "url": "https://www.decimals.co",
+      "surface": "site",
       "tags": [
         "saas",
         "agency",
@@ -2368,6 +2389,7 @@
       "slug": "dishoom",
       "corpus": "production",
       "url": "https://www.dishoom.com",
+      "surface": "site",
       "tags": [
         "restaurant",
         "hospitality",
@@ -2466,6 +2488,7 @@
       "slug": "domaineworldwide",
       "corpus": "production",
       "url": "https://domaineworldwide.com",
+      "surface": "site",
       "tags": [
         "agency",
         "ecommerce",
@@ -2556,6 +2579,7 @@
       "slug": "emergent",
       "corpus": "production",
       "url": "https://emergent.sh",
+      "surface": "site",
       "tags": [
         "ai",
         "agents",
@@ -2652,6 +2676,7 @@
       "slug": "enode",
       "corpus": "production",
       "url": "https://enode.com",
+      "surface": "site",
       "tags": [
         "energy",
         "cleantech",
@@ -2756,6 +2781,7 @@
       "slug": "every",
       "corpus": "production",
       "url": "https://every.to",
+      "surface": "site",
       "tags": [
         "ai",
         "media",
@@ -2850,6 +2876,7 @@
       "slug": "faire",
       "corpus": "production",
       "url": "https://www.faire.com",
+      "surface": "site",
       "tags": [
         "ecommerce",
         "marketplace",
@@ -2946,6 +2973,7 @@
       "slug": "felt",
       "corpus": "production",
       "url": "https://felt.com",
+      "surface": "site",
       "tags": [
         "gis",
         "maps",
@@ -3043,6 +3071,7 @@
       "slug": "figma",
       "corpus": "production",
       "url": "https://www.figma.com",
+      "surface": "site",
       "tags": [
         "saas",
         "design-tool",
@@ -3149,6 +3178,7 @@
       "slug": "fillout",
       "corpus": "production",
       "url": "https://www.fillout.com",
+      "surface": "site",
       "tags": [
         "saas",
         "b2b",
@@ -3243,6 +3273,7 @@
       "slug": "framer",
       "corpus": "production",
       "url": "https://framer.com",
+      "surface": "site",
       "tags": [
         "saas",
         "ai",
@@ -3327,6 +3358,7 @@
       "slug": "gjelina",
       "corpus": "production",
       "url": "https://gjelina.com",
+      "surface": "site",
       "tags": [
         "restaurant",
         "hospitality",
@@ -3417,6 +3449,7 @@
       "slug": "grafana-play",
       "corpus": "production",
       "url": "https://play.grafana.org",
+      "surface": "app",
       "tags": [
         "dashboard",
         "observability",
@@ -3503,6 +3536,7 @@
       "slug": "grida",
       "corpus": "production",
       "url": "https://grida.co",
+      "surface": "site",
       "tags": [
         "design-tool",
         "creative-tools",
@@ -3603,6 +3637,7 @@
       "slug": "gumloop",
       "corpus": "production",
       "url": "https://www.gumloop.com",
+      "surface": "site",
       "tags": [
         "ai",
         "b2b",
@@ -3701,6 +3736,7 @@
       "slug": "gumroad",
       "corpus": "production",
       "url": "https://gumroad.com",
+      "surface": "site",
       "tags": [
         "creator-economy",
         "marketplace",
@@ -3806,6 +3842,7 @@
       "slug": "haptic",
       "corpus": "production",
       "url": "https://www.haptic.studio",
+      "surface": "site",
       "tags": [
         "agency",
         "portfolio",
@@ -3890,6 +3927,7 @@
       "slug": "headspace",
       "corpus": "production",
       "url": "https://www.headspace.com",
+      "surface": "site",
       "tags": [
         "health",
         "wellness",
@@ -3990,6 +4028,7 @@
       "slug": "hoxton",
       "corpus": "production",
       "url": "https://thehoxton.com",
+      "surface": "site",
       "tags": [
         "hospitality",
         "hotel",
@@ -4092,6 +4131,7 @@
       "slug": "joinvoy",
       "corpus": "production",
       "url": "https://design.joinvoy.com",
+      "surface": "site",
       "tags": [
         "design-studio",
         "agency",
@@ -4199,6 +4239,7 @@
       "slug": "knock",
       "corpus": "production",
       "url": "https://knock.app",
+      "surface": "site",
       "tags": [
         "saas",
         "b2b",
@@ -4292,6 +4333,7 @@
       "slug": "land-book",
       "corpus": "production",
       "url": "https://solidroad.com",
+      "surface": "site",
       "tags": [
         "saas",
         "b2b",
@@ -4383,6 +4425,7 @@
       "slug": "lapa",
       "corpus": "production",
       "url": "https://www.foundation-labs.xyz",
+      "surface": "site",
       "tags": [
         "agency",
         "portfolio",
@@ -4465,6 +4508,7 @@
       "slug": "lassie",
       "corpus": "production",
       "url": "https://www.lassie.ai",
+      "surface": "site",
       "tags": [
         "ai",
         "healthcare",
@@ -4556,6 +4600,7 @@
       "slug": "lightspark",
       "corpus": "production",
       "url": "https://www.lightspark.com",
+      "surface": "site",
       "tags": [
         "fintech",
         "api",
@@ -4658,6 +4703,7 @@
       "slug": "linear",
       "corpus": "production",
       "url": "https://linear.app",
+      "surface": "site",
       "tags": [
         "saas",
         "product",
@@ -4754,6 +4800,7 @@
       "slug": "maven",
       "corpus": "production",
       "url": "https://maven.com",
+      "surface": "site",
       "tags": [
         "education",
         "marketplace",
@@ -4846,6 +4893,7 @@
       "slug": "mcmaster",
       "corpus": "production",
       "url": "https://www.mcmaster.com",
+      "surface": "site",
       "tags": [
         "industrial",
         "ecommerce",
@@ -4939,6 +4987,7 @@
       "slug": "mercury",
       "corpus": "production",
       "url": "https://mercury.com",
+      "surface": "site",
       "tags": [
         "fintech",
         "banking",
@@ -5027,6 +5076,7 @@
       "slug": "metabase",
       "corpus": "production",
       "url": "https://www.metabase.com",
+      "surface": "site",
       "tags": [
         "saas",
         "analytics",
@@ -5128,6 +5178,7 @@
       "slug": "mintlify",
       "corpus": "production",
       "url": "https://mintlify.com",
+      "surface": "site",
       "tags": [
         "saas",
         "developer",
@@ -5230,6 +5281,7 @@
       "slug": "monzo",
       "corpus": "production",
       "url": "https://monzo.com",
+      "surface": "site",
       "tags": [
         "fintech",
         "neobank",
@@ -5320,6 +5372,7 @@
       "slug": "noth",
       "corpus": "production",
       "url": "https://www.noth.in",
+      "surface": "site",
       "tags": [
         "portfolio",
         "agency",
@@ -5410,6 +5463,7 @@
       "slug": "notion",
       "corpus": "production",
       "url": "https://www.notion.com",
+      "surface": "site",
       "tags": [
         "saas",
         "productivity",
@@ -5522,6 +5576,7 @@
       "slug": "ourplace",
       "corpus": "production",
       "url": "https://fromourplace.com",
+      "surface": "site",
       "tags": [
         "ecommerce",
         "dtc",
@@ -5620,6 +5675,7 @@
       "slug": "outerbloc",
       "corpus": "production",
       "url": "https://outerbloc.com",
+      "surface": "site",
       "tags": [
         "agency",
         "design-studio",
@@ -5718,6 +5774,7 @@
       "slug": "pitch",
       "corpus": "production",
       "url": "https://pitch.com",
+      "surface": "site",
       "tags": [
         "saas",
         "presentations",
@@ -5826,6 +5883,7 @@
       "slug": "plaid",
       "corpus": "production",
       "url": "https://plaid.com",
+      "surface": "site",
       "tags": [
         "fintech",
         "saas",
@@ -5926,6 +5984,7 @@
       "slug": "posthog",
       "corpus": "production",
       "url": "https://posthog.com",
+      "surface": "site",
       "tags": [
         "saas",
         "devtools",
@@ -6023,6 +6082,7 @@
       "slug": "public",
       "corpus": "production",
       "url": "https://public.com",
+      "surface": "site",
       "tags": [
         "fintech",
         "investing",
@@ -6111,6 +6171,7 @@
       "slug": "quanta",
       "corpus": "production",
       "url": "https://www.quantamagazine.org",
+      "surface": "site",
       "tags": [
         "editorial",
         "publication",
@@ -6202,6 +6263,7 @@
       "slug": "radix",
       "corpus": "production",
       "url": "https://www.radix-ui.com",
+      "surface": "site",
       "tags": [
         "developer-tool",
         "design-system",
@@ -6298,6 +6360,7 @@
       "slug": "railway",
       "corpus": "production",
       "url": "https://railway.app",
+      "surface": "site",
       "tags": [
         "saas",
         "developer",
@@ -6400,6 +6463,7 @@
       "slug": "rainbow",
       "corpus": "production",
       "url": "https://rainbow.me",
+      "surface": "site",
       "tags": [
         "crypto",
         "web3",
@@ -6490,6 +6554,7 @@
       "slug": "ramp",
       "corpus": "production",
       "url": "https://ramp.com",
+      "surface": "site",
       "tags": [
         "fintech",
         "saas",
@@ -6591,6 +6656,7 @@
       "slug": "rauno",
       "corpus": "production",
       "url": "https://rauno.me",
+      "surface": "site",
       "tags": [
         "portfolio",
         "personal-site",
@@ -6678,6 +6744,7 @@
       "slug": "resend",
       "corpus": "production",
       "url": "https://resend.com",
+      "surface": "site",
       "tags": [
         "saas",
         "developer",
@@ -6780,6 +6847,7 @@
       "slug": "retool",
       "corpus": "production",
       "url": "https://retool.com",
+      "surface": "site",
       "tags": [
         "saas",
         "b2b",
@@ -6881,6 +6949,7 @@
       "slug": "rhode",
       "corpus": "production",
       "url": "https://www.rhodeskin.com",
+      "surface": "site",
       "tags": [
         "ecommerce",
         "dtc",
@@ -6977,6 +7046,7 @@
       "slug": "round",
       "corpus": "production",
       "url": "https://round.ai",
+      "surface": "site",
       "tags": [
         "saas",
         "ai",
@@ -7072,6 +7142,7 @@
       "slug": "router",
       "corpus": "production",
       "url": "https://router.com",
+      "surface": "site",
       "tags": [
         "ai",
         "llm",
@@ -7173,6 +7244,7 @@
       "slug": "semafor",
       "corpus": "production",
       "url": "https://www.semafor.com",
+      "surface": "site",
       "tags": [
         "news",
         "media",
@@ -7263,6 +7335,7 @@
       "slug": "sentry",
       "corpus": "production",
       "url": "https://sentry.io",
+      "surface": "site",
       "tags": [
         "developer",
         "observability",
@@ -7367,6 +7440,7 @@
       "slug": "shadcn",
       "corpus": "production",
       "url": "https://ui.shadcn.com",
+      "surface": "docs",
       "tags": [
         "developer-tool",
         "design-system",
@@ -7465,6 +7539,7 @@
       "slug": "shopify-checkout",
       "corpus": "production",
       "url": "https://www.shopify.com/checkout",
+      "surface": "site",
       "tags": [
         "ecommerce",
         "saas",
@@ -7557,6 +7632,7 @@
       "slug": "societies",
       "corpus": "production",
       "url": "https://societies.ai",
+      "surface": "site",
       "tags": [
         "ai",
         "b2b",
@@ -7645,6 +7721,7 @@
       "slug": "stripe-checkout",
       "corpus": "production",
       "url": "https://checkout.stripe.dev",
+      "surface": "app",
       "tags": [
         "fintech",
         "saas",
@@ -7738,6 +7815,7 @@
       "slug": "stripe",
       "corpus": "production",
       "url": "https://stripe.com",
+      "surface": "site",
       "tags": [
         "fintech",
         "developer",
@@ -7840,6 +7918,7 @@
       "slug": "stripepress",
       "corpus": "production",
       "url": "https://press.stripe.com",
+      "surface": "site",
       "tags": [
         "editorial",
         "publishing",
@@ -7929,6 +8008,7 @@
       "slug": "supabase",
       "corpus": "production",
       "url": "https://supabase.com",
+      "surface": "site",
       "tags": [
         "saas",
         "developer-tools",
@@ -8024,6 +8104,7 @@
       "slug": "swiper",
       "corpus": "production",
       "url": "https://swiperjs.com",
+      "surface": "site",
       "tags": [
         "open-source",
         "library",
@@ -8125,6 +8206,7 @@
       "slug": "tailwindcss",
       "corpus": "production",
       "url": "https://tailwindcss.com",
+      "surface": "site",
       "tags": [
         "dev-tool",
         "developer-tool",
@@ -8220,6 +8302,7 @@
       "slug": "teak",
       "corpus": "production",
       "url": "https://teak.io",
+      "surface": "site",
       "tags": [
         "saas",
         "b2b",
@@ -8307,6 +8390,7 @@
       "slug": "tend",
       "corpus": "production",
       "url": "https://www.hellotend.com",
+      "surface": "site",
       "tags": [
         "healthcare",
         "dental",
@@ -8401,6 +8485,7 @@
       "slug": "theresonance",
       "corpus": "production",
       "url": "https://viewport.theresonance.studio",
+      "surface": "site",
       "tags": [
         "saas",
         "mac-app",
@@ -8495,6 +8580,7 @@
       "slug": "thrad",
       "corpus": "production",
       "url": "https://www.thrad.ai",
+      "surface": "site",
       "tags": [
         "ai",
         "adtech",
@@ -8592,6 +8678,7 @@
       "slug": "typeform",
       "corpus": "production",
       "url": "https://www.typeform.com",
+      "surface": "site",
       "tags": [
         "saas",
         "forms",
@@ -8698,6 +8785,7 @@
       "slug": "userflow",
       "corpus": "production",
       "url": "https://userflow.com",
+      "surface": "site",
       "tags": [
         "saas",
         "b2b",
@@ -8793,6 +8881,7 @@
       "slug": "v0",
       "corpus": "production",
       "url": "https://v0.app",
+      "surface": "site",
       "tags": [
         "ai",
         "generative-ui",
@@ -8886,6 +8975,7 @@
       "slug": "vanta",
       "corpus": "production",
       "url": "https://vanta.com",
+      "surface": "site",
       "tags": [
         "saas",
         "b2b",
@@ -8986,6 +9076,7 @@
       "slug": "vercel",
       "corpus": "production",
       "url": "https://vercel.com",
+      "surface": "site",
       "tags": [
         "saas",
         "developer",
@@ -9083,6 +9174,7 @@
       "slug": "warp",
       "corpus": "production",
       "url": "https://warp.dev",
+      "surface": "site",
       "tags": [
         "devtools",
         "ai",
@@ -9180,6 +9272,7 @@
       "slug": "whoop",
       "corpus": "production",
       "url": "https://www.whoop.com",
+      "surface": "site",
       "tags": [
         "wearable",
         "health",
@@ -9280,6 +9373,7 @@
       "slug": "worksinprogress",
       "corpus": "production",
       "url": "https://worksinprogress.co",
+      "surface": "site",
       "tags": [
         "editorial",
         "publication",
@@ -9362,6 +9456,7 @@
       "slug": "14islands",
       "corpus": "expressive",
       "url": "https://14islands.com",
+      "surface": "site",
       "tags": [
         "agency",
         "studio",
@@ -9456,6 +9551,7 @@
       "slug": "a24",
       "corpus": "expressive",
       "url": "https://a24films.com",
+      "surface": "site",
       "tags": [
         "film",
         "entertainment",
@@ -9563,6 +9659,7 @@
       "slug": "adoratorio",
       "corpus": "expressive",
       "url": "https://adoratorio.studio",
+      "surface": "site",
       "tags": [
         "portfolio",
         "agency",
@@ -9656,6 +9753,7 @@
       "slug": "anduril",
       "corpus": "expressive",
       "url": "https://www.anduril.com",
+      "surface": "site",
       "tags": [
         "techno-feudal",
         "defense-tech",
@@ -9760,6 +9858,7 @@
       "slug": "apple-airpods-pro",
       "corpus": "expressive",
       "url": "https://www.apple.com/airpods-pro/",
+      "surface": "site",
       "tags": [
         "apple",
         "product-marketing",
@@ -9856,6 +9955,7 @@
       "slug": "aristide",
       "corpus": "expressive",
       "url": "https://aristidebenoist.com",
+      "surface": "site",
       "tags": [
         "portfolio",
         "developer",
@@ -9940,6 +10040,7 @@
       "slug": "awwwards",
       "corpus": "expressive",
       "url": "https://www.meech213.com",
+      "surface": "site",
       "tags": [
         "portfolio",
         "fashion",
@@ -10026,6 +10127,7 @@
       "slug": "basement",
       "corpus": "expressive",
       "url": "https://basement.studio",
+      "surface": "site",
       "tags": [
         "agency",
         "studio",
@@ -10121,6 +10223,7 @@
       "slug": "buildinamsterdam",
       "corpus": "expressive",
       "url": "https://buildinamsterdam.com",
+      "surface": "site",
       "tags": [
         "agency",
         "ecommerce",
@@ -10215,6 +10318,7 @@
       "slug": "corentinbernadou",
       "corpus": "expressive",
       "url": "https://corentinbernadou.com",
+      "surface": "site",
       "tags": [
         "portfolio",
         "personal",
@@ -10302,6 +10406,7 @@
       "slug": "creativeinc",
       "corpus": "expressive",
       "url": "https://www.creative.inc",
+      "surface": "site",
       "tags": [
         "ai",
         "hardware",
@@ -10395,6 +10500,7 @@
       "slug": "cssdesignawards",
       "corpus": "expressive",
       "url": "https://redcollar.co",
+      "surface": "site",
       "tags": [
         "agency",
         "portfolio",
@@ -10494,6 +10600,7 @@
       "slug": "cuberto",
       "corpus": "expressive",
       "url": "https://cuberto.com",
+      "surface": "site",
       "tags": [
         "agency",
         "portfolio",
@@ -10591,6 +10698,7 @@
       "slug": "cubiflow",
       "corpus": "expressive",
       "url": "https://www.cubiflow.com",
+      "surface": "site",
       "tags": [
         "product",
         "saas",
@@ -10670,6 +10778,7 @@
       "slug": "dogstudio",
       "corpus": "expressive",
       "url": "https://dogstudio.co",
+      "surface": "site",
       "tags": [
         "agency",
         "creative-studio",
@@ -10771,6 +10880,7 @@
       "slug": "doronsupply",
       "corpus": "expressive",
       "url": "https://www.doronsupply.com",
+      "surface": "site",
       "tags": [
         "ecommerce",
         "dark",
@@ -10862,6 +10972,7 @@
       "slug": "exoape",
       "corpus": "expressive",
       "url": "https://exoape.com",
+      "surface": "site",
       "tags": [
         "agency",
         "portfolio",
@@ -10947,6 +11058,7 @@
       "slug": "hellomonday",
       "corpus": "expressive",
       "url": "https://hellomonday.com",
+      "surface": "site",
       "tags": [
         "agency",
         "studio",
@@ -11034,6 +11146,7 @@
       "slug": "igloo",
       "corpus": "expressive",
       "url": "https://igloo.inc",
+      "surface": "site",
       "tags": [
         "web3",
         "crypto",
@@ -11107,6 +11220,7 @@
       "slug": "liquiddeath",
       "corpus": "expressive",
       "url": "https://liquiddeath.com",
+      "surface": "site",
       "tags": [
         "ecommerce",
         "dtc",
@@ -11200,6 +11314,7 @@
       "slug": "locomotive",
       "corpus": "expressive",
       "url": "https://locomotive.ca",
+      "surface": "site",
       "tags": [
         "agency",
         "portfolio",
@@ -11288,6 +11403,7 @@
       "slug": "lusion",
       "corpus": "expressive",
       "url": "https://lusion.co",
+      "surface": "site",
       "tags": [
         "agency",
         "studio",
@@ -11384,6 +11500,7 @@
       "slug": "machine-consciousness",
       "corpus": "expressive",
       "url": "https://machine-consciousness.ai",
+      "surface": "site",
       "tags": [
         "event",
         "conference",
@@ -11473,6 +11590,7 @@
       "slug": "masterclass",
       "corpus": "expressive",
       "url": "https://www.masterclass.com",
+      "surface": "site",
       "tags": [
         "edtech",
         "education",
@@ -11573,6 +11691,7 @@
       "slug": "monogrid",
       "corpus": "expressive",
       "url": "https://weekend-mm-2026-pasticcino-bag-master.monogrid.io",
+      "surface": "site",
       "tags": [
         "fashion",
         "ecommerce",
@@ -11667,6 +11786,7 @@
       "slug": "mschf",
       "corpus": "expressive",
       "url": "https://mschf.xyz",
+      "surface": "site",
       "tags": [
         "brand",
         "art",
@@ -11753,6 +11873,7 @@
       "slug": "noma",
       "corpus": "expressive",
       "url": "https://noma.dk",
+      "surface": "site",
       "tags": [
         "restaurant",
         "hospitality",
@@ -11845,6 +11966,7 @@
       "slug": "northkingdom",
       "corpus": "expressive",
       "url": "https://northkingdom.com",
+      "surface": "site",
       "tags": [
         "agency",
         "gaming",
@@ -11941,6 +12063,7 @@
       "slug": "oatly",
       "corpus": "expressive",
       "url": "https://www.oatly.com",
+      "surface": "site",
       "tags": [
         "ecommerce",
         "dtc",
@@ -12028,6 +12151,7 @@
       "slug": "obys",
       "corpus": "expressive",
       "url": "https://obys.agency",
+      "surface": "site",
       "tags": [
         "agency",
         "portfolio",
@@ -12116,6 +12240,7 @@
       "slug": "odesza",
       "corpus": "expressive",
       "url": "https://odesza.com",
+      "surface": "site",
       "tags": [
         "music",
         "artist",
@@ -12204,6 +12329,7 @@
       "slug": "olsonkundig",
       "corpus": "expressive",
       "url": "https://olsonkundig.com",
+      "surface": "site",
       "tags": [
         "architecture",
         "studio",
@@ -12300,6 +12426,7 @@
       "slug": "phantom",
       "corpus": "expressive",
       "url": "https://phantom.land",
+      "surface": "site",
       "tags": [
         "agency",
         "portfolio",
@@ -12396,6 +12523,7 @@
       "slug": "playdate",
       "corpus": "expressive",
       "url": "https://play.date",
+      "surface": "site",
       "tags": [
         "gaming",
         "hardware",
@@ -12493,6 +12621,7 @@
       "slug": "poolsuite",
       "corpus": "expressive",
       "url": "https://poolsuite.net",
+      "surface": "site",
       "tags": [
         "music",
         "radio",
@@ -12591,6 +12720,7 @@
       "slug": "praxis",
       "corpus": "expressive",
       "url": "https://www.praxisnation.com",
+      "surface": "site",
       "tags": [
         "techno-feudal",
         "neo-imperial",
@@ -12673,6 +12803,7 @@
       "slug": "saronic",
       "corpus": "expressive",
       "url": "https://www.saronic.com",
+      "surface": "site",
       "tags": [
         "defense-tech",
         "maritime",
@@ -12766,6 +12897,7 @@
       "slug": "ssense",
       "corpus": "expressive",
       "url": "https://www.ssense.com",
+      "surface": "site",
       "tags": [
         "fashion",
         "luxury",
@@ -12849,6 +12981,7 @@
       "slug": "studiofreight",
       "corpus": "expressive",
       "url": "https://studiofreight.com",
+      "surface": "site",
       "tags": [
         "agency",
         "studio",
@@ -12936,6 +13069,7 @@
       "slug": "teenage-engineering",
       "corpus": "expressive",
       "url": "https://teenage.engineering",
+      "surface": "site",
       "tags": [
         "ecommerce",
         "industrial-design",
@@ -13028,6 +13162,7 @@
       "slug": "thepudding",
       "corpus": "expressive",
       "url": "https://pudding.cool",
+      "surface": "site",
       "tags": [
         "editorial",
         "data-journalism",
@@ -13112,6 +13247,7 @@
       "slug": "therow",
       "corpus": "expressive",
       "url": "https://www.therow.com",
+      "surface": "site",
       "tags": [
         "fashion",
         "luxury",
@@ -13206,6 +13342,7 @@
       "slug": "tikhon",
       "corpus": "expressive",
       "url": "https://tikhon.io",
+      "surface": "site",
       "tags": [
         "portfolio",
         "personal",
@@ -13287,6 +13424,7 @@
       "slug": "urbit",
       "corpus": "expressive",
       "url": "https://urbit.org",
+      "surface": "site",
       "tags": [
         "techno-feudal",
         "neo-feudal",
@@ -13382,6 +13520,7 @@
       "slug": "varda",
       "corpus": "expressive",
       "url": "https://www.varda.com",
+      "surface": "site",
       "tags": [
         "aerospace",
         "space",
@@ -13472,6 +13611,7 @@
       "slug": "wokine",
       "corpus": "expressive",
       "url": "https://wokine.com",
+      "surface": "site",
       "tags": [
         "agency",
         "portfolio",
