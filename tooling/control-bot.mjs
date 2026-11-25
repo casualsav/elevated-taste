@@ -63,9 +63,9 @@ export function applyCommand(text, cfgIn) {
     case '/status':
       return { action: 'status', cfg, reply: `evolve config:\n${fmtCfg(cfg)}` };
     case '/pause':
-      cfg.paused = true; return { action: 'persist', cfg, reply: 'Paused. Weekly runs are suppressed (manual /run still works).' };
+      cfg.paused = true; return { action: 'persist', cfg, reply: 'Paused in this box\'s evolve.config.json. The weekly Actions run reads the copy on main, so push this change to pause it there (manual /run still works).' };
     case '/resume':
-      cfg.paused = false; return { action: 'persist', cfg, reply: 'Resumed. Weekly runs are active.' };
+      cfg.paused = false; return { action: 'persist', cfg, reply: 'Resumed in this box\'s evolve.config.json. Push the change for the weekly Actions run to see it.' };
     case '/run':
       return { action: 'run', cfg, reply: 'Starting an evolve run now. You will get a report when it finishes.' };
     case '/approve':

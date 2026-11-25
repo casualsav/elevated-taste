@@ -23,7 +23,7 @@ directions/                        # aesthetic presets (minimalist, brutalist, s
 tokens/                            # tokens.json → tokens.css (+ presets/)
 preview/                           # zero-config static server for reference implementations
 tooling/                           # harvest, capture, distill, evolve, reflect, design-lint, control-bot
-tooling/systemd/                   # weekly scheduler units (+ cron fallback)
+tooling/systemd/                   # always-on Telegram control bot (optional)
 proposals/                         # Phase 3 reflection output (corpus edits awaiting review)
 evolve.config.json                 # Phase 3 loop config (source of truth)
 docs/                              # ARCHITECTURE, ROADMAP, MIGRATION
@@ -59,14 +59,14 @@ Retrieval is mechanical too: `npm run query -- --brief "dark saas dashboard" [--
 
 ## Self-evolving loop (Phase 3)
 
-A weekly run keeps the corpus fresh. It runs **in GitHub Actions** (`.github/workflows/evolve.yml`, Mondays) — distillation still uses your Claude Code **subscription** via the `CLAUDE_CODE_OAUTH_TOKEN` repo secret (`claude setup-token`), not a paid API key. Each new site is gated in the same run (reconcile + `npm run validate` + render check on the change merged onto `main`): a pass lands on `main` as one commit per site (revert it to drop the site); a fail opens a PR labelled `hold`, the only PRs you ever see. The run then regenerates the derived artifacts (`post-merge.yml`). The legacy on-box scheduler (`tooling/systemd/`, control bot) still works but is no longer the canonical path.
+A weekly run keeps the corpus fresh. It runs **in GitHub Actions** (`.github/workflows/evolve.yml`, Mondays) — distillation still uses your Claude Code **subscription** via the `CLAUDE_CODE_OAUTH_TOKEN` repo secret (`claude setup-token`), not a paid API key. Each new site is gated in the same run (reconcile + `npm run validate` + render check + the search test, on the change merged onto `main`): a pass lands on `main` as one commit per site (revert it to drop the site); a fail opens a PR labelled `hold`, the only PRs you ever see. The run then regenerates the derived artifacts (`post-merge.yml`).
 
 ```
 harvest ─▶ dedupe ─▶ resolve ─▶ capture ─▶ distill (claude -p) ─▶ gate ─▶ land on main (or hold PR) ─▶ Telegram digest
  new URLs   vs corpus  detail→site  shots+raw   exemplar/tokens/patterns   validate+render   pass: commit on main · fail: PR labelled hold   landed + held → you
 ```
 
-`npm run evolve` (add `-- --dry-run` to plan without writing). Config lives in [`evolve.config.json`](evolve.config.json) (the control bot edits it). Each new site is its **own** commit on `main`, so dropping one is a single revert; the Telegram digest lists every landed site with its source and commit, and every held one with its PR. Scheduling + secrets: [`tooling/systemd/`](tooling/systemd/README.md) (systemd user timer + always-on bot, or cron).
+`npm run evolve` (add `-- --dry-run` to plan without writing). Config lives in [`evolve.config.json`](evolve.config.json) (the control bot edits it). Each new site is its **own** commit on `main`, so dropping one is a single revert; the Telegram digest lists every landed site with its source and commit, and every held one with its PR. To run the Telegram control bot always-on: [`tooling/systemd/`](tooling/systemd/README.md).
 
 - **Distill** one captured exemplar: `npm run distill -- --slug <s> --corpus <c> --url <u>` (`--mock`/`--print-cmd` to dry it).
 - **Reflect** after a build: `/reflect` in a session, or `npm run reflect -- --target <path>` → a proposal in [`proposals/`](proposals/) for review.

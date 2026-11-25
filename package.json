@@ -23,7 +23,6 @@
     "distill": "node tooling/distill.mjs",
     "reflect": "node tooling/reflect.mjs",
     "bot": "node tooling/control-bot.mjs",
-    "schedule": "node tooling/scheduler.mjs",
     "daemons": "bash tooling/daemons.sh"
   },
   "engines": {
