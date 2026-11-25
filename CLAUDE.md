@@ -30,7 +30,7 @@ When asked to add / ingest a site into the corpus, do **not** eyeball a screensh
 weekly off-box via the `evolve` GitHub Actions workflow (Mondays 09:00 UTC): harvest candidates → dedupe against the corpus → resolve real site URLs → capture →
 distill → gate → land. Each distilled site is committed on its own in a throwaway worktree off
 live `main` and gated there (`reconcile-sources` + `npm run validate` + `render-patterns.mjs
---check`, `tooling/lib/land.mjs`). A pass is pushed straight to `main` **without a human in the
+--check` + the retrieval eval, `tooling/lib/land.mjs`). A pass is pushed straight to `main` **without a human in the
 loop**, one commit per site so a revert drops it; a fail goes to an `evolve/*` (or `refresh/*`)
 branch with a PR labelled `hold`, and nothing merges those automatically. The run then dispatches
 `post-merge.yml`, since GITHUB_TOKEN pushes fire no workflows. Beyond that it only rewrites its own
